@@ -9,25 +9,33 @@ body{
 }
 .logo{
     width: 300px;
-    height: 120px;
 }
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-height: 2vh;
+
+
+header{
+    width: 100%;
     background-color: rgb(14, 14, 12);
 }
+
+nav{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+}
+
 .menu{
     display: flex;
-    padding: 0;
 }
 .menu li{
-    padding: 0 40px;
-    list-style-type: none;
+    /* padding: 0 40px; */
+    list-style: none;
     transition: 0.3s;
 }
 .menu li a{
+    padding: 10px 40px;
     text-decoration: none ;
     font-size: 1.4rem;
     color: yellow;
@@ -45,3 +53,25 @@ nav{
     
 }
 
+@media screen and (max-width: 903px) {
+    .logo{
+        width: 200px;
+    }
+
+    .menu li a{
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    
+    nav {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+    }
+}
