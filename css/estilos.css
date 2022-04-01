@@ -1,8 +1,8 @@
 @import url();
 body{
-    padding: 0;
-    margin: 0;
-    line-height:0;
+    
+    margin: 15x;
+    
     font-family: 'Noto Sans JP', sans-serif;
     background:url(imagen1.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -15,6 +15,8 @@ body{
 header{
     width: 100%;
     background-color: rgb(14, 14, 12);
+    position: static;
+
 }
 
 nav{
@@ -24,6 +26,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     max-width: 1500px;
+    position: static;
 }
 
 .menu{
@@ -35,7 +38,7 @@ nav{
     transition: 0.3s;
 }
 .menu li a{
-    padding: 10px 40px;
+    padding: 30px 40px;
     text-decoration: none ;
     font-size: 1.4rem;
     color: yellow;
@@ -45,11 +48,26 @@ nav{
     background:cadetblue;
 
 }
+.container h1{
+    text-align: center;
+    color: aliceblue;
+    
+}
+.container p{
+    text-align: center;
+    color: aliceblue;
+    font-size: 50%;
+    margin-top: 10px;
+    font-size: 1.5em;
+    margin: 10px;
+    margin-top:10%;
+}
 .imagen2{
-    width: 650px;
-    height: 580px;
-    padding: 40px;;
+    width: 600px;
+    height: 520px;
+    margin: 30px;
     float: right;
+    border-radius: 10px;
     
 }
 
