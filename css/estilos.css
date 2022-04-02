@@ -1,32 +1,44 @@
 @import url();
 body{
     
-    margin: 15x;
-    
+    margin: 15px;
+    padding:0;
     font-family: 'Noto Sans JP', sans-serif;
     background:url(imagen1.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 .logo{
-    width: 300px;
+    width: 245px;
+    padding: 0;
 }
 
 
-header{
+.head header.he{
+    position: fixed;
+    z-index: 1;
     width: 100%;
-    background-color: rgb(14, 14, 12);
-    position: static;
+    height: 100px;
+    background-color:black;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1500px;
+    
 
 }
 
 nav{
-    display: flex;
+    position: fixed;
+   margin-top: 0;
     width: 100%;
-    margin: auto;
-    justify-content: space-between;
+    margin-top: 10px;
+    justify-content: space-around;
     align-items: center;
     max-width: 1500px;
     position: static;
+
 }
 
 .menu{
@@ -48,7 +60,13 @@ nav{
     background:cadetblue;
 
 }
+.container{
+    padding: 10px;
+    border: 15px;
+}
 .container h1{
+    
+    margin-top: 150px;
     text-align: center;
     color: aliceblue;
     
@@ -57,18 +75,89 @@ nav{
     text-align: center;
     color: aliceblue;
     font-size: 50%;
-    margin-top: 10px;
+    margin-top: 150px;
     font-size: 1.5em;
-    margin: 10px;
-    margin-top:10%;
+    
+    
 }
 .imagen2{
+    margin-top: 150px;
+   
     width: 600px;
     height: 520px;
-    margin: 30px;
+    
     float: right;
     border-radius: 10px;
+}
+.container2{
+    border-radius:15px ;
+    margin: auto;
+    margin-top: 400px;
+    background-color:black;
+    width: 1200px;
+    padding: 40px;
+}
+.container2 ul,li{
+    position:relative;
+    margin:auto;
+    padding: 0;
+    list-style: none;
     
+    ;
+}
+.container2 ul.SliderPromociones{
+    z-index: 0;
+    position: relative;
+    width: 800px;
+    height: 500px;
+}
+.container2 ul.SliderPromociones li{
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity 0.5s;
+
+}
+.container2 ul.SliderPromociones li img{
+    display:block;
+    margin:auto;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    
+}
+.container2 ul.SliderPromociones li:first-child{
+    opacity: 1;
+}
+.container2 ul.SliderPromociones li:target {
+    opacity: 1;
+}
+.container2 ul.menuSlider{
+    text-align: center;
+    margin: 20px
+    ;
+}
+.container2 ul.menuSlider li{
+    display: inline-block;
+    text-align: center;
+}
+.container2 ul.menuSlider li a{
+    display: inline-block;
+    color: rgb(3, 3, 3);
+    text-decoration: none;
+    background-color:yellow;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 100%;
+
+}
+.container2 ul.menuSlider li a:hover{
+    background:cadetblue;
+
 }
 
 @media screen and (max-width: 903px) {
