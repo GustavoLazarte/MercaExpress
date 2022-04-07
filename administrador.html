@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <feta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" >
+    <link rel="stylesheet" href="css/style_Administrador.css">
+    <script src="./js/administrador.js" defer></script>
+    <script src="./js/tabs.js" defer></script>
+    <title>Supervisor</title>
+</head>
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header"> 
+            <div id=""><img src="img/logo.png" alt="Logo de MercaExpress" class="logo"></div>
+            <div id="menu-btn">
+                <a href="#"><i class="fa-solid fa-bars fa-2x"></i></a>
+            </div>
+        </div>
+        <div id="profile">
+            <div id="photo"><img src="img/perfil2.jpg" alt=""></div>
+            <div id="name"><span>Claudia Nogales</span></div>
+        </div>
+        <div id="menu-items">
+            <div class="item">
+                <a href="#" data-target="#inicio">
+                    <div class="icon"><i class="fa-solid fa-house fa-2x"></i></div>
+                    <div class="title"><p>Inicio</p></div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="#" data-target="#usuario">
+                    <div class="icon"><i class="fa-solid fa-user-plus fa-2x"></i></div>
+                    <div class="title"><p>Añadir Usuario</p></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
+                    <div class="title"><p>Cerrar Sesión</p></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div data-content id="inicio">
+            <h1>Inicio</h1>
+        </div>
+        <div data-content id="usuario">
+            <section class="contenedor">
+                <h2>Registro de Usuario</h2>
+                <form class="formulario-registro">
+                    <fieldset>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" placeholder="" name="nombre" maxlength="20" id="nombre"><br>
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" placeholder="" name="apellido" maxlength="30" id="apellido"><br>
+                        <label for="e-mail">E-mail:</label>
+                        <input type="text" placeholder="" name="e-mail" id="e-mail"><br>
+                        <label for="telefono">telefono:</label>
+                        <input type="number" name="telefono" id="telefono"><br>
+                        <label for="dirección">dirección:</label>
+                        <input type="direccion" name="direccion" id="direccion"><br>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" name="password" id="password"><br>
+                        <label for="password">Confirmar Contraseña:</label>
+                        <input type="password" name="password" id="password"><br>
+                        <Label for="usuario">Tipo de Usuario:</Label>
+                        <select name="usuario" id="">
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Vendedor">Vendedor</option>
+                        </select><br>
+                        <label for="foto">Foto:</label>
+                        <label class="custom-file-upload">
+                            <input type="file"/>
+                            Subir archivo
+                        </label><br>
+                        <input type="submit" value="Registrar">
+                        <input type="reset" value="Cancelar">
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
