@@ -16,26 +16,37 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const form = document.querySelector("#login-form");
-const sub = document.querySelector("#submit");
-form.addEventListener('submit', e => {
-    e.preventDefault();
+
+
+
+form.addEventListener('submit', e => login(e));
+
+
+function login(e){
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
-
     signInWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
             const user = userCredential.user;
             const docRef = doc(db, "users", user.uid);
-            const docSnap = await getDoc(docRef)
+            const docSnap = await getDoc(docRef);
+
+            const rol = docSnap.data().role;
+            console.log(rol);
+            if (rol == 1) {
+                window.location = "usuario-vendedor.html";
+            }
 
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log("errorMessage")
+            alert("Contraseña o Usuario incorrectos!")
+            form.reset();
         });
-
-})
+    e.preventDefault()
+}
 
 
 /**e.preventDefault();
