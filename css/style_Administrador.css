@@ -84,6 +84,7 @@ body{
     color: #ffcc00;
 }
 /*expandir menu*/
+/*                                  /**punto a analizar**/
 .menu-expanded{
     width: var(--width);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -170,16 +171,15 @@ body{
     border: none;
 }
 .formulario-registro input{
+    font-family: Arial, Helvetica, sans-serif;  
     display: inline-block;
     border-radius: 2rem;
 }
 .formulario-registro select{
+    font-family: Arial, Helvetica, sans-serif;
     display: block;
     margin-bottom: none;
     border-radius: 2rem;
-}
-#foto{
-    
 }
 input[type="file"] {
     display: none;
@@ -190,4 +190,18 @@ input[type="file"] {
     padding: 6px 12px;
     cursor: pointer;
     border-radius: 2rem;
+}
+#registrar{
+    font-size: 14px;
+}
+#registrar:hover{
+    background: #535050;
+    color: #ffffff;
+}
+#cancelar{
+    font-size: 14px;
+}
+#cancelar:hover{
+    background: #535050;
+    color: #ffffff;
 }
