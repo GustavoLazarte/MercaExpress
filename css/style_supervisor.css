@@ -1,0 +1,207 @@
+:root{
+    --width: 300px;
+    --padding: 10px;
+    --bgcolor: #312d2d;
+    --hovercolor: rgb(23, 23, 23);
+    --width-collapsed: 50px;
+}
+body{
+    background-image: url("../img/vendedor.jpg");
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    margin-left: var(--width-collapsed);
+    justify-content: center;
+}
+.body-expanded{
+    margin-left: 300px;
+}
+#sidemenu{
+    background-color: var(--bgcolor);
+    color: #ffffff;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+#sidemenu a .fa-solid{
+    color: #ffcc00;
+    text-decoration: none;
+}
+#sidemenu #header #menu-btn{
+    padding: 10px;
+    visibility: none;   /*ocultar icono*/
+}
+/*perfil*/
+#sidemenu #profile{
+    border-bottom: solid 1px var(--hovercolor);
+    padding: var(--padding) 0;
+    text-align: center;
+}
+#sidemenu #profile #photo{
+    box-sizing: border-box;
+    padding: var(--padding);
+    margin: 0 auto;
+}
+#sidemenu #profile #photo img{
+    border-radius: 50%;
+    width: 60%;
+}
+#sidemenu #menu-items{
+    overflow: hidden;
+}
+#sidemenu #menu-items .item{
+    width: var(--width);
+    list-style-type: none;
+    text-decoration: none;
+}
+#sidemenu #menu-items .item .icon{
+    display: inline-block;
+}
+#sidemenu #menu-items .item .icon,
+#sidemenu #menu-items .item .title{
+    font-size: 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+}
+#sidemenu #menu-items .item .title{
+    color: #ffffff;  
+}
+#sidemenu #menu-items .item a{
+    display: block;
+    text-decoration: none;
+}
+#sidemenu #menu-items .item a:hover{    /* prueba 1*/
+    background-color:  #535050;
+}
+#sidemenu #menu-items .item .icon{
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+    color: #ffcc00;
+}
+/*expandir menu*/
+/*                                  /**punto a analizar**/
+.menu-expanded{
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.menu-expanded #header #title{
+    display: inline-block;
+    width: calc(100% - 50%);
+    margin-right: -5px;
+    padding: var(--padding);
+}
+.menu-expanded #profile #title span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    overflow: hidden;
+    display: none;
+}
+.menu-expanded #profile #photo{
+    width: 200px;
+}
+.menu-expanded #profile #name{
+    width: 100%;
+}
+.menu-collapsed {
+    width: var(--width-collapsed);
+}
+.menu-collapsed #header #logo{
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+.menu-collapsed #profile #name{
+    display: none;
+}
+.menu-collapsed .item{
+    width: 100px;
+}
+.menu-collapsed .title{
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+.menu-collapsed .logo{
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+[data-content]{
+    display: none;
+}
+.active[data-content]{
+    display: block;
+}
+/*formulario de registro*/
+.contenedor h2{
+    text-align: center;
+    text-transform: uppercase;
+}
+.formulario-registro{
+    background-color: #312d2d;
+    border-radius: 2rem;
+    box-shadow: 7px 13px 37px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formulario-registro label{
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: .3rem;
+    font-size: 14px;
+    display: inline-block;
+    width: 50%;
+    padding: 5px;
+}
+.formulario-registro fieldset{
+    border: none;
+}
+.formulario-registro input{
+    font-family: Arial, Helvetica, sans-serif;  
+    display: inline-block;
+    border-radius: 2rem;
+}
+.formulario-registro select{
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    margin-bottom: none;
+    border-radius: 2rem;
+}
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 2rem;
+}
+#registrar{
+    font-size: 14px;
+}
+#registrar:hover{
+    background: #535050;
+    color: #ffffff;
+}
+#cancelar{
+    font-size: 14px;
+}
+#cancelar:hover{
+    background: #535050;
+    color: #ffffff;
+}
