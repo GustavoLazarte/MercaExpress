@@ -1,301 +1,143 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    background-size: cover;
-    background-attachment: fixed;
+:root{
+    --width: 300px;
+    --padding: 10px;
+    --bgcolor: #312d2d;
+    --hovercolor: rgb(23, 23, 23);
+    --width-collapsed: 50px;
 }
-* {
-    box-sizing: border-box;
-    margin: 0;
+body{
+    background-image: url("../img/vendedor.jpg");
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
     padding: 0;
-    box-sizing: border-box;
-    list-style: none;
+    margin: 0;
+    margin-left: var(--width-collapsed);
+    justify-content: center;
+}
+.body-expanded{
+    margin-left: 300px;
+}
+#sidemenu{
+    background-color: var(--bgcolor);
+    color: #ffffff;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+#sidemenu a .fa-solid{
+    color: #ffcc00;
     text-decoration: none;
 }
-/*.column{
-    *display: flex;
-    background-color: #312d2d;
-    height: 100%;
-    position: relative;    
-}                               /*Modificado para hacerlo responsive*/
-.column__nav{                   /*Columna de nageacion vertical*/
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 180px;
-    height: 100%;
-    background: #312d2d;
-    padding: 30px 0;
-    z-index: 10;
+#sidemenu #header #menu-btn{
+    padding: 10px;
+    visibility: none;   /*ocultar icono*/
 }
-.icon-vendedor{
-    color:#ffcc00;
+/*perfil*/
+#sidemenu #profile{
+    border-bottom: solid 1px var(--hovercolor);
+    padding: var(--padding) 0;
+    text-align: center;
 }
-.column__logo{
-    max-width: 170px;
-    max-height: 160px;
-    background: none;
-    padding: 0 0 20px 15px;
+#sidemenu #profile #photo{
+    box-sizing: border-box;
+    padding: var(--padding);
+    margin: 0 auto;
 }
-.column__nav ul li{
-    padding: 15px;
+#sidemenu #profile #photo img{
+    border-radius: 50%;
+    width: 60%;
 }
-.column__nav ul li a{
-    color: #c6c6c6;
-    display: block;
+#sidemenu #menu-items{
+    overflow: hidden;
 }
-.column__nav ul li a .icon-vendedor{
-    width: 25px;
+#sidemenu #menu-items .item{
+    width: var(--width);
+    list-style-type: none;
+    text-decoration: none;
 }
-.column__nav ul li:hover{
-    background: #535050;
-    
+#sidemenu #menu-items .item .icon{
+    display: inline-block;
 }
-.column__nav ul li:hover a{
-    transform: scale(1.1);
-    color: white;
-    background: none;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
-    transition: all 300ms ease;
-    padding-left: 30px;
+#sidemenu #menu-items .item .icon,
+#sidemenu #menu-items .item .title{
     font-size: 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
 }
-.perfil{
-    position: relative;
+#sidemenu #menu-items .item .title{
+    color: #ffffff;  
+}
+#sidemenu #menu-items .item a{
+    display: block;
+    text-decoration: none;
+}
+#sidemenu #menu-items .item a:hover{    /* prueba 1*/
+    background-color:  #535050;
+}
+#sidemenu #menu-items .item .icon{
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+    color: #ffcc00;
+}
+/*expandir menu*/
+/*                                  /**punto a analizar**/
+.menu-expanded{
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.menu-expanded #header #title{
+    display: inline-block;
+    width: calc(100% - 50%);
+    margin-right: -5px;
+    padding: var(--padding);
+}
+.menu-expanded #profile #title span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    overflow: hidden;
+    display: none;
+}
+.menu-expanded #profile #photo{
+    width: 200px;
+}
+.menu-expanded #profile #name{
     width: 100%;
-    height: 70px;
-    background: #5e5d5d; 
-    padding: 0;
 }
-.navigation__perfil > ul{
-    height: 100%;
-    display: flex;
+.menu-collapsed {
+    width: var(--width-collapsed);
 }
-.menu{                      /* navegacion horizontal*/
-    list-style: none;
-    position: relative;
-    left: 190px;
-    top: 0px;
-    z-index: 9;
-}
-.fa-bars{
-    position: relative;
-    top: 50%;
-    align-items: center;
-    display: flex;
-    padding: 14px;
-}
-.fa-bars:hover{
-    transform: scale(1.1);
-    background: none;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
-}
-/*Sub menu*/
-.navigation__perfil ul li ul{
-    width:190px;    /* ancho del campo del texto del sub menu*/
-    display: flex;
-    flex-direction: column;
-    background: #312d2d;
-    position: absolute;
-    top: 80px;
-    left: -5px;
-    padding: 10px 0px;
-    visibility: hidden;
-    opacity: 0;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
-    /*z-index: 10;*/
-    transition: all 300ms ease;
-}
-.navigation__perfil ul li:hover ul{
-    visibility:visible;
-    opacity: 1;
-    top: 65px;
-}
-.navigation__perfil ul li ul:before{
-    content: '';
+.menu-collapsed #header #logo{
     width: 0;
     height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-bottom: 12px solid #312d2d;
-    position: absolute;
-    top: -12px;
-    left: 20px;
+    padding: 0;
+    margin: 0;
 }
-.navigation__perfil ul li ul li a{
+.menu-collapsed #profile #name{
+    display: none;
+}
+.menu-collapsed .item{
+    width: 100px;
+}
+.menu-collapsed .title{
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+.menu-collapsed .logo{
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+[data-content]{
+    display: none;
+}
+.active[data-content]{
     display: block;
-    color: #c6c6c6;
-    padding: 5px;
-    padding-left: 14px;
-    margin-top: 10px;
-    transition: all 300ms ease;
 }
-.navigation__perfil ul li ul li a:hover{
-    background: #535050;
-    color: white;
-    transform: scale(1.1);
-    padding-left: 30px;
-    font-size: 14px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
-}
-.icon-menu{
-    color: #ffcc00;
-    padding: 0px 5px;
-}
-/*============ Ventas ============*/
-.datos_cliente, .datos_venta, .title_page{
-	width: 100%;            /*se quito max-width: 900px, margin: auto;;*/
-	margin-bottom: 30px;
-}
-.new_pedido h1{		/*Distancia del margen de arriba*/
-	margin-top: 20px;
-}
-#detalle_venta tr{
-	background-color: rgb(246, 243, 243) !important;
-}
-#detalle_venta td{
-	border-bottom: 1px solid rgb(177, 177, 177);
-}
-.datos{                     /*cuadros de datos del cliente y datos de venta*/
-	background-color: #fdf4f4;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    border: 2px solid #78909C;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-    width: 1000px;
-}
-.action_cliente{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	align-items: center;
-}
-.action_cliente h4{
-	padding: 0px 20px 0px 0px;
-    color: #520000;
-}
-.datos_venta{
-    padding: 0px 20px 0px 0px;
-    color: #520000;
-}
-.datos label{
-	margin: 50px auto;  
-}
-.wd30{
-	width: 30%;
-}
-.wd60{
-	width: 60%;
-}
-.wd100{
-	width: 100%;
-}
-#div_registro_cliente, #add_product_venta{
-	display: none;
-}
-.displayN{
-	display: none;
-}
-.tbl_venta{
-	width: 100%;    /* tablero de ventas*/
-	margin: auto;
-}
-.tbl_venta tfoot td{
-	font-weight: bold;
-}
-.textright{
-	text-align: right;
-	padding: 0px 8px;
-}
-.textcenter{
-	text-align: center;
-}
-.textleft{
-	text-align: left;
-}
-#btn_anular_venta{
-	background-color: none;
-	cursor: pointer;
-	padding: 1px;
-	margin: 0 3px;
-	color: rgb(255, 213, 0);
-	text-decoration: none;
-}
-#btn_anular_venta:hover{
-	background: none;
-	color: rgb(123, 0, 0);
-}
-#btn_facturar_venta{
-	background-color: none;
-	cursor: pointer;
-	padding: 1px;
-	margin: 0 3px;
-	color: rgb(71, 159, 90);
-	text-decoration: none;
-}
-#btn_facturar_venta:hover{
-	background: none;
-	color: rgb(0, 100, 12);
-}
-.agregar{
-	color: #009311;
-}
-#add_producto_venta{
-	background-color: none;
-	cursor: pointer;
-	padding: 1px;
-	margin: 0 3px;
-	color: rgb(59, 135, 75);
-	text-decoration: none;
-}
-#add_producto_venta:hover{
-    background: none;
-    color: #015c0c;
-}
-.btn_new_cliente{
-	color: #0e0484;
-	text-decoration: none;
-}
-.link_delete{
-	color: #ffeb0c;
-}
-.delete{
-	padding: 0px 25px; 
-}
-.link_delete:hover{
-    *background: #b80000;
-    color: #b80000;
-}
-.descripcion_producto{
-    padding: 0px 30px;
-}
-#container{
-    position: absolute;
-    width: 1000px;
-    left: 9%;
-    right: 15%;
-    margin-left: 135px;
-     
-}
-@media screen and (max-width: 780px){
-    .column{
-
-    }
-}
-
-
-
-
-
-
-
