@@ -17,6 +17,8 @@ body {
  
  
 .head header.he{
+    margin-right: 40px;
+    border:2px solid yellow;
     position:fixed;
     z-index: 1;
     width: 100%;
@@ -24,17 +26,17 @@ body {
     background-color:black;
     padding: 0;
     display: flex;
-    width: 100%;
+    
     justify-content: space-around;
     align-items: center;
-    max-width: 1500px;
+    
    
  
 }
  
 nav{
    
-   margin-top: 0;
+   
     width: 100%;
     margin-top: 10px;
     justify-content: space-around;
@@ -90,6 +92,7 @@ nav{
   width: 550px;
   height: 480px;
   border-radius: 10px;
+  margin-right: 40px;
 }
 
 
@@ -115,7 +118,7 @@ nav{
   }
 
 .centered-btns_nav {
-  z-index: 3;
+  z-index: 0;
   position: absolute;
   -webkit-tap-highlight-color:black;
   top: 250px;
