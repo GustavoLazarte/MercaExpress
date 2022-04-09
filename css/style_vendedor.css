@@ -141,3 +141,6 @@ body{
 .active[data-content]{
     display: block;
 }
+#logout{
+    cursor: pointer;
+}

@@ -80,6 +80,16 @@ function logout(e) {
 }
 
 
+function cerrar(){
+    firebaseConfig.auth().signOut()
+    .then(function(){
+        console.log('Salir');
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+}
+
 /**e.preventDefault();
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
