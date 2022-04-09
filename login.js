@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 //https://firebase.google.com/docs/web/setup#available-libraries
 const firebaseConfig = {
@@ -16,13 +16,15 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const form = document.querySelector("#login-form");
+const btnLogout = document.getElementById('logout')
 
 
+if (form != null) {
+    form.addEventListener('submit', e => login(e));
+}
 
-form.addEventListener('submit', e => login(e));
 
-
-function login(e){
+function login(e) {
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
     signInWithEmailAndPassword(auth, email, password)
@@ -46,6 +48,35 @@ function login(e){
             form.reset();
         });
     e.preventDefault()
+}
+if (btnLogout != null) {
+    btnLogout.addEventListener('click', e => logout(e));
+}
+
+
+function logout(e) {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            const uid = user.uid;
+            console.log(uid);
+            // ...
+        } else {
+            
+            // User is signed out
+            // ...
+        }
+    });
+    signOut(auth)
+        .then(() => {
+            window.location = "login.html";
+
+        }).catch((error) => {
+            // An error happened.
+        });
+    
 }
 
 
