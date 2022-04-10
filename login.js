@@ -36,6 +36,10 @@ function login(e) {
             const rol = docSnap.data().role;
             console.log(rol);
             if (rol == 1) {
+                window.location = "usuario-administrador.html";
+            }else if(rol == 2){
+                window.location = "usuario-supervisor.html";
+            }else if(rol == 3){
                 window.location = "usuario-vendedor.html";
             }
 
