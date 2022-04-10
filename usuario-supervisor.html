@@ -50,7 +50,7 @@
         <div data-content id="usuario">
             <section class="contenedor">
                 <h2>Registro de Usuario</h2>
-                <form class="formulario-registro">
+                <form class="formulario-registro" id="form-registro">
                     <fieldset>
                         <label for="nombre">Nombre:</label>
                         <input type="text" placeholder="" name="nombre" maxlength="20" id="nombre"><br>
@@ -72,7 +72,7 @@
                         </select><br>
                         <label for="foto">Foto:</label>
                         <label class="custom-file-upload">
-                            <input type="file"/>
+                            <input id = "perfil" type="file"/>
                             Subir archivo
                         </label><br>
                         <input id="registrar" type="submit" value="Registrar">

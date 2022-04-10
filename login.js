@@ -35,10 +35,10 @@ function login(e) {
 
             const rol = docSnap.data().role;
             console.log(rol);
-            if (rol == 1) {
+            if (rol == 1) {                
                 window.location = "usuario-administrador.html";
-            }else if(rol == 2){
-                window.location = "usuario-supervisor.html";
+            }else if(rol == 2){                
+                window.location = "usuario-supervisor.html";                
             }else if(rol == 3){
                 window.location = "usuario-vendedor.html";
             }
@@ -47,8 +47,8 @@ function login(e) {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log("errorMessage")
-            alert("Contraseña o Usuario incorrectos!")
+            console.log(errorMessage)
+            alert("Contraseña o Usuario incorrectos!");
             form.reset();
         });
     e.preventDefault()
