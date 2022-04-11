@@ -31,7 +31,7 @@ window.onload = function () {
             const img = document.getElementById('foto-Supervisor');
             const em = document.getElementById('name');
             img.setAttribute('src', urlImg);
-            em.innerHTML = "<pre>" + nom + " " + ap + "</pre>";
+            em.innerHTML = "<span>" + nom + " " + ap + "</span>";
 
         } else {
 
@@ -52,7 +52,7 @@ async function registrarVendedor(e) {
         const img = await subirImagen();
         const email = document.getElementById('e-mail').value;
         const password = document.getElementById('password').value;
-
+  
         createUserWithEmailAndPassword(auth, email, password)
             .then(async (userCredential) => {
 
