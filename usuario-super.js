@@ -48,7 +48,7 @@ form.addEventListener('submit', e => registrarVendedor(e));
 async function registrarVendedor(e) {
     e.preventDefault();
     if (contraseñaValida()) {
-        const rol = 3;
+        const rol = asignarRol();
         const img = await subirImagen();
         const email = document.getElementById('e-mail').value;
         const password = document.getElementById('password').value;
@@ -105,6 +105,18 @@ async function subirImagen() {
     });
     return img;
 
+}
+
+function asignarRol(){
+    var combo = document.getElementById("producto");
+    var selected = combo.options[combo.selectedIndex].text;
+    if(selected == "Supervisor"){
+        return 2;
+    }else if(selected == "Vendedor"){
+        return 3;
+    }
+
+    return -1;
 }
 
 function contraseñaValida() {
