@@ -14,6 +14,11 @@ body {
     height: 100px;
     background:none;
 }
+.contenedor_logo{
+    position: relative;
+    width: auto;
+    height: 110px;
+}
 .form__container{
     width: 100%;
     padding: 15px;
@@ -65,11 +70,11 @@ input[type="password"]{
     background: #535050;
     color: #ffffff;
 }
-.variedad{
+/**.variedad{
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     top: -100px;
-}
+}**/
 .volver{
     border-radius: 10px;
     padding: 15px 20px;
@@ -79,6 +84,9 @@ input[type="password"]{
     width: 150px;
     border: none;
     cursor: pointer;
+    position: relative;
+    left: -10px;
+    top: 10px;
 }
 .volver:hover{
     background-color: #535050;

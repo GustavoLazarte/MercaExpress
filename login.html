@@ -8,18 +8,18 @@
 	<link rel="stylesheet" href="css/style_login.css">
 </head>  
 <body>
-    <a href="index.html"><img class="logo" src="img/logo.png"></a>
-    <p class="variedad" align="right"><a href="index.html"><input type="button" value="Volver" class="volver"></a></p>
+        <div><a href="index.html"><img class="logo" src="img/logo.png"></a></div>
+        <div  align="right" class="contenedor_volver"><a href="index.html" class="link_volver"><input type="button" value="Volver" class="volver"></a></div>
     <form class="form" id="login-form">
         <h1 class="form__title">Iniciar Sesión</h1>
         <div class="form__container">
             <div class="form__input">
-                <i class="fas fa-envelope icon fa-2x"></i>
+                <label for="email"><i class="fas fa-envelope icon fa-2x"></i></label>
                 <input id="email" type="text" maxlength="20" placeholder="Correo Electronico" required>
             </div>
 
             <div class="form__input">
-                <i class="fa-solid fa-key fa-2x icon"></i>
+                <label for="password"><i class="fa-solid fa-key fa-2x icon"></i></label>
                 <input id="password" type="password" placeholder="Contraseña" required>
             </div>
             <input type="submit" value="Ingresar" class="form__button">
