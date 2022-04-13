@@ -52,32 +52,32 @@ body{
 #sidemenu #menu-items{
     overflow: hidden;
 }
-#sidemenu #menu-items .item{
+#sidemenu #menu-items .sub_item{
     width: var(--width);
     list-style-type: none;
     text-decoration: none;
 }
-#sidemenu #menu-items .item .icon{
+#sidemenu #menu-items .icon{
     display: inline-block;
 }
-#sidemenu #menu-items .item .icon,
-#sidemenu #menu-items .item .title{
+#sidemenu #menu-items .icon,
+#sidemenu #menu-items .title{
     font-size: 14px;
     vertical-align: middle;
     overflow: hidden;
     display: inline-block;
 }
-#sidemenu #menu-items .item .title{
+#sidemenu #menu-items .title{
     color: #ffffff;  
 }
-#sidemenu #menu-items .item a{
+#sidemenu #menu-items a{
     display: block;
     text-decoration: none;
 }
-#sidemenu #menu-items .item a:hover{    /* prueba 1*/
+#sidemenu #menu-items a:hover{    /* prueba 1*/
     background-color:  #535050;
 }
-#sidemenu #menu-items .item .icon{
+#sidemenu #menu-items .icon{
     box-sizing: border-box;
     padding: var(--padding);
     width: var(--width-collapsed);
@@ -118,7 +118,7 @@ body{
 .menu-collapsed #profile #name{
     display: none;
 }
-.menu-collapsed .item{
+.menu-collapsed .sub_item{
     width: 100px;
 }
 .menu-collapsed .title{
@@ -135,12 +135,12 @@ body{
     margin: 0;
     display: none;
 }
-[data-content]{
+/**[data-content]{
     display: none;
 }
 .active[data-content]{
     display: block;
-}
+}**/
 /*formulario de registro*/
 .contenedor h2{
     text-align: center;
@@ -213,4 +213,20 @@ input[type="file"] {
 #cancelar:hover{
     background: #535050;
     color: #ffffff;
+}
+.menu-collapsed .li.activo{
+    background-color: #535050;
+}
+#sidemenu .li.activo{
+    background-color: #535050;
+}
+.content{
+    position: relative;
+}
+.content .bloque{
+    position: relative;
+    opacity: 0;
+}
+.content .bloque.activo{
+    opacity: 1;
 }

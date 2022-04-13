@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" >
     <link rel="stylesheet" href="css/style_vendedor.css">
-    <script src="./js/administrador.js" defer></script>
+    
 
     <title>Vendedor</title>
 </head>
@@ -24,13 +24,13 @@
         </div>
         <div id="menu-items">
             <div class="item">
-                <a href="#" data-target="#inicio">
+                <a href="#" class="sub_item li activo">
                     <div class="icon"><i class="fa-solid fa-house fa-2x"></i></div>
                     <div class="title"><p>Inicio</p></div>
                 </a>
             </div>
             <div class="item">
-                <a id="logout">
+                <a href="#" class="sub_item" id="logout">
                     <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
                     <div class="title"><p>Cerrar Sesión</p></div>
                 </a>
@@ -38,12 +38,14 @@
         </div>
     </div>
     <div class="content">
-        <div data-content id="inicio">
+        <div class="bloque activo" id="inicio">
             <h1>Inicio</h1>
         </div>
     </div>
 
 </body>
+<script defer src="./js/tab.js"></script>
+<script src="./js/administrador.js"></script>
 <script type="module" src="login.js"></script>
 <script type="module" src="usuario-vendedor.js"></script>
 </html>
