@@ -108,8 +108,9 @@ async function subirImagen() {
 }
 
 function asignarRol(){
-    var combo = document.getElementById("producto");
+    var combo = document.getElementById("elegirRol");
     var selected = combo.options[combo.selectedIndex].text;
+    console.log(selected)
     if(selected == "Supervisor"){
         return 2;
     }else if(selected == "Vendedor"){
