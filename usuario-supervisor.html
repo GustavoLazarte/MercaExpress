@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="item">
-                <a href="#" class="sub_item">
+                <a href="#" id="logout" class="sub_item">
                     <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
                     <div class="title"><p>Cerrar Sesión</p></div>
                 </a>
@@ -66,12 +66,12 @@
                         <label for="confirmar_contraseña">Confirmar Contraseña:</label>
                         <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"><br>
                         <Label for="usuario">Tipo de Usuario:</Label>
-                        <select name="usuario" id="">
+                        <select name="usuario" id="elegirRol">
                             <option value="Vendedor">Vendedor</option>
                         </select><br>
                         <label for="foto">Foto:</label>
                         <label class="custom-file-upload">
-                            <input id = "perfil" type="file"/>
+                            <input id ="perfil" type="file"/>
                             Subir archivo
                         </label><br>
                         <input id="registrar" type="submit" value="Registrar">

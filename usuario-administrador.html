@@ -36,7 +36,7 @@
                 </a>
             </div>
             <div class="item">
-                <a href="#" class="sub_item">
+                <a href="#" id="logout" class="sub_item">
                     <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
                     <div class="title"><p>Cerrar Sesión</p></div>
                 </a>
@@ -53,27 +53,27 @@
                 <form class="formulario-registro" id="form-registro">
                     <fieldset>
                         <label for="nombre">Nombre:</label>
-                        <input type="text" placeholder="" name="nombre" maxlength="20" id="nombre"><br>
+                        <input type="text" placeholder="" name="nombre" maxlength="20" id="nombre" maxlength="20"><br>
                         <label for="apellido">Apellido:</label>
-                        <input type="text" placeholder="" name="apellido" maxlength="30" id="apellido"><br>
+                        <input type="text" placeholder="" name="apellido" maxlength="30" id="apellido" maxlength="30"><br>
                         <label for="e-mail">E-mail:</label>
                         <input type="text" placeholder="" name="e-mail" id="e-mail"><br>
                         <label for="telefono">telefono:</label>
                         <input type="number" name="telefono" id="telefono"><br>
                         <label for="dirección">dirección:</label>
-                        <input type="direccion" name="dirección" id="dirección"><br>
+                        <input type="direccion" name="dirección" id="dirección" maxlength="50"><br>
                         <label for="password">Contraseña:</label>
                         <input type="password" name="password" id="password"><br>
                         <label for="confirmar_contraseña">Confirmar Contraseña:</label>
                         <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"><br>
                         <Label for="usuario">Tipo de Usuario:</Label>
-                        <select name="usuario" id="">
+                        <select name="usuario" id="elegirRol">
                             <option value="Supervisor">Supervisor</option>
                             <option value="Vendedor">Vendedor</option>
                         </select><br>
                         <label for="foto">Foto:</label>
                         <label class="custom-file-upload">
-                            <input type="file"/>
+                            <input id = "perfil" type="file"/>
                             Subir archivo
                         </label><br>
                         <input id="registrar" type="submit" value="Registrar">

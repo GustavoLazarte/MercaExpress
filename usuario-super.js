@@ -52,40 +52,44 @@ async function registrarVendedor(e) {
         const img = await subirImagen();
         const email = document.getElementById('e-mail').value;
         const password = document.getElementById('password').value;
-  
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(async (userCredential) => {
+        const nom = document.getElementById('nombre').value;
+        const ap= document.getElementById('apellido').value;
+        const tel= document.getElementById('telefono').value;
+        const dir = document.getElementById('dirección').value;
 
-                const docData = {
-                    email: email,
-                    nombre: document.getElementById('nombre').value,
-                    apellido: document.getElementById('apellido').value,
-                    telefono: document.getElementById('telefono').value,
-                    direccion: document.getElementById('dirección').value,
-                    role: rol,
-                    imgPerfil: img
-                };
-                await setDoc(doc(db, "users", userCredential.user.uid), docData);
-                // Signed in
-                const user = userCredential.user;
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage);
-            });
+        await registrarUsuario(auth, email,password, rol ,img, nom,ap,tel,dir);
+        alert("Usuario registrado con exito!");
+        form.reset();
+
     } else {
-
+        alert("Error de contraseñas");
+        form.reset();
     }
+}
 
-    /*console.log(document.getElementById('e-mail').value,)
-    console.log(document.getElementById('nombre').value,)
-    console.log(document.getElementById('apellido').value,)
-    console.log(document.getElementById('telefono').value,)
-    console.log(document.getElementById('dirección').value,)
-    console.log(document.getElementById('perfil').files[0].name)
-    console.log(subirImagen());*/
+async function registrarUsuario(auth, email,password, rol ,img, nom,ap,tel,dir) {
+    createUserWithEmailAndPassword(auth, email, password)
+        .then(async (userCredential) => {
+
+            const docData = {
+                email: email,
+                nombre: nom,              
+                apellido: ap,
+                telefono: tel,
+                direccion: dir,
+                role: rol,
+                imgPerfil: img
+            };
+            await setDoc(doc(db, "users", userCredential.user.uid), docData);
+            // Signed in
+            const user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+        });
 }
 
 async function subirImagen() {
@@ -107,12 +111,13 @@ async function subirImagen() {
 
 }
 
-function asignarRol(){
-    var combo = document.getElementById("producto");
+function asignarRol() {
+    var combo = document.getElementById("elegirRol");
     var selected = combo.options[combo.selectedIndex].text;
-    if(selected == "Supervisor"){
+    console.log(selected)
+    if (selected == "Supervisor") {
         return 2;
-    }else if(selected == "Vendedor"){
+    } else if (selected == "Vendedor") {
         return 3;
     }
 
