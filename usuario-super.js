@@ -20,7 +20,8 @@ const storage = getStorage();
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
-        if (user) {
+        
+        if (user) {            
             const uid = user.uid;
             const docRef = doc(db, "users", user.uid);
             const docSnap = await getDoc(docRef);
@@ -34,9 +35,8 @@ window.onload = function () {
             em.innerHTML = "<span>" + nom + " " + ap + "</span>";
 
         } else {
-
-            // User is signed out
-            // ...
+            alert("Inicie Sesion primero!");
+            window.location = "login.html"    
         }
     });
 };

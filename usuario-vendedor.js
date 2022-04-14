@@ -19,6 +19,7 @@ const storage = getStorage();
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
+        console.log("hoka")
         if (user) {
             const uid = user.uid;
             const docRef = doc(db, "users", user.uid);
@@ -32,10 +33,9 @@ window.onload = function () {
             img.setAttribute('src', urlImg);
             em.innerHTML = "<span>" + nom + " " + ap + "</span>";
 
-        } else {
-
-            // User is signed out
-            // ...
+        }else {
+            alert("Inicie Sesion primero!");
+            window.location = "login.html"    
         }
     });
 };
