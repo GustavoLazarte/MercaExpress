@@ -9,6 +9,7 @@
   <script src="https://kit.fontawesome.com/d580f518a8.js" crossorigin="anonymous"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="./responsiveslides.min.js"></script>
+  <Script defer src="index.js"></Script>
   <script>
     // You can also use "$(window).load(function() {"
     $(function () {
@@ -27,21 +28,28 @@
   </script>
 </head>
 <body>
-  <div class="head" id="head">
-    <header class="he">
-       
+  <div class="hea" id="head">
+    <header class="header">
+       <nav class="nav">
             <a href="#">
-                <img class= "logo" src="./img/logo.jpeg" alt="logo"><a href="#"></a>
+                <img class= "logo" src="./img/logo.jpeg" alt="logo">
             </a>
-            <ul class="menu">
-              
-                <li> <a href="#">Inicio</a></li>
-                <li> <a href="#box">Sobre Nosotros</a></li>
-                <li> <a href="#slider">Promociones</a></li>
-                <li> <a href="login.html">Iniciar Sesion</a></li>
+            <button class="toggle" id="toggle">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                
+                <li class="nav-menu-item "> 
+                  <a href="#" class="nav-link">Inicio</a></li>
+                <li class="nav-menu-item " >
+                   <a href="#box" class="nav-link">Sobre Nosotros</a></li>
+                <li class="nav-menu-item "> 
+                  <a href="#slider" class="nav-link">Promociones</a></li>
+                <li class="nav-menu-item"> 
+                  <a href="login.html" class="nav-link">Iniciar Sesion</a></li>
                 
             </ul>
-   
+   </nav>>
     </header>
 </div>
 <div class="container" alt="container">
@@ -61,9 +69,9 @@
     <!-- Slideshow 1 -->
     <div class="rslides_container" id="po">
       <ul class="rslides" id="slider1">
-        <li><img src="./img/promocion5.jpg" alt="" id="kk"></li>
+        <li><img src="./img/promo3.jpg" alt="" id="kk"></li>
+        <li><img src="./img/promocion5.jpg" alt=""></li>
         <li><img src="./img/promo6.png" alt=""></li>
-        <li><img src="./img/promo3.jpg" alt=""></li>
       </ul>
     </div>
   </div>
