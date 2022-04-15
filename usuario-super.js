@@ -94,7 +94,9 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
 
 async function subirImagen() {
     const file = document.getElementById('perfil').files[0];
-
+    if(file  === undefined){
+        alert("Suba una foto de perfil")
+    }
     const storage = getStorage();
     const storageRef = ref(storage, 'images/' + file.name);
 
