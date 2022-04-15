@@ -16,7 +16,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const form = document.querySelector("#login-form");
-const btnLogout = document.getElementById('logout')
 
 
 if (form != null) {
@@ -52,35 +51,6 @@ function login(e) {
             form.reset();
         });
     e.preventDefault()
-}
-if (btnLogout != null) {
-    btnLogout.addEventListener('click', e => logout(e));
-}
-
-
-function logout(e) {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/firebase.User
-            const uid = user.uid;
-            console.log(uid);
-            // ...
-        } else {
-            
-            // User is signed out
-            // ...
-        }
-    });
-    signOut(auth)
-        .then(() => {
-            window.location = "login.html";
-
-        }).catch((error) => {
-            // An error happened.
-        });
-    
 }
 
 

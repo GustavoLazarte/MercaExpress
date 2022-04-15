@@ -20,12 +20,11 @@ const storage = getStorage();
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
-        
-        if (user) {            
+
+        if (user) {
             const uid = user.uid;
             const docRef = doc(db, "users", user.uid);
             const docSnap = await getDoc(docRef);
-
             const nom = docSnap.data().nombre;
             const ap = docSnap.data().apellido;
             const urlImg = docSnap.data().imgPerfil;
@@ -36,7 +35,7 @@ window.onload = function () {
 
         } else {
             alert("Inicie Sesion primero!");
-            window.location = "login.html"    
+            window.location = "login.html"
         }
     });
 };
@@ -53,11 +52,11 @@ async function registrarVendedor(e) {
         const email = document.getElementById('e-mail').value;
         const password = document.getElementById('password').value;
         const nom = document.getElementById('nombre').value;
-        const ap= document.getElementById('apellido').value;
-        const tel= document.getElementById('telefono').value;
+        const ap = document.getElementById('apellido').value;
+        const tel = document.getElementById('telefono').value;
         const dir = document.getElementById('dirección').value;
 
-        await registrarUsuario(auth, email,password, rol ,img, nom,ap,tel,dir);
+        await registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir);
         alert("Usuario registrado con exito!");
         form.reset();
 
@@ -67,13 +66,13 @@ async function registrarVendedor(e) {
     }
 }
 
-async function registrarUsuario(auth, email,password, rol ,img, nom,ap,tel,dir) {
+async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir) {
     createUserWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
 
             const docData = {
                 email: email,
-                nombre: nom,              
+                nombre: nom,
                 apellido: ap,
                 telefono: tel,
                 direccion: dir,
@@ -126,4 +125,12 @@ function asignarRol() {
 
 function contraseñaValida() {
     return (document.getElementById('confirmar_contraseña').value) == (document.getElementById('password').value)
+}
+const btnLogout = document.getElementById('logout');
+if (btnLogout != null) {
+    btnLogout.addEventListener('click', e => logout(e));
+}
+
+function logout(e) {
+    signOut(auth);
 }
