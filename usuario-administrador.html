@@ -63,9 +63,9 @@
                         <label for="dirección">dirección:</label>
                         <input type="direccion" name="dirección" id="dirección" required="" pattern="[a-zA-Z0-9./-]+"><br>
                         <label for="password">Contraseña:</label>
-                        <input type="password" name="password" id="password"><br>
+                        <input type="password" name="password" id="password" required="" minlength="8" maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
                         <label for="confirmar_contraseña">Confirmar Contraseña:</label>
-                        <input type="password" name="confirmar_contraseña" id="confirmar_contraseña"><br>
+                        <input type="password" name="confirmar_contraseña" id="confirmar_contraseña" required="" minlength="8" maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
                         <Label for="usuario">Tipo de Usuario:</Label>
                         <select name="usuario" id="elegirRol">
                             <option value="Supervisor">Supervisor</option>
