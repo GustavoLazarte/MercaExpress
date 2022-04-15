@@ -150,8 +150,9 @@ body{
     background-color: #312d2d;
     border-radius: 2rem;
     box-shadow: 7px 13px 37px;
-    width: 100%;
-    max-width: 600px;
+    width: 50%;
+    height: auto;
+    /*max-width: 600px;*/
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -183,6 +184,8 @@ body{
     border-radius: 2rem;
     cursor: pointer;
     border: none;
+    position: relative;
+    left: 20%;
 }
 input[type="file"] {
     display: none;
@@ -227,4 +230,66 @@ input[type="file"] {
 }
 .content .bloque.activo{
     opacity: 1;
+}
+#campo_datos{
+    text-align: center;
+}
+.content .contenedor .formulario-registro #campo_datos label{
+    text-align: center;
+}
+#elegirRol{
+    text-align: center;
+    width: 60%;
+}
+/*.content .contenedor .formulario-registro #campo_datos input{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 60%;
+    height: auto;
+}*/
+#nombre{
+    width: 70%;
+}
+#apellido{
+    width: 70%;
+}
+#e-mail{
+    width: 70%;
+}
+#telefono{
+    width: 70%;
+}
+#dirección{
+    width: 70%;
+}
+#password{
+    width: 70%;
+}
+#confirmar_contraseña{
+    width: 70%;
+}
+#registrar{
+    width: 25%;
+}
+#cancelar{
+    width: 25%;
+}
+@media(max-width:900px){
+    .formulario-registro{
+        width: 80%;
+    }
+    .menu-expanded{
+        position: absolute;
+    }
+}
+@media(max-width:670px){
+    .formulario-registro{
+        width: 100%;
+    }
+}
+@media(max-width:376px){
+    .formulario-registro{
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+    }
 }
