@@ -273,3 +273,23 @@ input[type="file"] {
 #cancelar{
     width: 25%;
 }
+@media(max-width:900px){
+    .formulario-registro{
+        width: 80%;
+    }
+    .menu-expanded{
+        position: absolute;
+    }
+}
+@media(max-width:670px){
+    .formulario-registro{
+        width: 100%;
+    }
+}
+@media(max-width:376px){
+    .formulario-registro{
+        width: 100%;
+        position: absolute;
+        z-index: 10;
+    }
+}
