@@ -19,7 +19,6 @@ const storage = getStorage();
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
-        console.log("hoka")
         if (user) {
             const uid = user.uid;
             const docRef = doc(db, "users", user.uid);
@@ -39,3 +38,17 @@ window.onload = function () {
         }
     });
 };
+const btnLogout = document.getElementById('logout');
+if (btnLogout != null) {
+    btnLogout.addEventListener('click', e => logout(e));
+}
+
+function logout(e) {
+    console.log("Hola")
+    signOut(auth);
+}
+
+const btnImg = document.getElementById('redirect');
+if (btnImg != null) {
+    btnImg.addEventListener('click', e => logout(e));
+}
