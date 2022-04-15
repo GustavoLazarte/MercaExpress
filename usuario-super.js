@@ -56,9 +56,7 @@ async function registrarVendedor(e) {
         const tel = document.getElementById('telefono').value;
         const dir = document.getElementById('dirección').value;
 
-        await registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir);
-        alert("Usuario registrado con exito!");
-        form.reset();
+        var exito = await registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir);
 
     } else {
         alert("Error de contraseñas");
@@ -83,11 +81,14 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
             // Signed in
             const user = userCredential.user;
             // ...
+            alert("Usuario registrado con exito!");
+            form.reset();
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorMessage);
+            alert(errorMessage);
+            document.getElementById('e-mail').value = "";
         });
 }
 
@@ -132,5 +133,11 @@ if (btnLogout != null) {
 }
 
 function logout(e) {
+    console.log("Hola")
     signOut(auth);
+}
+
+const btnImg = document.getElementById('redirect');
+if (btnImg != null) {
+    btnImg.addEventListener('click', e => logout(e));
 }
