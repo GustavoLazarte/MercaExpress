@@ -53,11 +53,11 @@
                 <form class="formulario-registro" id="form-registro">
                     <fieldset id="campo_datos">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" placeholder="" name="nombre" id="nombre" maxlength="20" required="" pattern="[a-zA-Z]+" minlength="3"><br>
+                        <input type="text" placeholder="" name="nombre" id="nombre" maxlength="20" required="" pattern="[a-zA-Z]+" minlength="3" value=""><br>
                         <label for="apellido">Apellido:</label>
-                        <input type="text" placeholder="" name="apellido" id="apellido" maxlength="30" required="" pattern="[a-z A-Z]+" minlength="3"><br>
+                        <input type="text" placeholder="" name="apellido" id="apellido" maxlength="30" required="" pattern="[a-z A-Z]+" minlength="3" value=""><br>
                         <label for="e-mail">E-mail:</label>
-                        <input type="email" placeholder="" name="e-mail" id="e-mail" pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" ><br>
+                        <input type="email" placeholder="" name="e-mail" id="e-mail" pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" value=""><br>
                         <label for="telefono">telefono:</label>
                         <input type="tel" name="telefono" id="telefono" minlength="7" maxlength="11" required="" ><br>
                         <label for="dirección">dirección:</label>
@@ -84,6 +84,7 @@
         </div>
     </div>
 </body>
+<script src="./js/validaciones.js"></script>
 <script defer src="./js/tab.js"></script>
 <script src="./js/administrador.js"></script>
 <script type="module" src="login.js"></script>
