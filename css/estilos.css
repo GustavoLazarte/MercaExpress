@@ -443,3 +443,6 @@ grupo1{
     height: 72px;
   }
 }
+.nav-menu .nav-menu-item .li.activo{
+  background-color: #535050;
+}
