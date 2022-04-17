@@ -434,4 +434,12 @@ body {
   position: relative;
   padding: 110px 0 0 0;
 }
-
+grupo1{
+  display: inline;
+}
+@media(max-width:834px){
+  .pie-pagina .grupo1 .box figure img{
+    width: 180px;
+    height: 72px;
+  }
+}
