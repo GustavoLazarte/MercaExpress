@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getAuth, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { getStorage, ref, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js';
 //https://firebase.google.com/docs/web/setup#available-libraries
 const firebaseConfig = {
@@ -16,6 +16,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const storage = getStorage();
+
 
 window.onload = function () {
     const auth = getAuth();
@@ -65,11 +66,15 @@ async function registrarVendedor(e) {
 }
 
 async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir) {
-    createUserWithEmailAndPassword(auth, email, password)
-        .then(async (userCredential) => {
+    const citiesRef = await collection(db, "users");
+    const q = query(citiesRef, where("email", "==", email));
+
+    const querySnapshot = await getDocs(q);
+        if(querySnapshot.empty){
 
             const docData = {
                 email: email,
+                contraseña: password,
                 nombre: nom,
                 apellido: ap,
                 telefono: tel,
@@ -77,19 +82,15 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
                 role: rol,
                 imgPerfil: img
             };
-            await setDoc(doc(db, "users", userCredential.user.uid), docData);
-            // Signed in
-            const user = userCredential.user;
+            await setDoc(doc(db, "users", email), docData);
+
             // ...
             alert("Usuario registrado con exito!");
             form.reset();
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            alert(errorMessage);
+        } else {
+            alert("El email ya existe");
             document.getElementById('e-mail').value = "";
-        });
+        }
 }
 
 async function subirImagen() {
