@@ -446,3 +446,42 @@ grupo1{
 .nav-menu .nav-menu-item .li.activo{
   background-color: #535050;
 }
+@media(max-width:834px){
+  .pie-pagina .grupo1 .box figure img{
+    width: 180px;
+    height: 72px;
+  }
+}
+.nav-menu .nav-menu-item .li.activo{
+  background-color: #535050;
+}
+@media(max-width: 694px){
+  .central{
+    width: 100%;
+  }
+  .container{
+    clear: both;
+    width: 100%;
+    align-items: center;
+    margin-top: 70px;
+    align-items: center;
+    
+  }
+  .text{
+    float: left;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-top: 70px;
+  }.text p{
+    font-size: 15px;
+    text-align: center;
+  }
+  .imagen2{
+    width: 360px;
+  }
+  #kk{
+    width: 370px;
+  }
+}
