@@ -57,10 +57,10 @@ async function login(e) {
             });
 
     } else {
-        if (obSnap.contraseña == password) {
+        if (obSnap.data().contraseña == password) {
             await iniciarSesionPrimeraVes(email, password, obSnap);
         } else {
-            alert("Contraseña o Usuario incorrectos!");
+            alert("Contraseña o Usuarios incorrectos!");
         }
     }
 
