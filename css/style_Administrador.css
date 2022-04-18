@@ -143,6 +143,8 @@ body{
 }**/
 /*formulario de registro*/
 .contenedor h2{
+    position: relative;
+    top: -60px;
     text-align: center;
     text-transform: uppercase;
 }
@@ -158,6 +160,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -60px;
 }
 .formulario-registro label{
     color: #ffffff;
