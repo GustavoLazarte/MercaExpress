@@ -24,6 +24,10 @@ body {
   justify-content: space-between;
   margin: 0 auto;
   height: 90px;
+  width: 99.4%;
+}
+.pie-pagina{
+  margin-top: -50px;
 }
 .logo{
   width: 200;
@@ -485,3 +489,57 @@ grupo1{
     *width: 370px;
   }
 }
+@media(max-width: 460px){
+  .nav li a{
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 7px 5px;
+    color: #ffcc00;
+    background-color: none;
+    text-decoration: none;
+  }
+  .nav-menu_visible{
+    width: 375px;
+  }
+}
+/*@media(max-width: 390px){
+  .nav li a{
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    padding: 5px 4px;
+    color: #ffcc00;
+    background-color: none;
+    text-decoration: none;
+  }
+  .imagen2{
+    width: 355px;
+  }
+  .pie-pagina{
+ 
+    width: 100%;
+  }
+  #slider #wrapper .rslides_container .rslides li img {
+    align-items: center;
+    width: 370px;
+  }
+  #wrapper{
+    width: 100%;
+  }
+  .container{
+    width: 375px;
+  }
+  .text{
+    width: 100%;
+  }
+  .nav{
+    width: 100%;
+  }
+  .nav-menu_visible{
+    width: 100%;
+  }
+  .bloque .text p{
+    width: 370px;
+  }
+}*/
