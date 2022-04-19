@@ -482,6 +482,6 @@ grupo1{
     width: 360px;
   }
   #kk{
-    width: 370px;
+    *width: 370px;
   }
 }
