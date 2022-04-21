@@ -230,10 +230,10 @@ input[type="file"] {
 }
 .content .bloque{
     position: relative;
-    opacity: 0;
+    transform: scale(0);
 }
 .content .bloque.activo{
-    opacity: 1;
+    transform: scale(1);
 }
 #campo_datos{
     text-align: center;
