@@ -146,22 +146,22 @@ body{
     text-align: center;
     text-transform: uppercase;
     position: relative;
-    top: -60px;
 }
 .formulario-registro{
     background-color: #312d2d;
     border-radius: 2rem;
     box-shadow: 7px 13px 37px;
-    width: 50%;
+    width: 100%;
     height: auto;
     /*max-width: 600px;*/
     margin: 0 auto;
-    display: flex;
+    /*display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
     position: relative;
-    top: -60px;
+    width: 550px;
+    height: auto;
 }
 .formulario-registro label{
     color: #ffffff;
@@ -176,6 +176,8 @@ body{
     border: none;
 }
 .formulario-registro input{
+    font-size: 15px;
+    height: 20px;
     font-family: Arial, Helvetica, sans-serif;  
     display: inline-block;
     border-radius: 2rem;
@@ -228,8 +230,12 @@ input[type="file"] {
 .content{
     position: relative;
 }
+.content_bloque{
+    display: flex;
+    justify-content: center;
+}
 .content .bloque{
-    position: relative;
+    position: absolute;
     transform: scale(0);
 }
 .content .bloque.activo{
@@ -237,6 +243,7 @@ input[type="file"] {
 }
 #campo_datos{
     text-align: center;
+    width: auto;
 }
 .content .contenedor .formulario-registro #campo_datos label{
     text-align: center;
@@ -244,6 +251,8 @@ input[type="file"] {
 #elegirRol{
     text-align: center;
     width: 60%;
+    height: 17px;
+    font-size: 14px;
 }
 /*.content .contenedor .formulario-registro #campo_datos input{
     font-family: Arial, Helvetica, sans-serif;
@@ -273,13 +282,15 @@ input[type="file"] {
 }
 #registrar{
     width: 25%;
+    font-size: 14px;
 }
 #cancelar{
     width: 25%;
+    font-size: 14px;
 }
 @media(max-width:900px){
     .formulario-registro{
-        width: 80%;
+        width: 100%;
     }
     .menu-expanded{
         position: absolute;
