@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <feta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" >
+    <link rel="stylesheet" href="css/style_vendedor.css">
+    
+
+    <title>Vendedor</title>
+    <link rel="shortcut icon" href="./img/logo1.ico">
+</head>
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header"> 
+            <div id=""><a id = "redirect" href="login.html"><img class="logo" src="img/logo.png"></a></div>
+            <div id="menu-btn">
+                <a href="#"><i class="fa-solid fa-bars fa-2x"></i></a>
+            </div>
+        </div>
+        <div id="profile">
+            <div id="photo"><img src="" alt="" id="foto-Supervisor"></div>
+            <div id="name"><span>Claudia Nogales</span></div>
+        </div>
+        <div id="menu-items">
+            <div class="item">
+                <a href="#" class="sub_item li activo">
+                    <div class="icon"><i class="fa-solid fa-house fa-2x"></i></div>
+                    <div class="title"><p>Inicio</p></div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" class="sub_item" id="logout">
+                    <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
+                    <div class="title"><p>Cerrar Sesión</p></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="bloque activo" id="inicio">
+            <h1>Inicio</h1>
+        </div>
+    </div>
+
+</body>
+<script defer src="./js/tab.js"></script>
+<script src="./js/administrador.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="usuario-vendedor.js"></script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+    <link rel="shortcut icon" href="./img/logo1.ico">
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" >
+	<link rel="stylesheet" href="css/style_login.css">
+</head>  
+<body>
+        <div><a href="index.html"><img class="logo" src="img/logo.png"></a></div>
+        <div  align="right" class="contenedor_volver"><a href="index.html" class="link_volver"><input id="volver" type="button" value="Volver" class="volver"></a></div>
+    <form class="form" id="login-form">
+        <h1 class="form__title">Iniciar sesión</h1>
+        <div class="form__container">
+            <div class="form__input">
+                <label for="email"><i class="fas fa-envelope icon fa-2x"></i></label>
+                <input id="email" type="text" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="form__input">
+                <label for="password"><i class="fa-solid fa-key fa-2x icon"></i></label>
+                <input id="password" type="password" placeholder="Contraseña" required>
+            </div>
+            <input id="ingresar" type="submit" value="Ingresar" class="form__button">
+            <input id="cancelar" type="reset" value="Cancelar" class="form__button">
+        </div>
+    </form>  
+</body>
+<script type="module" src="login.js"></script>
+</html>

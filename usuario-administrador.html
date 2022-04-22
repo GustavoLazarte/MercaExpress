@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <feta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+        <link rel="stylesheet" href="css/style_Administrador.css">
+
+        <title>Administrador</title>
+        <link rel="shortcut icon" href="./img/logo1.ico">
+</head>
+
+<body>
+    <div id="sidemenu" class="menu-collapsed">
+        <div id="header">
+            <div id=""><a id="redirect" href="login.html"><img class="logo" src="img/logo.png"></a></div>
+            <div id="menu-btn">
+                <a href="#"><i class="fa-solid fa-bars fa-2x"></i></a>
+            </div>
+        </div>
+        <div id="profile">
+            <div id="photo"><img src="" alt="" id="foto-Supervisor"></div>
+            <div id="name"><span></span></div>
+        </div>
+        <div id="menu-items">
+            <div class="item">
+                <a href="#" class="sub_item li activo">
+                    <div class="icon"><i class="fa-solid fa-house fa-2x"></i></div>
+                    <div class="title">
+                        <p>Inicio</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="#" class="sub_item li">
+                    <div class="icon"><i class="fa-solid fa-user-plus fa-2x"></i></div>
+                    <div class="title">
+                        <p>Añadir Usuario</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="login.html" id="logout" class="sub_item">
+                    <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
+                    <div class="title">
+                        <p>Cerrar Sesión</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="bloque activo" id="inicio">
+            <h1>Inicio</h1>
+        </div>
+        <div class="content_bloque">
+            <div class="bloque " id="usuario">
+                <section class="contenedor">
+                    <h2>Registro de Usuario</h2>
+                    <form class="formulario-registro" id="form-registro">
+                        <fieldset id="campo_datos">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" placeholder="" name="nombre" id="nombre" maxlength="20" required=""
+                                pattern="[a-z A-Z]+" minlength="3" value=""><br>
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" placeholder="" name="apellido" id="apellido" maxlength="30" required=""
+                                pattern="[a-z A-Z]+" minlength="3" value=""><br>
+                            <label for="e-mail">E-mail:</label>
+                            <input type="email" placeholder="" name="e-mail" id="e-mail"
+                                pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" value=""><br>
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" name="telefono" id="telefono" minlength="7" maxlength="8" 
+                                pattern="[0-9]+" required=""><br>
+                            <label for="dirección">Dirección:</label>
+                            <input type="direccion" name="dirección" id="dirección" required="" maxlength="100"
+                                pattern="[a-z A-Z0-9./-#]+"><br>
+                            <label for="password">Contraseña:</label>
+                            <input type="password" name="password" id="password" required="" minlength="8" maxlength="15"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
+                            <label for="confirmar_contraseña">Confirmar Contraseña:</label>
+                            <input type="password" name="confirmar_contraseña" id="confirmar_contraseña" required=""
+                                minlength="8" maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
+                            <Label for="usuario">Tipo de Usuario:</Label>
+                            <select name="usuario" id="elegirRol">
+                                <option value="Supervisor">Supervisor</option>
+                                <option value="Vendedor">Vendedor</option>
+                            </select><br>
+                            <label for="foto">Foto:</label>
+                            <label class="custom-file-upload">
+                                <input id="perfil" accept="image/jpg,image/jpeg" type="file" name="file"
+                                    onchange="ValidarImagen(this);" />
+                                Subir archivo
+                            </label><br>
+                            <input id="registrar" type="submit" value="Registrar">
+                            <input id="cancelar" type="reset" value="Cancelar">
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    async function ValidarImagen(obj) {
+        var uploadFile = obj.files[0];
+
+        if (!(/\.(jpg|jpeg)$/i).test(uploadFile.name)) {
+            alert('El archivo a adjuntar no es una imagen');
+        }
+        else {
+            var img = new Image();
+            img.onload = await function () {
+                console.log(this.width.toFixed(0));
+                console.log(this.height.toFixed(0));
+                var w = this.width.toFixed(0) != 300;
+                console.log(w);
+                var h = this.height.toFixed(0) != 300;
+                console.log(h)
+                if (w == true || h == true){
+                    alert('Las medidas deben ser: 300 * 300');
+                    obj.value = "";
+                }
+            };
+            img.src = URL.createObjectURL(uploadFile);
+        }
+    }
+</script>
+<script src="./js/validaciones.js"></script>
+<script defer src="./js/tab.js"></script>
+<script src="./js/administrador.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="usuario-super.js"></script>
+
+
+</html>
