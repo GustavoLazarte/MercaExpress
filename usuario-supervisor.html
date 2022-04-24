@@ -42,6 +42,30 @@
                 </a>
             </div>
             <div class="item">
+                <a href="#" class="sub_item li">
+                    <div class="icon"><i class="fa-solid fa-book-medical fa-2x"></i></div>
+                    <div class="title">
+                        <p>Catálogo</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" class="sub_item li">
+                    <div class="icon"><i class="fa-solid fa-map-location fa-2x"></i></div>
+                    <div class="title">
+                        <p>Registra Punto de Venta</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#" class="sub_item li">
+                    <div class="icon"><i class="fa-solid fa-building fa-2x"></i></div>
+                    <div class="title">
+                        <p>Registrar Empresa</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
                 <a href="#" id="logout" class="sub_item">
                     <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
                     <div class="title">
@@ -94,6 +118,66 @@
                             </label><br>
                             <input id="registrar" type="submit" value="Registrar">
                             <input id="cancelar" type="reset" value="Cancelar">
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="bloque " id="catalogo">
+            <div class="boque " id="Lista_empresa">
+                <section class="contenedor">
+                    <form action="" class="formulario_lista_catalogo">
+                        <fieldset id="formulario_ingreso_empresa">
+                            <label for="nombre_empresa">Catálogo:</label>
+                            <input type="text" placeholder="Nombre de la Empresa" name="nombre_empresa" id="nombre_empresa" required="">
+                            <input type="submit" id="ingresar" value="Ingresar">
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="content_bloque">
+            <div class="bloque " id="registrar_venta">
+                <section class="contenedor">
+                    <h2>AÑADIR PUNTO DE VENTA</h2>
+                    <form class="formulario-registro">
+                        <fieldset id="campo_añadir_venta">
+                            <label for="nombreVenta">Nombre:</label>
+                            <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value=""><br>
+                            <label for="responsable">Responsable:</label>
+                            <input type="text" placeholder="" name="responsable" id="responsable" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value=""><br>
+                            <label for="telefonoVenta">Teléfono:</label>
+                            <input type="tel" name="telefonoVenta" id="telefonoVenta" minlength="7" maxlength="8" pattern="[0-9]+" required=""><br>
+                            <label for="e-mailVenta">E-mail:</label>
+                            <input type="email" placeholder="" name="e-mailVenta" id="e-mailVenta" pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" value=""><br>
+                            <label for="direcciónVenta">Dirección:</label>
+                            <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+"><br>
+                            <label for="foto">Foto del producto:</label>
+                            <label class="custom-file-upload">
+                                <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
+                                Subir archivo
+                            </label><br>
+                            <input id="registrar_punto_venta" type="submit" value="Añadir punto de venta">
+                            <input id="cancelar_formulario" type="reset" value="Cancelar">
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="content_bloque">
+            <div class="bloque " id="registrar_empresas">
+                <section class="contenedor">
+                    <h2>REGISTRAR EMPRESA</h2>
+                    <form class="formulario-registro">
+                        <fieldset id="campo_añadir_empresa">
+                            <label for="nombreEmpresa">Nombre de la Empresa:</label>
+                            <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value=""><br>
+                            <label for="cod_empresa">Código de la Empresa:</label>
+                            <input type="text" placeholder="" name="cod_empresa" id="cod_empresa" maxlength="10" required="" pattern="[a-z A-Z0-9]+" minlength="3" value=""><br>
+                            <label for="dirección_Empresa">Dirección:</label>
+                            <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+"><br>
+                            <input id="registrar_empresa" type="submit" value="Registrar">
+                            <input id="cancelar_formulario_empresa" type="reset" value="Cancelar">
                         </fieldset>
                     </form>
                 </section>

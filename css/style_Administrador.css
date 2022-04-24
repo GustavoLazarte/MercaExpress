@@ -310,3 +310,63 @@ input[type="file"] {
         z-index: 10;
     }
 }
+/*Añadir punto de venta*/
+#campo_añadir_venta{
+    width: 100%;
+}
+.content .contenedor .formulario-registro #campo_añadir_venta label{
+    margin-left: 10px;
+    width: 25%;
+}
+#direcciónVenta{
+    margin-bottom: 0;
+}
+#registrar_punto_venta{
+    margin-top: 5px;
+}
+#nombreVenta{
+    margin-top: 10px;
+    width: 50%;
+}
+#responsable{
+    width: 50%;
+}
+#telefonoVenta{
+    width: 50%;
+}
+#e-mailVenta{
+    width: 50%;
+}
+#direcciónVenta{
+    width: 50%;
+}
+
+/*registrar empresa*/
+.content .contenedor .formulario-registro #campo_añadir_empresa label{
+    margin-left: 10px;
+    width: 25%;
+}
+#nombreEmpresa{
+    width: 50%;
+}
+#cod_empresa{
+    width: 50%;
+}
+#dirección_Empresa{
+    width: 50%;
+}
+#registrar_empresa{
+    margin-top: 10px;
+    height: 25px;
+}
+#cancelar_formulario_empresa{
+    height: 25px;
+}/*
+#campo_añadir_venta{
+    text-align: center;
+    width: auto;
+}
+#campo_añadir_empresa{
+    text-align: center;
+    width: auto;
+}
