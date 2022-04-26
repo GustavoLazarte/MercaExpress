@@ -198,3 +198,58 @@ async function actualizar(combo){
     
     console.log(combo);
 };
+const formPV = document.getElementById('puntoventa');
+
+formPV.addEventListener('submit', e => registrarPV(e));
+
+async function registrarPV(e){
+    e.preventDefault()
+    const up = await collection(db, "Puntoventa");
+    const img  = await fotoPV();
+    const nom = document.getElementById('nombreVenta').value;
+    const tel = document.getElementById('telefonoVenta').value;
+    const dire = document.getElementById('direcciónVenta').value;
+    const res = document.getElementById('responsable').value;
+    const mail = document.getElementById('e-mailVenta').value;
+    const comparar = query(up, where("Mail", "==", mail))
+    const querySnapshot = await getDocs(comparar);
+        if(querySnapshot.empty){
+
+            const docData = {
+                Mail: mail,
+                Nombre:nom,
+                Direccion:dire,
+                Responsable:res,    
+                Telefono:tel,
+                Imagen:img
+    
+            };
+            await setDoc(doc(db, "Puntoventa",mail), docData);
+
+        } else {
+            alert("ya esta registrado");
+            
+        }
+    
+}
+async function fotoPV() {
+    var file = document.getElementById('foto_producto').files[0];
+    if (file === undefined) {
+        alert("Suba una foto de perfil");
+    }
+
+    const storage = getStorage();
+    const storageRef = ref(storage, 'images/' + file.name);
+
+    // 'file' comes from the Blob or File API
+    await uploadBytes(storageRef, file).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
+    });
+
+    let img;
+    await getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
+        img = url;
+    });
+    return img;
+
+}
