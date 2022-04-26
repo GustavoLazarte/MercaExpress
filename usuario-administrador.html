@@ -131,7 +131,9 @@
                     <form action="" class="formulario_lista_catalogo">
                         <fieldset id="formulario_ingreso_empresa">
                             <label for="nombre_empresa">Catálogo:</label>
-                            <input type="text" placeholder="Nombre de la Empresa" name="nombre_empresa" id="nombre_empresa" required="">
+                            <select name="empresa" id="seleccion">
+                                
+                            </select>
                             <input type="submit" id="ingresar" value="Ingresar">
                         </fieldset>
                     </form>
@@ -142,7 +144,7 @@
             <div class="bloque " id="registrar_venta">
                 <section class="contenedor">
                     <h2>AÑADIR PUNTO DE VENTA</h2>
-                    <form class="formulario-registro">
+                    <form  class="formulario-registro">
                         <fieldset id="campo_añadir_venta">
                             <label for="nombreVenta">Nombre:</label>
                             <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value=""><br>

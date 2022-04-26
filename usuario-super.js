@@ -49,7 +49,7 @@ async function registrarVendedor(e) {
     e.preventDefault();
     if (contraseñaValida()) {
         const rol = asignarRol();
-        const img = await subirImagen();
+        const img = await subirImagen('perfil');
         const email = document.getElementById('e-mail').value;
         const password = document.getElementById('password').value;
         const nom = document.getElementById('nombre').value;
@@ -93,10 +93,10 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
         }
 }
 
-async function subirImagen() {
-    var file = document.getElementById('perfil').files[0];
+async function subirImagen(tag) {
+    var file = document.getElementById(tag).files[0];
     if (file === undefined) {
-        alert("Suba una foto de perfil");
+        alert("Suba una foto");
     }
 
     const storage = getStorage();
@@ -148,3 +148,53 @@ const btnImg = document.getElementById('redirect');
 if (btnImg != null) {
     btnImg.addEventListener('click', e => logout(e));
 }
+
+const formEmpresa = document.getElementById('registrar_empresas');
+
+formEmpresa.addEventListener('submit', e => registrarEmpresa(e));
+
+async function registrarEmpresa(e){
+    e.preventDefault()
+    console.log("hola")
+    const empresaColeccion  = await collection(db, "empresa");
+    const nom = document.getElementById('nombreEmpresa').value;
+    const cod = document.getElementById('cod_empresa').value;
+    const dire = document.getElementById('dirección_Empresa').value;
+    const res = query(empresaColeccion, where("nombre", "==", nom));
+    const querySnapshot = await getDocs(res);
+        if(querySnapshot.empty){
+
+            const docData = {
+                nombre : nom, 
+                direccion : dire,
+                catalogo :{}
+    
+            };
+            await setDoc(doc(db, "empresa", cod), docData);
+
+        } else {
+            alert("Ya hay una empresa con ese nombre");
+            nom.value = "";
+        }
+    actualizar(comboBoxC)
+}
+
+const comboBoxC = document.getElementById('seleccion');
+
+comboBoxC.onchange = actualizar(comboBoxC)
+
+async function actualizar(combo){
+    combo.innerHTML = '';
+    const coleccion  = await collection(db, "empresa");
+    const querySnapshote = await getDocs(coleccion);
+    await querySnapshote.forEach((doc) => {
+        console.log("Hola");
+        var opt = document.createElement('option');
+        opt.value = doc.data().nombre;
+        opt.innerHTML = doc.data().nombre;
+        combo.appendChild(opt);
+    });
+
+    
+    console.log(combo);
+};
