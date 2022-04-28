@@ -428,17 +428,6 @@ input[type="file"] {
 }
 
 
-.content .hola{
-    position: absolute;
-    transform: scale(0);
-}
-.content .hola.activa{
-    transform: scale(1);
-}
-
-
-
-
 .bloque_catalogo{
     margin-left: 60px;
 }
