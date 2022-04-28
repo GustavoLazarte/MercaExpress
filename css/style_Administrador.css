@@ -372,49 +372,76 @@ input[type="file"] {
     width: auto;
 }*/
 /*para escoger una empresa y entrar para añadir su catalogo*/
-.contenedor{
+/*.contenedor{
     position: relative;
+}*/
+#lista_empresas{
+    width: 650px;
 }
 #catalogo #formulario_ingreso_empresa{
-    position: absolute;
+    /*position: absolute;
     top: 80px;
     display: flex;
     box-sizing: border-box;
-    text-decoration: none;
+    text-decoration: none;*/
     border: none;
 }
 #formulario_ingreso_empresa label{
     font-weight: bold;
-    font-size: 25px;
-    display: flex;
-    text-align: center;
-    margin-right: 10%;
-    margin-left: 10%;
-    align-items: center;
+    margin-right: 5%;
 }
 #catalogo #formulario_ingreso_empresa #seleccion{
     border-radius: 4px;
-    height: 40px;
-    width: 500px;
+    height: 30px;
+    width: 160px;
     box-shadow: 0 0 0 1px black;
     font-size: 16px;
+    cursor: pointer; 
 }
 #catalogo #formulario_ingreso_empresa input{
-    position: relative;
-    margin-left: 10%;
-    height: 40px;
+    margin-left: 5%;
+    height: 30px;
     border-radius: 4px;
     padding: 0 30px 0 30px;
     font-size: 16px;
     background: #312d2d;
     color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
 #catalogo #formulario_ingreso_empresa input:hover{
     background-color: #ffcc00;
     color: black;
 }
+.vista_empresa{
+    position: absolute;
+    width: 526px;
+    height: auto;
+    border-radius: 15px;
+    background-color: #312d2d;
+    
+}
+.vista_empresa .lista_empresa{
 
+    display: flex;
+    flex-wrap: wrap;
 
+}
+.vista_empresa .lista_empresa .nombre_cliente_empresa{
+    border-radius: 4px;
+    font-size: 16px;
+    height: 50px;
+    width: 165px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.vista_empresa .lista_empresa .nombre_cliente_empresa:hover{
+    background-color: #ffcc00;
+}
 
 /*Registrar catalogo*/
 
@@ -442,7 +469,9 @@ input[type="file"] {
     color: #ffffff;
     background-color: #312d2d;
 }
-
+#lista_empresas #contenedor_ingresar_catalogo h2{
+    font-size: 18px;
+}
 
 
 
