@@ -123,19 +123,50 @@
                 </section>
             </div>
         </div>
-        <div class="bloque " id="catalogo">
-            <div class="boque " id="Lista_empresa">
-                <section class="contenedor">
-                    <form action="" class="formulario_lista_catalogo">
-                        <fieldset id="formulario_ingreso_empresa">
-                            <label for="nombre_empresa">Catálogo:</label>
-                            <input type="text" placeholder="Nombre de la Empresa" name="nombre_empresa" id="nombre_empresa" required="">
-                            <input type="submit" id="ingresar" value="Ingresar">
-                        </fieldset>
-                    </form>
-                </section>
+        <div class="bloque_registrar_catalogo " id="catalogo">
+            <div class="bloque " id="Lista_empresa">
+                <div>
+                    <section class="contenedor hola activa" id="contenedor_ingresar_catalogo">
+                        <form action="" class="formulario_lista_catalogo">
+                            <fieldset id="formulario_ingreso_empresa">
+                                <label for="nombre_empresa">CATÁLOGO:</label>
+                                <select name="empresa" id="seleccion">
+                                    
+                                </select>
+                                <input type="submit" id="ingresar" value="Ingresar" class="validador">
+                            </fieldset>
+                        </form>
+                    </section>
+
+                    <div class="bloque_catalogo holas " id="contenedor_para_registrar_catalogo">
+                        <div class="registrar_catalogo">
+                            <h2>AÑADIR PRODUCTO</h2>
+                            <input type="text" value="coco-cola" readonly class="nombre_de_empresa">
+                            <form class="formulario-registro">
+                                <fieldset id="campo_añadir_producto">
+                                    <label for="nombre_producto">Nombre del Producto:</label>
+                                    <input type="text" name="nombre_producto" id="nombre_producto" value=""><br>
+                                    <label for="codigo_producto">Codigo del Producto:</label>
+                                    <input type="text" name="codigo_producto" id="codigo_producto" value=""><br>
+                                    <label for="precio">Precio:</label>
+                                    <input type="number" name="precio" id="precio" value=""><br>
+                                    <label for="foto">Foto del producto:</label>
+                                    <label class="custom-file-upload">
+                                        <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
+                                        Subir Archivo
+                                    </label><br>
+                                    <input id="registrar_producto_catalogo" type="submit" value="Añadir punto de venta">
+                                    <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
+
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
+        
         <div class="content_bloque">
             <div class="bloque " id="registrar_venta">
                 <section class="contenedor">
@@ -185,8 +216,10 @@
         </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="./js/validaciones.js"></script>
 <script defer src="./js/tab.js"></script>
+<script defer src="./js/tabs2.js"></script>
 <script src="./js/administrador.js"></script>
 <script type="module" src="login.js"></script>
 <script type="module" src="usuario-super.js"></script>

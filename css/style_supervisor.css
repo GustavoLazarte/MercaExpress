@@ -197,6 +197,7 @@ input[type="file"] {
     display: none;
 }
 .custom-file-upload {
+    text-align: center;
     border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
@@ -367,4 +368,91 @@ input[type="file"] {
 #campo_añadir_empresa{
     text-align: center;
     width: auto;
+}*/
+/*para escoger una empresa y entrar para añadir su catalogo*/
+.contenedor{
+    position: relative;
 }
+#catalogo #formulario_ingreso_empresa{
+    position: absolute;
+    top: 80px;
+    display: flex;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+}
+#formulario_ingreso_empresa label{
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    text-align: center;
+    margin-right: 10%;
+    margin-left: 10%;
+    align-items: center;
+}
+#catalogo #formulario_ingreso_empresa #seleccion{
+    border-radius: 4px;
+    height: 40px;
+    width: 500px;
+    box-shadow: 0 0 0 1px black;
+    font-size: 16px;
+}
+#catalogo #formulario_ingreso_empresa input{
+    position: relative;
+    margin-left: 10%;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0 30px 0 30px;
+    font-size: 16px;
+    background: #312d2d;
+    color: #ffffff;
+}
+#catalogo #formulario_ingreso_empresa input:hover{
+    background-color: #ffcc00;
+    color: black;
+}
+
+
+
+/*Registrar catalogo*/
+
+
+/*.bloque_catalogo{
+    display: flex;
+    justify-content: center;
+}*/
+.bloque_catalogo .registrar_catalogo h2{
+    text-align: center;
+}
+
+
+.content .hola{
+    position: absolute;
+    transform: scale(0);
+}
+.content .hola.activa{
+    transform: scale(1);
+}
+
+
+
+
+.bloque_catalogo{
+    margin-left: 60px;
+}
+.bloque_catalogo .registrar_catalogo .nombre_de_empresa{
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: none;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #312d2d;
+}
+
+
+
+
+
