@@ -130,12 +130,10 @@
             <div class="bloque " id="Lista_empresa">
                 <div>
                     <section class="contenedor hola activa" id="contenedor_ingresar_catalogo">
-                        <form action="" class="formulario_lista_catalogo">
+                        <form class="formulario_lista_catalogo" id="seleccion_catalogo">
                             <fieldset id="formulario_ingreso_empresa">
                                 <label for="nombre_empresa">CATÁLOGO:</label>
-                                <select name="empresa" id="seleccion">
-                                    
-                                </select>
+                                <select name="empresa" id="seleccion"></select>
                                 <input type="submit" id="ingresar" value="Ingresar" class="validador">
                             </fieldset>
                         </form>
@@ -144,8 +142,8 @@
                     <div class="bloque_catalogo holas " id="contenedor_para_registrar_catalogo">
                         <div class="registrar_catalogo">
                             <h2>AÑADIR PRODUCTO</h2>
-                            <input type="text" value="coco-cola" readonly class="nombre_de_empresa">
-                            <form class="formulario-registro">
+                            <input type="text" id="nombre_empresa" readonly class="nombre_de_empresa">
+                            <form class="formulario-registro" id="formulario_registro">
                                 <fieldset id="campo_añadir_producto">
                                     <label for="nombre_producto">Nombre del Producto:</label>
                                     <input type="text" name="nombre_producto" id="nombre_producto" value=""><br>
@@ -158,6 +156,7 @@
                                         <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
                                         Subir Archivo
                                     </label><br>
+
                                     <input id="registrar_producto_catalogo" type="submit" value="Añadir punto de venta">
                                     <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
 
@@ -251,6 +250,6 @@
 <script src="./js/administrador.js"></script>
 <script type="module" src="login.js"></script>
 <script type="module" src="usuario-super.js"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

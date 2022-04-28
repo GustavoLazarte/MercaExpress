@@ -35,9 +35,9 @@ window.onload = function () {
             em.innerHTML = "<span>" + nom + " " + ap + "</span>";
 
         }// else {
-         //   alert("Inicie Sesion primero!");
-         //   window.location = "login.html"
-         //}
+        //   alert("Inicie Sesion primero!");
+        //   window.location = "login.html"
+        //}
     });
 };
 
@@ -70,27 +70,27 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
     const q = query(citiesRef, where("email", "==", email));
 
     const querySnapshot = await getDocs(q);
-        if(querySnapshot.empty){
+    if (querySnapshot.empty) {
 
-            const docData = {
-                email: email,
-                contraseña: password,
-                nombre: nom,
-                apellido: ap,
-                telefono: tel,
-                direccion: dir,
-                role: rol,
-                imgPerfil: img
-            };
-            await setDoc(doc(db, "users", email), docData);
+        const docData = {
+            email: email,
+            contraseña: password,
+            nombre: nom,
+            apellido: ap,
+            telefono: tel,
+            direccion: dir,
+            role: rol,
+            imgPerfil: img
+        };
+        await setDoc(doc(db, "users", email), docData);
 
-            // ...
-            alert("Usuario registrado con exito!");
-            form.reset();
-        } else {
-            alert("El email ya existe");
-            document.getElementById('e-mail').value = "";
-        }
+        // ...
+        alert("Usuario registrado con exito!");
+        form.reset();
+    } else {
+        alert("El email ya existe");
+        document.getElementById('e-mail').value = "";
+    }
 }
 
 async function subirImagen(tag) {
@@ -153,29 +153,28 @@ const formEmpresa = document.getElementById('registrar_empresas');
 
 formEmpresa.addEventListener('submit', e => registrarEmpresa(e));
 
-async function registrarEmpresa(e){
+async function registrarEmpresa(e) {
     e.preventDefault()
-    console.log("hola")
-    const empresaColeccion  = await collection(db, "empresa");
+    const empresaColeccion = await collection(db, "empresa");
     const nom = document.getElementById('nombreEmpresa').value;
     const cod = document.getElementById('cod_empresa').value;
     const dire = document.getElementById('dirección_Empresa').value;
     const res = query(empresaColeccion, where("nombre", "==", nom));
     const querySnapshot = await getDocs(res);
-        if(querySnapshot.empty){
+    if (querySnapshot.empty) {
 
-            const docData = {
-                nombre : nom, 
-                direccion : dire,
-                catalogo :{}
-    
-            };
-            await setDoc(doc(db, "empresa", cod), docData);
+        const docData = {
+            nombre: nom,
+            direccion: dire,
+            catalogo: {}
 
-        } else {
-            alert("Ya hay una empresa con ese nombre");
-            nom.value = "";
-        }
+        };
+        await setDoc(doc(db, "empresa", cod), docData);
+
+    } else {
+        alert("Ya hay una empresa con ese nombre");
+        nom.value = "";
+    }
     actualizar(comboBoxC)
 }
 
@@ -183,29 +182,28 @@ const comboBoxC = document.getElementById('seleccion');
 
 comboBoxC.onchange = actualizar(comboBoxC)
 
-async function actualizar(combo){
+async function actualizar(combo) {
     combo.innerHTML = '';
-    const coleccion  = await collection(db, "empresa");
+    const coleccion = await collection(db, "empresa");
     const querySnapshote = await getDocs(coleccion);
     await querySnapshote.forEach((doc) => {
-        console.log("Hola");
         var opt = document.createElement('option');
         opt.value = doc.data().nombre;
         opt.innerHTML = doc.data().nombre;
         combo.appendChild(opt);
     });
 
-    
+
     console.log(combo);
 };
 const formPV = document.getElementById('puntoventa');
 
 formPV.addEventListener('submit', e => registrarPV(e));
 
-async function registrarPV(e){
+async function registrarPV(e) {
     e.preventDefault()
     const up = await collection(db, "Puntoventa");
-    const img  = await fotoPV();
+    const img = await fotoPV();
     const nom = document.getElementById('nombreVenta').value;
     const tel = document.getElementById('telefonoVenta').value;
     const dire = document.getElementById('direcciónVenta').value;
@@ -213,24 +211,24 @@ async function registrarPV(e){
     const mail = document.getElementById('e-mailVenta').value;
     const comparar = query(up, where("Mail", "==", mail))
     const querySnapshot = await getDocs(comparar);
-        if(querySnapshot.empty){
+    if (querySnapshot.empty) {
 
-            const docData = {
-                Mail: mail,
-                Nombre:nom,
-                Direccion:dire,
-                Responsable:res,    
-                Telefono:tel,
-                Imagen:img
-    
-            };
-            await setDoc(doc(db, "Puntoventa",mail), docData);
+        const docData = {
+            Mail: mail,
+            Nombre: nom,
+            Direccion: dire,
+            Responsable: res,
+            Telefono: tel,
+            Imagen: img
 
-        } else {
-            alert("ya esta registrado");
-            
-        }
-    
+        };
+        await setDoc(doc(db, "Puntoventa", mail), docData);
+
+    } else {
+        alert("ya esta registrado");
+
+    }
+
 }
 async function fotoPV() {
     var file = document.getElementById('foto_producto').files[0];
@@ -252,4 +250,59 @@ async function fotoPV() {
     });
     return img;
 
+}
+
+const formSele = document.getElementById('ingresar');
+formSele.addEventListener('click', e => avanzar(e));
+
+let codigoEmpresa = "";
+
+async function avanzar(e) {
+    e.preventDefault();
+    document.getElementById('nombre_empresa').value = document.getElementById('seleccion').value;
+    const q = await query(collection(db, "empresa"), where("nombre", "==", document.getElementById('nombre_empresa').value));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        codigoEmpresa = doc.id;
+    });
+
+}
+
+const formProducto = document.getElementById('formulario_registro');
+formProducto.addEventListener('submit', e => añadirProducto(e));
+
+async function añadirProducto(e) {
+    e.preventDefault();
+    const imgProducto = subirImagen('fotos_del_producto');
+    const nomProducto = document.getElementById('nombre_producto');
+    const precioProducto = document.getElementById('precio');
+    const codProducto = document.getElementById('codigo_producto');
+
+    const docu = await doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto.value);
+    const obSnap = await getDoc(docu);
+    if (!obSnap.exists()) {
+        const docData = {
+            nombre: "nomProducto.value",
+            precio: "precioProducto.value",
+            foto: "imgProducto"
+        };
+        const refeCatalogoEmpresa = doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto.value);
+        await setDoc(refeCatalogoEmpresa, docData);
+        await Swal.fire({
+            icon: 'success',
+            title: 'Exito!',
+            text: 'Usuario registrado',
+            toast : true
+        })
+        formProducto.reset();        
+    } else {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Producto ya registrado!',
+            toast : true
+        })
+        formProducto.reset();
+    }
 }
