@@ -225,7 +225,8 @@ async function registrarPV(e){
     
             };
             await setDoc(doc(db, "Puntoventa",mail), docData);
-
+            alert("Punto de venta registrado con exito")
+            formPV.reset();
         } else {
             alert("ya esta registrado");
             
