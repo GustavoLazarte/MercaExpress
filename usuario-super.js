@@ -285,20 +285,20 @@ formProducto.addEventListener('submit', e => añadirProducto(e));
 
 async function añadirProducto(e) {
     e.preventDefault();
-    const imgProducto = subirImagen('fotos_del_producto');
-    const nomProducto = document.getElementById('nombre_producto');
-    const precioProducto = document.getElementById('precio');
-    const codProducto = document.getElementById('codigo_producto');
+    const imgProducto = await subirImagen('fotos_del_producto');
+    const nomProducto = document.getElementById('nombre_producto').value;
+    const precioProducto = document.getElementById('precio').value;
+    const codProducto = document.getElementById('codigo_producto').value;
 
-    const docu = await doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto.value);
+    const docu = await doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto);
     const obSnap = await getDoc(docu);
     if (!obSnap.exists()) {
         const docData = {
-            nombre: "nomProducto.value",
-            precio: "precioProducto.value",
-            foto: "imgProducto"
+            nombre: nomProducto,
+            precio: precioProducto,
+            foto: imgProducto
         };
-        const refeCatalogoEmpresa = doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto.value);
+        const refeCatalogoEmpresa = doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto);
         await setDoc(refeCatalogoEmpresa, docData);
         await Swal.fire({
             icon: 'success',
@@ -314,6 +314,29 @@ async function añadirProducto(e) {
             text: 'Producto ya registrado!',
             toast : true
         })
-        formProducto.reset();
+        document.getElementById('codigo_producto').value = "";
     }
 }
+
+const listaC = document.getElementById('catalogos_disponibles');
+
+listaC.onchange = actualizarLista(listaC);
+
+async function actualizarLista(combo) {
+    combo.innerHTML = '';
+    const coleccion = await collection(db, "empresa");
+    const querySnapshote = await getDocs(coleccion);
+    await querySnapshote.forEach((doc) => {
+        var divN = document.createElement('div')
+        divN.setAttribute('class', 'nombre_empresa')
+        var opt = document.createElement('input');
+        opt.value = doc.data().nombre;
+        opt.type  = "button"
+        opt.setAttribute('class', "nombre_cliente_empresa")
+        divN.appendChild(opt);
+        combo.appendChild(divN);
+    });
+
+
+    console.log(combo);
+};
