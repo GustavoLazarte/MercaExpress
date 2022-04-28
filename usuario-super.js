@@ -213,6 +213,15 @@ async function registrarPV(e){
     const mail = document.getElementById('e-mailVenta').value;
     const comparar = query(up, where("Mail", "==", mail))
     const querySnapshot = await getDocs(comparar);
+    const comp = await collection(db, "users");
+    const q = query(comp, where("email", "==", res));
+    const consulta = await getDocs(q);
+    if(consulta.empty){
+        
+        alert ("responsable no existe") 
+        
+    }else{
+        
         if(querySnapshot.empty){
 
             const docData = {
@@ -231,6 +240,7 @@ async function registrarPV(e){
             alert("ya esta registrado");
             
         }
+    }
     
 }
 async function fotoPV() {
