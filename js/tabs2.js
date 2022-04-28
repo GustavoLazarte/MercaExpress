@@ -24,3 +24,17 @@ $(function(){
         event.preventDefault();
     });
 });
+
+$(function(){
+    $("#volver").click(function(){
+        $("#contenedor_para_registrar_catalogo").hide();
+        $("#contenedor_ingresar_catalogo").show();
+    });
+});
+
+$(function(){
+    $(".nombre_cliente_empresa").click(function(){
+        $("#contenedor_para_registrar_catalogo").hide();
+        $("#contenedor_ingresar_catalogo").hide();
+    });
+});

@@ -211,24 +211,35 @@ async function registrarPV(e) {
     const mail = document.getElementById('e-mailVenta').value;
     const comparar = query(up, where("Mail", "==", mail))
     const querySnapshot = await getDocs(comparar);
-    if (querySnapshot.empty) {
+    const comp = await collection(db, "users");
+    const q = query(comp, where("email", "==", res));
+    const consulta = await getDocs(q);
+    if(consulta.empty){
+        
+        alert ("responsable no existe") 
+        
+    }else{
+        
+        if(querySnapshot.empty){
 
-        const docData = {
-            Mail: mail,
-            Nombre: nom,
-            Direccion: dire,
-            Responsable: res,
-            Telefono: tel,
-            Imagen: img
-
-        };
-        await setDoc(doc(db, "Puntoventa", mail), docData);
-
-    } else {
-        alert("ya esta registrado");
-
+            const docData = {
+                Mail: mail,
+                Nombre:nom,
+                Direccion:dire,
+                Responsable:res,    
+                Telefono:tel,
+                Imagen:img
+    
+            };
+            await setDoc(doc(db, "Puntoventa",mail), docData);
+            alert("Punto de venta registrado con exito")
+            formPV.reset();
+        } else {
+            alert("ya esta registrado");
+            
+        }
     }
-
+    
 }
 async function fotoPV() {
     var file = document.getElementById('foto_producto').files[0];

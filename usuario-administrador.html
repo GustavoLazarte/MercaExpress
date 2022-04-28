@@ -126,24 +126,55 @@
             </div>
         </div>
 
-        <div class="bloque_registrar_catalogo " id="catalogo">
-            <div class="bloque " id="Lista_empresa">
+        <div class="content_bloque" id="catalogo">
+            <div class="bloque " id="lista_empresas">
                 <div>
-                    <section class="contenedor hola activa" id="contenedor_ingresar_catalogo">
-                        <form class="formulario_lista_catalogo" id="seleccion_catalogo">
+                    <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
+                        <h2>Seleccionar Empresa para Registrar Catalogo:</h2>
+                        <form action="" class="formulario_lista_catalogo">
                             <fieldset id="formulario_ingreso_empresa">
                                 <label for="nombre_empresa">CATÁLOGO:</label>
                                 <select name="empresa" id="seleccion"></select>
                                 <input type="submit" id="ingresar" value="Ingresar" class="validador">
                             </fieldset>
                         </form>
+                        <h3>Ver catalogo de empresa:</h3>
+                        <div class="vista_empresa">
+                            <section class="lista_empresa">
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                                <div class="nombre_empresa">
+                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
+                                </div>
+                            </section>
+                        </div>
                     </section>
 
-                    <div class="bloque_catalogo holas " id="contenedor_para_registrar_catalogo">
+                    <div class="bloque_catalogo" id="contenedor_para_registrar_catalogo">
                         <div class="registrar_catalogo">
                             <h2>AÑADIR PRODUCTO</h2>
-                            <input type="text" id="nombre_empresa" readonly class="nombre_de_empresa">
-                            <form class="formulario-registro" id="formulario_registro">
+                            <input type="text" value="coco-cola" readonly class="nombre_de_empresa">
+                            <input type="button" value="Volver" id="volver">
+                            <form class="formulario-registro">
                                 <fieldset id="campo_añadir_producto">
                                     <label for="nombre_producto">Nombre del Producto:</label>
                                     <input type="text" name="nombre_producto" id="nombre_producto" value=""><br>
@@ -165,6 +196,10 @@
                         </div>
                     </div>
                     
+                    <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
+
+                    </div>
+
                 </div>
             </div>
         </div>
