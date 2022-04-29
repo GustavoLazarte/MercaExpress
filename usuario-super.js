@@ -84,25 +84,27 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
         };
         await setDoc(doc(db, "users", email), docData);
 
-        Swal.fire({
-            position: 'center',
-            color:'yellow',
+        await Swal.fire({
             icon: 'success',
-            title: 'Usuario Registrado ',
-            showConfirmButton: false, 
-            background: '#312d2d',
-          })
+            title: 'Correcto',
+            text: 'Usuario Registrado!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast : true
+        })
         
         form.reset();
     } else {
-        Swal.fire({
-            position: 'center',
-            color:'yellow',
+        await Swal.fire({
             icon: 'error',
-            title: 'El Correo Electronico ya existe',
-            showConfirmButton: false, 
-            background: '#312d2d',
-          })
+            title: 'Error',
+            text: 'El Correo Electronico ya existe!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast : true
+        })
         document.getElementById('e-mail').value = "";
     }
 }
@@ -185,23 +187,25 @@ async function registrarEmpresa(e) {
         };
         await setDoc(doc(db, "empresa", cod), docData);
         await Swal.fire({
-            position: 'center',
-            color:'yellow',
             icon: 'success',
-            title: 'Empresa Registrado ',
-            showConfirmButton: false, 
-            background: '#312d2d',
-          })
+            title: 'Correcto',
+            text: 'Empresa Registrado!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast : true
+        })
         
     } else {
         await Swal.fire({
-            position: 'center',
-            color:'yellow',
             icon: 'error',
-            title: 'Esta Empresa Ya existe ',
-            showConfirmButton: false, 
-            background: '#312d2d',
-          })
+            title: 'Error',
+            text: 'Esta Empresa Ya Existe!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast : true
+        })
         
         nom.value = "";
     }
@@ -247,13 +251,14 @@ async function registrarPV(e) {
     if(consulta.empty){
         
         await Swal.fire({
-            position: 'center',
-            color:'yellow',
             icon: 'error',
-            title: 'El Responsable No Existe',
-            showConfirmButton: false, 
-            background: '#312d2d',
-          }) 
+            title: 'Error',
+            text: 'El Responsanble No existe!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast : true
+        })
         
     }else{
         
@@ -270,24 +275,26 @@ async function registrarPV(e) {
             };
             await setDoc(doc(db, "Puntoventa",mail), docData);
             await Swal.fire({
-                position: 'center',
-                color:'yellow',
                 icon: 'success',
-                title: 'Punto De Venta Registrado ',
-                showConfirmButton: false, 
-                background: '#312d2d',
-              })
+                title: 'Correcto',
+                text: 'Punto De Venta Registrado!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                toast : true
+            })
             
             formPV.reset();
         } else {
-           await Swal.fire({
-                position: 'center',
-                color:'yellow',
+            await Swal.fire({
                 icon: 'error',
-                title: 'Este Punto De Venta Ya Esta Registrado',
-                showConfirmButton: false, 
-                background: '#312d2d',
-              })
+                title: 'Error',
+                text: 'Este Punto De Venta Ya Esta Registrado!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                toast : true
+            })
             
             
         }
@@ -355,10 +362,11 @@ async function añadirProducto(e) {
         await setDoc(refeCatalogoEmpresa, docData);
         await Swal.fire({
             icon: 'success',
-            title: 'Exito!',
-            text: 'Usuario registrado',
-            color: 'yellow',
-            background: '#312d2d',
+            title: 'Correcto',
+            text: 'Producto Registrado!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
             toast : true
         })
         formProducto.reset();        
@@ -366,9 +374,10 @@ async function añadirProducto(e) {
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Producto ya registrado!',
-            color: 'yellow',
-            background: '#312d2d',
+            text: 'Producto ya Esta Registrado!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
             toast : true
         })
         document.getElementById('codigo_producto').value = "";
