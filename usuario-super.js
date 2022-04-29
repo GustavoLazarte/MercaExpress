@@ -402,7 +402,14 @@ async function actualizarLista(combo) {
         divN.appendChild(opt);
         combo.appendChild(divN);
     });
-
+    
+    $(function(){
+        $(".nombre_cliente_empresa").click(function(){
+            $("#contenedor_para_registrar_catalogo").hide();
+            $("#contenedor_ingresar_catalogo").hide();
+            $("#contenedor_visualizar_catalogo").show();
+        });
+    });
 
     console.log(combo);
 };

@@ -123,86 +123,107 @@
                 </section>
             </div>
         </div>
-        <div class="content_bloque" id="catalogo">
-            <div class="bloque " id="lista_empresas">
-                <div>
-                    <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
-                        <h2>Seleccionar Empresa para Registrar Catalogo:</h2>
-                        <form action="" class="formulario_lista_catalogo">
-                            <fieldset id="formulario_ingreso_empresa">
-                                <label for="nombre_empresa">CATÁLOGO:</label>
-                                <select name="empresa" id="seleccion">
-                                    
-                                </select>
-                                <input type="submit" id="ingresar" value="Ingresar" class="validador">
-                            </fieldset>
-                        </form>
-                        <h3>Ver catalogo de empresa:</h3>
-                        <div class="vista_empresa">
-                            <section class="lista_empresa">
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                                <div class="nombre_empresa">
-                                    <input type="button" value="Coca-Cola" class="nombre_cliente_empresa">
-                                </div>
-                            </section>
-                        </div>
+        <div class="content_bloque1 bloque" id="catalogo lista_empresas">
+            
+                
+            <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
+                <h2>Seleccionar Empresa para Registrar Catalogo:</h2>
+                <form action="" class="formulario_lista_catalogo">
+                    <fieldset id="formulario_ingreso_empresa">
+                        <label for="nombre_empresa">CATÁLOGO:</label>
+                        <select name="empresa" id="seleccion"></select>
+                        <input type="submit" id="ingresar" value="Ingresar" class="validador">
+                    </fieldset>
+                </form>
+                <h3>Ver catalogo de empresa:</h3>
+                <div class="vista_empresa">
+                    <section class="lista_empresa" id="catalogos_disponibles">
+                        <input type="button" value="hola" class="nombre_cliente_empresa">
                     </section>
+                </div>
+            </section>
 
-                    <div class="bloque_catalogo" id="contenedor_para_registrar_catalogo">
-                        <div class="registrar_catalogo">
-                            <h2>AÑADIR PRODUCTO</h2>
-                            <input type="text" value="coco-cola" readonly class="nombre_de_empresa">
-                            <input type="button" value="Volver" id="volver">
-                            <form class="formulario-registro">
-                                <fieldset id="campo_añadir_producto">
-                                    <label for="nombre_producto">Nombre del Producto:</label>
-                                    <input type="text" name="nombre_producto" id="nombre_producto" value=""><br>
-                                    <label for="codigo_producto">Codigo del Producto:</label>
-                                    <input type="text" name="codigo_producto" id="codigo_producto" value=""><br>
-                                    <label for="precio">Precio:</label>
-                                    <input type="number" name="precio" id="precio" value=""><br>
-                                    <label for="foto">Foto del producto:</label>
-                                    <label class="custom-file-upload">
-                                        <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
-                                        Subir Archivo
-                                    </label><br>
-                                    <input id="registrar_producto_catalogo" type="submit" value="Añadir punto de venta">
-                                    <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
-
-                                </fieldset>
-                            </form>
-                        </div>
+            <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
+                <h2>Catalogo de la Empresa:</h2>
+                <hr class="hr1">
+                <div class="portada_empresa">
+                    <img src="img/cc_portada.jpg" alt="portada de Coca-Cola" class="portada_foto_empresa">
+                    <div class="texto_encima">
+                        <label for="nombre_de_la_empresa" class="texto_portada">Nombre:</label>
+                        <input type="text" name="nombre_de_la_empresa" id="nombre_de_la_empresa" value="Coca-Cola sa." readonly class="input_texto_empresa"><br>
+                        <label for="nombre_del_responsable" class="texto_portada">Responsable:</label>
+                        <input type="text" name="nombre_del_responsable" id="nombre_del_responsable" value="Valeri Alekséyevich Legásov" readonly class="input_texto_empresa"><br>
+                        <label for="codigo_empresa" class="texto_portada">Codigo:</label>
+                        <input type="text" name="codigo_empresa" id="codigo_empresa" value="c152" readonly class="input_texto_empresa"><br>
+                        <label for="direccion_empresa" class="texto_portada">Dirección:</label>
+                        <input type="text" name="direccion_empresa" id="direccion_empresa" value="Av. Blanco Galindo km: 10" readonly class="input_texto_empresa"><br>
+                        <label for="telefono_empresa" class="texto_portada">Teléfono:</label>
+                        <input type="number" name="telefono_empresa" id="telefono_empresa" value="4523687" readonly class="input_texto_empresa"><br>
+                        <input type="button" value="Volver" class="volvers">
+                    </div>
+                </div>
+                <hr class="hr2">
+                <section class="lista_producto">
+                    <div class="producto_item">
+                        <img src="img/CC_Origal.jpg" alt="">
+                        <a href="#" class="datos_producto">
+                            <label for="nombre_producto1">Nombre:</label>
+                            <input type="text" name="nombre_producto1" id="nombre_producto1" value="CC. mini 190ml" readonly class="input_texto_producto"><br>
+                            <label for="codigo_producto1">Cod. Prod:</label>
+                            <input type="text" name="codigo_producto1" id="codigo_producto1" value="101" readonly class="input_texto_producto"><br>
+                            <label for="precio_producto">Precio:</label>
+                            <input type="text" name="precio_producto" id="precio_producto" value="1,5bs" readonly class="input_texto_producto"><br>
+                        </a>
+                    </div>
+                    <div class="producto_item">
+                        <img src="img/CC_Origal.jpg" alt="">
+                        <a href="#" class="datos_producto">
+                            <label for="nombre_producto1">Nombre:</label>
+                            <input type="text" name="nombre_producto1" id="nombre_producto1" value="CC. mini 190ml" readonly class="input_texto_producto"><br>
+                            <label for="codigo_producto1">Cod. Prod:</label>
+                            <input type="text" name="codigo_producto1" id="codigo_producto1" value="101" readonly class="input_texto_producto"><br>
+                            <label for="precio_producto">Precio:</label>
+                            <input type="text" name="precio_producto" id="precio_producto" value="1,5bs" readonly class="input_texto_producto"><br>
+                        </a>
                     </div>
                     
-                    <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
+                </section>
+            </div>
 
-                    </div>
+            <div class="bloque_catalogo " id="contenedor_para_registrar_catalogo">
+                <div class="registrar_catalogo">
+                    <h2>AÑADIR PRODUCTO</h2>
+                    <input id = "nombre_empresa" type="text" value="" readonly class="nombre_de_empresa">
+                    <input type="button" value="Volver" class="volver">
+                    <form class="formulario-registro" id = "formulario_registro">
+                        <fieldset id="campo_añadir_producto">
+                            <label for="nombre_producto">Nombre del Producto:</label>
+                            <input type="text" name="nombre_producto" id="nombre_producto" value=""><br>
+                            <label for="codigo_producto">Codigo del Producto:</label>
+                            <input type="text" name="codigo_producto" id="codigo_producto" value=""><br>
+                            <label for="precio">Precio:</label>
+                            <input type="number" name="precio" id="precio" value=""><br>
+                            <label for="foto">Foto del producto:</label>
+                            <label class="custom-file-upload">
+                                <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
+                                Subir Archivo
+                            </label><br>
 
+                            <input id="registrar_producto_catalogo" type="submit" value="Añadir punto de venta">
+                            <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
+
+                        </fieldset>
+                    </form>
                 </div>
             </div>
-        </div>
+            
+            
+
         
-        <div class="content_bloque">
+    
+</div>
+
+        <div class="content_bloque2">
             <div class="bloque " id="registrar_venta">
                 <section class="contenedor">
                     <h2>AÑADIR PUNTO DE VENTA</h2>
@@ -230,7 +251,7 @@
                 </section>
             </div>
         </div>
-        <div class="content_bloque">
+        <div class="content_bloque3">
             <div class="bloque " id="registrar_empresas">
                 <section class="contenedor">
                     <h2>REGISTRAR EMPRESA</h2>

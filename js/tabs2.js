@@ -17,17 +17,20 @@
 //    });
 //});
 $("#contenedor_para_registrar_catalogo").hide();
+$("#contenedor_visualizar_catalogo").hide();
 $(function(){
     $("#ingresar").click(function(event){
         $("#contenedor_ingresar_catalogo").hide();
+        $("#contenedor_visualizar_catalogo").hide();
         $("#contenedor_para_registrar_catalogo").show();
         event.preventDefault();
     });
 });
 
 $(function(){
-    $("#volver").click(function(){
+    $(".volver").click(function(){
         $("#contenedor_para_registrar_catalogo").hide();
+        $("#contenedor_visualizar_catalogo").hide();
         $("#contenedor_ingresar_catalogo").show();
     });
 });
@@ -36,5 +39,14 @@ $(function(){
     $(".nombre_cliente_empresa").click(function(){
         $("#contenedor_para_registrar_catalogo").hide();
         $("#contenedor_ingresar_catalogo").hide();
+        $("#contenedor_visualizar_catalogo").show();
+    });
+});
+
+$(function(){
+    $(".volvers").click(function(){
+        $("#contenedor_visualizar_catalogo").hide();
+        $("#contenedor_para_registrar_catalogo").hide();
+        $("#contenedor_ingresar_catalogo").show();
     });
 });
