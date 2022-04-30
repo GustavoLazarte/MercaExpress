@@ -218,15 +218,7 @@ input[type="file"] {
     background: #ffaa00;
     color: black;
 }
-#registrar{
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-}
-#registrar:hover{
-    background: #535050;
-    color: #ffffff;
-}
+
 #cancelar{
     font-size: 14px;
     cursor: pointer;
@@ -356,7 +348,7 @@ input[type="file"] {
 }
 #registrar{
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 35%;
+    margin-left: 39%;
     font-size: 16px;
     height: 26px;
     padding: 0 10px;
@@ -468,27 +460,86 @@ input[type="file"] {
     background: #ffaa00;
 }
 /*registrar empresa*/
+.contenedor h2{
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
 .content .contenedor .formulario-registro #campo_añadir_empresa label{
-    margin-left: 10px;
-    width: 25%;
-}
-#nombreEmpresa{
-    width: 50%;
-}
-#cod_empresa{
-    width: 50%;
-}
-#dirección_Empresa{
-    width: 50%;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 35%;
 }
 
+#nombreEmpresa{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 55%;
+    height: 24px;
+    font-size: 16px;
+    white-space: 5px;
+    padding-left: 10px;
+}
+#cod_empresa{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 55%;
+    height: 24px;
+    font-size: 16px;
+    white-space: 5px;
+    padding-left: 10px;
+}
+#dirección_Empresa{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 55%;
+    height: 24px;
+    font-size: 16px;
+    white-space: 5px;
+    padding-left: 10px;
+}
+#responsable_empresa{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 55%;
+    height: 24px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+#telefono_empresa_cliente{
+    width: 55%;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 24px;
+    font-size: 16px;
+    padding-left: 10px;
+}
 #registrar_empresa{
+    font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
-    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 39%;
+    
+    align-items: center;
+    font-size: 16px;
+    height: 26px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#registrar_empresa:hover{
+    background: #ffaa00;
 }
 #cancelar_formulario_empresa{
-    height: 25px;
-}/*
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    padding: 0 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#cancelar_formulario_empresa:hover{
+    background: #ffaa00;
+}
+#campo_añadir_venta{
+    width: auto;
+}
+/*
 #campo_añadir_venta{
     text-align: center;
     width: auto;
