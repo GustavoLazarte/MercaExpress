@@ -408,30 +408,71 @@ input[type="file"] {
     width: 100%;
 }
 .content .contenedor .formulario-registro #campo_añadir_venta label{
-    margin-left: 10px;
-    width: 25%;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 30%;
 }
 #direcciónVenta{
-    margin-bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    width: 55%;
+    padding-left: 10px;
 }
-#registrar_punto_venta{
-    margin-top: 5px;
-}
+
 #nombreVenta{
-    margin-top: 10px;
-    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    width: 55%;
+    padding-left: 10px;
 }
 #responsable{
-    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    width: 55%;
+    padding-left: 10px;
 }
 #telefonoVenta{
-    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    width: 55%;
+    padding-left: 10px;
 }
 #e-mailVenta{
-    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    width: 55%;
+    padding-left: 10px;
 }
-#direcciónVenta{
-    width: 50%;
+#registrar_punto_venta{
+    margin-left: 34%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#registrar_punto_venta:hover{
+    background: #ffaa00;
+}
+#cancelar_formulario{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 5px 10px;
+    height: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#cancelar_formulario:hover{
+    background: #ffaa00;
 }
 
 /*registrar empresa*/
