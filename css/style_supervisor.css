@@ -276,52 +276,108 @@ input[type="file"] {
 .content .bloque.activo{
     transform: scale(1);
 }
+/*Registro de usuario*/
 #campo_datos{
-    text-align: center;
-    width: auto;
+
+    width: 100%;
 }
 .content .contenedor .formulario-registro #campo_datos label{
-    text-align: center;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 35%;
 }
-#elegirRol{
-    text-align: center;
-    width: 60%;
-    height: 17px;
-    font-size: 14px;
-}
+
 /*.content .contenedor .formulario-registro #campo_datos input{
     font-family: Arial, Helvetica, sans-serif;
     width: 60%;
     height: auto;
 }*/
 #nombre{
-    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    height: 26px;
 }
 #apellido{
-    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    height: 26px;
 }
 #e-mail{
-    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    height: 26px;
 }
 #telefono{
-    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    height: 26px;
 }
 #dirección{
-    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    height: 26px;
 }
 #password{
-    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    height: 26px;
 }
 #confirmar_contraseña{
-    width: 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    height: 26px;
+}
+.contenedor_select{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+#elegirRol{
+    position: relative;
+    left: 5px;
+    height: 26px;
+    padding: 0 15px;
+    font-size: 16px;
 }
 #registrar{
-    width: 25%;
-    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 35%;
+    font-size: 16px;
+    height: 26px;
+    padding: 0 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#registrar:hover{
+    background: #ffaa00;
 }
 #cancelar{
-    width: 25%;
-    font-size: 14px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    padding: 0 10px;
+    height: 26px;
+    font-weight: bold;
+}
+#cancelar:hover{
+    background: #ffaa00;
 }
 @media(max-width:900px){
     .formulario-registro{
