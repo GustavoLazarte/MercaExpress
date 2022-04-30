@@ -631,39 +631,119 @@ input[type="file"] {
 }*/
 /*Añadir producto*/
 #contenedor_para_registrar_catalogo{
-    width: auto;
+    width: 100%;
     margin: auto;
+    position:relative;
+    left: 40%;
 }
 .bloque_catalogo .registrar_catalogo h2{
     text-align: center;
-}
-
-
-.bloque_catalogo{
-    margin-left: 60px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 .bloque_catalogo .registrar_catalogo .nombre_de_empresa{
-    margin-bottom: 1px;
+    margin-bottom: 10px;
     border-radius: 4px;
     border: none;
     height: 30px;
-    width: 100px;
+    padding: 0 10px;
     text-align: center;
     font-size: 16px;
-    color: #ffffff;
-    background-color: #312d2d;
-}
-#lista_empresas #contenedor_ingresar_catalogo h2{
-    font-size: 18px;
+    color: black;
+    background-color: #ccc;
 }
 
+#campo_añadir_producto label{
+    font-size: 16px;
+    margin-left: 15px;
+    width: 33%;
+}
+.espaciador_nombre_producto{
+    margin-top: 15px;
+}
+#campo_añadir_producto .input_añadir_producto{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 60%;
+    height: 26px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+#registrar_producto_catalogo{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-left: 37%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: 26px;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#registrar_producto_catalogo:hover{
+    background: #ffaa00;
+}
+#cancelar_formulario_catalogo{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 26px;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+#cancelar_formulario_catalogo:hover{
+    background: #ffaa00;
+}
+
+/*Seleccionar empresa para registra catalogo*/
+#lista_empresas #contenedor_ingresar_catalogo h2{
+    font-size: 26px;
+}
+#contenedor_ingresar_catalogo h2{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
 #contenedor_ingresar_catalogo{
-    width: auto;
+    width: 100%;
     margin: auto;
+    position: relative;
+    left: 40%;
+}
+#formulario_ingreso_empresa{
+    border: 0;
+    height: 40px;
+}
+#formulario_ingreso_empresa label{
+    font-size: 16px;
+    margin-left: 20px;
+}
+#seleccion{
+    width: 50%;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#ingresar{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    height: 30px;
+    margin-left: 0px;
+    padding: 0 15px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+#ingresar:hover{
+    background: #ffaa00;
 }
 
 /*Catalogo*/
-
+.contenedor_catalogo h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
 #contenedor_visualizar_catalogo{
     width: auto;
     margin: auto;
@@ -809,28 +889,31 @@ input[type="file"] {
     margin-top: 10px;
     margin-bottom: 4px;
     font-size: 16px;
-    padding: 2px 10px;
     border-radius: 10px;
     color: #ffffff;
     background: #312d2d;
+    font-weight: bold;
+    height: 30px;
+    padding: 0 15px;
 }
 .volvers:hover{
-    background: #ffcc00;
+    background: #ffaa00;
     color: #312d2d;
 }
 .volver{
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 5px;
-    margin-bottom: 8px;
     font-size: 16px;
-    padding: 4px 10px;
-    border-radius: 10px;
-    color: #ffffff;
-    background: #312d2d;
+    border-radius: 15px;
+    color: black;
+    background: #ffffff;
     cursor: pointer;
+    float: right;
+    font-weight: bold;
+    height: 30px;
+    padding: 0 15px;
 }
 .volver:hover{
-    background: #ffcc00;
+    background: #ffaa00;
     color: #312d2d;
 }
 
