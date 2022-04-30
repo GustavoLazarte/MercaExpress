@@ -106,10 +106,12 @@
                             <label for="confirmar_contraseña">Confirmar Contraseña:</label>
                             <input type="password" name="confirmar_contraseña" id="confirmar_contraseña" required=""
                                 minlength="8" maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
-                            <Label for="usuario">Tipo de Usuario:</Label>
-                            <select name="usuario" id="elegirRol">
-                                <option value="Vendedor">Vendedor</option>
+                            <div class="contenedor_select">
+                                    <Label for="usuario">Tipo de Usuario:</Label>
+                                <select name="usuario" id="elegirRol">
+                                    <option value="Vendedor">Vendedor</option>
                             </select><br>
+                            </div>
                             <label for="foto">Foto:</label>
                             <label class="custom-file-upload">
                                 <input accept="image/jpg,image/jpeg" id="perfil" type="file"
@@ -259,10 +261,14 @@
                         <fieldset id="campo_añadir_empresa">
                             <label for="nombreEmpresa">Nombre de la Empresa:</label>
                             <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value=""><br>
+                            <label for="responsable_empresa">Responsable:</label>
+                            <input type="text" placeholder="" name="responsable_empresa" id="responsable_empresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value=""><br>
                             <label for="cod_empresa">Código de la Empresa:</label>
                             <input type="text" placeholder="" name="cod_empresa" id="cod_empresa" maxlength="10" required="" pattern="[a-z A-Z0-9]+" minlength="3" value=""><br>
                             <label for="dirección_Empresa">Dirección:</label>
                             <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+"><br>
+                            <label for="telefono_empresa_cliente">Teléfono:</label>
+                            <input type="tel" name="telefono_empresa_cliente" id="telefono_empresa_cliente" minlength="7" maxlength="8" pattern="[0-9]+" required=""><br>
                             <input id="registrar_empresa" type="submit" value="Registrar">
                             <input id="cancelar_formulario_empresa" type="reset" value="Cancelar">
                         </fieldset>
