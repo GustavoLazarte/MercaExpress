@@ -203,12 +203,18 @@ input[type="file"] {
     display: none;
 }
 .custom-file-upload {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #535050;
     text-align: center;
     border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
     border-radius: 2rem;
+}
+.custom-file-upload:hover{
+    background: #ffaa00;
+    color: black;
 }
 #registrar{
     font-size: 14px;
