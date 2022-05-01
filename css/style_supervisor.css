@@ -26,7 +26,7 @@ body{
 #sidemenu{
     background-color: var(--bgcolor);
     color: #ffffff;
-    position: fixed;
+    position: absolute;
     height: 100%;
     left: 0;
     top: 0;
@@ -141,17 +141,17 @@ body{
     margin: 0;
     display: none;
 }
-/*[data-content]{
+/**[data-content]{
     display: none;
 }
 .active[data-content]{
     display: block;
-}*/
+}**/
 /*formulario de registro*/
 .contenedor h2{
+    position: relative;
     text-align: center;
     text-transform: uppercase;
-    position: relative;
 }
 .formulario-registro{
     background-color: #312d2d;
@@ -169,9 +169,6 @@ body{
     width: 100%;
     height: auto;
 }
-
-
-
 .formulario-registro1{
     background-color: #312d2d;
     border-radius: 2rem;
@@ -184,8 +181,10 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;*/
-    position: relative;
-    width: 550px;
+    position: inherit;
+    width: 100%;
+    /*position: relative;
+    width: 550px;*/
     height: auto;
 }
 .formulario-registro2{
@@ -220,10 +219,6 @@ body{
     width: 100%;
     height: auto;
 }
-
-
-
-
 .formulario-registro label{
     color: #ffffff;
     font-weight: bold;
@@ -254,6 +249,7 @@ body{
     position: relative;
     left: 20%;
 }
+
 
 
 
@@ -368,16 +364,17 @@ input[type="file"] {
     display: none;
 }
 .custom-file-upload {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #535050;
     text-align: center;
     border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
     border-radius: 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #535050;
     position: relative;
     left: -14px;
+    margin-top: 5px;
 }
 .custom-file-upload:hover{
     background: #ffaa00;
@@ -387,6 +384,7 @@ input[type="file"] {
 #cancelar{
     font-size: 14px;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
     border: none;
 }
 #cancelar:hover{
@@ -400,10 +398,10 @@ input[type="file"] {
     background-color: #535050;
 }
 /*.content{
-    position: relative;
+    position: relative; 
     margin: 20px 0px;
     max-width: 1100px;
-    width: 90%;
+    width: 100%;
     margin: auto;
 }*/
 .content_bloque{
@@ -431,11 +429,12 @@ input[type="file"] {
     transform: scale(0);
 }
 .content .bloque.activo{
+
     transform: scale(1);
 }
 /*Registro de usuario*/
 #campo_datos{
-
+    
     width: 100%;
 }
 .content .contenedor .formulario-registro #campo_datos label{
@@ -510,6 +509,8 @@ input[type="file"] {
 #cancelar:hover{
     background: #ffaa00;
 }
+
+
 /*Añadir punto de venta*/
 #campo_añadir_venta{
     width: 100%;
@@ -568,6 +569,7 @@ input[type="file"] {
 #cancelar_formulario:hover{
     background: #ffaa00;
 }
+
 /*registrar empresa*/
 .contenedor h2{
     margin-top: 25px;
@@ -579,24 +581,7 @@ input[type="file"] {
     font-size: 16px;
     width: 210px;
 }
-
-#nombreEmpresa{
-    font-family: Arial, Helvetica, sans-serif;
-    width: 350px;
-    height: 24px;
-    font-size: 16px;
-    margin-right: 15px;
-    padding-left: 10px;
-}
-#cod_empresa{
-    font-family: Arial, Helvetica, sans-serif;
-    width: 350px;
-    height: 24px;
-    font-size: 16px;
-    margin-right: 15px;
-    padding-left: 10px;
-}
-#dirección_Empresa{
+#nombreEmpresa{   
     font-family: Arial, Helvetica, sans-serif;
     width: 350px;
     height: 24px;
@@ -609,18 +594,32 @@ input[type="file"] {
     width: 350px;
     height: 24px;
     font-size: 16px;
-    margin-right: 15px;
     padding-left: 10px;
 }
-#telefono_empresa_cliente{
+#cod_empresa{
     font-family: Arial, Helvetica, sans-serif;
     width: 350px;
     height: 24px;
     font-size: 16px;
-    margin-right: 15px;
+    white-space: 5px;
     padding-left: 10px;
 }
-#registrar_empresa{
+#dirección_Empresa{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 350px;
+    height: 24px;
+    font-size: 16px;
+    white-space: 5px;
+    padding-left: 10px;
+}
+#telefono_empresa_cliente{
+    width: 350px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 24px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+#registrar_empresa{  
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -647,15 +646,11 @@ input[type="file"] {
 #cancelar_formulario_empresa:hover{
     background: #ffaa00;
 }
+
 #campo_añadir_venta{
     width: auto;
 }
-/*
-#campo_añadir_venta{
-    text-align: center;
-    width: auto;
-}
-#campo_añadir_empresa{
+/* #campo_añadir_empresa{
     text-align: center;
     width: auto;
 }*/
@@ -743,17 +738,12 @@ input[type="file"] {
     width: 100%;
     margin: auto;
     position:relative;
-    left: 40%;
-}   
+    left: 70%;
+}
 .bloque_catalogo .registrar_catalogo h2{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 15px;
-}
-
-
-.bloque_catalogo{
-    margin-left: 60px;
 }
 .bloque_catalogo .registrar_catalogo .nombre_de_empresa{
     margin-bottom: 10px;
@@ -770,22 +760,27 @@ input[type="file"] {
 #campo_añadir_producto label{
     font-size: 16px;
     margin-left: 15px;
-    width: 33%;
+    width: 200px;
 }
 .espaciador_nombre_producto{
     margin-top: 15px;
 }
 #campo_añadir_producto .input_añadir_producto{
     font-family: Arial, Helvetica, sans-serif;
-    width: 60%;
+    width: 300px;
     height: 26px;
     padding-left: 10px;
     margin-bottom: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+#precio{
+    margin-bottom: 25px;
 }
 #registrar_producto_catalogo{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    margin-left: 37%;
+    margin-left: 20%;
     margin-top: 15px;
     margin-bottom: 20px;
     height: 26px;
@@ -852,6 +847,7 @@ input[type="file"] {
 #ingresar:hover{
     background: #ffaa00;
 }
+
 /*Catalogo*/
 .contenedor_catalogo h3{
     font-size: 18px;
@@ -863,8 +859,9 @@ input[type="file"] {
 }
 #contenedor_visualizar_catalogo hr{
     width: 100%;
-    height: 1px;
+    height: 4px;
     background: #312d2d;
+    color: #312d2d;
     margin: 20px 0px;
 }
 /* foto de fondo de portada*/
@@ -1197,7 +1194,6 @@ input[type="file"] {
         width: auto;
     }
 }
-
 /*Responsive de Añadir punto de venta*/
 @media(max-width: 860px){
     .content .contenedor .formulario-registro2 #campo_añadir_venta label{
@@ -1330,5 +1326,210 @@ input[type="file"] {
         padding-left: 10px;
         height: 26px;
         margin-right: 15px;
+    }
+}
+/*responsive para añadir producto*/
+@media(max-width: 1300px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 60%;
+    }
+}
+@media(max-width: 1280px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 50%;
+    }
+}
+@media(max-width: 1260px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 45%;
+    }
+}
+@media(max-width: 1200px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 40%;
+    }
+}
+@media(max-width: 1180px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 35%;
+    }
+}
+@media(max-width: 1130px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 30%;
+    }
+}
+@media(max-width: 1090px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 25%;
+    }
+}
+@media(max-width: 1050px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 20%;
+    }
+}
+@media(max-width: 1010px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 15%;
+    }
+}
+@media(max-width: 975px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 10%;
+    }
+}
+@media(max-width: 930px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 5%;
+    }
+}
+@media(max-width: 870px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 0%;
+    }
+}
+@media(max-width: 835px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 5%;
+    }
+    #campo_añadir_producto label{
+        font-size: 16px;
+        margin-left: 15px;
+        width: 180px;
+    }
+    .espaciador_nombre_producto{
+        margin-top: 15px;
+    }
+    #campo_añadir_producto .input_añadir_producto{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 250px;
+        height: 26px;
+        padding-left: 10px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        margin-top: 15px;
+    }
+}
+@media(max-width: 790px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 5%;
+    }
+    #campo_añadir_producto label{
+        font-size: 16px;
+        margin-left: 15px;
+        width: 180px;
+    }
+    .espaciador_nombre_producto{
+        margin-top: 15px;
+    }
+    #campo_añadir_producto .input_añadir_producto{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 200px;
+        height: 26px;
+        padding-left: 10px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        margin-top: 15px;
+    }
+}
+@media(max-width: 740px){
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 5%;
+    }
+    #campo_añadir_producto label{
+        font-size: 15px;
+        margin-left: 15px;
+        width: 170px;
+    }
+    .espaciador_nombre_producto{
+        margin-top: 15px;
+    }
+    #campo_añadir_producto .input_añadir_producto{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 180px;
+        height: 26px;
+        padding-left: 10px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        margin-top: 15px;
+    }
+}
+@media(max-width: 710px){
+    .registrar_catalogo{
+        width: auto;
+        /*display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;*/
+    }
+    #contenedor_para_registrar_catalogo{
+        width: 100%;
+        margin: auto;
+        position:relative;
+        left: 5%;
+    }
+    #campo_añadir_producto label{
+        font-size: 15px;
+        margin-left: 15px;
+        width: 170px;
+    }
+    .espaciador_nombre_producto{
+        margin-top: 15px;
+    }
+    #campo_añadir_producto .input_añadir_producto{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 180px;
+        height: 26px;
+        padding-left: 10px;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        margin-top: 15px;
     }
 }
