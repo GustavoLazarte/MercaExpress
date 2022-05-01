@@ -165,8 +165,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;*/
-    position: relative;
-    width: 550px;
+    position: inherit;
+    width: 100%;
     height: auto;
 }
 
@@ -442,61 +442,35 @@ input[type="file"] {
     margin-left: 15px;
     margin-top: 10px;
     font-size: 16px;
-    width: 35%;
+    width: 200px;
 }
-
-/*.content .contenedor .formulario-registro #campo_datos input{
-    font-family: Arial, Helvetica, sans-serif;
-    width: 60%;
-    height: auto;
-}*/
-#nombre{
+.input_registro_usuario{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    width: 50%;
+    width: 300px;
     padding-left: 10px;
+    height: 26px;
+    margin-right: 15px;
+}
+#nombre{
     height: 26px;
 }
 #apellido{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    width: 50%;
-    padding-left: 10px;
     height: 26px;
 }
 #e-mail{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    width: 50%;
-    padding-left: 10px;
     height: 26px;
 }
 #telefono{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    width: 50%;
-    padding-left: 10px;
     height: 26px;
 }
 #dirección{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    width: 50%;
-    padding-left: 10px;
     height: 26px;
 }
 #password{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    width: 50%;
-    padding-left: 10px;
     height: 26px;
 }
 #confirmar_contraseña{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    width: 50%;
-    padding-left: 10px;
     height: 26px;
 }
 .contenedor_select{
@@ -1280,5 +1254,74 @@ input[type="file"] {
     }
     .contenedor h2{
         font-size: 25px;
+    }
+}
+/*Registro de Usuario*/
+@media(max-width: 840px){
+    .content .contenedor .formulario-registro #campo_datos label{
+        margin-left: 15px;
+        margin-top: 10px;
+        font-size: 16px;
+        width: 200px;
+    }
+    .input_registro_usuario{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        width: 250px;
+        padding-left: 10px;
+        height: 26px;
+        margin-right: 15px;
+    }
+}
+@media(max-width: 795px){
+    .content .contenedor .formulario-registro #campo_datos label{
+        margin-left: 15px;
+        margin-top: 10px;
+        font-size: 16px;
+        width: 200px;
+    }
+    .input_registro_usuario{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        width: 200px;
+        padding-left: 10px;
+        height: 26px;
+        margin-right: 15px;
+    }
+}
+
+@media(max-width: 740px){
+    #usuario{
+        
+    }
+    .content .contenedor .formulario-registro #campo_datos label{
+        margin-left: 5px;
+        margin-top: 5px;
+        font-size: 16px;
+        width: 200px;
+    }
+    .input_registro_usuario{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        width: 200px;
+        padding-left: 10px;
+        height: 26px;
+        margin-right: 15px;
+    }
+}
+@media(max-width: 725px){
+    .content .contenedor .formulario-registro #campo_datos label{
+        margin-left: 5px;
+        margin-top: 5px;
+        font-size: 15px;
+        width: 180px;
+    }
+    .input_registro_usuario{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        width: 200px;
+        padding-left: 10px;
+        height: 26px;
+        margin-right: 15px;
     }
 }
