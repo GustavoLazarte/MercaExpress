@@ -220,6 +220,7 @@ async function registrarEmpresa(e) {
         nom.value = "";
     }
     actualizar(comboBoxC)
+    actualizarLista(listaC);
 }
 
 const comboBoxC = document.getElementById('seleccion');

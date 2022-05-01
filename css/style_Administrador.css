@@ -197,8 +197,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;*/
-    position: relative;
-    width: 550px;
+    position: inherit;
+    width: 100%;
     height: auto;
 }
 .formulario-registro3{
@@ -542,48 +542,35 @@ input[type="file"] {
     margin-left: 15px;
     margin-top: 10px;
     font-size: 16px;
-    width: 30%;
+    width: 200px;
 }
-#direcciónVenta{
+.input_añadir_punto_venta{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     height: 26px;
-    width: 55%;
+    width: 320px;
     padding-left: 10px;
+    margin-right: 15px;
 }
-
 #nombreVenta{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
     height: 26px;
-    width: 55%;
-    padding-left: 10px;
 }
 #responsable{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
     height: 26px;
-    width: 55%;
-    padding-left: 10px;
 }
 #telefonoVenta{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
     height: 26px;
-    width: 55%;
-    padding-left: 10px;
 }
 #e-mailVenta{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
     height: 26px;
-    width: 55%;
-    padding-left: 10px;
+}
+#direcciónVenta{
+    height: 26px;
 }
 #registrar_punto_venta{
-    margin-left: 34%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 20%;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 0 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -1216,5 +1203,70 @@ input[type="file"] {
     
     #campo_añadir_venta{
         width: auto;
+    }
+}
+/*Responsive de Añadir punto de venta*/
+@media(max-width: 860px){
+    .content .contenedor .formulario-registro2 #campo_añadir_venta label{
+        margin-left: 15px;
+        margin-top: 10px;
+        font-size: 16px;
+        width: 200px;
+    }
+    .input_añadir_punto_venta{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 26px;
+        width: 250px;
+        padding-left: 10px;
+        margin-right: 15px;
+    }
+}
+@media(max-width: 790px){
+    #registrar_venta{
+        text-align: center;
+        align-items: center;
+    }
+    .content .contenedor .formulario-registro2 #campo_añadir_venta label{
+        margin-left: 0px;
+        margin-top: 10px;
+        font-size: 16px;
+        width: 200px;
+    }
+    .input_añadir_punto_venta{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 26px;
+        width: 250px;
+        padding-left: 0px;
+        margin-right: 15px;
+    }
+    #registrar_punto_venta{
+        margin-left: 0px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 0 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 26px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    #registrar_punto_venta:hover{
+        background: #ffaa00;
+    }
+    #cancelar_formulario{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        padding: 5px 10px;
+        height: 26px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #cancelar_formulario:hover{
+        background: #ffaa00;
+    }
+    .contenedor h2{
+        font-size: 25px;
     }
 }
