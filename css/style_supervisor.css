@@ -91,27 +91,6 @@ body{
 }
 /*expandir menu*/
 /*                                  /**punto a analizar**/
-.menu-expanded{
-    width: var(--width);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-.menu-expanded #header #title{
-    display: inline-block;
-    width: calc(100% - 50%);
-    margin-right: -5px;
-    padding: var(--padding);
-}
-.menu-expanded #profile #title span{
-    width: calc(var(--width) - var(--width-collapsed) - 5px);
-    overflow: hidden;
-    display: none;
-}
-.menu-expanded #profile #photo{
-    width: 200px;
-}
-.menu-expanded #profile #name{
-    width: 100%;
-}
 .menu-collapsed {
     width: var(--width-collapsed);
 }
@@ -141,6 +120,28 @@ body{
     margin: 0;
     display: none;
 }
+.menu-expanded{
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.menu-expanded #header #title{
+    display: inline-block;
+    width: calc(100% - 50%);
+    margin-right: -5px;
+    padding: var(--padding);
+}
+.menu-expanded #profile #title span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    /*overflow: hidden;*/
+    display: none;
+}
+.menu-expanded #profile #photo{
+    width: 200px;
+}
+.menu-expanded #profile #name{
+    width: 100%;
+}
+
 /**[data-content]{
     display: none;
 }
@@ -373,13 +374,65 @@ input[type="file"] {
     cursor: pointer;
     border-radius: 2rem;
     position: relative;
-    left: -14px;
+    left: 38%;
     margin-top: 5px;
 }
 .custom-file-upload:hover{
     background: #ffaa00;
     color: black;
 }
+#mostrarImagen{
+    margin-left: 41%;
+}
+
+
+
+
+.custom-file-uploads {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #535050;
+    text-align: center;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 2rem;
+    position: relative;
+    left: 39%;
+    margin-top: 5px;
+}
+.custom-file-uploads:hover{
+    background: #ffaa00;
+    color: black;
+}
+#mostrarImagens{
+    margin-left: 41%;
+}
+
+
+
+.custom-file-uploadss {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #535050;
+    text-align: center;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 2rem;
+    position: relative;
+    left: 38%;
+    margin-top: 5px;
+}
+.custom-file-uploadss:hover{
+    background: #ffaa00;
+    color: black;
+}
+#mostrarImagenss{
+    margin-left: 41%;
+}
+
+
 
 #cancelar{
     font-size: 14px;
@@ -1294,9 +1347,6 @@ input[type="file"] {
 }
 
 @media(max-width: 740px){
-    #usuario{
-        
-    }
     .content .contenedor .formulario-registro #campo_datos label{
         margin-left: 5px;
         margin-top: 5px;

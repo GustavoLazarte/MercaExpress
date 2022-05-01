@@ -6,13 +6,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
-        <link rel="stylesheet" href="css/style_supervisor.css">
+        <link rel="stylesheet" href="css/style_Administrador.css">
+
         <title>Supervisor</title>
         <link rel="shortcut icon" href="./img/logo1.ico">
 </head>
 
-<body>
-    <div id="sidemenu" class="menu-collapsed">
+<body class="body-expanded">
+    <div id="sidemenu" class="menu-expanded">
         <div id="header">
             <div id=""><p id="redirect" href="#"><img class="logo" src="img/logo.png"></p></div>
             <div id="menu-btn">
@@ -32,8 +33,8 @@
                     </div>
                 </a>
             </div>
-            <div class="item">
 
+            <div class="item">
                 <a href="#" class="sub_item li">
                     <div class="icon"><i class="fa-solid fa-user-plus fa-2x"></i></div>
                     <div class="title">
@@ -66,7 +67,7 @@
                 </a>
             </div>
             <div class="item">
-                <a href="#" id="logout" class="sub_item">
+                <a href="login.html" id="logout" class="sub_item">
                     <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
                     <div class="title">
                         <p>Cerrar Sesión</p>
@@ -107,16 +108,17 @@
                             <input type="password" name="confirmar_contraseña" id="confirmar_contraseña" required=""
                                 minlength="8" maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="input_registro_usuario"><br>
                             <div class="contenedor_select">
-                                    <Label for="usuario">Tipo de Usuario:</Label>
+                                <Label for="usuario">Tipo de Usuario:</Label>
                                 <select name="usuario" id="elegirRol">
                                     <option value="Vendedor">Vendedor</option>
-                            </select><br>
+                                </select><br>
                             </div>
                             <label for="foto">Foto:</label>
+                            <div id="mostrarImagen" stye="display:flex;"></div>
                             <label class="custom-file-upload">
-                                <input accept="image/jpg,image/jpeg" id="perfil" type="file"
+                                <input id="perfil" accept="image/jpg,image/jpeg" type="file" name="file"
                                     onchange="ValidarImagen(this);" />
-                                Subir archivo
+                                Subir foto
                             </label><br>
                             <input id="registrar" type="submit" value="Registrar">
                             <input id="cancelar" type="reset" value="Cancelar">
@@ -125,90 +127,99 @@
                 </section>
             </div>
         </div>
+
         <div class="content_bloque1 bloque" id="catalogo lista_empresas">
             
-                
-            <div class="vetana_opciones_catalogo">
-                <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
-                    <h2>Seleccionar Empresa para Registrar Producto:</h2>
-                    <form action="" class="formulario_lista_catalogo">
-                        <fieldset id="formulario_ingreso_empresa">
-                            <label for="nombre_empresa">CATÁLOGO:</label>
-                            <select name="empresa" id="seleccion"></select>
-                            <input type="submit" id="ingresar" value="Registrar" class="validador">
-                        </fieldset>
-                    </form>
-                    <h3>Ver catálogo de empresa:</h3>
-                    <div class="vista_empresa">
-                        <section class="lista_empresa" id="catalogos_disponibles">
-                            <input type="button" value="hola" class="nombre_cliente_empresa">
+                    <div class="vetana_opciones_catalogo">
+                        <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
+                            <h2>Seleccionar Empresa para Registrar Producto:</h2>
+                            <form action="" class="formulario_lista_catalogo">
+                                <fieldset id="formulario_ingreso_empresa">
+                                    <label for="nombre_empresa">CATÁLOGO:</label>
+                                    <select name="empresa" id="seleccion"></select>
+                                    <input type="submit" id="ingresar" value="Registrar" class="validador">
+                                </fieldset>
+                            </form>
+                            <h3>Ver catálogo de empresa:</h3>
+                            <div class="vista_empresa">
+                                <section class="lista_empresa" id="catalogos_disponibles">
+                                    <input type="button" value="hola" class="nombre_cliente_empresa">
+                                </section>
+                            </div>
                         </section>
                     </div>
-                </section>
-            </div>
-            <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
-                <h2>Catálogo de la Empresa:</h2>
-                <hr class="hr1">
-                <div class="portada_empresa">
-                    <!--<img src="img/cc_portada.jpg" alt="portada de Coca-Cola" class="portada_foto_empresa">-->
-                    <div class="texto_encima">
-                        <label for="nombre_de_la_empresa" class="texto_portada">Nombre:</label>
-                        <input type="text" name="nombre_de_la_empresa" id="nombre_de_la_empresa" value="Coca-Cola sa." readonly class="input_texto_empresa"><br>
-                        <label for="nombre_del_responsable" class="texto_portada">Responsable:</label>
-                        <input type="text" name="nombre_del_responsable" id="nombre_del_responsable" value="Valeri Alekséyevich Legásov" readonly class="input_texto_empresa"><br>
-                        <label for="codigo_empresa" class="texto_portada">Codigo:</label>
-                        <input type="text" name="codigo_empresa" id="codigo_empresa" value="c152" readonly class="input_texto_empresa"><br>
-                        <label for="direccion_empresa" class="texto_portada">Dirección:</label>
-                        <input type="text" name="direccion_empresa" id="direccion_empresa" value="Av. Blanco Galindo km: 10" readonly class="input_texto_empresa"><br>
-                        <label for="telefono_empresa" class="texto_portada">Teléfono:</label>
-                        <input type="number" name="telefono_empresa" id="telefono_empresa" value="4523687" readonly class="input_texto_empresa"><br>
-                        <input type="button" value="Volver" class="volvers">
+                    <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
+                        <h2>Catálogo de la Empresa:</h2>
+                        <hr class="hr1">
+                        <div class="portada_empresa">
+                            <!--<img src="img/cc_portada.jpg" alt="portada de Coca-Cola" class="portada_foto_empresa">-->
+                            <div class="texto_encima">
+                                <label for="nombre_de_la_empresa" class="texto_portada">Nombre:</label>
+                                <input type="text" name="nombre_de_la_empresa" id="nombre_de_la_empresa"   readonly class="input_texto_empresa"><br>
+                                <label for="nombre_del_responsable" class="texto_portada">Responsable:</label>
+                                <input type="text" name="nombre_del_responsable" id="nombre_del_responsable" readonly class="input_texto_empresa"><br>
+                                <label for="codigo_empresa" class="texto_portada">Codigo:</label>
+                                <input type="text" name="codigo_empresa" id="codigo_empresa" readonly class="input_texto_empresa"><br>
+                                <label for="direccion_empresa" class="texto_portada">Dirección:</label>
+                                <input type="text" name="direccion_empresa" id="direccion_empresa"  readonly class="input_texto_empresa"><br>
+                                <label for="telefono_empresa" class="texto_portada">Teléfono:</label>
+                                <input type="number" name="telefono_empresa" id="telefono_empresa"  readonly class="input_texto_empresa"><br>
+                                <input type="button" value="Volver" class="volvers">
+                            </div>
+                        </div>
+                        <hr class="hr2">
+                        <section class="lista_producto" id="lista_producto">
+                        </section>
                     </div>
-                </div>
-                <hr class="hr2">
-                <section class="lista_producto" id="lista_producto">                    
-                </section>
-            </div>
 
-            <div class="bloque_catalogo " id="contenedor_para_registrar_catalogo">
-                <div class="registrar_catalogo">
-                    <h2>AÑADIR PRODUCTO</h2>
-                    <input id = "nombre_empresa" type="text" value="" readonly class="nombre_de_empresa">
-                    <input type="button" value="Volver" class="volver">
-                    <form class="formulario-registro1" id = "formulario_registro">
-                        <fieldset id="campo_añadir_producto">
-                            <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
-                                <input type="text" name="nombre_producto" id="nombre_producto" value="" class="input_añadir_producto"><br>
-                                <label for="codigo_producto">Codigo del Producto:</label>
-                                <input type="text" name="codigo_producto" id="codigo_producto" value="" class="input_añadir_producto"><br>
-                                <label for="precio">Precio:</label>
-                                <input type="number" name="precio" id="precio" value="" class="input_añadir_producto"><br>
-                                <div class="contenedor_select">
+                    <div class="bloque_catalogo " id="contenedor_para_registrar_catalogo">
+                        <div class="registrar_catalogo">
+                            <h2>AÑADIR PRODUCTO</h2>
+                            <input id = "nombre_empresa" type="text" value="" readonly class="nombre_de_empresa">
+                            <input type="button" value="Volver" class="volver">
+                            <form class="formulario-registro1" id = "formulario_registro">
+                                <fieldset id="campo_añadir_producto">
+                                    <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
+                                    <input type="text" name="nombre_producto" id="nombre_producto" value="" class="input_añadir_producto"><br>
+                                    <label for="codigo_producto">Codigo del Producto:</label>
+                                    <input type="text" name="codigo_producto" id="codigo_producto" value="" class="input_añadir_producto"><br>
+                                    <label for="precio">Precio:</label>
+                                    <input type="number" name="precio" id="precio" value="" class="input_añadir_producto"><br>
+                                    <div id="mostrarImagens" stye="display:flex;"></div>
+                                    <!--
                                     <label for="foto">Foto del producto:</label>
-                                    <label class="custom-file-upload">
+                                    <div id="mostrarImagens" stye="display:flex;"></div>
+                                    <label class="custom-file-uploads">
                                         <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
                                         Subir Archivo
+                                    </label><br>-->
+                                    
+                                    <label for="foto">Foto del producto:</label>
+                                    <div id="mostrarImagens" stye="display:flex;"></div>
+                                    <label class="custom-file-uploads">
+                                        <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
+                                        Subir foto
                                     </label><br>
-                                </div>
-                            <input id="registrar_producto_catalogo" type="submit" value="Añadir punto de venta">
-                            <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
 
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-            
-            
+                                    <input id="registrar_producto_catalogo" type="submit" value="Añadir punto de venta">
+                                    <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
 
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    
+
+                
+            
+        </div>
         
-    
-</div>
-
         <div class="content_bloque2">
             <div class="bloque " id="registrar_venta">
                 <section class="contenedor">
                     <h2>AÑADIR PUNTO DE VENTA</h2>
-                    <form class="formulario-registro2" id="puntoventa">
+                    <form  class="formulario-registro2" id="puntoventa">
                         <fieldset id="campo_añadir_venta">
                             <label for="nombreVenta">Nombre:</label>
                             <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_añadir_punto_venta"><br>
@@ -220,8 +231,10 @@
                             <input type="email" placeholder="" name="e-mailVenta" id="e-mailVenta" pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" value="" class="input_añadir_punto_venta"><br>
                             <label for="direcciónVenta">Dirección:</label>
                             <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+" class="input_añadir_punto_venta"><br>
+                            
                             <label for="foto">Foto del producto:</label>
-                            <label class="custom-file-upload">
+                            <div id="mostrarImagenss" stye="display:flex;"></div>
+                            <label class="custom-file-uploadss">
                                 <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
                                 Subir archivo
                             </label><br>
@@ -240,7 +253,7 @@
                         <fieldset id="campo_añadir_empresa">
                             <label for="nombreEmpresa">Nombre de la Empresa:</label>
                             <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_registrar_empresa"><br>
-                            <label for="responsable_empresa">Responsable de la empresa:</label>
+                            <label for="responsable_empresa">Nombre del Responsable:</label>
                             <input type="text" placeholder="" name="responsable_empresa" id="responsable_empresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_registrar_empresa"><br>
                             <label for="dirección_Empresa">Dirección:</label>
                             <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+" class="input_registrar_empresa"><br>
@@ -255,7 +268,6 @@
         </div>
     </div>
 </body>
-
 <script>
     async function ValidarImagen(obj) {
         var uploadFile = obj.files[0];
@@ -281,6 +293,7 @@
         }
     }
 </script>
+<script src="./js/mostrarImagen.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="./js/validaciones.js"></script>
 <script defer src="./js/tab.js"></script>
@@ -289,4 +302,5 @@
 <script type="module" src="login.js"></script>
 <script type="module" src="usuario-super.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </html>
