@@ -817,7 +817,7 @@ input[type="file"] {
     width: 100%;
     margin: auto;
     position: relative;
-    left: 40%;
+    left: 75%;
 }
 #formulario_ingreso_empresa{
     border: 0;
@@ -1531,5 +1531,156 @@ input[type="file"] {
         margin-bottom: 15px;
         margin-right: 15px;
         margin-top: 15px;
+    }
+}
+/*Selecionar empresa para registrar catalogo*/
+@media(max-width: 1300px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 60%;
+    }
+}
+@media(max-width: 1220px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 50%;
+    }
+}
+@media(max-width: 1200px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 40%;
+    }
+}
+@media(max-width: 1130px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 30%;
+    }
+}
+@media(max-width: 1060px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 20%;
+    }
+}
+@media(max-width: 1000px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 10%;
+    }
+}
+@media(max-width: 930px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 5%;
+    }
+}
+@media(max-width: 860px){
+    #contenedor_ingresar_catalogo{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 2%;
+    }
+}
+@media(max-width: 840px){
+    .vetana_opciones_catalogo{
+        width: auto;
+    }
+    #lista_empresas #contenedor_ingresar_catalogo h2{
+        font-size: 26px;
+    }
+    #contenedor_ingresar_catalogo h2{
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    #contenedor_ingresar_catalogo{
+        width: 80%;
+        margin: auto;
+        position: relative;
+        left: -50px;
+    }
+    #formulario_ingreso_empresa{
+        border: 0;
+        height: 40px;
+    }
+    #formulario_ingreso_empresa label{
+        font-size: 16px;
+        margin-left: 10px;
+        width: 50px;
+    }
+    #seleccion{
+        width: 170px;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    #ingresar{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 30px;
+        margin-left: 0px;
+        padding: 0 15px;
+        border-radius: 15px;
+        font-weight: bold;
+    }
+    #ingresar:hover{
+        background: #ffaa00;
+    }
+    /*#catalogos_disponibles{
+        position: inherit;
+        width: 500px;
+    }*/
+    #formulario_ingreso_empresa{
+        width: 450px;
+    }
+    .vista_empresa{
+        width: 400px;
+        margin-left: 10px;
+    }
+    /*.lista_empresas{
+        width: 500px;
+    }*/
+    .vista_empresa .lista_empresa .nombre_cliente_empresa{
+        border-radius: 4px;
+        font-size: 16px;
+        height: 50px;
+        width: 122px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    .contenedor_catalogo h3{
+        font-size: 18px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+    #contenedor_ingresar_catalogo h2{
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        margin-left: 10px;
     }
 }
