@@ -137,7 +137,7 @@
                         <input type="submit" id="ingresar" value="Registrar" class="validador">
                     </fieldset>
                 </form>
-                <h3>Ver catalogo de empresa:</h3>
+                <h3>Ver catálogo de empresa:</h3>
                 <div class="vista_empresa">
                     <section class="lista_empresa" id="catalogos_disponibles">
                         <input type="button" value="hola" class="nombre_cliente_empresa">
@@ -146,7 +146,7 @@
             </section>
 
             <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
-                <h2>Catalogo de la Empresa:</h2>
+                <h2>Catálogo de la Empresa:</h2>
                 <hr class="hr1">
                 <div class="portada_empresa">
                     <!--<img src="img/cc_portada.jpg" alt="portada de Coca-Cola" class="portada_foto_empresa">-->
@@ -165,7 +165,7 @@
                     </div>
                 </div>
                 <hr class="hr2">
-                <section class="lista_producto">                    
+                <section class="lista_producto" id="lista_producto">                    
                 </section>
             </div>
 
@@ -254,13 +254,7 @@
         </div>
     </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="./js/validaciones.js"></script>
-<script defer src="./js/tab.js"></script>
-<script defer src="./js/tabs2.js"></script>
-<script src="./js/administrador.js"></script>
-<script type="module" src="login.js"></script>
-<script type="module" src="usuario-super.js"></script>
+
 <script>
     async function ValidarImagen(obj) {
         var uploadFile = obj.files[0];
@@ -286,5 +280,12 @@
         }
     }
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="./js/validaciones.js"></script>
+<script defer src="./js/tab.js"></script>
+<script defer src="./js/tabs2.js"></script>
+<script src="./js/administrador.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="usuario-super.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
