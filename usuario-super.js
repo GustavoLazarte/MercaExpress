@@ -34,10 +34,10 @@ window.onload = function () {
             img.setAttribute('src', urlImg);
             em.innerHTML = "<span>" + nom + " " + ap + "</span>";
 
-        }// else {
-        //   alert("Inicie Sesion primero!");
-        //   window.location = "login.html"
-        //}
+        } else {
+           alert("Inicie Sesion primero!");
+           window.location = "login.html"
+        }
     });
 };
 
