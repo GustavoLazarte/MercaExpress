@@ -492,7 +492,7 @@ async function cargarPortada(cod) {
     const obSnap = await getDoc(docu);
     if (obSnap.exists()) {
         document.getElementById("nombre_de_la_empresa").value = obSnap.data().nombre;
-        document.getElementById("nombre_del_responsable").value = obSnap.data().responsable;
+        document.getElementById("nombre_del_responsable").value = obSnap.data().nombreResponsable;
         document.getElementById("codigo_empresa").value = obSnap.id;
         document.getElementById("direccion_empresa").value = obSnap.data().direccion;
         document.getElementById("telefono_empresa").value = obSnap.data().numero;
