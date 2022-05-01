@@ -1,6 +1,7 @@
-const btn = document.querySelector('#menu-btn');
+
+const btne = document.querySelector('#menu-btn');
         const menu = document.querySelector('#sidemenu');
-        btn.addEventListener('click', e =>{
+        btne.addEventListener('click', e =>{
             menu.classList.toggle("menu-collapsed");
             menu.classList.toggle("menu-expanded");
             

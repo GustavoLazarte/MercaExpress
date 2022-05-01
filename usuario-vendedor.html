@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" >
     <link rel="stylesheet" href="css/style_vendedor.css">
-    
+    <link rel="stylesheet" href="css/style_Administrador.css">
 
     <title>Vendedor</title>
     <link rel="shortcut icon" href="./img/logo1.ico">
@@ -33,6 +33,14 @@
                 </a>
             </div>
             <div class="item">
+                <a href="#" class="sub_item li">
+                    <div class="icon"><i class="fa-solid fa-book-medical fa-2x"></i></div>
+                    <div class="title">
+                        <p>Catálogo</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
                 <a href="#" class="sub_item" id="logout">
                     <div class="icon"><i class="fa-solid fa-door-open fa-2x"></i></div>
                     <div class="title"><p>Cerrar Sesión</p></div>
@@ -44,6 +52,77 @@
         <div class="bloque activo" id="inicio">
             <h1>Inicio</h1>
         </div>
+        <div class="content_bloque1 bloque" id="catalogo lista_empresas">
+            
+            <div class="vetana_opciones_catalogo">
+                <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
+                    <br>
+                    <br>
+                    <h3>Ver catálogo de empresa:</h3>
+                    <div class="vista_empresa">
+                        <section class="lista_empresa" id="catalogos_disponibles">
+                            <input type="button" value="hola" class="nombre_cliente_empresa">
+                        </section>
+                    </div>
+                </section>
+            </div>
+            <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
+                <h2>Catálogo de la Empresa:</h2>
+                <hr class="hr1">
+                <div class="portada_empresa">
+                    <!--<img src="img/cc_portada.jpg" alt="portada de Coca-Cola" class="portada_foto_empresa">-->
+                    <div class="texto_encima">
+                        <label for="nombre_de_la_empresa" class="texto_portada">Nombre:</label>
+                        <input type="text" name="nombre_de_la_empresa" id="nombre_de_la_empresa"   readonly class="input_texto_empresa"><br>
+                        <label for="nombre_del_responsable" class="texto_portada">Responsable:</label>
+                        <input type="text" name="nombre_del_responsable" id="nombre_del_responsable" readonly class="input_texto_empresa"><br>
+                        <label for="codigo_empresa" class="texto_portada">Codigo:</label>
+                        <input type="text" name="codigo_empresa" id="codigo_empresa" readonly class="input_texto_empresa"><br>
+                        <label for="direccion_empresa" class="texto_portada">Dirección:</label>
+                        <input type="text" name="direccion_empresa" id="direccion_empresa"  readonly class="input_texto_empresa"><br>
+                        <label for="telefono_empresa" class="texto_portada">Teléfono:</label>
+                        <input type="number" name="telefono_empresa" id="telefono_empresa"  readonly class="input_texto_empresa"><br>
+                        <input type="button" value="Volver" class="volvers">
+                    </div>
+                </div>
+                <hr class="hr2">
+                <section class="lista_producto" id="lista_producto">
+                </section>
+            </div>
+
+            <div class="bloque_catalogo " id="contenedor_para_registrar_catalogo">
+                <div class="registrar_catalogo">
+                    <h2>AÑADIR PRODUCTO</h2>
+                    <input id = "nombre_empresa" type="text" value="" readonly class="nombre_de_empresa">
+                    <input type="button" value="Volver" class="volver">
+                    <form class="formulario-registro1" id = "formulario_registro">
+                        <fieldset id="campo_añadir_producto">
+                            <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
+                            <input type="text" name="nombre_producto" id="nombre_producto" value="" class="input_añadir_producto"><br>
+                            <label for="codigo_producto">Codigo del Producto:</label>
+                            <input type="text" name="codigo_producto" id="codigo_producto" value="" class="input_añadir_producto"><br>
+                            <label for="precio">Precio:</label>
+                            <input type="number" name="precio" id="precio" value="" class="input_añadir_producto"><br>
+                            <div class="contenedor_select">
+                                <label for="foto">Foto del producto:</label>
+                                <label class="custom-file-upload">
+                                    <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
+                                    Subir Archivo
+                                </label><br>
+                            </div>
+                            <input id="registrar_producto_catalogo" type="submit" value="Añadir punto de venta">
+                            <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            
+            
+
+        
+    
+</div>
     </div>
 
 </body>
@@ -57,6 +136,5 @@
 <script defer src="./js/tabs2.js"></script>
 <script src="./js/administrador.js"></script>
 <script type="module" src="login.js"></script>
-<script type="module" src="usuario-super.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>

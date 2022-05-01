@@ -35,7 +35,15 @@ window.onload = function () {
             em.innerHTML = "<span>" + nom + " " + ap + "</span>";
 
         } else {
-           alert("Inicie Sesion primero!");
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Inicie Sesion Primero',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                toast: true
+            })
            window.location = "login.html"
         }
     });
@@ -60,7 +68,15 @@ async function registrarVendedor(e) {
         var exito = await registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir);
 
     } else {
-        alert("Error de contraseñas");
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Las contraseñas no son las mismas!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast: true
+        })
         form.reset();
     }
 }
