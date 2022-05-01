@@ -58,7 +58,7 @@ async function registrarVendedor(e) {
         const dir = document.getElementById('dirección').value;
 
         var exito = await registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir);
-      
+
     } else {
         alert("Error de contraseñas");
         form.reset();
@@ -91,9 +91,9 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            toast : true
+            toast: true
         })
-        
+
         form.reset();
     } else {
         await Swal.fire({
@@ -103,7 +103,7 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            toast : true
+            toast: true
         })
         document.getElementById('e-mail').value = "";
     }
@@ -112,7 +112,15 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
 async function subirImagen(tag) {
     var file = document.getElementById(tag).files[0];
     if (file === undefined) {
-        alert("Suba una foto");
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Ingrese una foto!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast: true
+        })
     }
 
     const storage = getStorage();
@@ -173,17 +181,19 @@ async function registrarEmpresa(e) {
     e.preventDefault()
     const empresaColeccion = await collection(db, "empresa");
     const nom = document.getElementById('nombreEmpresa').value;
-    const cod = document.getElementById('cod_empresa').value;
+    const nomR = document.getElementById('responsable_empresa').value;
     const dire = document.getElementById('dirección_Empresa').value;
+    const telf = document.getElementById('telefono_empresa_cliente').value;
     const res = query(empresaColeccion, where("nombre", "==", nom));
+    const cod = nom.charAt(0) + "-" + telf.substring(0,3)
     const querySnapshot = await getDocs(res);
     if (querySnapshot.empty) {
 
         const docData = {
             nombre: nom,
             direccion: dire,
-            catalogo: {}
-
+            nombreResponsable : nomR,
+            telefono : telf
         };
         await setDoc(doc(db, "empresa", cod), docData);
         await Swal.fire({
@@ -193,9 +203,9 @@ async function registrarEmpresa(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            toast : true
+            toast: true
         })
-        
+
     } else {
         await Swal.fire({
             icon: 'error',
@@ -204,9 +214,9 @@ async function registrarEmpresa(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            toast : true
+            toast: true
         })
-        
+
         nom.value = "";
     }
     actualizar(comboBoxC)
@@ -248,8 +258,8 @@ async function registrarPV(e) {
     const comp = await collection(db, "users");
     const q = query(comp, where("email", "==", res));
     const consulta = await getDocs(q);
-    if(consulta.empty){
-        
+    if (consulta.empty) {
+
         await Swal.fire({
             icon: 'error',
             title: 'Error',
@@ -257,23 +267,23 @@ async function registrarPV(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            toast : true
+            toast: true
         })
-        
-    }else{
-        
-        if(querySnapshot.empty){
+
+    } else {
+
+        if (querySnapshot.empty) {
 
             const docData = {
                 Mail: mail,
-                Nombre:nom,
-                Direccion:dire,
-                Responsable:res,    
-                Telefono:tel,
-                Imagen:img
-    
+                Nombre: nom,
+                Direccion: dire,
+                Responsable: res,
+                Telefono: tel,
+                Imagen: img
+
             };
-            await setDoc(doc(db, "Puntoventa",mail), docData);
+            await setDoc(doc(db, "Puntoventa", mail), docData);
             await Swal.fire({
                 icon: 'success',
                 title: 'Correcto',
@@ -281,9 +291,9 @@ async function registrarPV(e) {
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
-                toast : true
+                toast: true
             })
-            
+
             formPV.reset();
         } else {
             await Swal.fire({
@@ -293,18 +303,26 @@ async function registrarPV(e) {
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
-                toast : true
+                toast: true
             })
-            
-            
+
+
         }
     }
-    
+
 }
 async function fotoPV() {
     var file = document.getElementById('foto_producto').files[0];
     if (file === undefined) {
-        alert("Suba una foto de perfil");
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Ingrese una foto!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            toast: true
+        })
     }
 
     const storage = getStorage();
@@ -367,9 +385,9 @@ async function añadirProducto(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            toast : true
+            toast: true
         })
-        formProducto.reset();        
+        formProducto.reset();
     } else {
         await Swal.fire({
             icon: 'error',
@@ -378,7 +396,7 @@ async function añadirProducto(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            toast : true
+            toast: true
         })
         document.getElementById('codigo_producto').value = "";
     }
@@ -397,19 +415,69 @@ async function actualizarLista(combo) {
         divN.setAttribute('class', 'nombre_empresa')
         var opt = document.createElement('input');
         opt.value = doc.data().nombre;
-        opt.type  = "button"
+        opt.type = "button"
         opt.setAttribute('class', "nombre_cliente_empresa")
         divN.appendChild(opt);
         combo.appendChild(divN);
     });
-    
-    $(function(){
-        $(".nombre_cliente_empresa").click(function(){
+
+    $(function () {
+        $(".nombre_cliente_empresa").click(async function () {
+
+            const q = await query(collection(db, "empresa"), where("nombre", "==", this.value));
+            var codSele = "";
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) => {
+                codSele = doc.id;
+            });
+
+            await cargarPortada(codSele);
+
+            await cargarProductos(codSele);
+
             $("#contenedor_para_registrar_catalogo").hide();
             $("#contenedor_ingresar_catalogo").hide();
             $("#contenedor_visualizar_catalogo").show();
+
         });
     });
 
     console.log(combo);
 };
+
+async function cargarProductos(cod) {
+    var contenedor = document.getElementById("lista_producto");
+    contenedor.innerHTML = "";
+    const coleccion = await collection(db, "empresa", cod, "catalogo");
+    const querySnapshote = await getDocs(coleccion);
+    console.log(querySnapshote.empty)
+    await querySnapshote.forEach((doc) => {
+
+        const rutaimg = doc.data().foto;
+        contenedor.innerHTML +=
+            '<div class="producto_item">' +
+                '<img src =' + rutaimg + ' alt = "" >' +
+                '<a href="#" class="datos_producto">' +
+                    '<label for="nombre_producto1">Nombre:</label>' +
+                    '<input type="text" name="nombre_producto1" id="nombre_producto1" value=' + doc.data().nombre + ' readonly class="input_texto_producto"><br>' +
+                    '<label for="codigo_producto1">Cod. Prod:</label>' +
+                    '<input type="text" name="codigo_producto1" id="codigo_producto1" value=' + doc.id + ' readonly class="input_texto_producto"><br>' +
+                    '<label for="precio_producto">Precio:</label>' +
+                    '<input type="text" name="precio_producto" id="precio_producto" value=' + doc.data().precio + ' readonly class="input_texto_producto"><br>' +
+                '</a>' +
+            '</div>';
+    });
+}
+
+async function cargarPortada(cod) {
+    const docu = await doc(db, "empresa", cod);
+    console.log(docu)
+    const obSnap = await getDoc(docu);
+    if (obSnap.exists()) {
+        document.getElementById("nombre_de_la_empresa").value = obSnap.data().nombre;
+        document.getElementById("nombre_del_responsable").value = obSnap.data().responsable;
+        document.getElementById("codigo_empresa").value = obSnap.id;
+        document.getElementById("direccion_empresa").value = obSnap.data().direccion;
+        document.getElementById("telefono_empresa").value = obSnap.data().numero;
+    }
+}
