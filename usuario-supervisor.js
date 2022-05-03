@@ -77,6 +77,7 @@ async function registrarVendedor(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
         form.reset();
@@ -109,6 +110,7 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
 
@@ -121,6 +123,7 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
         document.getElementById('e-mail').value = "";
@@ -137,6 +140,7 @@ async function subirImagen(tag) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
     }
@@ -221,6 +225,7 @@ async function registrarEmpresa(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
 
@@ -232,6 +237,7 @@ async function registrarEmpresa(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
 
@@ -286,6 +292,7 @@ async function registrarPV(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
 
@@ -310,6 +317,7 @@ async function registrarPV(e) {
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
+                timer: 2000,
                 toast: true
             })
 
@@ -322,6 +330,7 @@ async function registrarPV(e) {
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
+                timer: 2000,
                 toast: true
             })
 
@@ -340,6 +349,7 @@ async function fotoPV() {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
     }
@@ -404,6 +414,7 @@ async function añadirProducto(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
         formProducto.reset();
@@ -415,6 +426,7 @@ async function añadirProducto(e) {
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
+            timer: 2000,
             toast: true
         })
         document.getElementById('codigo_producto').value = "";
