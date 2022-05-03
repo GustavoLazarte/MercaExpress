@@ -21,8 +21,10 @@ const storage = getStorage();
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
-
-        if (user) {
+        const uid = user.uid;
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (user && docSnap.data().role == 1) {
             const uid = user.uid;
             const docRef = doc(db, "users", user.uid);
             const docSnap = await getDoc(docRef);

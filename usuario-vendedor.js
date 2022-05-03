@@ -19,11 +19,10 @@ const storage = getStorage();
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
-        if (user) {
-            const uid = user.uid;
-            const docRef = doc(db, "users", user.uid);
-            const docSnap = await getDoc(docRef);
-
+        const uid = user.uid;
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (user && docSnap.data().role == 3) {
             const nom = docSnap.data().nombre;
             const ap = docSnap.data().apellido;
             const urlImg = docSnap.data().imgPerfil;
@@ -32,7 +31,7 @@ window.onload = function () {
             img.setAttribute('src', urlImg);
             em.innerHTML = "<span>" + nom + " " + ap + "</span>";
 
-        }else {
+        } else {
             await Swal.fire({
                 icon: 'error',
                 title: 'Error',
@@ -42,7 +41,8 @@ window.onload = function () {
                 confirmButtonColor: '#ffcc00',
                 toast: true
             })
-            window.location = "login.html"    
+            
+            window.location = "login.html"
         }
     });
 };
