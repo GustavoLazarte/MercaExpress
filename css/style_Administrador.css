@@ -381,8 +381,12 @@ input[type="file"] {
     background: #ffaa00;
     color: black;
 }
-#mostrarImagen{
+/*#mostrarImagen{
     margin-left: 41%;
+}*/
+#nombres{
+    color: #ffffff;
+    margin-left: 45%;
 }
 
 
@@ -405,8 +409,13 @@ input[type="file"] {
     background: #ffaa00;
     color: black;
 }
-#mostrarImagens{
+/*#mostrarImagens{
     margin-left: 41%;
+}*/
+#nombress{
+    color: #ffffff;
+    margin-left: 45%;
+    margin-bottom: 5px;
 }
 
 
@@ -428,9 +437,15 @@ input[type="file"] {
     background: #ffaa00;
     color: black;
 }
-#mostrarImagenss{
+/*#mostrarImagenss{
     margin-left: 41%;
+}*/
+#nombresss{
+    color: #ffffff;
+    margin-left: 45%;
+    margin-bottom: 5px;
 }
+
 
 
 

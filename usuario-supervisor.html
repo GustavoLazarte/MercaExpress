@@ -114,8 +114,9 @@
                                 </select><br>
                             </div>
                             <label for="foto">Foto:</label>
-                            <div id="mostrarImagen" stye="display:flex;"></div>
-                            <label class="custom-file-upload">
+                           <!--<div id="mostrarImagen" stye="display:flex;"></div>-->
+                           <h3 id="nombres"></h3>
+                           <label class="custom-file-upload" for="perfil">
                                 <input id="perfil" accept="image/jpg,image/jpeg" type="file" name="file"
                                     onchange="ValidarImagen(this);" />
                                 Subir foto
@@ -195,8 +196,9 @@
                                     </label><br>-->
                                     
                                     <label for="foto">Foto del producto:</label>
-                                    <div id="mostrarImagens" stye="display:flex;"></div>
-                                    <label class="custom-file-uploads">
+                                    <h3 id="nombress"></h3>
+                                    <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
+                                    <label class="custom-file-uploads" for="fotos_del_producto">
                                         <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this,false);" />
                                         Subir foto
                                     </label><br>
@@ -233,8 +235,9 @@
                             <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+" class="input_añadir_punto_venta"><br>
                             
                             <label for="foto">Foto Punto De Venta:</label>
-                            <div id="mostrarImagenss" stye="display:flex;"></div>
-                            <label class="custom-file-uploadss">
+                            <h3 id="nombresss"></h3>
+                            <!--<div id="mostrarImagenss" stye="display:flex;"></div>-->
+                            <label class="custom-file-uploadss" for="foto_producto">
                                 <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this,false);" />
                                 Subir archivo
                             </label><br>
@@ -296,6 +299,7 @@
         }
     }
 </script>
+<script src="./js/subirFoto.js"></script>
 <script src="./js/mostrarImagen.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="./js/validaciones.js"></script>
