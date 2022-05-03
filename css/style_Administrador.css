@@ -1199,12 +1199,12 @@ input[type="file"] {
         margin-top: 25px;
         margin-bottom: 20px;
     }
-    #registrar_empresas{
+    /*#registrar_empresas{
         text-align: center;
         align-items: center;
-    }
+    }*/
     .content .contenedor .formulario-registro3 #campo_añadir_empresa label{
-        margin-left: 0px;
+        margin-left: 2px;
         margin-top: 15px;
         font-size: 16px;
         width: 220px;
@@ -1220,7 +1220,7 @@ input[type="file"] {
         font-family: Arial, Helvetica, sans-serif;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 0px;
+        margin-left: 30%;
         
         align-items: center;
         font-size: 16px;
@@ -1266,15 +1266,15 @@ input[type="file"] {
     }
 }
 @media(max-width: 790px){
-    #registrar_venta{
+    /*#registrar_venta{
         text-align: center;
         align-items: center;
-    }
+    }*/
     .content .contenedor .formulario-registro2 #campo_añadir_venta label{
-        margin-left: 0px;
+        margin-left: 2px;
         margin-top: 10px;
         font-size: 16px;
-        width: 200px;
+        width: 183px;
     }
     .input_añadir_punto_venta{
         font-family: Arial, Helvetica, sans-serif;
@@ -1282,10 +1282,10 @@ input[type="file"] {
         height: 26px;
         width: 250px;
         padding-left: 0px;
-        margin-right: 15px;
+        margin-right: 7px;
     }
     #registrar_punto_venta{
-        margin-left: 0px;
+        margin-left: 20%;
         margin-top: 15px;
         margin-bottom: 15px;
         padding: 0 10px;
@@ -1733,6 +1733,50 @@ input[type="file"] {
         margin-bottom: 15px;
         font-weight: bold;
         margin-left: 10px;
+    }
+}
+@media(max-width: 742px){
+    .content .contenedor .formulario-registro3 #campo_añadir_empresa label{
+        margin-left: 2px;
+        margin-top: 16px;
+        font-size: 16px;
+        width: 208px;
+    }
+    .input_registrar_empresa{
+        font-family: Arial, Helvetica, sans-serif;
+        width: 170px;
+        height: 22px;
+        font-size: 14px;
+        margin-right: 15px;
+        padding-left: 10px;
+    }
+    #nombreEmpresa{
+        width: 195px;
+    }
+    #responsable_empresa{
+        width: 195px;
+    }
+    #dirección_Empresa{
+        width: 195px;
+    }
+    #telefono_empresa_cliente{
+        width: 195px;
+    }
+}
+@media(max-width: 750px){
+    .content .contenedor .formulario-registro2 #campo_añadir_venta label{
+        margin-left: 2px;
+        margin-top: 10px;
+        font-size: 16px;
+        width: 183px;
+    }
+    .input_añadir_punto_venta{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        height: 26px;
+        width: 220px;
+        padding-left: 0px;
+        margin-right: 7px;
     }
 }
 /*.formulario{
