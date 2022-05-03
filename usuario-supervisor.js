@@ -21,32 +21,43 @@ const storage = getStorage();
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
-        const uid = user.uid;
-        const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (user && docSnap.data().role == 2) {
+        if (user) {
             const uid = user.uid;
             const docRef = doc(db, "users", user.uid);
             const docSnap = await getDoc(docRef);
-            const nom = docSnap.data().nombre;
-            const ap = docSnap.data().apellido;
-            const urlImg = docSnap.data().imgPerfil;
-            const img = document.getElementById('foto-Supervisor');
-            const em = document.getElementById('name');
-            img.setAttribute('src', urlImg);
-            em.innerHTML = "<span>" + nom + " " + ap + "</span>";
-
+            if(docSnap.data().role == 2){
+                const nom = docSnap.data().nombre;
+                const ap = docSnap.data().apellido;
+                const urlImg = docSnap.data().imgPerfil;
+                const img = document.getElementById('foto-Supervisor');
+                const em = document.getElementById('name');
+                img.setAttribute('src', urlImg);
+                em.innerHTML = "<span>" + nom + " " + ap + "</span>";
+            }else{
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Acceso denegado Vuelva a iniciar sesion!',
+                    color: '#312d2d',
+                    background: '#ffffff',
+                    confirmButtonColor: '#ffcc00',
+                    toast: true
+                })
+                await signOut(auth);
+                window.location = "login.html" 
+            }
         } else {
             await Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Inicie Sesion Primero',
+                text: 'Inicie sesion Primero!',
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
                 toast: true
             })
-           window.location = "login.html"
+            
+            window.location = "login.html"
         }
     });
 };
@@ -295,7 +306,7 @@ async function registrarPV(e) {
             timer: 2000,
             toast: true
         })
-
+        document.getElementById('responsable').value = "";
     } else {
 
         if (querySnapshot.empty) {
@@ -333,7 +344,7 @@ async function registrarPV(e) {
                 timer: 2000,
                 toast: true
             })
-
+            document.getElementById('e-mailVenta').value = "";
 
         }
     }
@@ -509,6 +520,6 @@ async function cargarPortada(cod) {
         document.getElementById("nombre_del_responsable").value = obSnap.data().nombreResponsable;
         document.getElementById("codigo_empresa").value = obSnap.id;
         document.getElementById("direccion_empresa").value = obSnap.data().direccion;
-        document.getElementById("telefono_empresa").value = obSnap.data().numero;
+        document.getElementById("telefono_empresa").value = obSnap.data().telefono;
     }
 }

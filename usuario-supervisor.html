@@ -180,11 +180,11 @@
                             <form class="formulario-registro1" id = "formulario_registro">
                                 <fieldset id="campo_añadir_producto">
                                     <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
-                                    <input type="text" name="nombre_producto" id="nombre_producto" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" maxlength="50" value="" class="input_añadir_producto"><br>
                                     <label for="codigo_producto">Codigo del Producto:</label>
                                     <input type="text" name="codigo_producto" id="codigo_producto" value="" class="input_añadir_producto"><br>
                                     <label for="precio">Precio:</label>
-                                    <input type="number" name="precio" id="precio" value="" class="input_añadir_producto"><br>
+                                    <input type="number" name="precio" id="precio" value="" minlength="3" maxlength="10"  class="input_añadir_producto"><br>
                                     <div id="mostrarImagens" stye="display:flex;"></div>
                                     <!--
                                     <label for="foto">Foto del producto:</label>
@@ -197,7 +197,7 @@
                                     <label for="foto">Foto del producto:</label>
                                     <div id="mostrarImagens" stye="display:flex;"></div>
                                     <label class="custom-file-uploads">
-                                        <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
+                                        <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this,false);" />
                                         Subir foto
                                     </label><br>
 
@@ -235,7 +235,7 @@
                             <label for="foto">Foto Punto De Venta:</label>
                             <div id="mostrarImagenss" stye="display:flex;"></div>
                             <label class="custom-file-uploadss">
-                                <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this);" />
+                                <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this,false);" />
                                 Subir archivo
                             </label><br>
                             <input id="registrar_punto_venta" type="submit" value="Añadir punto de venta">
@@ -269,24 +269,27 @@
     </div>
 </body>
 <script>
-    async function ValidarImagen(obj) {
+    async function ValidarImagen(obj, importaTamaño) {
         var uploadFile = obj.files[0];
 
         if (!(/\.(jpg|jpeg)$/i).test(uploadFile.name)) {
+            obj.value = "";
             alert('El archivo a adjuntar no es una imagen');
         }
         else {
             var img = new Image();
             img.onload = await function () {
-                console.log(this.width.toFixed(0));
-                console.log(this.height.toFixed(0));
-                var w = this.width.toFixed(0) != 300;
-                console.log(w);
-                var h = this.height.toFixed(0) != 300;
-                console.log(h)
-                if (w == true || h == true){
-                    alert('Las medidas deben ser: 300 * 300');
-                    obj.value = "";
+                if (importaTamaño){
+                    console.log(this.width.toFixed(0));
+                    console.log(this.height.toFixed(0));
+                    var w = this.width.toFixed(0) != 300;
+                    console.log(w);
+                    var h = this.height.toFixed(0) != 300;
+                    console.log(h)
+                    if (w == true || h == true){
+                        alert('Las medidas deben ser: 300 * 300');
+                        obj.value = "";
+                    }
                 }
             };
             img.src = URL.createObjectURL(uploadFile);
