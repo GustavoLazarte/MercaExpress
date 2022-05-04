@@ -23,8 +23,10 @@ function comprobarNombre() {
 var nombre = document.querySelector("#nombre");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-nombre.addEventListener("invalid", comprobarNombre);
-nombre.addEventListener("input", comprobarNombre);
+if (nombre != null) {
+  nombre.addEventListener("invalid", comprobarNombre);
+  nombre.addEventListener("input", comprobarNombre);
+}
 
 
 
@@ -51,8 +53,11 @@ function comprobarApellido() {
 var apellido = document.querySelector("#apellido");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-apellido.addEventListener("invalid", comprobarApellido);
-apellido.addEventListener("input", comprobarApellido);
+if (apellido != null) {
+  apellido.addEventListener("invalid", comprobarApellido);
+  apellido.addEventListener("input", comprobarApellido);
+}
+
 
 
 
@@ -76,8 +81,11 @@ function comprobarEmail() {
 var email = document.querySelector("#e-mail");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-email.addEventListener("invalid", comprobarEmail);
-email.addEventListener("input", comprobarEmail);
+if (email != null) {
+  email.addEventListener("invalid", comprobarEmail);
+  email.addEventListener("input", comprobarEmail);
+
+}
 
 
 
@@ -103,9 +111,9 @@ function comprobarTelefono() {
       if (document.getElementById('telefono').value.length < 8) {
         mensaje = "El Numero no es valido, debe tener 8 dígitos"
       }
-    } else if(document.getElementById('telefono').value.charAt(0) == '4' && document.getElementById('telefono').value.length > 7) {
+    } else if (document.getElementById('telefono').value.charAt(0) == '4' && document.getElementById('telefono').value.length > 7) {
       mensaje = "El Numero no es valido, debe tener 7 dígitos";
-    }else{
+    } else {
       mensaje = "El Numero no es valido, debe iniciar con 4 ,7 o 8";
     }
   }
@@ -117,8 +125,10 @@ function comprobarTelefono() {
 var telefono = document.querySelector("#telefono");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-telefono.addEventListener("invalid", comprobarTelefono);
-telefono.addEventListener("input", comprobarTelefono);
+if (telefono != null) {
+  telefono.addEventListener("invalid", comprobarTelefono);
+  telefono.addEventListener("input", comprobarTelefono);
+}
 
 
 
@@ -140,8 +150,10 @@ function comprobarDireccion() {
 var direccion = document.querySelector("#dirección");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-direccion.addEventListener("invalid", comprobarDireccion);
-direccion.addEventListener("input", comprobarDireccion);
+if (direccion != null) {
+  direccion.addEventListener("invalid", comprobarDireccion);
+  direccion.addEventListener("input", comprobarDireccion);
+}
 
 
 
@@ -165,8 +177,10 @@ function comprobarPassword() {
 var password = document.querySelector("#password");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-password.addEventListener("invalid", comprobarPassword);
-password.addEventListener("input", comprobarPassword);
+if (password != null) {
+  password.addEventListener("invalid", comprobarPassword);
+  password.addEventListener("input", comprobarPassword);
+}
 
 
 
@@ -192,9 +206,11 @@ function comprobarConfPassword() {
 var confPassword = document.querySelector("#confirmar_contraseña");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-confPassword.addEventListener("invalid", comprobarConfPassword);
-confPassword.addEventListener("input", comprobarConfPassword);
+if (confPassword != null) {
+  confPassword.addEventListener("invalid", comprobarConfPassword);
+  confPassword.addEventListener("input", comprobarConfPassword);
 
+}
 
 
 

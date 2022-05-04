@@ -52,7 +52,15 @@ async function login(e) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage)
-                alert("Contraseña o Usuario incorrectos!");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Contraseña o Usuario incorrectos!',
+                    color: '#312d2d',
+                    background: '#ffffff',
+                    confirmButtonColor: '#ffcc00',
+                    toast: true
+                })
                 form.reset();
             });
 
@@ -60,7 +68,15 @@ async function login(e) {
         if (obSnap.data().contraseña == password) {
             await iniciarSesionPrimeraVes(email, password, obSnap);
         } else {
-            alert("Contraseña o Usuarios incorrectos!");
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Contraseña o Usuario incorrectos!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                toast: true
+            })
         }
     }
 

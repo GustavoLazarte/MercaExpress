@@ -160,3 +160,10 @@ body{
 .content .bloque.activo{
     opacity: 1;
 }
+/*portada de catalogo*/
+#contenedor_visualizar_catalogo .portada_foto_empresa{
+    width: 100%;
+    height: 250px;
+    opacity: 0.8;
+    border-radius: 4px;
+}
