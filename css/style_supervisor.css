@@ -429,12 +429,10 @@ input[type="file"] {
     text-align: center;
     border: 1px solid #ccc;
     display: inline-block;
-    padding: 6px 12px;
     cursor: pointer;
     border-radius: 2rem;
-    position: relative;
-    left: 38%;
     margin-top: 5px;
+    
 }
 .custom-file-uploadss:hover{
     background: #ffaa00;
@@ -445,8 +443,10 @@ input[type="file"] {
 }*/
 #nombresss{
     color: #ffffff;
-    margin-left: 45%;
     margin-bottom: 5px;
+}
+.formulario__nombre-foto{
+    justify-self: center;
 }
 
 
@@ -596,8 +596,17 @@ input[type="file"] {
 /*Añadir punto de venta*/
 #campo_añadir_venta{
     width: 100%;
+    display: grid;
 }
-.content .contenedor .formulario-registro2 #campo_añadir_venta label{
+.formulario_foto-punto-venta > label{
+    margin-top: 10px;
+    font-size: 16px;
+    width: 200px;
+}
+.formulario_foto-punto-venta{
+    justify-self: center;
+}
+.content .contenedor .formulario-registro2 #campo_añadir_venta .formulario__datos-añadir-punto-venta label{
     margin-left: 15px;
     margin-top: 10px;
     font-size: 16px;
@@ -627,7 +636,6 @@ input[type="file"] {
     height: 26px;
 }
 #registrar_punto_venta{
-    margin-left: 20%;
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 0 10px;
@@ -639,6 +647,9 @@ input[type="file"] {
 }
 #registrar_punto_venta:hover{
     background: #ffaa00;
+}
+.formulario__añadir-cancelar-punto-venta{
+    justify-self: center;
 }
 #cancelar_formulario{
     font-family: Arial, Helvetica, sans-serif;
@@ -1325,7 +1336,6 @@ input[type="file"] {
         margin-right: 7px;
     }
     #registrar_punto_venta{
-        margin-left: 20%;
         margin-top: 15px;
         margin-bottom: 15px;
         padding: 0 10px;
@@ -1351,6 +1361,14 @@ input[type="file"] {
     }
     .contenedor h2{
         font-size: 25px;
+    }
+}
+@media(max-width: 783px){
+    .content .contenedor .formulario-registro2 #campo_añadir_venta .formulario__datos-añadir-punto-venta label{
+        margin-left: 2px;
+        margin-top: 10px;
+        font-size: 15px;
+        width: 172px;
     }
 }
 /*Registro de Usuario*/
