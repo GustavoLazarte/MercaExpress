@@ -37,7 +37,7 @@ window.onload = function () {
                 await Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Acceso denegado Vuelva a iniciar sesion!',
+                    text: 'Acceso denegado ¡Vuelva a iniciar sesión!',
                     color: '#312d2d',
                     background: '#ffffff',
                     confirmButtonColor: '#ffcc00',
@@ -50,7 +50,7 @@ window.onload = function () {
             await Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Inicie sesion Primero!',
+                text: '¡Inicie sesión Primero!',
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
@@ -84,7 +84,7 @@ async function registrarVendedor(e) {
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Las contraseñas no son las mismas!',
+            text: '¡Las contraseñas no son las mismas!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -117,7 +117,7 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
         await Swal.fire({
             icon: 'success',
             title: 'Correcto',
-            text: 'Usuario Registrado!',
+            text: '¡Usuario Registrado!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -130,7 +130,7 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'El Correo Electronico ya existe!',
+            text: '¡El Correo Electronico ya existe!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -147,7 +147,7 @@ async function subirImagen(tag) {
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Ingrese una foto!',
+            text: '¡Ingrese una foto!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -232,7 +232,7 @@ async function registrarEmpresa(e) {
         await Swal.fire({
             icon: 'success',
             title: 'Correcto',
-            text: 'Empresa Registrado!',
+            text: '¡Empresa Registrada!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -244,7 +244,7 @@ async function registrarEmpresa(e) {
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Esta Empresa Ya Existe!',
+            text: '¡Esta Empresa Ya Existe!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -299,7 +299,7 @@ async function registrarPV(e) {
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'El Responsanble No existe!',
+            text: '¡El Responsanble No existe!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -324,7 +324,7 @@ async function registrarPV(e) {
             await Swal.fire({
                 icon: 'success',
                 title: 'Correcto',
-                text: 'Punto De Venta Registrado!',
+                text: '¡Punto De Venta Registrado!',
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
@@ -337,7 +337,7 @@ async function registrarPV(e) {
             await Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Este Punto De Venta Ya Esta Registrado!',
+                text: '¡Este Punto De Venta Ya Esta Registrado!',
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
@@ -356,7 +356,7 @@ async function fotoPV() {
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Ingrese una foto!',
+            text: '¡Ingrese una foto!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -421,7 +421,7 @@ async function añadirProducto(e) {
         await Swal.fire({
             icon: 'success',
             title: 'Correcto',
-            text: 'Producto Registrado!',
+            text: '¡Producto Registrado!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
@@ -433,7 +433,7 @@ async function añadirProducto(e) {
         await Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Producto ya Esta Registrado!',
+            text: '¡Producto ya Esta Registrado!',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
