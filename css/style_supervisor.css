@@ -657,6 +657,12 @@ input[type="file"] {
     margin-top: 25px;
     margin-bottom: 20px;
 }
+#campo_añadir_empresa{
+    display: grid;
+}
+#campo_añadir_empresa .formulario__registrar-cancelar-empresa{
+    justify-self: center;
+}
 .content .contenedor .formulario-registro3 #campo_añadir_empresa label{
     margin-left: 15px;
     margin-top: 15px;
@@ -703,9 +709,7 @@ input[type="file"] {
 }
 #registrar_empresa{  
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 39%;
+    margin-top: 20px;
     
     align-items: center;
     font-size: 16px;
@@ -1146,7 +1150,6 @@ input[type="file"] {
         font-family: Arial, Helvetica, sans-serif;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 39%;
         
         align-items: center;
         font-size: 15px;
@@ -1197,7 +1200,6 @@ input[type="file"] {
         font-family: Arial, Helvetica, sans-serif;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 39%;
         
         align-items: center;
         font-size: 15px;
@@ -1251,7 +1253,6 @@ input[type="file"] {
         font-family: Arial, Helvetica, sans-serif;
         margin-top: 10px;
         margin-bottom: 20px;
-        margin-left: 30%;
         
         align-items: center;
         font-size: 16px;
@@ -1277,6 +1278,14 @@ input[type="file"] {
     
     #campo_añadir_venta{
         width: auto;
+    }
+}
+@media(max-width: 748px){
+    .content .contenedor .formulario-registro3 #campo_añadir_empresa label{
+        margin-left: 2px;
+        margin-top: 15px;
+        font-size: 15px;
+        width: 200px;
     }
 }
 /*Responsive de Añadir punto de venta*/
