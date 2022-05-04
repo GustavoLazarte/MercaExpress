@@ -912,6 +912,7 @@ input[type="file"] {
     padding: 0 15px;
     border-radius: 15px;
     font-weight: bold;
+    cursor: pointer;
 }
 #ingresar:hover{
     background: #ffaa00;
