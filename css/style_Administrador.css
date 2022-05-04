@@ -369,13 +369,11 @@ input[type="file"] {
     background: #535050;
     text-align: center;
     border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
+    padding: 0px 12px;
     cursor: pointer;
     border-radius: 2rem;
-    position: relative;
-    left: 38%;
     margin-top: 5px;
+    justify-self: center;
 }
 .custom-file-upload:hover{
     background: #ffaa00;
@@ -386,7 +384,12 @@ input[type="file"] {
 }*/
 #nombres{
     color: #ffffff;
-    margin-left: 45%;
+    justify-self: center;
+}
+.formulario__subir-archivo-usuario > label{
+    margin-top: 10px;
+    font-size: 16px;
+    width: 200px;
 }
 
 
@@ -448,17 +451,6 @@ input[type="file"] {
 
 
 
-
-#cancelar{
-    font-size: 14px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-    border: none;
-}
-#cancelar:hover{
-    background: #535050;
-    color: #ffffff;
-}
 .menu-collapsed .li.activo{
     background-color: #535050;
 }
@@ -502,10 +494,23 @@ input[type="file"] {
 }
 /*Registro de usuario*/
 #campo_datos{
+    display: grid;
     
-    width: 100%;
 }
-.content .contenedor .formulario-registro #campo_datos label{
+#campo_datos .formulario__nombre-foto > label{
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+.formulario__subir-archivo-usuario{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-self: center;
+    align-items: center;
+}
+.content .contenedor .formulario-registro #campo_datos .formulario_ingresar-datos-usuario label{
     margin-left: 15px;
     margin-top: 10px;
     font-size: 16px;
@@ -541,11 +546,18 @@ input[type="file"] {
     height: 26px;
 }
 .contenedor_select{
-    position: relative;
     display: flex;
     align-items: center;
 }
+.contenedor_select > label{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 16px;
+    width: 200px;
+}
 #elegirRol{
+    margin-top: 10px;
     position: relative;
     left: 5px;
     height: 26px;
@@ -554,13 +566,12 @@ input[type="file"] {
 }
 #registrar{
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 39%;
     font-size: 16px;
     height: 26px;
     padding: 0 10px;
     font-weight: bold;
-    margin-top: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 #registrar:hover{
     background: #ffaa00;
@@ -576,6 +587,9 @@ input[type="file"] {
 }
 #cancelar:hover{
     background: #ffaa00;
+}
+.formulario__registrar-cancelar{
+    justify-self: center;
 }
 
 
