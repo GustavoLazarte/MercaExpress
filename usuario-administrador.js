@@ -41,25 +41,26 @@ window.onload = function () {
                     color: '#312d2d',
                     background: '#ffffff',
                     confirmButtonColor: '#ffcc00',
+                    timer:2000,
                     toast: true
                 })
                 await signOut(auth);
                 
                 window.location = "login.html" 
             }
-        }// else {
-         //   await Swal.fire({
-         //       icon: 'error',
-         //       title: 'Error',
-         //       text: 'Inicie sesión Primero!',
-         //       color: '#312d2d',
-         //       background: '#ffffff',
-         //       confirmButtonColor: '#ffcc00',
-         //       toast: true
-         //   })
-         //   
-         //   window.location = "login.html"
-         //}
+        } else {
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Inicie sesión Primero!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                toast: true
+            })
+            
+            window.location = "login.html"
+        }
     });
 };
 
@@ -208,7 +209,7 @@ if (btnImg != null) {
     btnImg.addEventListener('click', e => logout(e));
 }
 
-const formEmpresa = document.getElementById('registrar_empresas');
+const formEmpresa = document.getElementById('Empresa');
 
 formEmpresa.addEventListener('submit', e => registrarEmpresa(e));
 
@@ -230,6 +231,7 @@ async function registrarEmpresa(e) {
             nombreResponsable : nomR,
             telefono : telf
         };
+        
         await setDoc(doc(db, "empresa", cod), docData);
         await Swal.fire({
             icon: 'success',
@@ -241,6 +243,7 @@ async function registrarEmpresa(e) {
             timer: 2000,
             toast: true
         })
+        formEmpresa.reset();
 
     } else {
         await Swal.fire({

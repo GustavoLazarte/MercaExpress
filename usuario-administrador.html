@@ -252,7 +252,7 @@
                         <fieldset id="campo_añadir_venta">
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="nombreVenta">Nombre:</label>
-                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_añadir_punto_venta"><br>
+                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="50" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_añadir_punto_venta"><br>
                             </div>
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="responsable">Responsable(Correo) :</label>
@@ -268,7 +268,7 @@
                             </div>
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="direcciónVenta">Dirección:</label>
-                                <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+" class="input_añadir_punto_venta"><br>
+                                <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9]+" class="input_añadir_punto_venta"><br>
                             </div>
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="foto">Foto Punto de Venta:</label>
@@ -296,15 +296,15 @@
             <div class="bloque " id="registrar_empresas">
                 <section class="contenedor">
                     <h2>REGISTRAR EMPRESA</h2>
-                    <form class="formulario-registro3">
+                    <form class="formulario-registro3" id="Empresa">
                         <fieldset id="campo_añadir_empresa">
                             <div>
                                 <label for="nombreEmpresa">Nombre de la Empresa:</label>
-                                <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_registrar_empresa"><br>
+                                <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa" maxlength="15" required="" pattern="[a-z A-Z.-]+" minlength="3" value="" class="input_registrar_empresa"><br>
                             </div>
                             <div>
                                 <label for="responsable_empresa">Nombre del Responsable:</label>
-                                <input type="text" placeholder="" name="responsable_empresa" id="responsable_empresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_registrar_empresa"><br>
+                                <input type="text" placeholder="" name="responsable_empresa" id="responsable_empresa"  minlength="10" maxlength="50" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_registrar_empresa"><br>
                             </div>
                             <div>
                                 <label for="dirección_Empresa">Dirección:</label>
