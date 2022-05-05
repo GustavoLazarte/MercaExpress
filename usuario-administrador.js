@@ -50,19 +50,31 @@ window.onload = function () {
                 
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 02e233c (actualización)
         } else {
             await Swal.fire({
                 icon: 'error',
                 title: 'Error',
+<<<<<<< HEAD
                 text: '¡Inicie sesión Primero!',
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
                 timer:2000
+=======
+                text: 'Inicie sesión Primero!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                toast: true
+>>>>>>> 02e233c (actualización)
             })
             
             window.location = "login.html"
         }
+<<<<<<< HEAD
 =======
         }// else {
          //   await Swal.fire({
@@ -78,6 +90,8 @@ window.onload = function () {
          //   window.location = "login.html"
          //}
 >>>>>>> 093385b (cuadro de texto de catalogo incorporado css grid y es responsive en los 3 usuario administrador, usuario vendedor, usuario supervisor)
+=======
+>>>>>>> 02e233c (actualización)
     });
 };
 
