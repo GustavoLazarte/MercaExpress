@@ -150,15 +150,15 @@ body{
 #sidemenu .li.activo{
     background-color: #535050;
 }
-.content{
+/*.content{
     position: relative;
-}
+}*/
 .content .bloque{
-    position: relative;
-    opacity: 0;
+    position: absolute;
+    transform: scale(2);
 }
 .content .bloque.activo{
-    opacity: 1;
+    transform: scale(1);
 }
 /*portada de catalogo*/
 #contenedor_visualizar_catalogo .portada_foto_empresa{
@@ -167,3 +167,30 @@ body{
     opacity: 0.8;
     border-radius: 4px;
 }
+.content_bloque1{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+/*
+@media(max-width: 770px){
+    .vista_empresa{
+        position: relative;
+        width: 391px;
+        height: auto;
+        border-radius: 15px;
+        background-color: #312d2d;
+    }
+    .vista_empresa .lista_empresa .nombre_cliente_empresa{
+        border-radius: 4px;
+        font-size: 16px;
+        height: auto;
+        width: 120px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+        word-wrap: break-word;
+    }
+}*/
