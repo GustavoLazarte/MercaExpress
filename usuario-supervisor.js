@@ -40,12 +40,15 @@ window.onload = function () {
                     text: 'Acceso denegado ¡Vuelva a iniciar sesión!',
                     color: '#312d2d',
                     background: '#ffffff',
-                    confirmButtonColor: '#ffcc00',
-                    timer:2000,
-                    toast: true
+                    confirmButtonColor: '#ffcc00'
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        logout("e");
+                    }
                 })
-                await signOut(auth);
-                window.location = "login.html" 
+                window.location = "login.html";
+                
             }
         } else {
             await Swal.fire({
@@ -55,8 +58,7 @@ window.onload = function () {
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
-                timer:2000,
-                toast: true
+                timer:2000
             })
             
             window.location = "login.html"
@@ -198,9 +200,9 @@ if (btnLogout != null) {
     btnLogout.addEventListener('click', e => logout(e));
 }
 
-function logout(e) {
-    console.log("Hola")
-    signOut(auth);
+async function logout(e) {
+    await signOut(auth);    
+    window.location = "login.html" 
 }
 
 const btnImg = document.getElementById('redirect');
