@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <feta charset="UTF-8">
+    <Meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
@@ -227,15 +227,15 @@
                             <fieldset id="campo_añadir_producto">
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
-                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" maxlength="50" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" required="" maxlength="50" value="" class="input_añadir_producto"><br>
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="codigo_producto">Código del Producto:</label>
-                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" maxlength="10" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" required="" maxlength="10" value="" class="input_añadir_producto"><br>
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="precio">Precio:</label>
-                                    <input type="number" name="precio" id="precio" value="" class="input_añadir_producto"><br>
+                                    <input type="number" name="precio" required="" id="precio" value="" class="input_añadir_producto"><br>
                                 </div class="formulario__datos-añadir-producto">
                                     <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
                                 <div class="formulario__datos-añadir-producto">
@@ -319,16 +319,7 @@
                     <h2>REGISTRAR EMPRESA</h2>
                     <form class="formulario-registro3" id="Empresa">
                         <fieldset id="campo_añadir_empresa">
-                            <label for="nombreEmpresa">Nombre de la Empresa:</label>
-                            <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa"  maxlength="15" required="" pattern="[a-z A-Z.-]" minlength="3" value="" class="input_registrar_empresa"><br>
-                            <label for="responsable_empresa">Nombre del Responsable:</label>
-                            <input type="text" placeholder="" name="responsable_empresa" id="responsable_empresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_registrar_empresa"><br>
-                            <label for="dirección_Empresa">Dirección:</label>
-                            <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./#]+" class="input_registrar_empresa"><br>
-                            <label for="telefono_empresa_cliente">Teléfono:</label>
-                            <input type="tel" name="telefono_empresa_cliente" id="telefono_empresa_cliente" minlength="7" maxlength="8" pattern="[0-9]+" required="" class="input_registrar_empresa"><br>
-                            <input id="registrar_empresa" type="submit" value="Registrar">
-                            <input id="cancelar_formulario_empresa" type="reset" value="Cancelar">
+                            
                             <div>
                                 <label for="nombreEmpresa">Nombre de la Empresa:</label>
                                 <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa"  maxlength="15" required="" pattern="[a-z A-Z.-]" minlength="3" value="" class="input_registrar_empresa"><br>
@@ -339,7 +330,7 @@
                             </div>
                             <div>
                                 <label for="dirección_Empresa">Dirección:</label>
-                                <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+" class="input_registrar_empresa"><br>
+                                <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./#-]+" class="input_registrar_empresa"><br>
                             </div>
                             <div>
                                 <label for="telefono_empresa_cliente">Teléfono:</label>
