@@ -129,6 +129,80 @@ if (telefono != null) {
   telefono.addEventListener("invalid", comprobarTelefono);
   telefono.addEventListener("input", comprobarTelefono);
 }
+function comprobarTelefonot() {
+
+  var mensajet = "";
+  const regex = /^[0-9]*$/;
+  // comprobar los posibles errores
+  if (this.value == "") {
+    mensajet = `El campo del "Teléfono" no puede quedar vacio`;
+  } else if (!regex.test(document.getElementById('telefonoVenta').value)) {
+    mensajet = "El campo no debe contener letras"
+  } else if (document.getElementById('telefonoVenta').value.length < 7) {
+    caracter = document.getElementById('telefonoVenta').value.length;
+    mensajet = "Debes ingresar 7 u 8 dígitos"
+
+  } else {
+    if (document.getElementById('telefonoVenta').value.charAt(0) == '6' ||
+      document.getElementById('telefonoVenta').value.charAt(0) == '7') {
+      if (document.getElementById('telefonoVenta').value.length < 8) {
+        mensajet = "El Numero no es valido, debe tener 8 dígitos"
+      }
+    } else if (document.getElementById('telefonoVenta').value.charAt(0) == '4' && document.getElementById('telefonoVenta').value.length > 7) {
+      mensajet = "El Numero no es valido, debe tener 7 dígitos";
+    } else {
+      mensajet = "El Numero no es valido, debe iniciar con 4 ,7 o 8";
+    }
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensajet);
+}
+
+var telefonot = document.querySelector("#telefonoVenta");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (telefonot != null) {
+  telefonot.addEventListener("invalid", comprobarTelefonot);
+  telefonot.addEventListener("input", comprobarTelefonot);
+}
+function comprobarTelefonoE() {
+
+  var mensaje = "";
+  const regex = /^[0-9]*$/;
+  // comprobar los posibles errores
+  if (this.value == "") {
+    mensaje = `El campo del "Teléfono" no puede quedar vacio`;
+  } else if (!regex.test(document.getElementById('telefono_empresa_cliente').value)) {
+    mensaje = "El campo no debe contener letras"
+  } else if (document.getElementById('telefono_empresa_cliente').value.length < 7) {
+    caracter = document.getElementById('telefono_empresa_cliente').value.length;
+    mensaje = "Debes ingresar 7 u 8 dígitos"
+
+  } else {
+    if (document.getElementById('telefono_empresa_cliente').value.charAt(0) == '6' ||
+      document.getElementById('telefono_empresa_cliente').value.charAt(0) == '7') {
+      if (document.getElementById('telefono_empresa_cliente').value.length < 8) {
+        mensaje = "El Numero no es valido, debe tener 8 dígitos"
+      }
+    } else if (document.getElementById('telefono_empresa_cliente').value.charAt(0) == '4' && document.getElementById('telefono_empresa_cliente').value.length > 7) {
+      mensaje = "El Numero no es valido, debe tener 7 dígitos";
+    } else {
+      mensaje = "El Numero no es valido, debe iniciar con 4 ,7 o 8";
+    }
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensaje);
+}
+
+var telefono = document.querySelector("#telefono_empresa_cliente");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (telefono != null) {
+  telefono.addEventListener("invalid", comprobarTelefonoE);
+  telefono.addEventListener("input", comprobarTelefonoE);
+}
 
 
 
