@@ -201,9 +201,9 @@
                             <form class="formulario-registro1" id = "formulario_registro">
                                 <fieldset id="campo_añadir_producto">
                                     <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
-                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" maxlength="50" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" required="" maxlength="50" value="" class="input_añadir_producto"><br>
                                     <label for="codigo_producto">Código del Producto:</label>
-                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" maxlength="10" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" maxlength="10" required="" value="" class="input_añadir_producto"><br>
                                     <label for="precio">Precio:</label>
                                     <input type="number" name="precio" id="precio" value="" min="1" class="input_añadir_producto"><br>
                                     <div id="mostrarImagens" stye="display:flex;"></div>
@@ -245,7 +245,7 @@
                         <fieldset id="campo_añadir_venta">
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="nombreVenta">Nombre:</label>
-                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_añadir_punto_venta"><br>
+                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="50" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_añadir_punto_venta"><br>
                             </div>
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="responsable">Responsable(Correo) :</label>
@@ -261,7 +261,7 @@
                             </div>
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="direcciónVenta">Dirección:</label>
-                                <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+" class="input_añadir_punto_venta"><br>
+                                <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9]+" class="input_añadir_punto_venta"><br>
                             </div>
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="foto">Foto Punto de Venta:</label>
@@ -289,7 +289,7 @@
             <div class="bloque " id="registrar_empresas">
                 <section class="contenedor">
                     <h2>REGISTRAR EMPRESA</h2>
-                    <form class="formulario-registro3">
+                    <form class="formulario-registro3" id="Empresa">
                         <fieldset id="campo_añadir_empresa">
                             <div>
                                 <label for="nombreEmpresa">Nombre de la Empresa:</label>

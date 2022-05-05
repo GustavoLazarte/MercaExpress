@@ -40,6 +40,7 @@ window.onload = async function () {
                     color: '#312d2d',
                     background: '#ffffff',
                     confirmButtonColor: '#ffcc00',
+                    timer:2000,
                     toast: true
                 })
                 await signOut(auth);
@@ -53,6 +54,7 @@ window.onload = async function () {
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
+                timer:2000,
                 toast: true
             })
             
