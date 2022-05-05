@@ -2,7 +2,8 @@
 <html lang="es">
 
 <head>
-    <feta charset="UTF-8">
+    <Meta charset="UTF-8">
+        
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
@@ -159,6 +160,7 @@
         </div>
 
         <div class="content_bloque1" id="catalogo lista_empresas">
+<<<<<<< HEAD
             <div class="bloque">
                 <div class="vetana_opciones_catalogo">
                     <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
@@ -202,6 +204,69 @@
                             <input type="number" name="telefono_empresa" id="telefono_empresa" readonly
                                 class="input_texto_empresa"><br>
                             <input type="button" value="Volver" class="volvers">
+=======
+                <div class="bloque">
+                    <div class="vetana_opciones_catalogo">
+                        <section class="contenedor_catalogo" id="contenedor_ingresar_catalogo">
+                            <h2>Seleccionar Empresa para Registrar Producto:</h2>
+                            <form action="" class="formulario_lista_catalogo">
+                                <fieldset id="formulario_ingreso_empresa">
+                                    <div class="opciones__para-ingresar-registrar-catalogo">
+                                            <label for="nombre_empresa">CATÁLOGO:</label>
+                                            <select name="empresa" id="seleccion"></select>
+                                            <input type="submit" id="ingresar" value="Registrar" class="validador">
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <h3>Ver catálogo de empresa:</h3>
+                            <div class="vista_empresa">
+                                <section class="lista_empresa" id="catalogos_disponibles">
+                                    <input type="button" value="hola" class="nombre_cliente_empresa">
+                                </section>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="bloque_ver_catalogo" id="contenedor_visualizar_catalogo">
+                        <h2>Catálogo de la Empresa:</h2>
+                        <hr class="hr1">
+                        <div class="portada_empresa">
+                            <img src="img/portada.jpg" alt="portada de Coca-Cola" class="portada_foto_empresa">
+                            <div class="texto_encima">
+                                <div class="catalogo__empresa-label top__label">
+                                    <label for="nombre_de_la_empresa" class="texto_portada">Nombre:</label>
+                                </div>
+                                <div class="catalogo__input-empresa top__input">
+                                    <input type="text" name="nombre_de_la_empresa" id="nombre_de_la_empresa"   readonly class="input_texto_empresa"><br>
+                                </div>
+                                <div class="catalogo__empresa-label">
+                                    <label for="nombre_del_responsable" class="texto_portada">Responsable:</label>
+                                </div>
+                                <div class="catalogo__input-empresa">
+                                    <input type="text" name="nombre_del_responsable" id="nombre_del_responsable" readonly class="input_texto_empresa"><br>
+                                </div>
+                                <div class="catalogo__empresa-label">
+                                    <label for="codigo_empresa" class="texto_portada">Codigo:</label>
+                                </div>
+                                <div class="catalogo__input-empresa">
+                                    <input type="text" name="codigo_empresa" id="codigo_empresa" readonly class="input_texto_empresa"><br>
+                                </div>
+                                <div class="catalogo__empresa-label">
+                                    <label for="direccion_empresa" class="texto_portada">Dirección:</label>
+                                </div>
+                                <div class="catalogo__input-empresa">
+                                    <input type="text" name="direccion_empresa" id="direccion_empresa"  readonly class="input_texto_empresa"><br>
+                                </div>
+                                <div class="catalogo__empresa-label">
+                                    <label for="telefono_empresa" class="texto_portada">Teléfono:</label>
+                                </div>
+                                <div class="catalogo__input-empresa">
+                                    <input type="number" name="telefono_empresa" id="telefono_empresa"  readonly class="input_texto_empresa"><br>
+                                </div>
+                                <div class="catalogo__empresa-label">
+                                    <input type="button" value="Volver" class="volvers">
+                                </div>
+                            </div>
+>>>>>>> e0f56e286602a029ae56a23a3328509bdec592db
                         </div>
                     </div>
                     <hr class="hr2">
@@ -209,6 +274,7 @@
                     </section>
                 </div>
 
+<<<<<<< HEAD
                 <div class="bloque_catalogo " id="contenedor_para_registrar_catalogo">
                     <div class="registrar_catalogo">
                         <h2>AÑADIR PRODUCTO</h2>
@@ -253,6 +319,47 @@
                                 </div>
                             </fieldset>
                         </form>
+=======
+                    <div class="bloque_catalogo " id="contenedor_para_registrar_catalogo">
+                        <div class="registrar_catalogo">
+                            <h2>AÑADIR PRODUCTO</h2>
+                            <input id = "nombre_empresa" type="text" value="" readonly class="nombre_de_empresa">
+                            <input type="button" value="Volver" class="volver">
+                            <form class="formulario-registro1" id = "formulario_registro">
+                                <fieldset id="campo_añadir_producto">
+                                    <div class="formulario__datos-añadir-producto">
+                                        <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
+                                        <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" maxlength="50" required="" value="" class="input_añadir_producto"><br>
+                                    </div>
+                                    <div class="formulario__datos-añadir-producto">
+                                        <label for="codigo_producto">Código del Producto:</label>
+                                        <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" pattern="[0-9]+" required="" maxlength="10" value="" class="input_añadir_producto"><br>
+                                    </div>
+                                    <div class="formulario__datos-añadir-producto">
+                                        <label for="precio">Precio:</label>
+                                        <input type="number" name="precio" id="precio" required="" value="" class="input_añadir_producto"><br>
+                                    </div class="formulario__datos-añadir-producto">
+                                        <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
+                                    <div class="formulario__datos-añadir-producto">
+                                        <label for="foto">Foto del Producto:</label>
+                                    </div>
+                                    <div class="formulario__nombre-foto-añadir-producto">
+                                        <h3 id="nombress"></h3>
+                                    </div>
+                                    <div class="formulario__foto-añadir-producto">
+                                        <label class="custom-file-uploads" for="fotos_del_producto">
+                                            <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this, false);" />
+                                            Subir foto
+                                        </label><br>
+                                    </div>
+                                    <div class="formulario__añadir-producto-cancelar">
+                                        <input id="registrar_producto_catalogo" type="submit" value="Añadir Producto">
+                                        <input id="cancelar_formulario_catalogo" type="reset" value="Cancelar">
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+>>>>>>> e0f56e286602a029ae56a23a3328509bdec592db
                     </div>
                 </div>
 
@@ -339,8 +446,12 @@
                             </div>
                             <div>
                                 <label for="dirección_Empresa">Dirección:</label>
+<<<<<<< HEAD
                                 <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required=""
                                     maxlength="100" pattern="[a-z A-Z0-9./#]+" class="input_registrar_empresa"><br>
+=======
+                                <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./#-]+" class="input_registrar_empresa"><br>
+>>>>>>> e0f56e286602a029ae56a23a3328509bdec592db
                             </div>
                             <div>
                                 <label for="telefono_empresa_cliente">Teléfono:</label>

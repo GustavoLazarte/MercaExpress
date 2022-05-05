@@ -48,6 +48,7 @@ window.onload = async function () {
                 })
                 
             }
+<<<<<<< HEAD
         } else {
             await Swal.fire({
                 icon: 'error',
@@ -61,6 +62,22 @@ window.onload = async function () {
             
             window.location = "login.html"
         }
+=======
+        }// else {
+         //   await Swal.fire({
+         //       icon: 'error',
+         //       title: 'Error',
+         //       text: 'Inicie sesion Primero!',
+         //       color: '#312d2d',
+         //       background: '#ffffff',
+         //       confirmButtonColor: '#ffcc00',
+         //       timer:2000,
+         //       toast: true
+         //   })
+         //   
+         //   window.location = "login.html"
+         //}
+>>>>>>> e0f56e286602a029ae56a23a3328509bdec592db
     });
 };
 const btnLogout = document.getElementById('logout');

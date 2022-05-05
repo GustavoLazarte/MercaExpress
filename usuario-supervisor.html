@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <feta charset="UTF-8">
+    <Meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
@@ -178,17 +178,39 @@
                     <div class="portada_empresa">
                         <img src="img/portada.jpg" alt="portada de Coca-Cola" class="portada_foto_empresa">
                         <div class="texto_encima">
-                            <label for="nombre_de_la_empresa" class="texto_portada">Nombre:</label>
-                            <input type="text" name="nombre_de_la_empresa" id="nombre_de_la_empresa"   readonly class="input_texto_empresa"><br>
-                            <label for="nombre_del_responsable" class="texto_portada">Responsable:</label>
-                            <input type="text" name="nombre_del_responsable" id="nombre_del_responsable" readonly class="input_texto_empresa"><br>
-                            <label for="codigo_empresa" class="texto_portada">Codigo:</label>
-                            <input type="text" name="codigo_empresa" id="codigo_empresa" readonly class="input_texto_empresa"><br>
-                            <label for="direccion_empresa" class="texto_portada">Dirección:</label>
-                            <input type="text" name="direccion_empresa" id="direccion_empresa"  readonly class="input_texto_empresa"><br>
-                            <label for="telefono_empresa" class="texto_portada">Teléfono:</label>
-                            <input type="number" name="telefono_empresa" id="telefono_empresa"  readonly class="input_texto_empresa"><br>
-                            <input type="button" value="Volver" class="volvers">
+                            <div class="catalogo__empresa-label top__label">
+                                <label for="nombre_de_la_empresa" class="texto_portada">Nombre:</label>
+                            </div>
+                            <div class="catalogo__input-empresa top__input">
+                                <input type="text" name="nombre_de_la_empresa" id="nombre_de_la_empresa"   readonly class="input_texto_empresa"><br>
+                            </div>
+                            <div class="catalogo__empresa-label">
+                                <label for="nombre_del_responsable" class="texto_portada">Responsable:</label>
+                            </div>
+                            <div class="catalogo__input-empresa">
+                                <input type="text" name="nombre_del_responsable" id="nombre_del_responsable" readonly class="input_texto_empresa"><br>
+                            </div>
+                            <div class="catalogo__empresa-label">
+                                <label for="codigo_empresa" class="texto_portada">Codigo:</label>
+                            </div>
+                            <div class="catalogo__input-empresa">
+                                <input type="text" name="codigo_empresa" id="codigo_empresa" readonly class="input_texto_empresa"><br>
+                            </div>
+                            <div class="catalogo__empresa-label">
+                                <label for="direccion_empresa" class="texto_portada">Dirección:</label>
+                            </div>
+                            <div class="catalogo__input-empresa">
+                                <input type="text" name="direccion_empresa" id="direccion_empresa"  readonly class="input_texto_empresa"><br>
+                            </div>
+                            <div class="catalogo__empresa-label">
+                                <label for="telefono_empresa" class="texto_portada">Teléfono:</label>
+                            </div>
+                            <div class="catalogo__input-empresa">
+                                <input type="number" name="telefono_empresa" id="telefono_empresa"  readonly class="input_texto_empresa"><br>
+                            </div>
+                            <div class="catalogo__empresa-label">
+                                <input type="button" value="Volver" class="volvers">
+                            </div>
                         </div>
                     </div>
                     <hr class="hr2">
@@ -205,15 +227,15 @@
                             <fieldset id="campo_añadir_producto">
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
-                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" maxlength="50" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" required="" maxlength="50" value="" class="input_añadir_producto"><br>
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="codigo_producto">Código del Producto:</label>
-                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" maxlength="10" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" pattern="[0-9]+" required="" maxlength="10" value="" class="input_añadir_producto"><br>
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="precio">Precio:</label>
-                                    <input type="number" name="precio" id="precio" value="" class="input_añadir_producto"><br>
+                                    <input type="number" name="precio" required="" id="precio" value="" class="input_añadir_producto"><br>
                                 </div class="formulario__datos-añadir-producto">
                                     <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
                                 <div class="formulario__datos-añadir-producto">
@@ -297,16 +319,7 @@
                     <h2>REGISTRAR EMPRESA</h2>
                     <form class="formulario-registro3" id="Empresa">
                         <fieldset id="campo_añadir_empresa">
-                            <label for="nombreEmpresa">Nombre de la Empresa:</label>
-                            <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa"  maxlength="15" required="" pattern="[a-z A-Z.-]" minlength="3" value="" class="input_registrar_empresa"><br>
-                            <label for="responsable_empresa">Nombre del Responsable:</label>
-                            <input type="text" placeholder="" name="responsable_empresa" id="responsable_empresa" maxlength="20" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_registrar_empresa"><br>
-                            <label for="dirección_Empresa">Dirección:</label>
-                            <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./#]+" class="input_registrar_empresa"><br>
-                            <label for="telefono_empresa_cliente">Teléfono:</label>
-                            <input type="tel" name="telefono_empresa_cliente" id="telefono_empresa_cliente" minlength="7" maxlength="8" pattern="[0-9]+" required="" class="input_registrar_empresa"><br>
-                            <input id="registrar_empresa" type="submit" value="Registrar">
-                            <input id="cancelar_formulario_empresa" type="reset" value="Cancelar">
+                            
                             <div>
                                 <label for="nombreEmpresa">Nombre de la Empresa:</label>
                                 <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa"  maxlength="15" required="" pattern="[a-z A-Z.-]" minlength="3" value="" class="input_registrar_empresa"><br>
@@ -317,7 +330,7 @@
                             </div>
                             <div>
                                 <label for="dirección_Empresa">Dirección:</label>
-                                <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./-#]+" class="input_registrar_empresa"><br>
+                                <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required="" maxlength="100" pattern="[a-z A-Z0-9./#-]+" class="input_registrar_empresa"><br>
                             </div>
                             <div>
                                 <label for="telefono_empresa_cliente">Teléfono:</label>
