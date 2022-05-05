@@ -77,7 +77,11 @@ window.onload = async function () {
          //   
          //   window.location = "login.html"
          //}
+<<<<<<< HEAD
 >>>>>>> 093385b (cuadro de texto de catalogo incorporado css grid y es responsive en los 3 usuario administrador, usuario vendedor, usuario supervisor)
+=======
+>>>>>>> e0f56e286602a029ae56a23a3328509bdec592db
+>>>>>>> e075880ced445b610426a1f53cef20042d19e550
     });
 };
 const btnLogout = document.getElementById('logout');
