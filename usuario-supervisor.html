@@ -203,9 +203,9 @@
                                     <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
                                     <input type="text" name="nombre_producto" id="nombre_producto" pattern="[a-z A-Z0-9.-]+" minlength="3" maxlength="50" value="" class="input_añadir_producto"><br>
                                     <label for="codigo_producto">Código del Producto:</label>
-                                    <input type="text" name="codigo_producto" id="codigo_producto" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" maxlength="10" value="" class="input_añadir_producto"><br>
                                     <label for="precio">Precio:</label>
-                                    <input type="number" name="precio" id="precio" value="" minlength="3" maxlength="10"  class="input_añadir_producto"><br>
+                                    <input type="number" name="precio" id="precio" value="" min="1" class="input_añadir_producto"><br>
                                     <div id="mostrarImagens" stye="display:flex;"></div>
                                     <!--
                                     <label for="foto">Foto del producto:</label>
