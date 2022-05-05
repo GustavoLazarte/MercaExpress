@@ -48,6 +48,7 @@ window.onload = async function () {
                 })
                 
             }
+<<<<<<< HEAD
         } else {
             await Swal.fire({
                 icon: 'error',
@@ -61,6 +62,22 @@ window.onload = async function () {
             
             window.location = "login.html"
         }
+=======
+        }// else {
+         //   await Swal.fire({
+         //       icon: 'error',
+         //       title: 'Error',
+         //       text: 'Inicie sesion Primero!',
+         //       color: '#312d2d',
+         //       background: '#ffffff',
+         //       confirmButtonColor: '#ffcc00',
+         //       timer:2000,
+         //       toast: true
+         //   })
+         //   
+         //   window.location = "login.html"
+         //}
+>>>>>>> 093385b (cuadro de texto de catalogo incorporado css grid y es responsive en los 3 usuario administrador, usuario vendedor, usuario supervisor)
     });
 };
 const btnLogout = document.getElementById('logout');
