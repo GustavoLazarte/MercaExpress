@@ -47,19 +47,19 @@ window.onload = function () {
                 
                 window.location = "login.html" 
             }
-        } else {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Inicie sesión Primero!',
-                color: '#312d2d',
-                background: '#ffffff',
-                confirmButtonColor: '#ffcc00',
-                toast: true
-            })
-            
-            window.location = "login.html"
-        }
+        }// else {
+         //   await Swal.fire({
+         //       icon: 'error',
+         //       title: 'Error',
+         //       text: 'Inicie sesión Primero!',
+         //       color: '#312d2d',
+         //       background: '#ffffff',
+         //       confirmButtonColor: '#ffcc00',
+         //       toast: true
+         //   })
+         //   
+         //   window.location = "login.html"
+         //}
     });
 };
 
