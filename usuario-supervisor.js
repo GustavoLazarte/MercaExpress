@@ -41,22 +41,25 @@ window.onload = function () {
                     color: '#312d2d',
                     background: '#ffffff',
                     confirmButtonColor: '#ffcc00',
-                    timer:2000,
-                    toast: true
+                    timer: 3000
+                }).then(async (result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      await logout("e")
+                    } else{
+                        window.location = "login.html"
+                    }
                 })
-                await signOut(auth);
                 window.location = "login.html" 
             }
         } else {
             await Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: '¡Inicie sesión Primero!',
+                text: 'Inicie sesión Primero!',
                 color: '#312d2d',
                 background: '#ffffff',
-                confirmButtonColor: '#ffcc00',
-                timer:2000,
-                toast: true
+                confirmButtonColor: '#ffcc00'
             })
             
             window.location = "login.html"
@@ -198,9 +201,9 @@ if (btnLogout != null) {
     btnLogout.addEventListener('click', e => logout(e));
 }
 
-function logout(e) {
-    console.log("Hola")
-    signOut(auth);
+async function logout(e) {    
+    await signOut(auth);
+    window.location = "login.html" 
 }
 
 const btnImg = document.getElementById('redirect');
@@ -215,9 +218,9 @@ formEmpresa.addEventListener('submit', e => registrarEmpresa(e));
 async function registrarEmpresa(e) {
     e.preventDefault()
     const empresaColeccion = await collection(db, "empresa");
-    const nom = document.getElementById('nombreEmpresa').value;
-    const nomR = document.getElementById('responsable_empresa').value;
-    const dire = document.getElementById('dirección_Empresa').value;
+    const nom = document.getElementById('nombreEmpresa').value.trim();
+    const nomR = document.getElementById('responsable_empresa').value.trim();
+    const dire = document.getElementById('dirección_Empresa').value.trim();
     const telf = document.getElementById('telefono_empresa_cliente').value;
     const res = query(empresaColeccion, where("nombre", "==", nom));
     const cod = nom.charAt(0) + "-" + telf.substring(0,3)

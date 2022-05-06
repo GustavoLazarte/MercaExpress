@@ -286,7 +286,77 @@ if (confPassword != null) {
 
 }
 
+// REGISTRO DE EMPRESA VALIDACIONES
 
 
 
+function comprobarNombreEmpresa() {
 
+  var mensaje = "";
+
+  // comprobar los posibles errores
+  if (this.value.trim() == "") {
+    mensaje = `El campo "nombre" no puede quedar vacio`;
+    this.value = "";
+  } else if (document.getElementById('nombreEmpresa').value.trim().length < 3) {
+    caracter = document.getElementById('nombreEmpresa').value.length;
+    mensaje = "Debes ingresar 3 o mas carácteres, solo se permite letras a-Z y A-Z"
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensaje);
+}
+
+var nombreE = document.querySelector("#nombreEmpresa");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (nombreE != null) {
+  nombreE.addEventListener("invalid", comprobarNombreEmpresa);
+  nombreE.addEventListener("input", comprobarNombreEmpresa);
+}
+
+function comprobarNombreREEmpresa() {
+
+  var mensaje = "";
+
+  // comprobar los posibles errores
+  if (this.value.trim() == "") {
+    mensaje = `El campo "nombre responsable" no puede quedar vacio`;
+    this.value = "";
+  } else if (document.getElementById('responsable_empresa').value.trim().length < 10) {
+    caracter = document.getElementById('responsable_empresa').value.length;
+    mensaje = "Debes ingresar 3 o mas carácteres"
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensaje);
+}
+
+var nombreRE = document.querySelector("#responsable_empresa");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (nombreRE != null) {
+  nombreRE.addEventListener("invalid", comprobarNombreREEmpresa);
+  nombreRE.addEventListener("input", comprobarNombreREEmpresa);
+}
+
+function comprobarDireccionEmpresa() {
+
+  var mensaje = "";
+
+  // comprobar los posibles errores
+  if (this.value.trim() == "") {
+    mensaje = `El campo de "dirección" no puede quedar vacio`;
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensaje);
+}
+
+var direccionE = document.querySelector("#dirección_Empresa");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (direccionE != null) {
+  direccionE.addEventListener("invalid", comprobarDireccionEmpresa);
+  direccionE.addEventListener("input", comprobarDireccionEmpresa);
+}

@@ -41,11 +41,15 @@ window.onload = function () {
                     color: '#312d2d',
                     background: '#ffffff',
                     confirmButtonColor: '#ffcc00',
-                    timer:2000,
-                    toast: true
+                    timer: 3000
+                }).then(async (result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      await logout("e")
+                    } else{
+                        window.location = "login.html"
+                    }
                 })
-                await signOut(auth);
-                
                 window.location = "login.html" 
             }
         } else {
@@ -55,8 +59,7 @@ window.onload = function () {
                 text: 'Inicie sesión Primero!',
                 color: '#312d2d',
                 background: '#ffffff',
-                confirmButtonColor: '#ffcc00',
-                toast: true
+                confirmButtonColor: '#ffcc00'
             })
             
             window.location = "login.html"
@@ -199,9 +202,9 @@ if (btnLogout != null) {
     btnLogout.addEventListener('click', e => logout(e));
 }
 
-function logout(e) {
-    console.log("Hola")
-    signOut(auth);
+async function logout(e) {    
+    await signOut(auth);
+    window.location = "login.html" 
 }
 
 const btnImg = document.getElementById('redirect');
