@@ -173,12 +173,15 @@ function comprobarTelefonoE() {
   // comprobar los posibles errores
   if (this.value == "") {
     mensaje = `El campo del "Teléfono" no puede quedar vacio`;
+  } else if (document.getElementById('telefono_empresa_cliente').value.charAt(0) != '6' &&
+                document.getElementById('telefono_empresa_cliente').value.charAt(0) != '7' &&
+                  document.getElementById('telefono_empresa_cliente').value.charAt(0) != '4') {
+    this.value = "";  
   } else if (!regex.test(document.getElementById('telefono_empresa_cliente').value)) {
     mensaje = "El campo no debe contener letras"
   } else if (document.getElementById('telefono_empresa_cliente').value.length < 7) {
     caracter = document.getElementById('telefono_empresa_cliente').value.length;
     mensaje = "Debes ingresar 7 u 8 dígitos"
-
   } else {
     if (document.getElementById('telefono_empresa_cliente').value.charAt(0) == '6' ||
       document.getElementById('telefono_empresa_cliente').value.charAt(0) == '7') {
@@ -196,12 +199,12 @@ function comprobarTelefonoE() {
   this.setCustomValidity(mensaje);
 }
 
-var telefono = document.querySelector("#telefono_empresa_cliente");
+var telefonoE = document.querySelector("#telefono_empresa_cliente");
 
 // cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
-if (telefono != null) {
-  telefono.addEventListener("invalid", comprobarTelefonoE);
-  telefono.addEventListener("input", comprobarTelefonoE);
+if (telefonoE != null) {
+  telefonoE.addEventListener("invalid", comprobarTelefonoE);
+  telefonoE.addEventListener("input", comprobarTelefonoE);
 }
 
 
