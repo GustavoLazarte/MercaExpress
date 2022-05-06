@@ -141,7 +141,7 @@
                             </div>
                             <!--<div id="mostrarImagen" stye="display:flex;"></div>-->
                             <div class="formulario__nombre-foto-registrar-usuario">
-                                <h3 id="nombres"></h3>
+                                <span id="nombres"></h3>
                             </div>
                             <div class="formulario__subir-archivo-usuario">
                                 <label class="custom-file-upload" for="perfil">
@@ -243,7 +243,7 @@
                                     <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del
                                         Producto:</label>
                                     <input type="text" name="nombre_producto" id="nombre_producto"
-                                    pattern="[.-0-9a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="3" maxlength="50" required="" value=""
+                                    pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1\d .-]+$" minlength="3" maxlength="50" required="" value=""
                                         class="input_añadir_producto"><br>
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
@@ -254,15 +254,20 @@
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="precio">Precio:</label>
+<<<<<<< HEAD
                                     <input type="number" name="precio" id="precio" minlength="1" pattern="[0-9]+" min="0.1" required="" maxlength="3" value="" step="0.1"
                                         class="input_añadir_producto"><br> 
+=======
+                                    <input type="number" name="precio" id="precio" min="0.1" required="" step="0.1" value=""
+                                        class="input_añadir_producto"><br>
+>>>>>>> 3d2ae7cb6c228cc90b568908ef39703f99ba3f1e
                                 </div class="formulario__datos-añadir-producto">
                                 <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="foto">Foto del Producto:</label>
                                 </div>
                                 <div class="formulario__nombre-foto-añadir-producto">
-                                    <h3 id="nombress"></h3>
+                                    <span id="nombress"></span>
                                 </div>
                                 <div class="formulario__foto-añadir-producto">
                                     <label class="custom-file-uploads" for="fotos_del_producto">
@@ -294,7 +299,7 @@
                         <fieldset id="campo_añadir_venta">
                             <div class="formulario__datos-añadir-punto-venta">
                                 <label for="nombreVenta">Nombre:</label>
-                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="50"
+                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="25"
                                     required="" pattern="[a-z A-Z]+" minlength="3" value=""
                                     class="input_añadir_punto_venta"><br>
                             </div>
@@ -324,7 +329,7 @@
                                 <label for="foto">Foto Punto de Venta:</label>
                             </div>
                             <div class="formulario__nombre-foto">
-                                <h3 id="nombresss"></h3>
+                                <span id="nombresss"></span>
                                 <!--<div id="mostrarImagenss" stye="display:flex;"></div>-->
                             </div>
                             <div class="formulario_foto-punto-venta">
@@ -436,7 +441,6 @@
 <script defer src="./js/tab.js"></script>
 <script defer src="./js/tabs2.js"></script>
 <script src="./js/administrador.js"></script>
-<script type="module" src="login.js"></script>
 <script type="module" src="usuario-administrador.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

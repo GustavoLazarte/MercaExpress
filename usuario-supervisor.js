@@ -208,7 +208,7 @@ async function logout(e) {
 
 const btnImg = document.getElementById('redirect');
 if (btnImg != null) {
-    btnImg.addEventListener('click', e => logout(e));
+    btnImg.addEventListener('click', () => {window.location = "index.html" });
 }
 
 const formEmpresa = document.getElementById('Empresa');
