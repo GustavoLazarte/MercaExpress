@@ -67,7 +67,7 @@ window.onload = async function () {
 };
 const btnLogout = document.getElementById('logout');
 if (btnLogout != null) {
-    btnLogout.addEventListener('click', e => logout(e));
+    btnLogout.addEventListener('click', async e => await logout(e));
 }
 
 async function logout(e) {    
@@ -77,7 +77,7 @@ async function logout(e) {
 
 const btnImg = document.getElementById('redirect');
 if (btnImg != null) {
-    btnImg.addEventListener('click', e => logout(e));
+    btnImg.addEventListener('click', () => {window.location = "index.html" });
 }
 
 

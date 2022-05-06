@@ -78,6 +78,7 @@ async function login(e) {
                     color: '#312d2d',
                     background: '#ffffff',
                     confirmButtonColor: '#ffcc00',
+                    timer : 2000,
                     toast: true
                 })
                 form.reset();
@@ -94,6 +95,7 @@ async function login(e) {
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
+                timer : 2000,
                 toast: true
             })
         }
