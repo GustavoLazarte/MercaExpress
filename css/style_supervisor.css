@@ -20,6 +20,9 @@ body{
     margin-left: var(--width-collapsed);
     justify-content: center;
 }
+#redirect{
+    cursor: pointer;
+}
 .body-expanded{
     margin-left: 300px;
 }
