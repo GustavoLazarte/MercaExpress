@@ -17,7 +17,26 @@ const auth = getAuth();
 const db = getFirestore();
 const form = document.querySelector("#login-form");
 
+window.open = await controlDeSesionAbierta();
 
+async function controlDeSesionAbierta () {
+    const auth = getAuth();
+    await onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            const uid = user.uid;
+            const docRef = doc(db, "users", user.uid);
+            const docSnap = await getDoc(docRef);
+            const rol = docSnap.data().role;
+            if (rol == 1) {
+                window.location = "usuario-administrador.html";
+            } else if (rol == 2) {
+                window.location = "usuario-supervisor.html";
+            } else if (rol == 3) {
+                window.location = "usuario-vendedor.html";
+            }    
+        }
+    });
+}
 if (form != null) {
     form.addEventListener('submit', e => login(e));
 }
