@@ -399,3 +399,58 @@ if (telefonot != null) {
   telefonot.addEventListener("invalid", comprobarPrecio);
   telefonot.addEventListener("input", comprobarPrecio);
 }
+
+
+///REGISTRO DE PRODUCTO
+function comprobarNombreProducto() {
+
+  var mensaje = "";
+
+  // comprobar los posibles errores
+  if (this.value.trim() == "") {
+    mensaje = `El campo "nombre" no puede quedar vacio`;
+    this.value = "";
+  } else if (document.getElementById('nombre_producto').value.trim().length < 3) {
+    caracter = document.getElementById('nombre_producto').value.length;
+    mensaje = "Debes ingresar 3 o mas carácteres, solo se permite letras a-Z y A-Z"
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensaje);
+}
+
+var nombrePD = document.querySelector("#nombre_producto");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (nombrePD != null) {
+  nombrePD.addEventListener("invalid", comprobarNombreProducto);
+  nombrePD.addEventListener("input", comprobarNombreProducto);
+}
+
+function comprobarCodigoProducto() {
+
+  var mensaje = "";
+  const regex = /^[0-9.]*$/;
+  
+  // comprobar los posibles errores
+  if (this.value.trim() == "") {
+    mensaje = `El campo "nombre" no puede quedar vacio`;
+    this.value = "";
+  }else if (!regex.test(document.getElementById('codigo_producto').value.charAt(0)) || document.getElementById('codigo_producto').value.charAt(0) == 'e') {
+    this.value = "";
+  } else if (document.getElementById('codigo_producto').value.trim().length < 3) {
+    caracter = document.getElementById('codigo_producto').value.length;
+    mensaje = "Debes ingresar 3 o mas carácteres, solo se permite letras a-Z y A-Z"
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensaje);
+}
+
+var nombreCP = document.querySelector("#codigo_producto");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (nombreCP != null) {
+  nombreCP.addEventListener("invalid", comprobarCodigoProducto);
+  nombreCP.addEventListener("input", comprobarCodigoProducto);
+}
