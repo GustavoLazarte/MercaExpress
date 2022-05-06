@@ -190,8 +190,6 @@ function comprobarTelefonoE() {
       }
     } else if (document.getElementById('telefono_empresa_cliente').value.charAt(0) == '4' && document.getElementById('telefono_empresa_cliente').value.length > 7) {
       mensaje = "El Numero no es valido, debe tener 7 dígitos";
-    } else {
-      mensaje = "El Numero no es valido, debe iniciar con 4 ,7 o 8";
     }
   }
 
@@ -328,7 +326,7 @@ function comprobarNombreREEmpresa() {
     this.value = "";
   } else if (document.getElementById('responsable_empresa').value.trim().length < 10) {
     caracter = document.getElementById('responsable_empresa').value.length;
-    mensaje = "Debes ingresar 3 o mas carácteres"
+    mensaje = "Debes ingresar 10 o mas carácteres"
   }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
@@ -350,6 +348,7 @@ function comprobarDireccionEmpresa() {
   // comprobar los posibles errores
   if (this.value.trim() == "") {
     mensaje = `El campo de "dirección" no puede quedar vacio`;
+    this.value = "";
   }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
