@@ -254,8 +254,8 @@
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
                                     <label for="precio">Precio:</label>
-                                    <input type="number" name="precio" id="precio" required="" value=""
-                                        class="input_añadir_producto"><br>
+                                    <input type="number" name="precio" id="precio" minlength="1" pattern="[0-9]+" min="0.1" required="" maxlength="3" value="" step="0.1"
+                                        class="input_añadir_producto"><br> 
                                 </div class="formulario__datos-añadir-producto">
                                 <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
                                 <div class="formulario__datos-añadir-producto">

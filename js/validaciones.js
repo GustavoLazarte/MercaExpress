@@ -363,3 +363,40 @@ if (direccionE != null) {
   direccionE.addEventListener("invalid", comprobarDireccionEmpresa);
   direccionE.addEventListener("input", comprobarDireccionEmpresa);
 }
+function comprobarPrecio() {
+
+  var mensajet = "";
+  const regex = /^[0-9.]*$/;
+  // comprobar los posibles errores
+  if (this.value == "") {
+  } else if(document.getElementById('precio').value.charAt(0) == '0' && (document.getElementById('precio').value.charAt(1) == '0' ) )
+    {
+        this.value="0"
+  }
+  else if (!regex.test(document.getElementById('precio').value)) {
+    mensajet = "El campo no dede tener ningun caracter especial"
+  } else if (document.getElementById('precio').value.length < 1) {
+    caracter = document.getElementById('precio').value.length;
+    mensajet = "Debes ingresar 3 digitos"
+
+  } else {
+    if (document.getElementById('precio').value.charAt(0) == '0' ) {
+      if (document.getElementById('precio').value.length <= 3) {
+        mensajet = "El Numero no es valido, debe tener 3 dígitos"
+      }
+    } else if  (document.getElementById('precio').value.length > 6) {
+      mensajet = "El Numero no es valido, debe tener 3 dígitos";
+    } 
+  }
+
+  // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
+  this.setCustomValidity(mensajet);
+}
+
+var telefonot = document.querySelector("#precio");
+
+// cuando se cambie el valor del campo o sea incorrecto, mostrar/resetear mensaje
+if (telefonot != null) {
+  telefonot.addEventListener("invalid", comprobarPrecio);
+  telefonot.addEventListener("input", comprobarPrecio);
+}
