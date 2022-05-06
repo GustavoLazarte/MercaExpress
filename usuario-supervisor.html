@@ -353,20 +353,38 @@
 
         if (!(/\.(jpg|jpeg)$/i).test(uploadFile.name)) {
             obj.value = "";
-            alert('El archivo a adjuntar no es una imagen');
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '¡El formato de imagen no es permitido!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                timer: 2000,
+                toast: true
+            })
         }
         else {
             var img = new Image();
-            img.onload = await function () {
-                if (importaTamaño){
+            img.onload = async function () {
+                if (importaTamaño) {
                     console.log(this.width.toFixed(0));
                     console.log(this.height.toFixed(0));
                     var w = this.width.toFixed(0) != 300;
                     console.log(w);
                     var h = this.height.toFixed(0) != 300;
                     console.log(h)
-                    if (w == true || h == true){
-                        alert('Las medidas deben ser: 300 * 300');
+                    if (w == true || h == true) {
+                        await Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: '¡El formato de imagen no es permitido!',
+                            color: '#312d2d',
+                            background: '#ffffff',
+                            confirmButtonColor: '#ffcc00',
+                            timer: 2000,
+                            toast: true
+                        })
                         obj.value = "";
                     }
                 }
