@@ -243,7 +243,7 @@
                                     <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del
                                         Producto:</label>
                                     <input type="text" name="nombre_producto" id="nombre_producto"
-                                    pattern="[.-0-9a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" minlength="3" maxlength="50" required="" value=""
+                                    pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1\d .-]+$" minlength="3" maxlength="50" required="" value=""
                                         class="input_añadir_producto"><br>
                                 </div>
                                 <div class="formulario__datos-añadir-producto">
