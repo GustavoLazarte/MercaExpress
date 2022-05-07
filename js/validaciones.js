@@ -440,7 +440,7 @@ function comprobarCodigoProducto() {
     this.value = "";
   } else if (document.getElementById('codigo_producto').value.trim().length < 3) {
     caracter = document.getElementById('codigo_producto').value.length;
-    mensaje = "Debes ingresar 3 o mas carácteres, solo se permite letras a-Z y A-Z"
+    mensaje = "Debes ingresar 3 o mas dígitos, solo se permite números"
   }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
