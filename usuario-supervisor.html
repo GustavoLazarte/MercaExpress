@@ -225,29 +225,38 @@
                         <input type="button" value="Volver" class="volver">
                         <form class="formulario-registro1" id = "formulario_registro">
                             <fieldset id="campo_añadir_producto">
-                                <div class="formulario__datos-añadir-producto">
-                                    <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del Producto:</label>
-                                    <input type="text" name="nombre_producto" id="nombre_producto" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1\d .-]+$" minlength="3" required="" maxlength="50" value="" class="input_añadir_producto"><br>
+                                <div class="formulario__datos-añadir-producto label__del-producto">
+                                    <label for="nombre_producto" class="espaciador_nombre_producto">Nombre del
+                                        Producto:</label>
+                                    <input type="text" name="nombre_producto" id="nombre_producto"
+                                    pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1\d .-]+$" minlength="3" maxlength="50" required="" value=""
+                                        class="input_añadir_producto"><br>
                                 </div>
-                                <div class="formulario__datos-añadir-producto">
+                                <div class="formulario__datos-añadir-producto label__del-producto">
                                     <label for="codigo_producto">Código del Producto:</label>
-                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3" pattern="[0-9]+" required="" maxlength="10" value="" class="input_añadir_producto"><br>
+                                    <input type="text" name="codigo_producto" id="codigo_producto" minlength="3"
+                                        pattern="[0-9]+" required="" maxlength="10" value=""
+                                        class="input_añadir_producto"><br>
                                 </div>
-                                <div class="formulario__datos-añadir-producto">
+                                <div class="formulario__datos-añadir-producto label__del-producto">
                                     <label for="precio">Precio:</label>
-                                    <input type="number" name="precio" required="" pattern="[0-9]+" id="precio" min="0.1" value="" step="0.1" 
-                                    class="input_añadir_producto"><br>
+                                    <input type="number" name="precio" id="precio" minlength="1" pattern="[0-9]+" min="0.1" required="" maxlength="3" value="" step="0.1"
+                                        class="input_añadir_producto"><br> 
                                 </div class="formulario__datos-añadir-producto">
-                                    <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
-                                <div class="formulario__datos-añadir-producto">
-                                    <label for="foto">Foto del Producto:</label>
+                                <!--<div id="mostrarImagens" stye="display:flex;"></div>-->
+                                <div class="formulario__para-subir-foto">
+                                    <div class="formulario__texto-foto-producto">
+                                        <label for="foto">Foto del Producto:</label>
+                                    </div>
+                                    <div class="formulario__nombre-foto-añadir-producto">
+                                        <span id="nombress"></span>
+                                    </div>
                                 </div>
-                                <div class="formulario__nombre-foto-añadir-producto">
-                                    <span id="nombress"></span>
-                                </div>
+                                
                                 <div class="formulario__foto-añadir-producto">
                                     <label class="custom-file-uploads" for="fotos_del_producto">
-                                        <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this, false);" />
+                                        <input id="fotos_del_producto" accept="image/jpg,image/jpeg" type="file"
+                                            name="file" onchange="ValidarImagen(this, false);" />
                                         Subir foto
                                     </label><br>
                                 </div>
