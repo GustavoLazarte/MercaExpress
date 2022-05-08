@@ -438,6 +438,7 @@ async function añadirProducto(e) {
             timer: 2000,
             toast: true
         })
+        desbloquearContenido();
         formProducto.reset();
     } else {
         await Swal.fire({
@@ -540,5 +541,8 @@ async function cargarPortada(cod) {
 }
 
 function bloquearContenido(){
-
+    $.blockUI({message : null});
+}
+function desbloquearContenido(){
+    $.unblockUI();
 }

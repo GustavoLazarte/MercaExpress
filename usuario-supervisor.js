@@ -410,6 +410,7 @@ formProducto.addEventListener('submit', e => añadirProducto(e));
 
 async function añadirProducto(e) {
     e.preventDefault();
+    bloquearContenido();
     const imgProducto = await subirImagen('fotos_del_producto');
     const nomProducto = document.getElementById('nombre_producto').value;
     const precioProducto = document.getElementById('precio').value;
@@ -435,6 +436,7 @@ async function añadirProducto(e) {
             timer: 2000,
             toast: true
         })
+        desbloquearContenido();
         formProducto.reset();
     } else {
         await Swal.fire({
@@ -534,4 +536,10 @@ async function cargarPortada(cod) {
         document.getElementById("direccion_empresa").value = obSnap.data().direccion;
         document.getElementById("telefono_empresa").value = obSnap.data().telefono;
     }
+}
+function bloquearContenido(){
+    $.blockUI({message : null});
+}
+function desbloquearContenido(){
+    $.unblockUI();
 }
