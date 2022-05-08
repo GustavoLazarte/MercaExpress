@@ -100,7 +100,7 @@ function comprobarTelefono() {
   if (this.value == "") {
     mensaje = `El campo del "Teléfono" no puede quedar vacio`;
   } else if (!regex.test(document.getElementById('telefono').value)) {
-    mensaje = "El campo no debe contener letras"
+    mensaje = "Ingresar un número de teléfono válido"
   } else if (document.getElementById('telefono').value.length < 7) {
     caracter = document.getElementById('telefono').value.length;
     mensaje = "Debes ingresar 7 u 8 dígitos"
@@ -137,7 +137,7 @@ function comprobarTelefonot() {
   if (this.value == "") {
     mensajet = `El campo del "Teléfono" no puede quedar vacio`;
   } else if (!regex.test(document.getElementById('telefonoVenta').value)) {
-    mensajet = "El campo no debe contener letras"
+    mensajet = "Ingresar un número de teléfono válido"
   } else if (document.getElementById('telefonoVenta').value.length < 7) {
     caracter = document.getElementById('telefonoVenta').value.length;
     mensajet = "Debes ingresar 7 u 8 dígitos"
@@ -178,7 +178,7 @@ function comprobarTelefonoE() {
                   document.getElementById('telefono_empresa_cliente').value.charAt(0) != '4') {
     this.value = "";  
   } else if (!regex.test(document.getElementById('telefono_empresa_cliente').value)) {
-    mensaje = "El campo no debe contener letras"
+    mensaje = "Ingresar un número de teléfono válido"
   } else if (document.getElementById('telefono_empresa_cliente').value.length < 7) {
     caracter = document.getElementById('telefono_empresa_cliente').value.length;
     mensaje = "Debes ingresar 7 u 8 dígitos"
@@ -324,9 +324,9 @@ function comprobarNombreREEmpresa() {
   if (this.value.trim() == "") {
     mensaje = `El campo "nombre responsable" no puede quedar vacio`;
     this.value = "";
-  } else if (document.getElementById('responsable_empresa').value.trim().length < 10) {
+  } else if (document.getElementById('responsable_empresa').value.trim().length < 3) {
     caracter = document.getElementById('responsable_empresa').value.length;
-    mensaje = "Debes ingresar 10 o mas carácteres"
+    mensaje = "Debes ingresar 3 o mas carácteres"
   }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
