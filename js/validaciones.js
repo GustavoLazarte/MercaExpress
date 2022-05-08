@@ -9,7 +9,7 @@ function comprobarNombre() {
 
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo "nombre" no puede quedar vacio`;
+    mensaje = `El campo "nombre" no puede quedar vacío`;
   } else if (document.getElementById('nombre').value.length < 3) {
     caracter = document.getElementById('nombre').value.length;
     mensaje = "Debes ingresar 3 o mas carácteres, solo se permite letras a-Z y A-Z"
@@ -39,7 +39,7 @@ function comprobarApellido() {
 
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo "apellido" no puede quedar vacio`;
+    mensaje = `El campo "apellido" no puede quedar vacío`;
   } else if (document.getElementById('apellido').value.length < 3) {
     caracter = document.getElementById('apellido').value.length;
     mensaje = "Debes ingresar 3 o mas carácteres, solo se permite letras a-Z y A-Z"
@@ -71,7 +71,7 @@ function comprobarEmail() {
 
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo "E-mail" no puede quedar vacio`;
+    mensaje = `El campo "E-mail" no puede quedar vacío`;
   }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
@@ -98,7 +98,7 @@ function comprobarTelefono() {
   const regex = /^[0-9]*$/;
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo del "Teléfono" no puede quedar vacio`;
+    mensaje = `El campo del "Teléfono" no puede quedar vacío`;
   } else if (!regex.test(document.getElementById('telefono').value)) {
     mensaje = "Ingresar un número de teléfono válido"
   } else if (document.getElementById('telefono').value.length < 7) {
@@ -109,12 +109,12 @@ function comprobarTelefono() {
     if (document.getElementById('telefono').value.charAt(0) == '6' ||
       document.getElementById('telefono').value.charAt(0) == '7') {
       if (document.getElementById('telefono').value.length < 8) {
-        mensaje = "El Numero no es valido, debe tener 8 dígitos"
+        mensaje = "El Número no es valido, debe tener 8 dígitos"
       }
     } else if (document.getElementById('telefono').value.charAt(0) == '4' && document.getElementById('telefono').value.length > 7) {
-      mensaje = "El Numero no es valido, debe tener 7 dígitos";
+      mensaje = "El Número no es valido, debe tener 7 dígitos";
     } else {
-      mensaje = "El Numero no es valido, debe iniciar con 4 ,7 o 8";
+      mensaje = "El Número no es valido, debe iniciar con 4 ,7 o 8";
     }
   }
 
@@ -135,7 +135,7 @@ function comprobarTelefonot() {
   const regex = /^[0-9]*$/;
   // comprobar los posibles errores
   if (this.value == "") {
-    mensajet = `El campo del "Teléfono" no puede quedar vacio`;
+    mensajet = `El campo del "Teléfono" no puede quedar vacío`;
   } else if (!regex.test(document.getElementById('telefonoVenta').value)) {
     mensajet = "Ingresar un número de teléfono válido"
   } else if (document.getElementById('telefonoVenta').value.length < 7) {
@@ -146,12 +146,12 @@ function comprobarTelefonot() {
     if (document.getElementById('telefonoVenta').value.charAt(0) == '6' ||
       document.getElementById('telefonoVenta').value.charAt(0) == '7') {
       if (document.getElementById('telefonoVenta').value.length < 8) {
-        mensajet = "El Numero no es valido, debe tener 8 dígitos"
+        mensajet = "El Número no es valido, debe tener 8 dígitos"
       }
     } else if (document.getElementById('telefonoVenta').value.charAt(0) == '4' && document.getElementById('telefonoVenta').value.length > 7) {
-      mensajet = "El Numero no es valido, debe tener 7 dígitos";
+      mensajet = "El Número no es valido, debe tener 7 dígitos";
     } else {
-      mensajet = "El Numero no es valido, debe iniciar con 4 ,7 o 8";
+      mensajet = "El Número no es valido, debe iniciar con 4 ,7 o 8";
     }
   }
 
@@ -172,7 +172,7 @@ function comprobarTelefonoE() {
   const regex = /^[0-9]*$/;
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo del "Teléfono" no puede quedar vacio`;
+    mensaje = `El campo del "Teléfono" no puede quedar vacío`;
   } else if (document.getElementById('telefono_empresa_cliente').value.charAt(0) != '6' &&
                 document.getElementById('telefono_empresa_cliente').value.charAt(0) != '7' &&
                   document.getElementById('telefono_empresa_cliente').value.charAt(0) != '4') {
@@ -189,7 +189,7 @@ function comprobarTelefonoE() {
         mensaje = "El Numero no es valido, debe tener 8 dígitos"
       }
     } else if (document.getElementById('telefono_empresa_cliente').value.charAt(0) == '4' && document.getElementById('telefono_empresa_cliente').value.length > 7) {
-      mensaje = "El Numero no es valido, debe tener 7 dígitos";
+      mensaje = "El Número no es valido, debe tener 7 dígitos";
     }
   }
 
@@ -215,7 +215,7 @@ function comprobarDireccion() {
 
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo de "dirección" no puede quedar vacio`;
+    mensaje = `El campo de "dirección" no puede quedar vacío`;
   }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
@@ -240,7 +240,7 @@ function comprobarPassword() {
 
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo de "password" no puede quedar vacio`;
+    mensaje = `El campo de "password" no puede quedar vacío`;
   } else if (document.getElementById('password').value.length < 8) {
     mensaje = "Debes ingresar de 8 a 15 carácteres, debe contener por lo menos un número, una letra mayúscula y minúscula"
   }
@@ -267,7 +267,7 @@ function comprobarConfPassword() {
 
   // comprobar los posibles errores
   if (this.value == "") {
-    mensaje = `El campo de "password" no puede quedar vacio`;
+    mensaje = `El campo de "password" no puede quedar vacío`;
   } else if (document.getElementById('confirmar_contraseña').value.length < 8) {
     mensaje = "Debes ingresar de 8 a 15 carácteres, debe contener por lo menos un número, una letra mayúscula y minúscula"
   } else if (document.getElementById('confirmar_contraseña').value != document.getElementById('password').value) {
@@ -297,7 +297,7 @@ function comprobarNombreEmpresa() {
 
   // comprobar los posibles errores
   if (this.value.trim() == "") {
-    mensaje = `El campo "nombre" no puede quedar vacio`;
+    mensaje = `El campo "nombre" no puede quedar vacío`;
     this.value = "";
   } else if (document.getElementById('nombreEmpresa').value.trim().length < 3) {
     caracter = document.getElementById('nombreEmpresa').value.length;
@@ -322,7 +322,7 @@ function comprobarNombreREEmpresa() {
 
   // comprobar los posibles errores
   if (this.value.trim() == "") {
-    mensaje = `El campo "nombre responsable" no puede quedar vacio`;
+    mensaje = `El campo "nombre responsable" no puede quedar vacío`;
     this.value = "";
   } else if (document.getElementById('responsable_empresa').value.trim().length < 3) {
     caracter = document.getElementById('responsable_empresa').value.length;
@@ -347,7 +347,7 @@ function comprobarDireccionEmpresa() {
 
   // comprobar los posibles errores
   if (this.value.trim() == "") {
-    mensaje = `El campo de "dirección" no puede quedar vacio`;
+    mensaje = `El campo de "dirección" no puede quedar vacío`;
     this.value = "";
   }
 
@@ -381,10 +381,10 @@ function comprobarPrecio() {
   } else {
     if (document.getElementById('precio').value.charAt(0) == '0' ) {
       if (document.getElementById('precio').value.length <= 3) {
-        mensajet = "El Numero no es valido, debe tener 3 dígitos"
+        mensajet = "El Número no es valido, debe tener 3 dígitos"
       }
     } else if  (document.getElementById('precio').value.length > 6) {
-      mensajet = "El Numero no es valido, debe tener 3 dígitos";
+      mensajet = "El Número no es valido, debe tener 3 dígitos";
     } 
   }
 
@@ -408,7 +408,7 @@ function comprobarNombreProducto() {
 
   // comprobar los posibles errores
   if (this.value.trim() == "") {
-    mensaje = `El campo "nombre" no puede quedar vacio`;
+    mensaje = `El campo "nombre" no puede quedar vacío`;
     this.value = "";
   } else if (document.getElementById('nombre_producto').value.trim().length < 3) {
     caracter = document.getElementById('nombre_producto').value.length;
@@ -434,7 +434,7 @@ function comprobarCodigoProducto() {
   
   // comprobar los posibles errores
   if (this.value.trim() == "") {
-    mensaje = `El campo "nombre" no puede quedar vacio`;
+    mensaje = `El campo "nombre" no puede quedar vacío`;
     this.value = "";
   }else if (!regex.test(document.getElementById('codigo_producto').value.charAt(0)) || document.getElementById('codigo_producto').value.charAt(0) == 'e') {
     this.value = "";
