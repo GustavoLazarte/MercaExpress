@@ -37,7 +37,7 @@ async function controlDeSesion () {
                 document.getElementById('btnIV').setAttribute("href","usuario-vendedor.html");
             }    
         }else{
-            document.getElementById('btnIV').innerHTML ='Iniciar Sesion'
+            document.getElementById('btnIV').innerHTML ='Iniciar Sesión'
             document.getElementById('btnIV').setAttribute("href","login.html");
         }
     });

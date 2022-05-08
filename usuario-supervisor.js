@@ -73,6 +73,7 @@ form.addEventListener('submit', e => registrarVendedor(e));
 
 async function registrarVendedor(e) {
     e.preventDefault();
+    bloquearContenido();
     if (contraseñaValida()) {
         const rol = asignarRol();
         const img = await subirImagen('perfil');
@@ -84,7 +85,6 @@ async function registrarVendedor(e) {
         const dir = document.getElementById('dirección').value;
 
         var exito = await registrarUsuario(auth, email, password, rol, img, nom, ap, tel, dir);
-
     } else {
         await Swal.fire({
             icon: 'error',
@@ -96,6 +96,7 @@ async function registrarVendedor(e) {
             timer: 2000,
             toast: true
         })
+        desbloquearContenido();
         form.reset();
     }
 }
@@ -129,7 +130,7 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
             timer: 2000,
             toast: true
         })
-
+        desbloquearContenido();
         form.reset();
     } else {
         await Swal.fire({
@@ -142,6 +143,7 @@ async function registrarUsuario(auth, email, password, rol, img, nom, ap, tel, d
             timer: 2000,
             toast: true
         })
+        desbloquearContenido();
         document.getElementById('e-mail').value = "";
     }
 }
@@ -161,8 +163,12 @@ async function subirImagen(tag) {
         })
     }
 
-    const storage = getStorage();
-    const storageRef = ref(storage, 'images/' + file.name);
+    try {
+        const storage = getStorage();
+        const storageRef = ref(storage, 'images/' + file.name);
+    } catch (error) {
+        desbloquearContenido();
+    }
 
     // 'file' comes from the Blob or File API
     await uploadBytes(storageRef, file).then((snapshot) => {
@@ -217,6 +223,7 @@ formEmpresa.addEventListener('submit', e => registrarEmpresa(e));
 
 async function registrarEmpresa(e) {
     e.preventDefault()
+    bloquearContenido();
     const empresaColeccion = await collection(db, "empresa");
     const nom = document.getElementById('nombreEmpresa').value.trim();
     const nomR = document.getElementById('responsable_empresa').value.trim();
@@ -245,6 +252,7 @@ async function registrarEmpresa(e) {
             timer: 2000,
             toast: true
         })
+        desbloquearContenido();
         formEmpresa.reset();
 
     } else {
@@ -258,8 +266,8 @@ async function registrarEmpresa(e) {
             timer: 2000,
             toast: true
         })
-
         nom.value = "";
+        desbloquearContenido();
     }
     actualizar(comboBoxC)
     actualizarLista(listaC);
@@ -289,6 +297,7 @@ formPV.addEventListener('submit', e => registrarPV(e));
 
 async function registrarPV(e) {
     e.preventDefault()
+    bloquearContenido();
     const up = await collection(db, "Puntoventa");
     const img = await fotoPV();
     const nom = document.getElementById('nombreVenta').value;
@@ -313,6 +322,7 @@ async function registrarPV(e) {
             timer: 2000,
             toast: true
         })
+        desbloquearContenido();
         document.getElementById('responsable').value = "";
     } else {
 
@@ -338,7 +348,7 @@ async function registrarPV(e) {
                 timer: 2000,
                 toast: true
             })
-
+            desbloquearContenido();
             formPV.reset();
         } else {
             await Swal.fire({
@@ -351,6 +361,7 @@ async function registrarPV(e) {
                 timer: 2000,
                 toast: true
             })
+            desbloquearContenido();
             document.getElementById('e-mailVenta').value = "";
 
         }
@@ -372,8 +383,12 @@ async function fotoPV() {
         })
     }
 
-    const storage = getStorage();
-    const storageRef = ref(storage, 'images/' + file.name);
+    try {
+        const storage = getStorage();
+        const storageRef = ref(storage, 'images/' + file.name);
+    } catch (error) {
+        desbloquearContenido();
+    }
 
     // 'file' comes from the Blob or File API
     await uploadBytes(storageRef, file).then((snapshot) => {
