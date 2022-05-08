@@ -294,14 +294,16 @@ body{
 
 
 
-.formulario-registro2 label{
+.formulario-registro2 .label__añadir-punto-venta > label{
     color: #ffffff;
     font-weight: bold;
     margin-bottom: .3rem;
-    font-size: 14px;
     display: inline-block;
-    width: 50%;
+    width: 200px;
     padding: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: 16px;
 }
 .formulario-registro2 fieldset{
     border: none;
@@ -324,6 +326,27 @@ body{
     position: relative;
     left: 20%;
 }
+/* modificacion del texto foto punto de venta se agrego una display grid*/
+.contenedor__texto-foto-punto-venta{
+    display: grid;
+    grid-template-columns: 187px 1fr;
+    margin-top: 15px;
+}
+.contenedor__texto-foto-punto-venta label{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 18px;
+    color: #ffffff;
+}
+.formulario__nombre-foto{
+    width: 100%;
+}
+
+
+
+
+
+
 
 
 
@@ -359,7 +382,7 @@ body{
     position: relative;
     left: 20%;
 }
-/* modificacion del texto foto del producto se agro una display grid*/
+/* modificacion del texto foto del producto se agrego una display grid*/
 .formulario__para-subir-foto{
     display: grid;
     grid-template-columns: 168px 1fr;
@@ -640,16 +663,19 @@ input[type="file"] {
     margin-top: 10px;
     font-size: 16px;
     width: 200px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 6px 12px;
 }
 .formulario_foto-punto-venta{
     justify-self: center;
 }
-.content .contenedor .formulario-registro2 #campo_añadir_venta .formulario__datos-añadir-punto-venta label{
+/*.content .contenedor .formulario-registro2 #campo_añadir_venta .formulario__datos-añadir-punto-venta label{
     margin-left: 15px;
     margin-top: 10px;
     font-size: 16px;
     width: 200px;
-}
+}*/
 .input_añadir_punto_venta{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;

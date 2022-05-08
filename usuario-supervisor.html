@@ -281,36 +281,47 @@
                     <h2>AÑADIR PUNTO DE VENTA</h2>
                     <form  class="formulario-registro2" id="puntoventa">
                         <fieldset id="campo_añadir_venta">
-                            <div class="formulario__datos-añadir-punto-venta">
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
                                 <label for="nombreVenta">Nombre:</label>
-                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="50" required="" pattern="[a-z A-Z]+" minlength="3" value="" class="input_añadir_punto_venta"><br>
+                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="50"
+                                    required="" pattern="[a-z A-Z &aacute &eacute &iacute &oacute &uacute &ntilde]+" minlength="3" value=""
+                                    class="input_añadir_punto_venta"><br>
                             </div>
-                            <div class="formulario__datos-añadir-punto-venta">
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
                                 <label for="responsable">Responsable(Correo) :</label>
-                                <input type="text" placeholder="" name="responsable" id="responsable" pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" value="" class="input_añadir_punto_venta"><br>
+                                <input type="text" placeholder="" name="responsable" id="responsable"
+                                    pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" value=""
+                                    class="input_añadir_punto_venta"><br>
                             </div>
-                            <div class="formulario__datos-añadir-punto-venta">
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
                                 <label for="telefonoVenta">Teléfono:</label>
-                                <input type="tel" name="telefonoVenta" id="telefonoVenta" minlength="7" maxlength="8" pattern="[0-9]+" required="" class="input_añadir_punto_venta"><br>
+                                <input type="tel" name="telefonoVenta" id="telefonoVenta" minlength="7" maxlength="8"
+                                    pattern="[0-9]+" required="" class="input_añadir_punto_venta"><br>
                             </div>
-                            <div class="formulario__datos-añadir-punto-venta">
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
                                 <label for="e-mailVenta">E-mail:</label>
-                                <input type="email" placeholder="" name="e-mailVenta" id="e-mailVenta" pattern="[a-z0-9]+[a-z0-9]+@[a-z0-9]+\.[a-z]{2,}$" required="" value="" class="input_añadir_punto_venta"><br>
+                                <input type="email" placeholder="" name="e-mailVenta" id="e-mailVenta"
+                                    pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" value=""
+                                    class="input_añadir_punto_venta"><br>
                             </div>
-                            <div class="formulario__datos-añadir-punto-venta">
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
                                 <label for="direcciónVenta">Dirección:</label>
-                                <input type="direccion" name="direcciónVenta" id="direcciónVenta" required="" maxlength="100" pattern="[a-z A-Z0-9./#]+" class="input_añadir_punto_venta"><br>
+                                <input type="direccion" name="direcciónVenta" id="direcciónVenta" required=""
+                                    maxlength="100" pattern="[a-z A-Z0-9./# &aacute &eacute &iacute &oacute &uacute &ntilde]+" class="input_añadir_punto_venta"><br>
                             </div>
-                            <div class="formulario__datos-añadir-punto-venta">
-                                <label for="foto">Foto Punto de Venta:</label>
-                            </div>
-                            <div class="formulario__nombre-foto">
-                                <span id="nombresss"></span>
-                                <!--<div id="mostrarImagenss" stye="display:flex;"></div>-->
+                            <div class="contenedor__texto-foto-punto-venta">
+                                <div>
+                                    <label for="foto">Foto Punto de Venta:</label>
+                                </div>
+                                <div class="formulario__nombre-foto">
+                                    <span id="nombresss"></span>
+                                    <!--<div id="mostrarImagenss" stye="display:flex;"></div>-->
+                                </div>
                             </div>
                             <div class="formulario_foto-punto-venta">
                                 <label class="custom-file-uploadss" for="foto_producto">
-                                    <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file" onchange="ValidarImagen(this,false);" />
+                                    <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file"
+                                        onchange="ValidarImagen(this,false);" />
                                     Subir archivo
                                 </label><br>
                             </div>
