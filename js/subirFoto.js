@@ -1,7 +1,7 @@
-let archivo = document.querySelector('#perfil');
+/*let archivo = document.querySelector('#perfil');
 archivo.addEventListener('change', () => {
     document.querySelector('#nombres').innerHTML = archivo.files[0].name;
-});
+});*/
 
 let archivos = document.querySelector('#fotos_del_producto');
 archivos.addEventListener('change', () => {
