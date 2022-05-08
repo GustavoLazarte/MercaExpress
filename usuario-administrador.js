@@ -63,7 +63,7 @@ window.onload = function () {
             })
             
             window.location = "login.html"
-         }
+        }
     });
 };
 
@@ -163,25 +163,22 @@ async function subirImagen(tag) {
             timer: 2000,
             toast: true
         })
-    }
-
-    try {
+        desbloquearContenido();
+    }else{
         const storage = getStorage();
         const storageRef = ref(storage, 'images/' + file.name);
-    } catch (error) {
-        desbloquearContenido();
+
+        // 'file' comes from the Blob or File API
+        await uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+        });
+
+        let img;
+        await getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
+            img = url;
+        });
+        return img;
     }
-
-    // 'file' comes from the Blob or File API
-    await uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-    });
-
-    let img;
-    await getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
-        img = url;
-    });
-    return img;
 
 }
 
@@ -383,26 +380,24 @@ async function fotoPV() {
             timer: 2000,
             toast: true
         })
-        
-    }
-
-    try {
+        desbloquearContenido();
+    }else{
         const storage = getStorage();
         const storageRef = ref(storage, 'images/' + file.name);
-    } catch (error) {
-        desbloquearContenido();
+
+        // 'file' comes from the Blob or File API
+        await uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+        });
+
+        let img;
+        await getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
+            img = url;
+        });
+        return img;
     }
 
-    // 'file' comes from the Blob or File API
-    await uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-    });
-
-    let img;
-    await getDownloadURL(ref(storage, 'images/' + file.name)).then((url) => {
-        img = url;
-    });
-    return img;
+    
 
 }
 
