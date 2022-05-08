@@ -63,7 +63,7 @@ window.onload = function () {
             })
             
             window.location = "login.html"
-        }
+         }
     });
 };
 
