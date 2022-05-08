@@ -1671,6 +1671,11 @@ input[type="file"] {
         font: 16px;
     }
 }
+.cookies{
+    filter:alpha(opacity=50);
+    -moz-opacity: 50;
+    opacity: 0.50;
+}
 /*
 .formulario__label{
     display: block;

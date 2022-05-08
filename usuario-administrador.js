@@ -411,8 +411,10 @@ formProducto.addEventListener('submit', e => añadirProducto(e));
 
 async function añadirProducto(e) {
     e.preventDefault();
+    bloquearContenido();
     const imgProducto = await subirImagen('fotos_del_producto');
     const nomProducto = document.getElementById('nombre_producto').value;
+    console.log(nomProducto)
     const precioProducto = document.getElementById('precio').value;
     const codProducto = document.getElementById('codigo_producto').value;
 
@@ -501,21 +503,26 @@ async function cargarProductos(cod) {
     const coleccion = await collection(db, "empresa", cod, "catalogo");
     const querySnapshote = await getDocs(coleccion);
     console.log(querySnapshote.empty)
+    let nro = 1;
     await querySnapshote.forEach((doc) => {
-
+        const nid = "nombre_producto"+nro;
         const rutaimg = doc.data().foto;
+        const nom = doc.data().nombre;
+        console.log(nom)
         contenedor.innerHTML +=
             '<div class="producto_item">' +
                 '<img src =' + rutaimg + ' alt = "" >' +
                 '<a href="#" class="datos_producto">' +
                     '<label for="nombre_producto1">Nombre:</label>' +
-                    '<input type="text" name="nombre_producto1" id="nombre_producto1" value=' + doc.data().nombre + ' readonly class="input_texto_producto"><br>' +
+                    '<input type="text" name="nombre_producto1" id='+nid+' value="" readonly class="input_texto_producto"><br>' +
                     '<label for="codigo_producto1">Cod. Prod:</label>' +
                     '<input type="text" name="codigo_producto1" id="codigo_producto1" value=' + doc.id + ' readonly class="input_texto_producto"><br>' +
                     '<label for="precio_producto">Precio:</label>' +
                     '<input type="text" name="precio_producto" id="precio_producto" value=' + doc.data().precio + ' readonly class="input_texto_producto"><br>' +
                 '</a>' +
             '</div>';
+        document.getElementById(nid).setAttribute("value", nom);
+        nro += 1;
     });
 }
 
@@ -530,4 +537,8 @@ async function cargarPortada(cod) {
         document.getElementById("direccion_empresa").value = obSnap.data().direccion;
         document.getElementById("telefono_empresa").value = obSnap.data().telefono;
     }
+}
+
+function bloquearContenido(){
+
 }
