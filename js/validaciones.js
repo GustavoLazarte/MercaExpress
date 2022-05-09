@@ -216,6 +216,7 @@ function comprobarDireccion() {
   // comprobar los posibles errores
   if (this.value == "") {
     mensaje = `El campo de "dirección" no puede quedar vacío`;
+ 
   }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
@@ -327,7 +328,7 @@ function comprobarNombreREEmpresa() {
   } else if (document.getElementById('responsable_empresa').value.trim().length < 3) {
     caracter = document.getElementById('responsable_empresa').value.length;
     mensaje = "Debes ingresar 3 o mas carácteres"
-  }
+  } 
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
   this.setCustomValidity(mensaje);
