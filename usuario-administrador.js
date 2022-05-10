@@ -229,7 +229,7 @@ async function registrarEmpresa(e) {
     const dire = document.getElementById('dirección_Empresa').value;
     const telf = document.getElementById('telefono_empresa_cliente').value;
     const res = query(empresaColeccion, where("nombre", "==", nom));
-    const cod = nom.charAt(0) + "-" + telf.substring(0,3)
+    const cod = nom.charAt(0).toUpperCase() + "-" + telf.substring(0,3)
     const querySnapshot = await getDocs(res);
     if (querySnapshot.empty) {
 
@@ -464,6 +464,7 @@ async function añadirProducto(e) {
             toast: true
         })
         document.getElementById('codigo_producto').value = "";
+        desbloquearContenido();
     }
 }
 
