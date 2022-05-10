@@ -474,7 +474,7 @@ function comprobarCodigoProducto() {
   
   // comprobar los posibles errores
   if (this.value.trim() == "") {
-    mensaje = `El campo "nombre" no puede quedar vacío`;
+    mensaje = `El campo "codigo de producto" no puede quedar vacío`;
     this.value = "";
   }else if (!regex.test(document.getElementById('codigo_producto').value.charAt(0)) || document.getElementById('codigo_producto').value.charAt(0) == 'e') {
     this.value = "";
