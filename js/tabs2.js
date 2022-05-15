@@ -50,3 +50,20 @@ $(function(){
         $("#contenedor_ingresar_catalogo").show();
     });
 });
+
+$("#contenedor__añadir-empresa").hide();
+
+$(function(){
+    $(".ingresar__añadir-punto-venta").click(function(){
+        $("#opciones__empresa").hide();
+        $("#contenedor__añadir-empresa").show();
+    });
+});
+
+$(function(){
+    $("#volver__opciones-empresa").click(function(){
+        $("#contenedor__añadir-empresa").hide();
+        $("#opciones__empresa").show();
+    });
+});
+

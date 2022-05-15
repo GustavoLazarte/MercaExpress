@@ -578,6 +578,11 @@ input[type="file"] {
     display: flex;
     justify-content: center;
 }
+.content_bloque4{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
 .content .bloque{
     position: absolute;
     transform: scale(0);
@@ -768,6 +773,19 @@ input[type="file"] {
 .contenedor h2{
     margin-top: 25px;
     margin-bottom: 20px;
+}
+#volver__opciones-empresa{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+#volver__opciones-empresa:hover{
+    background: #ffaa00;
 }
 #campo_añadir_empresa{
     display: grid;
@@ -1765,6 +1783,101 @@ input[type="file"] {
     background-color: #535050;
     width: 100%;
     height: 100%;
+}
+#opciones__empresa > h2{
+    text-align: center;
+    margin-top: 25px;
+}
+.opciones__empresa{
+    border: 2px solid black;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 20px 2px;
+}
+.opciones__empresa legend{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.opciones__empresa label{
+    font-size: 16px;
+    font-weight: bold;
+}
+.campo__añadir-punto-venta{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #ffd0d05a;
+}
+.campo__añadir-punto-venta > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.campo__actualizar-inventario{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #ffd0d05a;
+}
+.campo__actualizar-inventario > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.campo__registrar-pedido{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #ffd0d05a;
+}
+.campo__registrar-pedido > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ingresar__codigo-empresa{
+    justify-self: end;
+    margin-right: 5px;
+}
+.boton__ingresar-actualizar{
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.boton__ingresar-actualizar:hover{
+    background: #ffaa00;
+}
+.label__codigo-empresa{
+    margin-left: 10px;
+    align-self: center;
+}
+.input__codigo-empresa{
+    align-self: center;
+}
+.input__campo-ingresar-codigo-empresa{
+    border-radius: 10px;
+    height: 26px;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
+.input__campo-ingresar-codigo-empresa:focus{
+    border: 3px solid black;
 }
 /*
 .formulario__label{
