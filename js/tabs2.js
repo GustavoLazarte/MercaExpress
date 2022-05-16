@@ -51,7 +51,10 @@ $(function(){
     });
 });
 
+//Empresa
+
 $("#contenedor__añadir-empresa").hide();
+$(".inventario__empresa").hide();
 
 $(function(){
     $(".ingresar__añadir-punto-venta").click(function(){
@@ -67,3 +70,16 @@ $(function(){
     });
 });
 
+$(function(){
+    $(".ingresar__actualizar-inventario").click(function(){
+        $("#opciones__empresa").hide();
+        $(".inventario__empresa").show();
+    });
+});
+
+$(function(){
+    $(".volver__inventario").click(function(){
+        $(".inventario__empresa").hide();
+        $("#opciones__empresa").show();
+    });
+});
