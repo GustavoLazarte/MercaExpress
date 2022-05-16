@@ -442,59 +442,65 @@
                 </div>
                 <section class="contenedor" id="contenedor__añadir-empresa">
                     <h2>AÑADIR PUNTO DE VENTA</h2>
-                    <button id="volver__opciones-empresa">Volver</button>
-                        <form class="formulario-registro2" id="puntoventa">
-                            <fieldset id="campo_añadir_venta">
-                                <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
-                                    <label for="nombreVenta">Nombre:</label>
-                                    <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="50"
-                                        required="" pattern="[a-z A-Z &aacute &eacute &iacute &oacute &uacute &ntilde]+" minlength="3" value=""
-                                        class="input_añadir_punto_venta"><br>
+                    <div class="contenedor__cabecera-nombre-empresa-volver">
+                        <div class="contenedor__nombre-empresa">
+                            <label class="nombre__empresa-añadir-punto-venta">Coca Cola</label>
+                        </div>
+                        <div class="contenedor__volver-opciones-empresa">
+                            <button id="volver__opciones-empresa">Volver</button>
+                        </div>
+                    </div>
+                    <form class="formulario-registro2" id="puntoventa">
+                        <fieldset id="campo_añadir_venta">
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
+                                <label for="nombreVenta">Nombre:</label>
+                                <input type="text" placeholder="" name="nombreVenta" id="nombreVenta" maxlength="50"
+                                    required="" pattern="[a-z A-Z &aacute &eacute &iacute &oacute &uacute &ntilde]+" minlength="3" value=""
+                                    class="input_añadir_punto_venta"><br>
+                            </div>
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
+                                <label for="responsable">Responsable(Correo) :</label>
+                                <input type="text" placeholder="" name="responsable" id="responsable"
+                                    pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" value=""
+                                    class="input_añadir_punto_venta"><br>
+                            </div>
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
+                                <label for="telefonoVenta">Teléfono:</label>
+                                <input type="tel" name="telefonoVenta" id="telefonoVenta" minlength="7" maxlength="8"
+                                    pattern="[0-9]+" required="" class="input_añadir_punto_venta"><br>
+                            </div>
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
+                                <label for="e-mailVenta">E-mail:</label>
+                                <input type="email" placeholder="" name="e-mailVenta" id="e-mailVenta"
+                                    pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" value=""
+                                    class="input_añadir_punto_venta"><br>
+                            </div>
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
+                                <label for="direcciónVenta">Dirección:</label>
+                                <input type="direccion" name="direcciónVenta" id="direcciónVenta" required=""
+                                    maxlength="100" pattern="[a-z A-Z0-9./# &aacute &eacute &iacute &oacute &uacute &ntilde]+" class="input_añadir_punto_venta"><br>
+                            </div>
+                            <div class="contenedor__texto-foto-punto-venta">
+                                <div>
+                                    <label for="foto">Foto Punto de Venta:</label>
                                 </div>
-                                <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
-                                    <label for="responsable">Responsable(Correo) :</label>
-                                    <input type="text" placeholder="" name="responsable" id="responsable"
-                                        pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" value=""
-                                        class="input_añadir_punto_venta"><br>
+                                <div class="formulario__nombre-foto">
+                                    <span id="nombresss"></span>
                                 </div>
-                                <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
-                                    <label for="telefonoVenta">Teléfono:</label>
-                                    <input type="tel" name="telefonoVenta" id="telefonoVenta" minlength="7" maxlength="8"
-                                        pattern="[0-9]+" required="" class="input_añadir_punto_venta"><br>
-                                </div>
-                                <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
-                                    <label for="e-mailVenta">E-mail:</label>
-                                    <input type="email" placeholder="" name="e-mailVenta" id="e-mailVenta"
-                                        pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" required="" value=""
-                                        class="input_añadir_punto_venta"><br>
-                                </div>
-                                <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
-                                    <label for="direcciónVenta">Dirección:</label>
-                                    <input type="direccion" name="direcciónVenta" id="direcciónVenta" required=""
-                                        maxlength="100" pattern="[a-z A-Z0-9./# &aacute &eacute &iacute &oacute &uacute &ntilde]+" class="input_añadir_punto_venta"><br>
-                                </div>
-                                <div class="contenedor__texto-foto-punto-venta">
-                                    <div>
-                                        <label for="foto">Foto Punto de Venta:</label>
-                                    </div>
-                                    <div class="formulario__nombre-foto">
-                                        <span id="nombresss"></span>
-
-                                    </div>
-                                </div>
-                                <div class="formulario_foto-punto-venta">
-                                    <label class="custom-file-uploadss" for="foto_producto">
-                                        <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file"
-                                            onchange="ValidarImagen(this,false);" />
-                                        Subir archivo
-                                    </label><br>
-                                </div>
-                                <div class="formulario__añadir-cancelar-punto-venta">
-                                    <input id="registrar_punto_venta" type="submit" value="Añadir punto de venta">
-                                    <input id="cancelar_formulario" type="reset" value="Cancelar">
-                                </div>
-                            </fieldset>
-                        </form>
+                            </div>
+                            <div class="formulario_foto-punto-venta">
+                                <label class="custom-file-uploadss" for="foto_producto">
+                                    <input id="foto_producto" accept="image/jpg,image/jpeg" type="file" name="file"
+                                        onchange="ValidarImagen(this,false);" />
+                                    Subir archivo
+                                </label><br>
+                            </div>
+                            <div class="formulario__añadir-cancelar-punto-venta">
+                                <input id="registrar_punto_venta" type="submit" value="Añadir punto de venta">
+                                <input id="cancelar_formulario" type="reset" value="Cancelar">
+                            </div>
+                        </fieldset>
+                    </form>
                     <!--<form class="formulario-registro3" id="Empresa">
                         <fieldset id="campo_añadir_empresa">
                             <div>
@@ -585,25 +591,33 @@
                         </div>
                         <div class="contenedor__datos-cliente">
                             <div class="codigo__datos-cliente">
+<<<<<<< HEAD
                                 <label for="ingresar__codigo-datos-cliente" class="modificador" >Código:</label>
+=======
+                                <label for="ingresar__codigo-datos-cliente" class="texto__nombre">Código:</label>
+>>>>>>> 28873a52d54f44e5310ed56a518243dfcb1edb0b
                             </div>
                             <div class="ingresar_codigo-cliente">
                                 <input type="text" id="ingresar__codigo-datos-cliente" id = "codiPV">
                             </div>
                             <div class="nombre__cliente">
-                                <label for="" class="modificador">Nombre:</label>
+                                <label for="" class="texto__nombre">Nombre:</label>
                             </div>
                             <div class="nombre__ingresado-cliente">
                                 <span class="nombre__datos-cliente modificador" id ="nomPV"></span>
                             </div>
                             <div class="telefono__cliente">
+<<<<<<< HEAD
                                 <label for="" class="modificador" i>Teléfono:</label>
+=======
+                                <label for="" class="texto__nombre">Teléfono:</label>
+>>>>>>> 28873a52d54f44e5310ed56a518243dfcb1edb0b
                             </div>
                             <div class="telefono__ingresado-cliente">
                                 <span class="telefono__datos-cliente modificador" id ="telPV"></span>
                             </div>
                             <div class="direccion__cliente">
-                                <label for="" class="modificador">Dirección:</label>
+                                <label for="" class="texto__nombre">Dirección:</label>
                             </div>
                             <div class="direccion__ingresado-cliente">
                                 <span class="direccion__datos-cliente modificador" id ="dirPV"></span>
@@ -714,23 +728,23 @@
                             </div>
                         </div>
                         <div class="contenedor__calcular-precio-pedido">
-                            <div>
-                                <label for="">Total Parcial:</label>
+                            <div class="total__parcial">
+                                <label for="" class="general general__texto">Total Parcial:</label>
                             </div>
-                            <div>
-                                <span>1000</span>
+                            <div class="total__parcial-numeral">
+                                <span class="general">1000</span>
                             </div>
-                            <div>
-                                <label for="">Iva(13%):</label>
+                            <div class="texto__iva">
+                                <label for="" class="general general__texto">Iva(13%):</label>
                             </div>
-                            <div>
-                                <span>130</span>
+                            <div class="numeral__iva">
+                                <span class="general">130</span>
                             </div>
-                            <div>
-                                <label for="">Total:</label>
+                            <div class="texto__total">
+                                <label for="" class="general general__texto">Total:</label>
                             </div>
-                            <div>
-                                <span>870</span>
+                            <div class="numeral__total">
+                                <span class="general">870</span>
                             </div>
                         </div>
                     </div>
