@@ -55,10 +55,13 @@ $(function(){
 
 $("#contenedor__añadir-empresa").hide();
 $(".inventario__empresa").hide();
+$(".registrar__pedido").hide();
 
 $(function(){
     $(".ingresar__añadir-punto-venta").click(function(){
         $("#opciones__empresa").hide();
+        $(".registrar__pedido").hide();
+        $(".inventario__empresa").hide();
         $("#contenedor__añadir-empresa").show();
     });
 });
@@ -66,6 +69,8 @@ $(function(){
 $(function(){
     $("#volver__opciones-empresa").click(function(){
         $("#contenedor__añadir-empresa").hide();
+        $(".registrar__pedido").hide();
+        $(".inventario__empresa").hide();
         $("#opciones__empresa").show();
     });
 });
@@ -73,6 +78,8 @@ $(function(){
 $(function(){
     $(".ingresar__actualizar-inventario").click(function(){
         $("#opciones__empresa").hide();
+        $("#contenedor__añadir-empresa").hide();
+        $(".registrar__pedido").hide();
         $(".inventario__empresa").show();
     });
 });
@@ -80,6 +87,27 @@ $(function(){
 $(function(){
     $(".volver__inventario").click(function(){
         $(".inventario__empresa").hide();
+        $(".registrar__pedido").hide();
+        $("#contenedor__añadir-empresa").hide();
         $("#opciones__empresa").show();
+    });
+});
+$(function(){
+    $(".ingresar__registrar-pedido").click(function(){
+        $("#opciones__empresa").hide();
+        $(".inventario__empresa").hide();
+        $("#contenedor__añadir-empresa").hide();
+        $(".registrar__pedido").show();
+        $(".formulario__ingresar-pedido-cliente").hide();
+    });
+});
+
+$(function(){
+    $(".botom__ingresar-pedido-cliente").click(function(){
+        $("#opciones__empresa").hide();
+        $(".inventario__empresa").hide();
+        $("#contenedor__añadir-empresa").hide();
+        $(".registrar__pedido").show();
+        $(".formulario__ingresar-pedido-cliente").show();
     });
 });
