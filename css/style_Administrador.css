@@ -1990,14 +1990,14 @@ input[type="file"] {
 }
 .contenedor__datos-cliente{
     display: grid;
-    grid-template-columns: 85px 120px 75px 1fr 75px 100px;
+    grid-template-columns: 90px 120px 75px 1fr 75px 100px;
     border-radius: 10px;
     background: #cccccc;
     border: 2px solid black;
     padding: 10px 10px;
 }
 .direccion__ingresado-cliente{
-    grid-column: 2/4;
+    grid-column: 2/5;
 }
 .botom__ingresar-pedido-cliente{
     grid-column: 5/7;
@@ -2028,7 +2028,6 @@ input[type="file"] {
 }
 .modificador{
     font-size: 16px;
-    font-weight: bold;
 }
 #ingresar__codigo-datos-cliente{
     font-family: Arial, Helvetica, sans-serif;
@@ -2041,11 +2040,14 @@ input[type="file"] {
     margin-top: 15px;
     margin-bottom: 10px;
 }
-.campo__datos-cliente-volver > label{
+.campo__datos-cliente-volver .texto__nombre{
     font-size: 16px;
     font-weight: bold;
     align-self: flex-end;
     justify-self: start;
+}
+.texto__nombre{
+    font-weight: bold;
 }
 .campo__datos-cliente-volver > button{
     align-self: center;
@@ -2244,7 +2246,22 @@ input[type="file"] {
 /*Calcular Precio*/
 .contenedor__calcular-precio-pedido{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 80px 95px 95px 90px;
+}
+.general{
+    font-size: 15px;
+}
+.general__texto{
+    font-weight: bold;
+}
+.total__parcial{
+    grid-column: 3/4;
+}
+.texto__iva{
+    grid-column: 3/4;
+}
+.texto__total{
+    grid-column: 3/4;
 }
 /*.columna__inventario-cuerpo{
     display: grid;
