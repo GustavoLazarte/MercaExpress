@@ -1990,18 +1990,19 @@ input[type="file"] {
 }
 .contenedor__datos-cliente{
     display: grid;
-    grid-template-columns: 90px 120px 75px 1fr 75px 100px;
+    grid-template-columns: 92px 120px 85px 1fr 85px 100px;
     border-radius: 10px;
     background: #cccccc;
     border: 2px solid black;
     padding: 10px 10px;
 }
 .direccion__ingresado-cliente{
-    grid-column: 2/5;
+    grid-column: 2/4;
 }
 .botom__ingresar-pedido-cliente{
     grid-column: 5/7;
     justify-self: center;
+    align-self: center;
 }
 .contenedor__datos-vendedor{
     display: grid;
@@ -2069,6 +2070,11 @@ input[type="file"] {
 }
 .button__ingresar-pedido:focus{
     background: #ffaa00;
+}
+.datos__cliente{
+    font-size: 16px;
+    font-weight: bold;
+    align-self: flex-end;
 }
 /*Datos del vendedor*/
 .formulario__ingresar-pedido-cliente > h2{
@@ -2147,7 +2153,7 @@ input[type="file"] {
     border: 0.2px solid #878787;
 }
 .ingresar__descripcion-producto{
-    width: 160px;
+    width: 180px;
 }
 .ingresar__codigo-producto{
     align-self: center;
