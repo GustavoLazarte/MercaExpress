@@ -578,6 +578,11 @@ input[type="file"] {
     display: flex;
     justify-content: center;
 }
+.content_bloque4{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
 .content .bloque{
     position: absolute;
     transform: scale(0);
@@ -768,6 +773,19 @@ input[type="file"] {
 .contenedor h2{
     margin-top: 25px;
     margin-bottom: 20px;
+}
+#volver__opciones-empresa{
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+#volver__opciones-empresa:hover{
+    background: #ffaa00;
 }
 #campo_añadir_empresa{
     display: grid;
@@ -1766,6 +1784,454 @@ input[type="file"] {
     width: 100%;
     height: 100%;
 }
+
+/*empresa*/
+
+#opciones__empresa > h2{
+    text-align: center;
+    margin-top: 25px;
+}
+.opciones__empresa{
+    border: 2px solid black;
+    background-color: #c2baae;
+    border-radius: 15px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 20px 2px;
+}
+.opciones__empresa label{
+    font-size: 16px;
+    font-weight: bold;
+}
+.campo__añadir-punto-venta{
+    display: grid;
+    grid-template-columns: 170px 240px 120px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #967f6e60;
+    border: 2px solid #535050;
+}
+.campo__añadir-punto-venta > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.campo__actualizar-inventario{
+    display: grid;
+    grid-template-columns: 170px 240px 120px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #967f6e60;
+    border: 2px solid #535050;
+}
+.campo__actualizar-inventario > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.campo__registrar-pedido{
+    display: grid;
+    grid-template-columns: 170px 240px 120px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #967f6e60;
+    border: 2px solid #535050;
+}
+.opciones__empresa legend{
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    background-color: #c2baae33;
+    border-radius: 5px;
+}
+.campo__registrar-pedido > div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ingresar__codigo-empresa{
+    justify-self: end;
+    margin-right: 5px;
+}
+.boton__ingresar-actualizar{
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.boton__ingresar-actualizar:hover{
+    background: #ffaa00;
+}
+.label__codigo-empresa{
+    margin-left: 10px;
+    align-self: center;
+}
+.input__codigo-empresa{
+    align-self: center;
+    justify-self: center;
+}
+.input__campo-ingresar-codigo-empresa{
+    border-radius: 10px;
+    height: 26px;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
+.input__campo-ingresar-codigo-empresa:focus{
+    border: 3px solid black;
+}
+
+/*inventario*/
+/*cabecera*/
+.inventario__empresa{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.inventario__empresa > h2{
+    text-align: center;
+    margin-top: 20px;
+}
+.columna__inventario-cabecera{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 25px;
+}
+.columna__inventario-cabecera > div{
+    /*border: 0.5px solid #535050;*/
+    text-align: center;
+}
+.cabecera{
+    background: #d5d5d5;
+    text-align: center;
+}
+.columna__inventario-cabecera > div > label{
+    font-size: 16px;
+    font-weight: bold;
+}
+/*.columna__inventario-cabecera > div > span{
+    font-size: 16px;
+    border-radius: 0px;
+    border: 1px solid #cccccc;
+    outline: none;
+}*/
+/*cuerpo*/
+.cuerpo__inventario{
+    background: #ffffff;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    align-self:stretch;
+    justify-content: center;
+    align-items: center;
+}
+.cuerpo__inventario > input{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    border: 0.5px solid black;
+    padding-left: 2px;
+}
+.actualizar__inventario{
+    justify-self: end;
+}
+.button__actualizar-inventario{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+.button__actualizar-inventario:hover{
+    background: #ffaa00;
+}
+.volver__inventario{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+.volver__inventario:hover{
+    background: #ffaa00;
+}
+/*Registrar pedido*/
+.registrar__pedido > h2{
+    margin-top: 20px;
+    text-align: center;
+}
+.contenedor__datos-cliente{
+    display: grid;
+    grid-template-columns: 85px 120px 75px 1fr 75px 100px;
+    border-radius: 10px;
+    background: #cccccc;
+    border: 2px solid black;
+    padding: 10px 10px;
+}
+.direccion__ingresado-cliente{
+    grid-column: 2/4;
+}
+.botom__ingresar-pedido-cliente{
+    grid-column: 5/7;
+    justify-self: center;
+}
+.contenedor__datos-vendedor{
+    display: grid;
+    grid-template-columns: 85px 1fr 1fr 1fr 1fr 1fr;
+    border-radius: 10px;
+    background: #cccccc;
+    border: 2px solid black;
+    padding: 10px 10px;
+}
+.nombre__ingresado-vendedor{
+    grid-column: 2/5;
+}
+.accion__realizar-datos-vendedor{
+    grid-column: 5/7;
+    text-align: center;
+}
+.anular__pedido{
+    grid-column: 5/6;
+    text-align: end;
+    margin-right: 5px;
+}
+.procesar__pedido-cliente{
+    margin-left: 5px;
+}
+.modificador{
+    font-size: 16px;
+    font-weight: bold;
+}
+#ingresar__codigo-datos-cliente{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 120px;
+}
+.campo__datos-cliente-volver{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.campo__datos-cliente-volver > label{
+    font-size: 16px;
+    font-weight: bold;
+    align-self: flex-end;
+    justify-self: start;
+}
+.campo__datos-cliente-volver > button{
+    align-self: center;
+    justify-self: end;
+}
+.acomodar{
+    width: 80px;
+}
+.button__ingresar-pedido{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.button__ingresar-pedido:hover{
+    background: #ffaa00;
+}
+.button__ingresar-pedido:focus{
+    background: #ffaa00;
+}
+/*Datos del vendedor*/
+.formulario__ingresar-pedido-cliente > h2{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.contenedor__datos-cliente{
+    display: grid;
+
+}
+.anular{
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: #990202;
+}
+.anular:hover{
+    color: #ea0000;
+}
+.anular:focus{
+    color: #ea0000;
+    border: 0;
+    outline: none;
+}
+.procesar{
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    color: #067d00;
+}
+.procesar:hover{
+    color: #09bb00;
+}
+.procesar:focus{
+    color: #09bb00;
+    border: 0;
+    outline: none;
+}
+.modificadors{
+    font-size: 16px;
+    font-weight: bold;
+}
+.modificador__span{
+    font-size: 16px;
+}
+/*Ingresar Pedido*/
+.contenedor__nombre-ingresar-pedido{
+    display: grid;
+    grid-template-columns: 60px 1fr 82px 80px 95px 95px 90px;
+    background: #cccccc;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.modificadorss{
+    font-size: 16px;
+    font-weight: bold;
+}
+.contenedor__nombre-ingresar-pedido > div{
+    align-self: center;
+    justify-self: center;
+}
+.contenedor__input-ingresar-pedido{
+    display: grid;
+    grid-template-columns: 60px 1fr 82px 80px 95px 95px 90px;
+    border-radius: 10px;
+}
+.contenedor__input-ingresar-pedido .tamaño__borde{
+    background: #ffffff94;
+    border: 0.2px solid #878787;
+}
+.ingresar__descripcion-producto{
+    width: 160px;
+}
+.ingresar__codigo-producto{
+    align-self: center;
+    justify-self: center;
+    border: 2px solid black;
+    width: 60px;
+}
+#ingresar_codigo{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 60px;
+}
+.ingresar__cantidad-producto{
+    align-self: center;
+    justify-self: center;
+    border: 2px solid black;
+    
+}
+#ingresar__cantidad_producto{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 80px;
+}
+.ingresar__accion-producto{
+    align-items: center;
+    text-align: center;
+}
+.agregar__producto{
+    border: 0;
+    outline: none;
+    background: none;
+    color: #067d00;
+    cursor: pointer;
+}
+.agregar__producto:hover{
+    color: #09bb00;
+}
+.agregar__producto:focus{
+    color: #09bb00;
+}
+.modificadorsss{
+    font-size: 16px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.agregar__producto{
+    font-size: 16px;
+    font-weight: bold;
+}
+.contenedor__nombres-pedidos-ingresador{
+    display: grid;
+    grid-template-columns: 1fr 80px 95px 95px 90px;
+    margin-top: 10px;
+    background: #cccccc;
+    border: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.contenedor__nombres-pedidos-ingresador > div > label{
+    font-size: 16px;
+    font-weight: bold;
+}
+.reporte__pedidos-ingresados{
+    display: grid;
+    grid-template-columns: 1fr 80px 95px 95px 90px;
+    background: #ffffff;
+}
+.reporte__pedidos-ingresados > div{
+    border: 1px solid rgb(128, 128, 128);
+}
+.centrear__nombre-productos-ingresados{
+    text-align: center;
+}
+.tamaño__value{
+    font-size: 16px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.accion__pedido-ingresado{
+    align-items: center;
+    text-align: center;
+}
+.accion__realizar-sobre-pedido-ingresado{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: #b7a700;
+}
+.accion__realizar-sobre-pedido-ingresado:hover{
+    color: #d20000;
+}
+.accion__realizar-sobre-pedido-ingresado:focus{
+    color: #d20000;
+}
+/*Calcular Precio*/
+.contenedor__calcular-precio-pedido{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+/*.columna__inventario-cuerpo{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 20px;
+}*/
 /*
 .formulario__label{
     display: block;

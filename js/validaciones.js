@@ -367,66 +367,24 @@ function comprobarPrecio() {
   var bandera=parseFloat(document.getElementById('precio').value);
   var mensajet = "";
   const regex = /^[0-9.]*$/;
-  // comprobar los posibles errores
-  if (this.value == "") {
-  } 
-  else if(document.getElementById('precio').value.charAt(0) == '0' && (document.getElementById('precio').value.charAt(1) == '0' ) )
-    {
-        this.value="0"
-  }
-  else if (!regex.test(document.getElementById('precio').value)) {
-    mensajet = "El campo no dede tener ningun caracter especial"
-  }else {
-    if (document.getElementById('precio').value.charAt(0) == '0' ) {
-      if (document.getElementById('precio').value.charAt(1)!='.') {
-        mensajet = "precio no valido"
-        if(document.getElementById('precio').value.length <= 3){
-          if(document.getElementById('precio').value.charAt(3)=='0'){
-          
-            mensajet="el formato no es valido";
-          }
-        }
-      
-    } 
+ // comprobar los posibles errores
+ if (this.value == "") {
+} else if(document.getElementById('precio').value.charAt(0) == '0' && (document.getElementById('precio').value.charAt(1) == '0' ) )
+  {
+      this.value="0"
+}
+else if (!regex.test(document.getElementById('precio').value)) {
+  mensajet = "El campo no dede tener ningun caracter especial"
+} 
+//comprobar si hay un punto al antepenultima posicion  
+else if(document.getElementById('precio').value.charAt(document.getElementById('precio').value.length-3)!='.' ){
     
-    else if(document.getElementById('precio').value.length==2) 
-     if( document.getElementById('precio').value.charAt(2)!= '.'){
-     
-     mensajet = "El precio no es valido 1fdsg";
-    if(document.getElementById('precio').value.length > 5){
-     mensajet="precio no valido";
-    }
-    
-   
-   }
-    } else if(document.getElementById('precio').value.length==4 && document.getElementById('precio').value.charAt(2)!='.'){
-      //  mensajet="no se permiten numeros enteros";
-        if(document.getElementById('precio').value.length > 5){
-          mensajet="precio no valido aumente un cero";
-         }
- }
- else if(document.getElementById('precio').value.length==5 && document.getElementById('precio').value.charAt(2)=='.'){
-    
-   //mensajet="precio no valido jijij";
-   if(document.getElementById('precio').value.length > 5){
-    mensajet="precio no valido aumente un cero";
-   }
- 
+  mensajet="precio no valido";
 }
-else if(document.getElementById('precio').value.length>6){
-  if  (document.getElementById('precio').value.charAt(3)!= '.') {
- mensajet = "El precio no es valido ";
-if(document.getElementById('precio').value.length > 5){
- mensajet="precio no valido11";
+//comprobar si el digito es mayor a 6 caracteres
+else if(document.getElementById('precio').value.length > 6){
+  mensajet="precio no valido";
 }
-
-}
-}
-
-
-
-     
-  }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
   this.setCustomValidity(mensajet);

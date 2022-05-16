@@ -61,11 +61,19 @@
                     </div>
                 </a>
             </div>
-            <div class="item">
+            <!--<div class="item">
                 <a href="#" class="sub_item li">
                     <div class="icon"><i class="fa-solid fa-building fa-2x"></i></div>
                     <div class="title">
                         <p>Registrar Empresa</p>
+                    </div>
+                </a>
+            </div>-->
+            <div class="item">
+                <a href="#" class="sub_item li">
+                    <div class="icon"><i class="fa-solid fa-building fa-2x"></i></div>
+                    <div class="title">
+                        <p>Empresa</p>
                     </div>
                 </a>
             </div>
@@ -351,7 +359,7 @@
                 </section>
             </div>
         </div>
-        <div class="content_bloque3">
+        <!--<div class="content_bloque3">
             <div class="bloque " id="registrar_empresas">
                 <section class="contenedor">
                     <h2>REGISTRAR EMPRESA</h2>
@@ -387,6 +395,294 @@
                         </fieldset>
                     </form>
                 </section>
+            </div>
+        </div>-->
+        <div class="content_bloque4">
+            <div class="bloque centreado">
+                <div id="opciones__empresa">
+                    <h2>Empresa</h2>
+                    <form class="opciones__empresa">
+                        <fieldset class="campo__añadir-punto-venta">
+                            <legend>Añadir Punto de Venta:</legend>
+                            <div class="label__codigo-empresa">
+                                <label for="codigo__campo-añadir-punto-venta">Código de Empresa:</label>
+                            </div>
+                            <div class="input__codigo-empresa">
+                                <input type="text" id="codigo__campo-añadir-punto-venta" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-añádir-punto-venta">
+                            </div>
+                            <div class="ingresar__codigo-empresa">
+                                <button class="boton__ingresar-actualizar ingresar__añadir-punto-venta">Ingresar</button>
+                            </div>
+                        </fieldset>
+                        <fieldset class="campo__actualizar-inventario">
+                            <legend>Actualizar Inventario</legend>
+                            <div class="label__codigo-empresa">
+                                <label for="codigo__campo-actualizar-inventario">Código de Empresa</label>
+                            </div>
+                            <div class="input__codigo-empresa">
+                                <input type="text" id="codigo__campo-actualizar-inventario" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-actualizar-inventario">
+                            </div>
+                            <div class="ingresar__codigo-empresa">
+                                <button class="boton__ingresar-actualizar ingresar__actualizar-inventario">Ingresar</button>
+                            </div>
+                        </fieldset>
+                        <fieldset class="campo__registrar-pedido">
+                            <legend>Registrar Pedido:</legend>
+                            <div class="label__codigo-empresa">
+                                <label for="codigo__campo-registrar-pedido">Código de Empresa:</label>
+                            </div>
+                            <div class="input__codigo-empresa">
+                                <input type="text" id="codigo__campo-registrar-pedido" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-registrar-pedido">
+                            </div>
+                            <div class="ingresar__codigo-empresa">
+                                <button class="boton__ingresar-actualizar ingresar__registrar-pedido">Ingresar</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <section class="contenedor" id="contenedor__añadir-empresa">
+                    <h2>REGISTRAR EMPRESA</h2>
+                    <button id="volver__opciones-empresa">Volver</button>
+                    <form class="formulario-registro3" id="Empresa">
+                        <fieldset id="campo_añadir_empresa">
+                            <div>
+                                <label for="nombreEmpresa">Nombre de la Empresa:</label>
+                                <input type="text" placeholder="" name="nombreEmpresa" id="nombreEmpresa" maxlength="15"
+                                    required="" pattern="[a-z A-Z.- &aacute &eacute &iacute &oacute &uacute &ntilde]+" minlength="3" value=""
+                                    class="input_registrar_empresa"><br>
+                            </div>
+                            <div>
+                                <label for="responsable_empresa">Nombre del Responsable:</label>
+                                <input type="text" placeholder="" name="responsable_empresa" id="responsable_empresa"
+                                    minlength="3" maxlength="50" required="" pattern="[a-z A-Z &aacute &eacute &iacute &oacute &uacute &ntilde "
+                                    value="" class="input_registrar_empresa"><br>
+                            </div>
+                            <div>
+                                <label for="dirección_Empresa">Dirección:</label>
+                                <input type="direccion" name="dirección_Empresa" id="dirección_Empresa" required=""
+                                    maxlength="100" pattern="[a-z A-Z 0-9 ./#- &aacute &eacute &iacute &oacute &uacute &ntilde]" class="input_registrar_empresa"><br>
+                            </div>
+                            <div>
+                                <label for="telefono_empresa_cliente">Teléfono:</label>
+                                <input type="tel" name="telefono_empresa_cliente" id="telefono_empresa_cliente"
+                                    minlength="7" maxlength="8" pattern="[0-9]+" required=""
+                                    class="input_registrar_empresa"><br>
+                            </div>
+                            <div class="formulario__registrar-cancelar-empresa">
+                                <input id="registrar_empresa" type="submit" value="Registrar">
+                                <input id="cancelar_formulario_empresa" type="reset" value="Cancelar">
+                            </div>
+                        </fieldset>
+                    </form>
+                </section>  
+                <div class="inventario__empresa">
+                    <h2>Inventario de: <span class="nombre__empresa"> Coca-Cola</span></h2>
+                    <div class="columna__inventario-cabecera">
+                        <div class="codigo__productos-dentro-inventario cabecera"><label for="">Código Producto</label></div>
+                        <div class="nombre__productos-dentro-inventario cabecera"><label for="">Nombre del Producto</label></div>
+                        <div class="existecia__productos-dentro-inventario cabecera"><label for="">Existencia</label></div>
+                        <div class="entrantes__productos-dentro-inventario cabecera"><label for="">Entrantes</label></div>
+                        <div class="cuerpo__inventario">
+                            <span class="codigo__producto-inventario">101</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="nombre__producto-inventario">coca-cola 190ml v.</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="existencia__producto-inventario">20</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <input type="number" value="">
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="codigo__producto-inventario">134</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="nombre__producto-inventario">coca-cola 2.0L rp.</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="existencia__producto-inventario">234</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <input type="number" value="">
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="codigo__producto-inventario">144</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="nombre__producto-inventario">coca-cola 2.5L ds.</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <span class="existencia__producto-inventario">250</span>
+                        </div>
+                        <div class="cuerpo__inventario">
+                            <input type="number" value="">
+                        </div>
+                    </div>
+                    <div class="actualizar__inventario">
+                        <button class="button__actualizar-inventario"><i class="fa-solid fa-rotate"></i> Actualizar</button>
+                        <button class="volver__inventario">Volver</button>
+                    </div>
+                </div>
+                <div class="registrar__pedido">
+                    <h2 class="nombre__empresa-ingresar-pedido">Coca Cola</h2>
+                    <div class="content__datos-cliente">
+                        <div class="campo__datos-cliente-volver">
+                            <label for="">Datos del Cliente:</label>
+                            <button class="volver__inventario acomodar">Volver</button>
+                        </div>
+                        <div class="contenedor__datos-cliente">
+                            <div class="codigo__datos-cliente">
+                                <label for="ingresar__codigo-datos-cliente" class="modificador">Código:</label>
+                            </div>
+                            <div class="ingresar_codigo-cliente">
+                                <input type="text" id="ingresar__codigo-datos-cliente">
+                            </div>
+                            <div class="nombre__cliente">
+                                <label for="" class="modificador">Nombre:</label>
+                            </div>
+                            <div class="nombre__ingresado-cliente">
+                                <span class="nombre__datos-cliente modificador"></span>
+                            </div>
+                            <div class="telefono__cliente">
+                                <label for="" class="modificador">Teléfono:</label>
+                            </div>
+                            <div class="telefono__ingresado-cliente">
+                                <span class="telefono__datos-cliente modificador"></span>
+                            </div>
+                            <div class="direccion__cliente">
+                                <label for="" class="modificador">Dirección:</label>
+                            </div>
+                            <div class="direccion__ingresado-cliente">
+                                <span class="direccion__datos-cliente modificador"></span>
+                            </div>
+                            <div class="botom__ingresar-pedido-cliente">
+                                <button class="button__ingresar-pedido">Ingresar Pedido</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formulario__ingresar-pedido-cliente">
+                        <h2>Datos del Vendedor:</h2>
+                        <div class="contenedor__datos-vendedor">
+                            <div class="nombre__vendedor">
+                                <label for="" class="modificadors">Vendedor:</label>
+                            </div>
+                            <div class="nombre__ingresado-vendedor">
+                                <span class="modificador__span">Fulanos Fulanes</span>
+                            </div>
+                            <div class="accion__realizar-datos-vendedor">
+                                <label for="" class="modificadors">Acción</label>
+                            </div>
+                            <div class="anular__pedido">
+                                <button class="anular"><i class="fa-solid fa-circle-xmark"></i> Anular</button>
+                            </div>
+                            <div class="procesar__pedido-cliente">
+                                <button class="procesar"><i class="fa-solid fa-file-pen"></i> Procesar</button>
+                            </div>
+                        </div>
+                        <h2>Ingresa Pedido:</h2>
+                        <div class="contenedor__nombre-ingresar-pedido">
+                            <div class="nombre__codigo-producto">
+                                <label for="ingresar_codigo" class="modificadorss">Código</label>
+                            </div>
+                            <div class="nombre__descripcion-producto">
+                                <label for="" class="modificadorss">Descripción</label>
+                            </div>
+                            <div class="nombre__existencia-producto">
+                                <label for="" class="modificadorss">Existencia</label>
+                            </div>
+                            <div class="nombre__cantidad-producto">
+                                <label for="ingresar__cantidad_producto" class="modificadorss">Cantidad</label>
+                            </div>
+                            <div class="nombre__precio-producto">
+                                <label for="" class="modificadorss">Precio</label>
+                            </div>
+                            <div class="nombre__precio-total-producto">
+                                <label for="" class="modificadorss">Precio Total</label>
+                            </div>
+                            <div class="nombre__accion-producto">
+                                <label for="" class="modificadorss">Acción</label>
+                            </div>
+                        </div>
+                        <div class="contenedor__input-ingresar-pedido">
+                            <div class="ingresar__codigo-producto">
+                                <input type="text" name="ingresar_codigo" id="ingresar_codigo">
+                            </div>
+                            <div class="ingresar__descripcion-producto tamaño__borde">
+                                <span class="descripcion__producto modificadorsss">hola</span>
+                            </div>
+                            <div class="ingresar__existencia-producto tamaño__borde">
+                                <span class="existencia__producto modificadorsss">hola</span>
+                            </div>
+                            <div class="ingresar__cantidad-producto">
+                                <input type="number" id="ingresar__cantidad_producto" name="ingresar__cantidad_producto">
+                            </div>
+                            <div class="ingresar__precio-producto tamaño__borde">
+                                <span class="precio__producto modificadorsss">hola</span>
+                            </div>
+                            <div class="ingresar__precio-total-producto tamaño__borde">
+                                <span class="precio__total-producto modificadorsss">hola</span>
+                            </div>
+                            <div class="ingresar__accion-producto tamaño__borde">
+                                <button class="agregar__producto"><i class="fa-solid fa-file-circle-plus"></i> Agregar</button>
+                            </div>
+                        </div>
+                        <div class="contenedor__nombres-pedidos-ingresador">
+                            <div class="nombre__descripción-pedido-ingresado centrear__nombre-productos-ingresados">
+                                <label for="">Descripción</label>
+                            </div>
+                            <div class="nombre__cantidad-pedido-ingresado centrear__nombre-productos-ingresados">
+                                <label for="">Cantidad</label>
+                            </div>
+                            <div class="nombre__precio-pedido-ingresado centrear__nombre-productos-ingresados">
+                                <label for="">Precio</label>
+                            </div>
+                            <div class="nombre__precio-total-pedido-ingresado centrear__nombre-productos-ingresados">
+                                <label for="">Precio Total</label>
+                            </div>
+                            <div class="nombre__acción-pedido-ingresado centrear__nombre-productos-ingresados">
+                                <label for="">Acción</label>
+                            </div>
+                        </div>
+                        <div class="reporte__pedidos-ingresados">
+                            <div class="descripcion__pedido-ingresado">
+                                <span class="descripcion__producto-igresado tamaño__value">hola</span>
+                            </div>
+                            <div class="cantidad__pedido-ingresado">
+                                <span class="cantidad__producto-ingresado tamaño__value">hola</span>
+                            </div>
+                            <div class="precio__pedido-ingresado">
+                                <span class="precio__producto-ingresado tamaño__value">hola</span>
+                            </div>
+                            <div class="precio__total-pedido-ingresado">
+                                <span class="precio__total-producto-ingresado tamaño__value">hola</span>
+                            </div>
+                            <div class="accion__pedido-ingresado">
+                                <button class="accion__realizar-sobre-pedido-ingresado"><i class="fa-solid fa-trash-can"></i> Eliminar</i></button>
+                            </div>
+                        </div>
+                        <div class="contenedor__calcular-precio-pedido">
+                            <div>
+                                <label for="">Total Parcial:</label>
+                            </div>
+                            <div>
+                                <span>1000</span>
+                            </div>
+                            <div>
+                                <label for="">Iva(13%):</label>
+                            </div>
+                            <div>
+                                <span>130</span>
+                            </div>
+                            <div>
+                                <label for="">Total:</label>
+                            </div>
+                            <div>
+                                <span>870</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
