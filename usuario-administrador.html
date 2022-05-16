@@ -435,7 +435,7 @@
                                 <input type="text" id="codigo__campo-registrar-pedido" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-registrar-pedido">
                             </div>
                             <div class="ingresar__codigo-empresa">
-                                <button class="boton__ingresar-actualizar ingresar__registrar-pedido">Ingresar</button>
+                                <button class="boton__ingresar-actualizar ingresar__registrar-pedido" id="btnIngresarR">Ingresar</button>
                             </div>
                         </fieldset>
                     </form>
@@ -577,7 +577,7 @@
                     </div>
                 </div>
                 <div class="registrar__pedido">
-                    <h2 class="nombre__empresa-ingresar-pedido">Coca Cola</h2>
+                    <h2 class="nombre__empresa-ingresar-pedido" id = "nombre__empresa"></h2>
                     <div class="content__datos-cliente">
                         <div class="campo__datos-cliente-volver">
                             <label for="">Datos del Cliente:</label>
@@ -585,28 +585,28 @@
                         </div>
                         <div class="contenedor__datos-cliente">
                             <div class="codigo__datos-cliente">
-                                <label for="ingresar__codigo-datos-cliente" class="modificador">Código:</label>
+                                <label for="ingresar__codigo-datos-cliente" class="modificador" >Código:</label>
                             </div>
                             <div class="ingresar_codigo-cliente">
-                                <input type="text" id="ingresar__codigo-datos-cliente">
+                                <input type="text" id="ingresar__codigo-datos-cliente" id = "codiPV">
                             </div>
                             <div class="nombre__cliente">
                                 <label for="" class="modificador">Nombre:</label>
                             </div>
                             <div class="nombre__ingresado-cliente">
-                                <span class="nombre__datos-cliente modificador"></span>
+                                <span class="nombre__datos-cliente modificador" id ="nomPV"></span>
                             </div>
                             <div class="telefono__cliente">
-                                <label for="" class="modificador">Teléfono:</label>
+                                <label for="" class="modificador" i>Teléfono:</label>
                             </div>
                             <div class="telefono__ingresado-cliente">
-                                <span class="telefono__datos-cliente modificador"></span>
+                                <span class="telefono__datos-cliente modificador" id ="telPV"></span>
                             </div>
                             <div class="direccion__cliente">
                                 <label for="" class="modificador">Dirección:</label>
                             </div>
                             <div class="direccion__ingresado-cliente">
-                                <span class="direccion__datos-cliente modificador"></span>
+                                <span class="direccion__datos-cliente modificador" id ="dirPV"></span>
                             </div>
                             <div class="botom__ingresar-pedido-cliente">
                                 <button class="button__ingresar-pedido">Ingresar Pedido</button>

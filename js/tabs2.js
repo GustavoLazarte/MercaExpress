@@ -92,22 +92,4 @@ $(function(){
         $("#opciones__empresa").show();
     });
 });
-$(function(){
-    $(".ingresar__registrar-pedido").click(function(){
-        $("#opciones__empresa").hide();
-        $(".inventario__empresa").hide();
-        $("#contenedor__añadir-empresa").hide();
-        $(".registrar__pedido").show();
-        $(".formulario__ingresar-pedido-cliente").hide();
-    });
-});
 
-$(function(){
-    $(".botom__ingresar-pedido-cliente").click(function(){
-        $("#opciones__empresa").hide();
-        $(".inventario__empresa").hide();
-        $("#contenedor__añadir-empresa").hide();
-        $(".registrar__pedido").show();
-        $(".formulario__ingresar-pedido-cliente").show();
-    });
-});

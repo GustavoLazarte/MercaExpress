@@ -559,3 +559,76 @@ async function bloquearContenido(){
 function desbloquearContenido(){
     $.unblockUI();
 }
+
+
+let codem = "";
+
+async function avanzarARegistro() {
+    console.log("Hola")
+    const q = await query(collection(db, "empresa"), where("nombre", "==", document.getElementById('codigo__campo-registrar-pedido').value));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        codem = doc.id;
+    });
+}
+
+$(function(){
+    $(".ingresar__registrar-pedido").click(async function(){
+        await avanzarARegistro();
+        if(codem !== ""){
+            $("#opciones__empresa").hide();
+            $(".inventario__empresa").hide();
+            $("#contenedor__añadir-empresa").hide();
+            $(".registrar__pedido").show();
+            $(".formulario__ingresar-pedido-cliente").hide();
+            document.getElementById('nombre__empresa').innerHTML = document.getElementById('codigo__campo-registrar-pedido').value;
+            document.getElementById('codigo__campo-registrar-pedido').value = "";
+        }else{
+            alert("No existe esa empresa")
+        }
+    });
+});
+
+let codPV = "";
+async function procederARegistro() {
+    console.log("HolaPV")
+    const q = await query(collection(db, "Puntoventa"), where("Nombre", "==", document.getElementById('ingresar__codigo-datos-cliente').value));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        codPV= doc.id;
+    });
+}
+
+$(function(){
+    $(".botom__ingresar-pedido-cliente").click(async function(){
+        await bloquearContenido();
+        await procederARegistro();
+        if(codPV !== ""){
+            await cargarInformacionCliente(codPV)
+            $("#opciones__empresa").hide();
+            $(".inventario__empresa").hide();
+            $("#contenedor__añadir-empresa").hide();
+            $(".registrar__pedido").show();
+            $(".formulario__ingresar-pedido-cliente").show();
+            desbloquearContenido();
+        }else{
+            desbloquearContenido();
+        }
+        
+    });
+});
+
+async function cargarInformacionCliente(c){
+    const docu = await doc(db, "Puntoventa", c);
+    console.log(docu)
+    const obSnap = await getDoc(docu);
+    if (obSnap.exists()) {
+        document.getElementById("nomPV").innerHTML = obSnap.data().Nombre;
+        document.getElementById("dirPV").innerHTML = obSnap.data().Direccion;
+        document.getElementById('ingresar__codigo-datos-cliente').disabled = true;
+        document.getElementById("telPV").innerHTML = obSnap.data().Telefono;
+    }
+}
+
