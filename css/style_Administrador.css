@@ -1805,7 +1805,9 @@ input[type="file"] {
 }
 
 /*empresa*/
-
+.centreado input{
+    font-family: Arial, Helvetica, sans-serif;
+}
 #opciones__empresa > h2{
     text-align: center;
     margin-top: 25px;
@@ -2050,7 +2052,7 @@ input[type="file"] {
 .texto__nombre{
     font-weight: bold;
 }
-.campo__datos-cliente-volver > button{
+.campo__datos-cliente-volver > input{
     align-self: center;
     justify-self: end;
 }
