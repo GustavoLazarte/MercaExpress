@@ -612,6 +612,16 @@ $(function(){
             $("#contenedor__añadir-empresa").hide();
             $(".registrar__pedido").show();
             $(".formulario__ingresar-pedido-cliente").show();
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    const uid = user.uid;
+                    const docRef = doc(db, "users", user.uid);
+                    const docSnap = await getDoc(docRef);
+                    const nom = docSnap.data().nombre;
+                    const ap = docSnap.data().apellido;
+                    document.getElementById("dUsuario").innerHTML = nom +" "+ ap
+                }
+            })
             desbloquearContenido();
         }else{
             desbloquearContenido();
@@ -632,3 +642,33 @@ async function cargarInformacionCliente(c){
     }
 }
 
+$(function(){
+    $(".volver__inventario").click(function(){
+        codem = "";
+        codPV = ""
+        document.getElementById("nomPV").innerHTML = "";
+        document.getElementById("dirPV").innerHTML = "";
+        document.getElementById('ingresar__codigo-datos-cliente').value = "";
+        document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
+        document.getElementById("telPV").innerHTML = "";
+        $(".inventario__empresa").hide();
+        $(".registrar__pedido").hide();
+        $("#contenedor__añadir-empresa").hide();
+        $("#opciones__empresa").show();
+    });
+});
+
+const inpCod = document.getElementById("ingresar_codigo");
+inpCod.addEventListener('keyup', e => verificarCodigo(e))
+
+async function verificarCodigo(e){
+    e.preventDefault();
+    const valor = document.getElementById("ingresar_codigo").value;
+    const docRef = doc(db, "empresa", codem, "catalogo", valor );
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+        document.getElementById("descP").innerHTML = docSnap.data().nombre;
+        document.getElementById("exP").innerHTML = docSnap.data().existencia;
+        document.getElementById('preP').innerHTML = docSnap.data().precio;
+    }
+}
