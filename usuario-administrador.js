@@ -655,11 +655,13 @@ $(function(){
         $(".registrar__pedido").hide();
         $("#contenedor__añadir-empresa").hide();
         $("#opciones__empresa").show();
+        $(".contenedor__input-ingresar-pedido").replaceWith(originalState);
     });
 });
 
 const inpCod = document.getElementById("ingresar_codigo");
 inpCod.addEventListener('keyup', e => verificarCodigo(e))
+var originalState = $(".contenedor__input-ingresar-pedido").clone();
 
 async function verificarCodigo(e){
     e.preventDefault();
@@ -670,5 +672,26 @@ async function verificarCodigo(e){
         document.getElementById("descP").innerHTML = docSnap.data().nombre;
         document.getElementById("exP").innerHTML = docSnap.data().existencia;
         document.getElementById('preP').innerHTML = docSnap.data().precio;
+        if (parseInt(docSnap.data().existencia , 10) === 0 ){
+            alert("No hay ps")
+            $(".contenedor__input-ingresar-pedido").replaceWith(originalState);
+        }else{
+            inpCan.disabled = false;
+            inpCan.setAttribute('max', docSnap.data().existencia)
+            precioPA = docSnap.data().precio
+        }
+    }else{
+        document.getElementById("descP").innerHTML = "";
+        document.getElementById("exP").innerHTML = "";
+        document.getElementById('preP').innerHTML = "";
     }
+}
+var precioPA= "";
+const inpCan = document.getElementById("ingresar__cantidad_producto");
+inpCan.disabled = true;
+inpCan.addEventListener('change', e => verificarCantidad(e))
+
+async function verificarCantidad(e){
+    e.preventDefault();
+    document.getElementById('preTP').innerHTML = inpCan.value * precioPA;
 }
