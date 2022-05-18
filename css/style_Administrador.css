@@ -2069,13 +2069,13 @@ input[type="file"] {
     margin-bottom: 10px;
 }
 .campo__datos-cliente-volver .texto__nombre{
-    font-size: 16px;
     font-weight: bold;
     align-self: flex-end;
     justify-self: start;
 }
 .texto__nombre{
     font-weight: bold;
+    font-size: 16px;
 }
 .campo__datos-cliente-volver > input{
     align-self: center;
@@ -2266,6 +2266,8 @@ input[type="file"] {
 .accion__realizar-sobre-pedido-ingresado{
     border: none;
     outline: none;
+    font-size: 16px;
+    font-weight: bold;
     background: none;
     cursor: pointer;
     color: #b7a700;
@@ -2296,6 +2298,7 @@ input[type="file"] {
 .texto__total{
     grid-column: 3/4;
 }
+/*responsive de opciones de empresa*/
 @media(max-width: 870px){
     .campo__añadir-punto-venta{
         grid-template-columns: 170px 110px 120px;
@@ -2317,6 +2320,7 @@ input[type="file"] {
     }
 
 }
+/*responsive de inventario*/
 @media(max-width: 940px){
     .cuerpo__inventario > input{
         width: 155px;
@@ -2345,6 +2349,99 @@ input[type="file"] {
     }
     .cuerpo__inventario > input{
         width: 100px;
+    }
+}
+/*responsive de registrar pedido*/
+@media(max-width: 985px){
+    .ingresar__descripcion-producto{
+        width: auto;
+    }
+}
+@media(max-width: 925px){
+    .contenedor__nombre-ingresar-pedido{
+        display: grid;
+        grid-template-columns: 60px 1fr 75px 65px 50px 85px 50px;
+        background: #cccccc;
+        border: 2px solid black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .contenedor__input-ingresar-pedido{
+        display: grid;
+        grid-template-columns: 60px 1fr 75px 65px 50px 85px 50px;
+        border-radius: 10px;
+    }
+    #ingresar__cantidad_producto{
+        width: 60px;
+    }
+    /*.ingresar__descripcion-producto{
+        width: 120px; 
+    }*/
+    .formulario__ingresar-pedido-cliente > h2{
+        font-size: 14px;
+    }
+    .anular{
+        font-size: 14px;
+    }
+    .procesar{
+        font-size: 14px;
+    }
+    .modificador{
+        font-size: 14px;
+    }
+    #ingresar__codigo-datos-cliente{
+        font-size: 14px;
+    }
+    .campo__datos-cliente-volver .texto__nombre{
+        font-size: 14px;
+    }
+    .datos__cliente{
+        font-size: 14px;
+    }
+    .modificadors{
+        font-size: 14px;
+    }
+    .modificador__span{
+        font-size: 14px;
+    }
+    .modificadorss{
+        font-size: 14px;
+    }
+    #ingresar_codigo{
+        font-size: 14px;
+    }
+    #ingresar__cantidad_producto{
+        font-size: 14px;
+    }
+    .modificadorsss{
+        font-size: 14px;
+    }
+    .agregar__producto{
+        font-size: 14px;
+    }
+    .contenedor__nombres-pedidos-ingresador > div > label{
+        font-size: 14px;
+    }
+    .tamaño__value{
+        font-size: 14px;
+    }
+    .accion__realizar-sobre-pedido-ingresado{
+        font-size: 14px;
+    }
+    .general{
+        font-size: 14px;
+    }
+    .texto__nombre{
+        font-size: 14px;
+    }
+    .añadir__nuevo-pedido{
+        font-size: 14px;
+    }
+    .agregar{
+        display: none;
+    }
+    .eliminar{
+        display: none;
     }
 }
 /*.columna__inventario-cuerpo{
