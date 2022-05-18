@@ -1973,6 +1973,25 @@ input[type="file"] {
 .button__actualizar-inventario:hover{
     background: #ffaa00;
 }
+.añadir__nuevo-pedido{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000596;
+    padding: 5px 0px;
+    margin-top: 5px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+.añadir__nuevo-pedido:hover{
+    color: #0062ff;
+}
+.añadir__nuevo-pedido:focus{
+    color: #0062ff;
+    border: 0;
+    outline: none;
+}
 .volver__inventario{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -1983,6 +2002,9 @@ input[type="file"] {
     margin-top: 5px;
 }
 .volver__inventario:hover{
+    background: #ffaa00;
+}
+.volver__inventario:focus{
     background: #ffaa00;
 }
 /*Registrar pedido*/
@@ -2039,7 +2061,7 @@ input[type="file"] {
 }
 .campo__datos-cliente-volver{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 130px 110px;
     margin-top: 15px;
     margin-bottom: 10px;
 }
@@ -2056,9 +2078,9 @@ input[type="file"] {
     align-self: center;
     justify-self: end;
 }
-/*.acomodar{
-    width: 80px;
-}*/
+.acomodar{
+    width: 100px;
+}
 .button__ingresar-pedido{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
