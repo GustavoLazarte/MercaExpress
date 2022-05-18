@@ -459,7 +459,7 @@
                                     class="input_añadir_punto_venta"><br>
                             </div>
                             <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
-                                <label for="responsable">Responsable(Correo) :</label>
+                                <label for="responsable">Responsable:</label>
                                 <input type="text" placeholder="" name="responsable" id="responsable"
                                     pattern="[a-z0-9]+[a-z0-9._-]+@[a-z0-9]+\.[a-z]{2,}$" value=""
                                     class="input_añadir_punto_venta"><br>
@@ -479,6 +479,10 @@
                                 <label for="direcciónVenta">Dirección:</label>
                                 <input type="direccion" name="direcciónVenta" id="direcciónVenta" required=""
                                     maxlength="100" pattern="[a-z A-Z0-9./# &aacute &eacute &iacute &oacute &uacute &ntilde]+" class="input_añadir_punto_venta"><br>
+                            </div>
+                            <div class="formulario__datos-añadir-punto-venta label__añadir-punto-venta">
+                                <label for="codigo__de-empresa">Codigo de Empresa:</label>
+                                <input type="text" name="codigo__de-empresa" id="codigo__de-empresa" class="input_añadir_punto_venta">
                             </div>
                             <div class="contenedor__texto-foto-punto-venta">
                                 <div>
@@ -587,7 +591,8 @@
                     <div class="content__datos-cliente">
                         <div class="campo__datos-cliente-volver">
                             <label for="" class="datos__cliente">Datos del Cliente:</label>
-                            <input type="button" class="volver__inventario acomodar" value="Volver">
+                            <button class="añadir__nuevo-pedido"><i class="fa-solid fa-plus"></i>Nuevo Pedido</button>
+                            <input type="button" class="volver__inventario acomodar" value="Finalizar">
                         </div>
                         <div class="contenedor__datos-cliente">
                             <div class="codigo__datos-cliente">
