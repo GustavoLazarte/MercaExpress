@@ -663,34 +663,34 @@ inpCod.addEventListener('keyup', e => verificarCodigo(e))
 var originalState = $(".contenedor__input-ingresar-pedido").clone();
 
 async function verificarCodigo(e){
+    console.log("Te escucho");
     e.preventDefault();
     const valor = document.getElementById("ingresar_codigo").value;
     const docRef = doc(db, "empresa", codem, "catalogo", valor );
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-        document.getElementById("descP").innerHTML = docSnap.data().nombre;
-        document.getElementById("exP").innerHTML = docSnap.data().existencia;
-        document.getElementById('preP').innerHTML = docSnap.data().precio;
+        document.getElementById("descP").textContent  = docSnap.data().nombre;
+        document.getElementById("exP").textContent  = docSnap.data().existencia;
+        document.getElementById('preP').textContent  = docSnap.data().precio;
         if (parseInt(docSnap.data().existencia , 10) === 0 ){
             alert("No hay ps")
             $(".contenedor__input-ingresar-pedido").replaceWith(originalState);
         }else{
-            inpCan.disabled = false;
-            inpCan.setAttribute('max', docSnap.data().existencia)
+            document.getElementById("ingresar__cantidad_producto").disabled = false;
+            document.getElementById("ingresar__cantidad_producto").setAttribute('max', docSnap.data().existencia)
             precioPA = docSnap.data().precio
         }
     }else{
-        document.getElementById("descP").innerHTML = "";
-        document.getElementById("exP").innerHTML = "";
-        document.getElementById('preP').innerHTML = "";
-        document.getElementById('preTP').innerHTML = "";
+        document.getElementById("descP").textContent  = "";
+        document.getElementById("exP").textContent  = "";
+        document.getElementById('preP').textContent  = "";
+        document.getElementById('preTP').intextContent = "";
         document.getElementById('ingresar__cantidad_producto').value = "";
         document.getElementById('ingresar__cantidad_producto').disabled = true;
     }
 }
 var precioPA= "";
 const inpCan = document.getElementById("ingresar__cantidad_producto");
-inpCan.disabled = true;
 inpCan.addEventListener('change', e => verificarCantidad(e))
 inpCan.addEventListener('keyup', e => verificarCantidad(e))
 async function verificarCantidad(e){
@@ -700,12 +700,13 @@ async function verificarCantidad(e){
     if(document.getElementById('ingresar__cantidad_producto').value > document.getElementById('ingresar__cantidad_producto').max){
         document.getElementById('ingresar__cantidad_producto').value = "";
     }
-    document.getElementById('preTP').innerHTML = inpCan.value * precioPA;
+    document.getElementById('preTP').textContent  = inpCan.value * precioPA;
 }
 
 const btnAg = document.getElementById("btnAgregar");
 btnAg.addEventListener('click', e => agregarAlPedido(e));
 const divContendor = document.getElementById("formulario__ingresar-pedido-cliente");
+var codsPedido = [];
 async function agregarAlPedido(e){
     e.preventDefault();
     bloquearContenido();
@@ -716,33 +717,85 @@ async function agregarAlPedido(e){
         const valor = document.getElementById("ingresar_codigo").value;
         const docRef = doc(db, "empresa", codem, "catalogo", valor );
         const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-            if(document.getElementById('ingresar__cantidad_producto') == 0 ||document.getElementById('ingresar__cantidad_producto') == ""){
+        if (docSnap.exists() && codsPedido.indexOf(docSnap.id) == -1) {
+            if(document.getElementById('ingresar__cantidad_producto').value == 0 ||document.getElementById('ingresar__cantidad_producto').value == ""){
                 alert("Ingrese Cantidad")
                 desbloquearContenido();
             }else{
-                divContendor.innerHTML +=   '<div class="reporte__pedidos-ingresados">'+
-                                                '<div class="descripcion__pedido-ingresado">'+
-                                                    '<span class="descripcion__producto-igresado tamaño__value">'+docSnap.data().nombre+'</span>'+
-                                                '</div>'+
-                                                '<div class="cantidad__pedido-ingresado">'+
-                                                    '<span class="cantidad__producto-ingresado tamaño__value">'+document.getElementById('ingresar__cantidad_producto').value+'</span>'+
-                                                '</div>'+
-                                                '<div class="precio__pedido-ingresado">'+
-                                                    '<span class="precio__producto-ingresado tamaño__value">'+docSnap.data().precio+'</span>'+
-                                                '</div>'+
-                                                '<div class="precio__total-pedido-ingresado">'+
-                                                    '<span class="precio__total-producto-ingresado tamaño__value">'+document.getElementById('preTP').value+'</span>'+
-                                                '</div>'+
-                                                '<div class="accion__pedido-ingresado">'+
-                                                    '<button class="accion__realizar-sobre-pedido-ingresado"><i class="fa-solid fa-trash-can"></i> Eliminar</i></button>'+
-                                                '</div>'+
-                                            '</div>'
+                await agregarUnaCelda(docSnap.data().nombre, docSnap.data().precio);
+                codsPedido.push(docSnap.id)
             }
             desbloquearContenido();
+
         }else{
             alert("Producto no valido")
             desbloquearContenido();
         }
     }
+}
+
+async function limpiarCampos(){
+    document.getElementById("ingresar_codigo").textContent  = "";
+    document.getElementById("descP").textContent  = "";
+    document.getElementById("exP").textContent  = "";
+    document.getElementById('preP').textContent  = "";
+    document.getElementById('preTP').textContent  = "";
+    document.getElementById('ingresar__cantidad_producto').value = "";
+    document.getElementById('ingresar__cantidad_producto').disabled = true;
+}
+
+async function agregarUnaCelda(nombre, precio){    
+    var divContenedor =  document.createElement("div");                                      
+    divContenedor.setAttribute('class', 'reporte__pedidos-ingresados');
+
+    var divNombre  = document.createElement("div"); 
+    divNombre.setAttribute('class', 'descripcion__pedido-ingresado');
+    var spanNombre = document.createElement("span");
+    spanNombre.setAttribute('class',"descripcion__producto-igresado tamaño__value") 
+    spanNombre.textContent = nombre;
+
+    divNombre.appendChild(spanNombre);
+
+    var divCantidad = document.createElement("div");
+    divCantidad.setAttribute('class',"cantidad__pedido-ingresado");
+    var spanCantidad = document.createElement("span"); 
+    spanCantidad.setAttribute('class', "cantidad__producto-ingresado tamaño__value")
+    spanCantidad.textContent = document.getElementById('ingresar__cantidad_producto').value;
+
+    divCantidad.appendChild(spanCantidad);
+    
+    var divPrecio = document.createElement("div");
+    divPrecio.setAttribute('class',"precio__pedido-ingresado")
+    var spanPrecio = document.createElement("span"); 
+    spanPrecio.setAttribute('class', "precio__producto-ingresado tamaño__value")
+    spanPrecio.textContent = precio;
+
+    divPrecio.appendChild(spanPrecio);
+
+    var divPrecioTotal = document.createElement("div");
+    divPrecioTotal.setAttribute('class',"precio__total-pedido-ingresado")
+    var spanPrecioTotal = document.createElement("span"); 
+    spanPrecioTotal.setAttribute('class', "precio__total-producto-ingresado tamaño__value" )
+    spanPrecioTotal.textContent = document.getElementById('preTP').value;
+
+    divPrecioTotal.appendChild(spanPrecioTotal);
+
+    var divEliminar = document.createElement("div");
+    divEliminar.setAttribute('class',"accion__pedido-ingresado")
+    var btnEliminar = document.createElement("span");
+    btnEliminar.setAttribute('class', "accion__realizar-sobre-pedido-ingresado")
+    var ibtn = document.createElement('i');
+    ibtn.setAttribute('class','fa-solid fa-trash-can')
+
+    btnEliminar.appendChild(ibtn);
+    btnEliminar.innerHTML += "Eliminar";
+    divEliminar.appendChild(btnEliminar);
+
+    divContenedor.appendChild(divNombre);
+    divContenedor.appendChild(divCantidad);
+    divContenedor.appendChild(divPrecio);
+    divContenedor.appendChild(divPrecioTotal);
+    divContenedor.appendChild(divEliminar);
+
+    document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divContenedor)
 }
