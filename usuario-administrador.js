@@ -637,7 +637,6 @@ async function cargarInformacionCliente(c){
     if (obSnap.exists()) {
         document.getElementById("nomPV").innerHTML = obSnap.data().Nombre;
         document.getElementById("dirPV").innerHTML = obSnap.data().Direccion;
-        document.getElementById('ingresar__codigo-datos-cliente').disabled = true;
         document.getElementById("telPV").innerHTML = obSnap.data().Telefono;
     }
 }
@@ -690,8 +689,13 @@ var precioPA= "";
 const inpCan = document.getElementById("ingresar__cantidad_producto");
 inpCan.disabled = true;
 inpCan.addEventListener('change', e => verificarCantidad(e))
-
+inpCan.addEventListener('keyup', e => verificarCantidad(e))
 async function verificarCantidad(e){
     e.preventDefault();
+    const regex = /^[0-9]*$/;
+    console.log(document.getElementById('ingresar__cantidad_producto').value)
+    if(document.getElementById('ingresar__cantidad_producto').value > document.getElementById('ingresar__cantidad_producto').max){
+        document.getElementById('ingresar__cantidad_producto').value = document.getElementById('ingresar__cantidad_producto').max
+    }
     document.getElementById('preTP').innerHTML = inpCan.value * precioPA;
 }
