@@ -2317,6 +2317,36 @@ input[type="file"] {
     }
 
 }
+@media(max-width: 940px){
+    .cuerpo__inventario > input{
+        width: 155px;
+    }
+}
+@media(max-width: 900px){
+    .cuerpo__inventario > input{
+        width: 149.8px;
+    }
+}
+@media(max-width: 850px){
+    .cuerpo__inventario > input{
+        width: 132.6px;
+    }
+}
+@media(max-width: 800px){
+    .cuerpo__inventario > input{
+        width: 121.5px;
+    }
+}
+@media(max-width: 780px){
+    .columna__inventario-cabecera{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 100px;
+        margin-top: 25px;
+    }
+    .cuerpo__inventario > input{
+        width: 100px;
+    }
+}
 /*.columna__inventario-cuerpo{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
