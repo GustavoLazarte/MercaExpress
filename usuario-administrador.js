@@ -683,6 +683,9 @@ async function verificarCodigo(e){
         document.getElementById("descP").innerHTML = "";
         document.getElementById("exP").innerHTML = "";
         document.getElementById('preP').innerHTML = "";
+        document.getElementById('preTP').innerHTML = "";
+        document.getElementById('ingresar__cantidad_producto').value = "";
+        document.getElementById('ingresar__cantidad_producto').disabled = true;
     }
 }
 var precioPA= "";
@@ -695,7 +698,51 @@ async function verificarCantidad(e){
     const regex = /^[0-9]*$/;
     console.log(document.getElementById('ingresar__cantidad_producto').value)
     if(document.getElementById('ingresar__cantidad_producto').value > document.getElementById('ingresar__cantidad_producto').max){
-        document.getElementById('ingresar__cantidad_producto').value = document.getElementById('ingresar__cantidad_producto').max
+        document.getElementById('ingresar__cantidad_producto').value = "";
     }
     document.getElementById('preTP').innerHTML = inpCan.value * precioPA;
+}
+
+const btnAg = document.getElementById("btnAgregar");
+btnAg.addEventListener('click', e => agregarAlPedido(e));
+const divContendor = document.getElementById("formulario__ingresar-pedido-cliente");
+async function agregarAlPedido(e){
+    e.preventDefault();
+    bloquearContenido();
+    if(document.getElementById("ingresar_codigo").value == ""){
+        alert("Ingrese un producto")
+        desbloquearContenido;
+    }else{
+        const valor = document.getElementById("ingresar_codigo").value;
+        const docRef = doc(db, "empresa", codem, "catalogo", valor );
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            if(document.getElementById('ingresar__cantidad_producto') == 0 ||document.getElementById('ingresar__cantidad_producto') == ""){
+                alert("Ingrese Cantidad")
+                desbloquearContenido();
+            }else{
+                divContendor.innerHTML +=   '<div class="reporte__pedidos-ingresados">'+
+                                                '<div class="descripcion__pedido-ingresado">'+
+                                                    '<span class="descripcion__producto-igresado tamaño__value">'+docSnap.data().nombre+'</span>'+
+                                                '</div>'+
+                                                '<div class="cantidad__pedido-ingresado">'+
+                                                    '<span class="cantidad__producto-ingresado tamaño__value">'+document.getElementById('ingresar__cantidad_producto').value+'</span>'+
+                                                '</div>'+
+                                                '<div class="precio__pedido-ingresado">'+
+                                                    '<span class="precio__producto-ingresado tamaño__value">'+docSnap.data().precio+'</span>'+
+                                                '</div>'+
+                                                '<div class="precio__total-pedido-ingresado">'+
+                                                    '<span class="precio__total-producto-ingresado tamaño__value">'+document.getElementById('preTP').value+'</span>'+
+                                                '</div>'+
+                                                '<div class="accion__pedido-ingresado">'+
+                                                    '<button class="accion__realizar-sobre-pedido-ingresado"><i class="fa-solid fa-trash-can"></i> Eliminar</i></button>'+
+                                                '</div>'+
+                                            '</div>'
+            }
+            desbloquearContenido();
+        }else{
+            alert("Producto no valido")
+            desbloquearContenido();
+        }
+    }
 }
