@@ -585,6 +585,7 @@ $(function(){
             $(".nombre__cliente").hide();
             $(".telefono__cliente").hide();
             $(".direccion__cliente").hide();
+            $(".añadir__nuevo-pedido").hide();
             document.getElementById('nombre__empresa').innerHTML = document.getElementById('codigo__campo-registrar-pedido').value;
             document.getElementById('codigo__campo-registrar-pedido').value = "";
         }else{
@@ -618,6 +619,8 @@ $(function(){
             $(".nombre__cliente").show();
             $(".telefono__cliente").show();
             $(".direccion__cliente").show();
+            $(".añadir__nuevo-pedido").show();
+            $(".botom__ingresar-pedido-cliente").hide();
             onAuthStateChanged(auth, async (user) => {
                 if (user) {
                     const uid = user.uid;
