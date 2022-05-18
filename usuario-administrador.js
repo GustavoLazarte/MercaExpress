@@ -52,18 +52,18 @@ window.onload = function () {
                 })
                 window.location = "login.html" 
             }
-        }// else {
-         //   await Swal.fire({
-         //       icon: 'error',
-         //       title: 'Error',
-         //       text: 'Inicie sesión Primero!',
-         //       color: '#312d2d',
-         //       background: '#ffffff',
-         //       confirmButtonColor: '#ffcc00'
-         //   })
-         //   
-         //   window.location = "login.html"
-         //}
+        } else {
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Inicie sesión Primero!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00'
+            })
+            
+            window.location = "login.html"
+        }
     });
 };
 
@@ -586,6 +586,7 @@ $(function(){
             $(".telefono__cliente").hide();
             $(".direccion__cliente").hide();
             $(".añadir__nuevo-pedido").hide();
+            $(".botom__ingresar-pedido-cliente").show();
             document.getElementById('nombre__empresa').innerHTML = document.getElementById('codigo__campo-registrar-pedido').value;
             document.getElementById('codigo__campo-registrar-pedido').value = "";
         }else{
