@@ -1837,7 +1837,6 @@ input[type="file"] {
 .campo__añadir-punto-venta > div{
     margin-top: 10px;
     margin-bottom: 10px;
-    
 }
 .campo__actualizar-inventario{
     display: grid;
@@ -2296,6 +2295,27 @@ input[type="file"] {
 }
 .texto__total{
     grid-column: 3/4;
+}
+@media(max-width: 870px){
+    .campo__añadir-punto-venta{
+        grid-template-columns: 170px 110px 120px;
+    }
+    .campo__actualizar-inventario{
+        grid-template-columns: 170px 110px 120px;
+    }
+    .campo__registrar-pedido{
+        grid-template-columns: 170px 110px 120px;
+    }
+    .input__campo-ingresar-codigo-empresa{
+        border-radius: 10px;
+        height: 26px;
+        font-size: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 1px solid black;
+        width: 100px;
+    }
+
 }
 /*.columna__inventario-cuerpo{
     display: grid;
