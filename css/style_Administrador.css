@@ -2264,10 +2264,10 @@ input[type="file"] {
     display: grid;
     grid-template-columns: 1fr 80px 95px 95px 90px;
     margin-top: 10px;
-    background: #cccccc;
+    /*background: #cccccc;
     border: 2px solid black;
     border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-right-radius: 10px;*/
 }
 .contenedor__nombres-pedidos-ingresador > div > label{
     font-size: 16px;
@@ -2283,6 +2283,17 @@ input[type="file"] {
 }
 .centrear__nombre-productos-ingresados{
     text-align: center;
+    background: #cccccc;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+.nombre__descripción-pedido-ingresado{
+    border-top-left-radius: 10px;
+    border-left: 2px solid black;
+}
+.nombre__acción-pedido-ingresado{
+    border-top-right-radius: 10px;
+    border-right: 2px solid black;
 }
 .tamaño__value{
     font-size: 16px;
@@ -2391,15 +2402,10 @@ input[type="file"] {
     .contenedor__nombre-ingresar-pedido{
         display: grid;
         grid-template-columns: 60px 1fr 75px 65px 50px 85px 50px;
-        background: #cccccc;
-        border: 2px solid black;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
     }
     .contenedor__input-ingresar-pedido{
         display: grid;
         grid-template-columns: 60px 1fr 75px 65px 50px 85px 50px;
-        border-radius: 10px;
     }
     #ingresar__cantidad_producto{
         width: 60px;
