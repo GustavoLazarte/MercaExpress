@@ -2160,52 +2160,79 @@ input[type="file"] {
 .contenedor__nombre-ingresar-pedido{
     display: grid;
     grid-template-columns: 60px 1fr 82px 80px 95px 95px 90px;
-    background: #cccccc;
-    border: 2px solid black;
+    /*background: #cccccc;
+    border: 2px solid black;*//*
     border-top-left-radius: 10px;
+    border-top-right-radius: 10px;*/
+}
+.ingresar__pedido-cabecera{
+    background: #cccccc;
+    text-align: center;
+    border-top: 2px solid  black;
+    border-bottom: 2px solid  black;
+}
+.nombre__codigo-producto{
+    border-top-left-radius: 10px;
+    border-left: 2px solid  black;
+}
+.nombre__accion-producto{
     border-top-right-radius: 10px;
+    border-right: 2px solid  black;
 }
 .modificadorss{
     font-size: 16px;
     font-weight: bold;
 }
-.contenedor__nombre-ingresar-pedido > div{
+/*.contenedor__nombre-ingresar-pedido > div{
     align-self: center;
     justify-self: center;
-}
+}*/
 .contenedor__input-ingresar-pedido{
     display: grid;
     grid-template-columns: 60px 1fr 82px 80px 95px 95px 90px;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
 .contenedor__input-ingresar-pedido .tamaño__borde{
     background: #ffffff94;
-    border: 0.2px solid #878787;
+    border: 1px solid #878787;
 }
 .ingresar__descripcion-producto{
     width: 180px;
 }
-.ingresar__codigo-producto{
-    align-self: center;
-    justify-self: center;
+.contenedor__input-ingresar-pedido .ingresar__codigo-producto{
+    /*align-self: center;
+    justify-self: center;*/
     border: 2px solid black;
-    width: 60px;
+    /*width: 60px;*/
+    background: #ffffff;
+    display: flex;
+    align-items: center;
 }
 #ingresar_codigo{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    width: 60px;
+    width: 56px;
+    border: 0;
 }
-.ingresar__cantidad-producto{
-    align-self: center;
-    justify-self: center;
+#ingresar_codigo:focus{
+    outline: none;
+}
+.contenedor__input-ingresar-pedido .ingresar__cantidad-producto{
+    /*align-self: center;
+    justify-self: center;*/
     border: 2px solid black;
-    
+    display: flex;
+    align-items: center;
+    background: #ffffff;
 }
 #ingresar__cantidad_producto{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    width: 80px;
+    width: 76px;
+    border: 0;
+}
+#ingresar__cantidad_producto:focus{
+    outline: none;
 }
 .ingresar__accion-producto{
     align-items: center;
