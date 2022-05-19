@@ -669,6 +669,7 @@ $(function(){
         document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
         document.getElementById("telPV").innerHTML = "";
         limpiarCampos();
+        document.getElementById("ingresar_codigo").value = "";
         $(".reporte__pedidos-ingresados").remove();
         codsPedido = [];
         $(".inventario__empresa").hide();
@@ -696,6 +697,7 @@ async function verificarCodigo(e){
         if (parseInt(docSnap.data().existencia , 10) === 0 ){
             alert("No hay ps")
             limpiarCampos();
+            document.getElementById("ingresar_codigo").value = "";
         }else{
             document.getElementById("ingresar__cantidad_producto").disabled = false;
             document.getElementById("ingresar__cantidad_producto").setAttribute('max', docSnap.data().existencia)
@@ -745,7 +747,8 @@ async function agregarAlPedido(e){
             }else{
                 await agregarUnaCelda(docSnap.data().nombre, docSnap.data().precio, docSnap.id);
                 codsPedido.push(docSnap.id)
-                limpiarCampos();
+                impiarCampos();
+                document.getElementById("ingresar_codigo").value = "";
             }
             desbloquearContenido();
 
@@ -829,3 +832,32 @@ async function agregarUnaCelda(nombre, precio, id){
 
     document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divContenedor)
 }
+$('.anular').click(async function(){
+    bloquearContenido();
+    await limpiarCampos()
+    document.getElementById("ingresar_codigo").value = "";
+    codsPedido = [];
+    $(".reporte__pedidos-ingresados").remove();
+    desbloquearContenido();
+});
+
+$('.anular').click(async function(){
+    bloquearContenido();
+    await limpiarCampos()
+    document.getElementById("ingresar_codigo").value = "";
+    codsPedido = [];
+    $(".reporte__pedidos-ingresados").remove();
+    desbloquearContenido();
+});
+
+/**$('.procesar').click(async function(){
+    refUsuario = "";
+    onAuthStateChanged(auth, async (user) => {
+        refUsuario = doc(db, 'users', 'alovelace')
+    })
+    doc(db, 'users', 'alovelace')
+    const docData = {
+        realizadoPor : 
+    };
+    await setDoc(doc(db, "pedidos", 1), docData);
+});*/
