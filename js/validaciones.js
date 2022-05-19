@@ -379,11 +379,11 @@ else if (!regex.test(document.getElementById('precio').value)) {
 //comprobar si hay un punto al antepenultima posicion  
 else if(document.getElementById('precio').value.charAt(document.getElementById('precio').value.length-3)!='.' ){
     
-  mensajet="precio no valido";
+  mensajet="precio no válido";
 }
 //comprobar si el digito es mayor a 6 caracteres
 else if(document.getElementById('precio').value.length > 6){
-  mensajet="precio no valido";
+  mensajet="precio no válido";
 }
 
   // mostrar/resetear mensaje (el mensaje se resetea poniendolo a "")
