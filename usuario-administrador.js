@@ -280,12 +280,18 @@ async function actualizar(combo) {
     combo.innerHTML = '';
     const coleccion = await collection(db, "empresa");
     const querySnapshote = await getDocs(coleccion);
+    var arreglosNombre = [];
     await querySnapshote.forEach((doc) => {
+        arreglosNombre.push( doc.data().nombre);
+    });
+    arreglosNombre.sort();
+    arreglosNombre.forEach(function(numero) {
         var opt = document.createElement('option');
-        opt.value = doc.data().nombre;
-        opt.innerHTML = doc.data().nombre;
+        opt.value = numero;
+        opt.innerHTML = numero;
         combo.appendChild(opt);
     });
+    
 
 
     console.log(combo);
