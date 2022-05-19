@@ -343,6 +343,8 @@ async function registrarPV(e) {
 
             };
             await setDoc(doc(db, "Puntoventa", mail), docData);
+            //asociarlo el punto de venta
+            // pe
             await Swal.fire({
                 icon: 'success',
                 title: 'Correcto',
@@ -666,11 +668,14 @@ $(function(){
         document.getElementById('ingresar__codigo-datos-cliente').value = "";
         document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
         document.getElementById("telPV").innerHTML = "";
+        limpiarCampos();
+        $(".reporte__pedidos-ingresados").remove();
+        codsPedido = [];
         $(".inventario__empresa").hide();
         $(".registrar__pedido").hide();
         $("#contenedor__añadir-empresa").hide();
         $("#opciones__empresa").show();
-        $(".contenedor__input-ingresar-pedido").replaceWith(originalState);
+        
     });
 });
 
@@ -690,7 +695,7 @@ async function verificarCodigo(e){
         document.getElementById('preP').textContent  = docSnap.data().precio;
         if (parseInt(docSnap.data().existencia , 10) === 0 ){
             alert("No hay ps")
-            $(".contenedor__input-ingresar-pedido").replaceWith(originalState);
+            limpiarCampos();
         }else{
             document.getElementById("ingresar__cantidad_producto").disabled = false;
             document.getElementById("ingresar__cantidad_producto").setAttribute('max', docSnap.data().existencia)
@@ -738,8 +743,9 @@ async function agregarAlPedido(e){
                 alert("Ingrese Cantidad")
                 desbloquearContenido();
             }else{
-                await agregarUnaCelda(docSnap.data().nombre, docSnap.data().precio);
+                await agregarUnaCelda(docSnap.data().nombre, docSnap.data().precio, docSnap.id);
                 codsPedido.push(docSnap.id)
+                limpiarCampos();
             }
             desbloquearContenido();
 
@@ -760,10 +766,11 @@ async function limpiarCampos(){
     document.getElementById('ingresar__cantidad_producto').disabled = true;
 }
 
-async function agregarUnaCelda(nombre, precio){    
+async function agregarUnaCelda(nombre, precio, id){    
     var divContenedor =  document.createElement("div");                                      
     divContenedor.setAttribute('class', 'reporte__pedidos-ingresados');
-
+    var ids = 'reporte__pedidos-ingresados' + (codsPedido.length +1 ); 
+    divContenedor.setAttribute('id', ids);
     var divNombre  = document.createElement("div"); 
     divNombre.setAttribute('class', 'descripcion__pedido-ingresado');
     var spanNombre = document.createElement("span");
@@ -792,7 +799,7 @@ async function agregarUnaCelda(nombre, precio){
     divPrecioTotal.setAttribute('class',"precio__total-pedido-ingresado")
     var spanPrecioTotal = document.createElement("span"); 
     spanPrecioTotal.setAttribute('class', "precio__total-producto-ingresado tamaño__value" )
-    spanPrecioTotal.textContent = document.getElementById('preTP').value;
+    spanPrecioTotal.textContent = document.getElementById('preTP').textContent;
 
     divPrecioTotal.appendChild(spanPrecioTotal);
 
@@ -802,9 +809,16 @@ async function agregarUnaCelda(nombre, precio){
     btnEliminar.setAttribute('class', "accion__realizar-sobre-pedido-ingresado")
     var ibtn = document.createElement('i');
     ibtn.setAttribute('class','fa-solid fa-trash-can')
-
+    var spbtn = document.createElement('span');
+    spbtn.setAttribute('class','eliminar')
+    spbtn.textContent += " Eliminar";
+    btnEliminar.addEventListener('click', function(){
+        var idjq = '#'+ids;
+        $(idjq).remove();
+        codsPedido.pop(id)
+    })
     btnEliminar.appendChild(ibtn);
-    btnEliminar.innerHTML += "Eliminar";
+    btnEliminar.appendChild(spbtn);
     divEliminar.appendChild(btnEliminar);
 
     divContenedor.appendChild(divNombre);
