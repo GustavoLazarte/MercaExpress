@@ -2480,6 +2480,44 @@ input[type="file"] {
         display: none;
     }
 }
+@media(max-width: 910px){
+    .contenedor__datos-cliente{
+        display: grid;
+        grid-template-columns: 92px 125px 75px 1fr /*85px 100px*/;
+        border-radius: 10px;
+        background: #cccccc;
+        border: 2px solid black;
+        padding: 10px 10px;
+    }
+    .direccion__ingresado-cliente{
+        grid-column: 2/4;
+    }
+    .direccion__cliente{
+        grid-column: 1/2;
+    }
+    .contenedor__datos-vendedor{
+        display: grid;
+        grid-template-columns: 85px 1fr 1fr 1fr 85px 85px;
+    }
+}
+@media(max-width: 770px){
+    .contenedor__nombre-ingresar-pedido{
+        display: grid;
+        grid-template-columns: 60px 1fr 75px 65px 50px 70px 50px;
+    }
+    .contenedor__input-ingresar-pedido{
+        display: grid;
+        grid-template-columns: 60px 1fr 75px 65px 50px 70px 50px;
+    }
+    .contenedor__nombres-pedidos-ingresador{
+        display: grid;
+        grid-template-columns: 1fr 80px 95px 75px 90px;
+    }
+    .reporte__pedidos-ingresados{
+        display: grid;
+        grid-template-columns: 1fr 80px 95px 75px 90px;
+    }
+}
 /*.columna__inventario-cuerpo{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
