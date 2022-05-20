@@ -84,12 +84,5 @@ $(function(){
     });
 });
 
-$(function(){
-    $(".volver__inventario").click(function(){
-        $(".inventario__empresa").hide();
-        $(".registrar__pedido").hide();
-        $("#contenedor__añadir-empresa").hide();
-        $("#opciones__empresa").show();
-    });
-});
+
 

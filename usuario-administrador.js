@@ -433,7 +433,7 @@ async function añadirProducto(e) {
     e.preventDefault();
     bloquearContenido();
     const imgProducto = await subirImagen('fotos_del_producto');
-    const nomProducto = document.getElementById('nombre_producto').value;
+    const nomProducto = document.getElementById('nombre_producto').value.repl;
     console.log(nomProducto)
     const precioProducto = document.getElementById('precio').value;
     const codProducto = document.getElementById('codigo_producto').value;
@@ -660,22 +660,58 @@ async function cargarInformacionCliente(c){
 }
 
 $(function(){
-    $(".volver__inventario").click(function(){
-        codem = "";
-        codPV = ""
-        document.getElementById("nomPV").innerHTML = "";
-        document.getElementById("dirPV").innerHTML = "";
-        document.getElementById('ingresar__codigo-datos-cliente').value = "";
-        document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
-        document.getElementById("telPV").innerHTML = "";
-        limpiarCampos();
-        document.getElementById("ingresar_codigo").value = "";
-        $(".reporte__pedidos-ingresados").remove();
-        codsPedido = [];
-        $(".inventario__empresa").hide();
-        $(".registrar__pedido").hide();
-        $("#contenedor__añadir-empresa").hide();
-        $("#opciones__empresa").show();
+    $(".volver__inventario").click(async function(){
+        var res = $('.botom__ingresar-pedido-cliente').is(':hidden');
+        console.log(res);
+        if(res){
+            await Swal.fire({
+                position : 'top-end',
+                title: 'Se perdera todo el progreso, esta seguro?',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                showCancelButton: true,
+                confirmButtonText: 'Si, salir',
+                toast : true
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    codem = "";
+                    codPV = ""
+                    document.getElementById("nomPV").innerHTML = "";
+                    document.getElementById("dirPV").innerHTML = "";
+                    document.getElementById('ingresar__codigo-datos-cliente').value = "";
+                    document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
+                    document.getElementById("telPV").innerHTML = "";
+                    limpiarCampos();
+                    document.getElementById("ingresar_codigo").value = "";
+                    $(".reporte__pedidos-ingresados").remove();
+                    codsPedido = [];
+                    $(".inventario__empresa").hide();
+                    $(".registrar__pedido").hide();
+                    $("#contenedor__añadir-empresa").hide();
+                    $("#opciones__empresa").show();
+                } else{
+                }
+            })
+        }else{
+            codem = "";
+            codPV = ""
+            document.getElementById("nomPV").innerHTML = "";
+            document.getElementById("dirPV").innerHTML = "";
+            document.getElementById('ingresar__codigo-datos-cliente').value = "";
+            document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
+            document.getElementById("telPV").innerHTML = "";
+            limpiarCampos();
+            document.getElementById("ingresar_codigo").value = "";
+            $(".reporte__pedidos-ingresados").remove();
+            codsPedido = [];
+            $(".inventario__empresa").hide();
+            $(".registrar__pedido").hide();
+            $("#contenedor__añadir-empresa").hide();
+            $("#opciones__empresa").show();
+        }
+        
+        
         
     });
 });
@@ -695,7 +731,16 @@ async function verificarCodigo(e){
         document.getElementById("exP").textContent  = docSnap.data().existencia;
         document.getElementById('preP').textContent  = docSnap.data().precio;
         if (parseInt(docSnap.data().existencia , 10) === 0 ){
-            alert("No hay ps")
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '¡El producto no esta disponible!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                timer: 2000,
+                toast: true
+            })
             limpiarCampos();
             document.getElementById("ingresar_codigo").value = "";
         }else{
@@ -742,18 +787,36 @@ async function agregarAlPedido(e){
         const docSnap = await getDoc(docRef);
         if (docSnap.exists() && codsPedido.indexOf(docSnap.id) == -1) {
             if(document.getElementById('ingresar__cantidad_producto').value == 0 ||document.getElementById('ingresar__cantidad_producto').value == ""){
-                alert("Ingrese Cantidad")
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: '¡Ingrese una cantidad!',
+                    color: '#312d2d',
+                    background: '#ffffff',
+                    confirmButtonColor: '#ffcc00',
+                    timer: 2000,
+                    toast: true
+                })
                 desbloquearContenido();
             }else{
                 await agregarUnaCelda(docSnap.data().nombre, docSnap.data().precio, docSnap.id);
                 codsPedido.push(docSnap.id)
-                impiarCampos();
+                limpiarCampos();
                 document.getElementById("ingresar_codigo").value = "";
             }
             desbloquearContenido();
 
         }else{
-            alert("Producto no valido")
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '¡Producto no valido!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                timer: 2000,
+                toast: true
+            })
             desbloquearContenido();
         }
     }
@@ -850,14 +913,97 @@ $('.anular').click(async function(){
     desbloquearContenido();
 });
 
-/**$('.procesar').click(async function(){
-    refUsuario = "";
-    onAuthStateChanged(auth, async (user) => {
-        refUsuario = doc(db, 'users', 'alovelace')
+$('.procesar').click(async function(){
+    bloquearContenido();
+    var refUsuario = "";
+    var refEmpresa = "";
+    var refPuntoVenta = "";
+    let nroPedido = 0;
+    await onAuthStateChanged(auth, async (user) => {
+        await Swal.fire({
+            position : 'top-end',
+            title: 'Desea procesar el pedido?',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            toast : true
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                if(codsPedido.length >= 1 ){
+                    console.log("aasda")
+                    refUsuario =  await doc(db, 'empleado', user.uid);
+                    refEmpresa = await doc(db, 'empesa', codem);
+                    refPuntoVenta = await doc(db, 'Puntoventa', codPV);
+                    const querySnapshot = await getDocs(collection(db, "pedidos"));
+                    var nrodoc = 0;
+                    querySnapshot.forEach((doc) => {
+                        nrodoc = nrodoc + 1;
+                    });
+                    nroPedido = nrodoc;
+                    const docData = {
+                        realizadoPor : refUsuario,
+                        para : refEmpresa,
+                        proviniente : refPuntoVenta,
+                        totalCosto : 0,
+                        iva : 0,
+                        costoPedido : 0
+                    }
+                    console.log(nroPedido);
+                    nroPedido = nroPedido + 1;
+                    const refPedido = doc(db, "pedidos", ""+nroPedido);
+                    await setDoc(refPedido, docData);
+                    await listarPedido((""+nroPedido), codem);
+                    await Swal.fire({
+                        icon: 'success',
+                        title: 'Correcto',
+                        text: 'Pedido Registrado!',
+                        color: '#312d2d',
+                        background: '#ffffff',
+                        confirmButtonColor: '#ffcc00',
+                        timer: 2000,
+                        toast: true
+                    })
+                    desbloquearContenido();
+                }else{
+                    await Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: '¡Debe ingresar 1 o mas productos al Pedido!',
+                        color: '#312d2d',
+                        background: '#ffffff',
+                        confirmButtonColor: '#ffcc00',
+                        timer: 2000,
+                        toast: true
+                    })
+                    desbloquearContenido();
+                }
+            } else{
+                desbloquearContenido();
+            }
+        })
+        
     })
-    doc(db, 'users', 'alovelace')
+    
+    
+});
+async function listarPedido(idPedido,codem){
+    let nro = 0;
+    codsPedido.forEach(async (cd)=>{
+        nro = nro+1;
+        var divCref = '#'+'reporte__pedidos-ingresados'+ nro;
+        await agregarProductoALista(nro, divCref, idPedido,codem, cd);
+    })
+}
+
+async function agregarProductoALista(nro, divCref,idPedido,codem, cd){
     const docData = {
-        realizadoPor : 
+        producto: await doc(db, 'empresa', codem, 'catalogo', cd),
+        cantidad: document.querySelector(divCref).getElementsByClassName('cantidad__producto-ingresado tamaño__value')[0].textContent,
+        precioTotal : document.querySelector(divCref).getElementsByClassName('precio__total-producto-ingresado tamaño__value')[0].textContent
     };
-    await setDoc(doc(db, "pedidos", 1), docData);
-});*/
+    
+    const refeListaPedido = await doc(db, "pedidos", idPedido, 'lista', ""+ nro);
+    await setDoc(refeListaPedido, docData);
+}
