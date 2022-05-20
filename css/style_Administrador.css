@@ -1979,20 +1979,18 @@ input[type="file"] {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: #000596;
-    padding: 5px 0px;
+    padding: 5px 12px;
     margin-top: 5px;
     background: none;
-    border: 0;
     cursor: pointer;
+    border-radius: 15px;
+    background: #ffffff;
 }
 .añadir__nuevo-pedido:hover{
-    color: #0062ff;
+    background: #ffaa00;
 }
 .añadir__nuevo-pedido:focus{
-    color: #0062ff;
-    border: 0;
-    outline: none;
+    background: #ffaa00;
 }
 .volver__inventario{
     font-family: Arial, Helvetica, sans-serif;
@@ -2068,7 +2066,7 @@ input[type="file"] {
 }
 .campo__datos-cliente-volver{
     display: grid;
-    grid-template-columns: 1fr 130px 110px;
+    grid-template-columns: 1fr 150px 110px;
     margin-top: 15px;
     margin-bottom: 10px;
 }
