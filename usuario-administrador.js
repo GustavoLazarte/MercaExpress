@@ -1054,9 +1054,13 @@ async function cargarinvetario(od) {
     const coleccion = await collection(db, "empresa", od, "catalogo");
     const querySnapshote = await getDocs(coleccion);
     console.log(querySnapshote.empty)
-    let nro = 1;
+    
+    var cont=1;
+    
     await querySnapshote.forEach((doc) => {
-        const nid = "nombre_producto"+nro;
+        const nid = "nombre_producto"+cont;
+        const nad = "existencia"+cont ;
+        const ned ="botoniv"+cont;
         const exi =doc.data().existencia;
         const nom = doc.data().nombre;
         console.log(nom)
@@ -1066,50 +1070,50 @@ async function cargarinvetario(od) {
                              '<span class="codigo__producto-inventario" id="codep" value='+doc.id+'readonly>'+doc.id+'</span> '+
                         '</div> '+
                         '<div class="cuerpo__inventario">'+
-                             '<span class="nombre__producto-inventario"  id='+nid+' value="" readonly>'+nom+'</span> '+
+                             '<span class="nombre__producto-inventario"  id="hola" value="" readonly>'+nom+'</span> '+
                         '</div>'+
                         ' <div class="cuerpo__inventario">'+
-                            '<span class="existencia__producto-inventario" readonly >'+exi+'</span>'+
+                            '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario">'+
-                        '   <input type="number" id ="nueva_existencia" value="" ></input>'+
+                        '   <input type="number" id ='+nad+' value="0" ></input>'+
                         
                         '</div>';
-                        //'<button class="button__actualizar-inventario"><i class="fa-solid fa-rotate"></i> Actualizar</button>';
+                       // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
         document.getElementById(nid).setAttribute("value", nom);
-        nro += 1;
+        cont += 1;
+        
+        
     });
 }
-/*let codP="";
 
-async function coP(){
-    console.log("Holabastardo")
-    const codE = document.getElementById('codep').value;
 
-    const q = await query(collection(db, "catalo"), where("codProducto", "==", codE));
-
-    const querySnapshot = await getDocs(q);  
-    querySnapshot.forEach((doc) => {
-        codP = doc.id;
-    });
-}
 $(function(){
     $(".button__actualizar-inventario").click(async function(){
-     await actualizarexis(codP);
+        document.getElementById('nombre_producto1').innerHTML = document.getElementById('existencia1').value;
+        document.getElementById('existencia1').value = "";
+        document.getElementById('nombre_producto2').innerHTML = document.getElementById('existencia2').value;
+        document.getElementById('existencia2').value = "";
+        document.getElementById('nombre_producto3').innerHTML = document.getElementById('existencia3').value;
+        document.getElementById('existencia3').value = "";
+        document.getElementById('nombre_producto4').innerHTML = document.getElementById('existencia4').value;
+        document.getElementById('existencia4').value = "";
+        document.getElementById('nombre_producto5').innerHTML = document.getElementById('existencia5').value;
+        document.getElementById('existencia5').value = "";
+        document.getElementById('nombre_producto6').innerHTML = document.getElementById('existencia6').value;
+        document.getElementById('existencia6').value = "";
+        document.getElementById('nombre_producto7').innerHTML = document.getElementById('existencia7').value;
+        document.getElementById('existencia7').value = "";
+        document.getElementById('nombre_producto8').innerHTML = document.getElementById('existencia8').value;
+        document.getElementById('existencia8').value = "";
+        document.getElementById('nombre_producto9').innerHTML = document.getElementById('existencia9').value;
+        document.getElementById('existencia9').value = "";
+        document.getElementById('nombre_producto10').innerHTML = document.getElementById('existencia10').value;
+        document.getElementById('existencia10').value = "";
+        document.getElementById('nombre_producto11').innerHTML = document.getElementById('existencia11').value;
+        document.getElementById('existencia1').value = "";
+        document.getElementById('nombre_producto12').innerHTML = document.getElementById('existencia12').value;
+        document.getElementById('existencia12').value = "";
     });
-});
-
-    async function actualizarexis(lel){
-        await coP();
-        const exis=document.getElementById('nueva_existencia').value;
-        const col = await collection(db, "empresa",lel, "catalogo");
-        const querySnapshote = await getDocs(col);
-        console.log(querySnapshote.empty)
-        col.update({
-        existencia :exis
-        });
-        const refeCatalogoEmpresa = doc(db, "empresa", 'catalogo');
-        await setDoc(refeCatalogoEmpresa, docData);
-
-}*/
+})
