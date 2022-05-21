@@ -433,17 +433,18 @@ async function añadirProducto(e) {
     e.preventDefault();
     bloquearContenido();
     const imgProducto = await subirImagen('fotos_del_producto');
-    const nomProducto = document.getElementById('nombre_producto').value.repl;
+    const nomProducto = document.getElementById('nombre_producto').value;
     console.log(nomProducto)
     const precioProducto = document.getElementById('precio').value;
     const codProducto = document.getElementById('codigo_producto').value;
-
+    const exi = 0;
     const docu = await doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto);
     const obSnap = await getDoc(docu);
     if (!obSnap.exists()) {
         const docData = {
             nombre: nomProducto,
             precio: precioProducto,
+            existencia: exi,
             foto: imgProducto
         };
         const refeCatalogoEmpresa = doc(db, "empresa", codigoEmpresa, 'catalogo', codProducto);
