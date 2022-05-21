@@ -1007,3 +1007,108 @@ async function agregarProductoALista(nro, divCref,idPedido,codem, cd){
     const refeListaPedido = await doc(db, "pedidos", idPedido, 'lista', ""+ nro);
     await setDoc(refeListaPedido, docData);
 }
+let lol="";
+async function compC(){
+    console.log("Hola")
+    const codE = document.getElementById('codigo__campo-actualizar-inventario').value;
+
+    const q = await query(collection(db, "empresa"), where("nombre", "==", codE));
+
+    const querySnapshot = await getDocs(q);  
+    querySnapshot.forEach((doc) => {
+        lol = doc.id;
+    });
+}
+$(function(){
+    $(".ingresar__actualizar-inventario").click(async function(){
+       await compC ();
+       
+       if(lol !== ""){
+        await cargarinvetario (lol);
+        $("#opciones__empresa").hide();
+        $("#contenedor__añadir-empresa").hide();
+        $(".registrar__pedido").hide();
+        $("#inventario_oo").show();
+        document.getElementById('inventarioo').innerHTML = document.getElementById('codigo__campo-actualizar-inventario').value;
+        document.getElementById('codigo__campo-actualizar-inventario').value = "";
+        
+    }else{
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '¡Esta Empresa no existe!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            timer: 2000,
+            toast: true
+        })
+    }
+    
+    });
+});
+async function cargarinvetario(od) {
+    var contenedor = document.getElementById("columna__inventario-cabeceraa");
+    contenedor.innerHTML = "";
+    const coleccion = await collection(db, "empresa", od, "catalogo");
+    const querySnapshote = await getDocs(coleccion);
+    console.log(querySnapshote.empty)
+    let nro = 1;
+    await querySnapshote.forEach((doc) => {
+        const nid = "nombre_producto"+nro;
+        const exi =doc.data().existencia;
+        const nom = doc.data().nombre;
+        console.log(nom)
+        contenedor.innerHTML +=
+                        
+                        '<div class="cuerpo__inventario">'+
+                             '<span class="codigo__producto-inventario" id="codep" value='+doc.id+'readonly>'+doc.id+'</span> '+
+                        '</div> '+
+                        '<div class="cuerpo__inventario">'+
+                             '<span class="nombre__producto-inventario"  id='+nid+' value="" readonly>'+nom+'</span> '+
+                        '</div>'+
+                        ' <div class="cuerpo__inventario">'+
+                            '<span class="existencia__producto-inventario" readonly >'+exi+'</span>'+
+                        ' </div>'+
+                        '<div class="cuerpo__inventario">'+
+                        '   <input type="number" id ="nueva_existencia" value="" ></input>'+
+                        
+                        '</div>';
+                        //'<button class="button__actualizar-inventario"><i class="fa-solid fa-rotate"></i> Actualizar</button>';
+            
+        document.getElementById(nid).setAttribute("value", nom);
+        nro += 1;
+    });
+}
+/*let codP="";
+
+async function coP(){
+    console.log("Holabastardo")
+    const codE = document.getElementById('codep').value;
+
+    const q = await query(collection(db, "catalo"), where("codProducto", "==", codE));
+
+    const querySnapshot = await getDocs(q);  
+    querySnapshot.forEach((doc) => {
+        codP = doc.id;
+    });
+}
+$(function(){
+    $(".button__actualizar-inventario").click(async function(){
+     await actualizarexis(codP);
+    });
+});
+
+    async function actualizarexis(lel){
+        await coP();
+        const exis=document.getElementById('nueva_existencia').value;
+        const col = await collection(db, "empresa",lel, "catalogo");
+        const querySnapshote = await getDocs(col);
+        console.log(querySnapshote.empty)
+        col.update({
+        existencia :exis
+        });
+        const refeCatalogoEmpresa = doc(db, "empresa", 'catalogo');
+        await setDoc(refeCatalogoEmpresa, docData);
+
+}*/

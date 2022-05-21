@@ -75,14 +75,14 @@ $(function(){
     });
 });
 
-$(function(){
+/*$(function(){
     $(".ingresar__actualizar-inventario").click(function(){
         $("#opciones__empresa").hide();
         $("#contenedor__añadir-empresa").hide();
         $(".registrar__pedido").hide();
         $(".inventario__empresa").show();
     });
-});
+});*/
 
 
 
