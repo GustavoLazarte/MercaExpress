@@ -644,7 +644,7 @@ $(function(){
     $(".button__actualizar-inventario").click(async function(){
       
         const codp = document.getElementById('codd1').textContent;
-        const exis=document.getElementById('existencia1').value;
+        const exis= Number(document.getElementById('existencia1').value);
         console.log(codp)
         console.log(lol)
         const docu = await doc(db, "empresa", lol, "catalogo", codp);
@@ -657,7 +657,7 @@ $(function(){
         document.getElementById('existencia1').value = "";
         
         const codp2 = document.getElementById('codd2').textContent;
-        const exis2=document.getElementById('existencia2').value;
+        const exis2= Number(document.getElementById('existencia2').value);
         console.log(codp)
         console.log(lol)
         const docu2 = await doc(db, "empresa", lol, "catalogo", codp2);
@@ -668,7 +668,7 @@ $(function(){
         document.getElementById('nombre_producto2').innerHTML = document.getElementById('existencia2').value;
         document.getElementById('existencia2').value = "";
         const codp3 = document.getElementById('codd3').textContent;
-        const exis3=document.getElementById('existencia3').value;
+        const exis3= Number(document.getElementById('existencia3').value);
         console.log(codp)
         console.log(lol)
         const docu3 = await doc(db, "empresa", lol, "catalogo", codp3);
@@ -679,7 +679,7 @@ $(function(){
         document.getElementById('nombre_producto3').innerHTML = document.getElementById('existencia3').value;
         document.getElementById('existencia3').value = "";
         const codp4 = document.getElementById('codd4').textContent;
-        const exis4=document.getElementById('existencia4').value;
+        const exis4=Number(document.getElementById('existencia4').value);
         console.log(codp)
         console.log(lol)
         const docu4 = await doc(db, "empresa", lol, "catalogo", codp4);
@@ -690,7 +690,7 @@ $(function(){
         document.getElementById('nombre_producto4').innerHTML = document.getElementById('existencia4').value;
         document.getElementById('existencia4').value = "";
         const codp5 = document.getElementById('codd5').textContent;
-        const exis5=document.getElementById('existencia5').value;
+        const exis5=Number(document.getElementById('existencia5').value);
         console.log(codp)
         console.log(lol)
         const docu5 = await doc(db, "empresa", lol, "catalogo", codp5);
@@ -701,7 +701,7 @@ $(function(){
         document.getElementById('nombre_producto5').innerHTML = document.getElementById('existencia5').value;
         document.getElementById('existencia5').value = "";
         const codp6= document.getElementById('codd6').textContent;
-        const exis6=document.getElementById('existencia6').value;
+        const exis6= Number(document.getElementById('existencia6').value);
         console.log(codp)
         console.log(lol)
         const docu6 = await doc(db, "empresa", lol, "catalogo", codp6);
@@ -712,7 +712,7 @@ $(function(){
         document.getElementById('nombre_producto6').innerHTML = document.getElementById('existencia6').value;
         document.getElementById('existencia6').value = "";
         const codp7 = document.getElementById('codd7').textContent;
-        const exis7=document.getElementById('existencia7').value;
+        const exis7= Number(document.getElementById('existencia7').value);
         console.log(codp)
         console.log(lol)
         const docu7 = await doc(db, "empresa", lol, "catalogo", codp7);
@@ -722,8 +722,9 @@ $(function(){
             },{merge:true});
         document.getElementById('nombre_producto7').innerHTML = document.getElementById('existencia7').value;
         document.getElementById('existencia7').value = "";
+
         const codp8 = document.getElementById('codd8').textContent;
-        const exis8=document.getElementById('existencia8').value;
+        const exis8=Number(document.getElementById('existencia8').value);
         console.log(codp)
         console.log(lol)
         const docu8 = await doc(db, "empresa", lol, "catalogo", codp8);
@@ -734,7 +735,7 @@ $(function(){
         document.getElementById('nombre_producto8').innerHTML = document.getElementById('existencia8').value;
         document.getElementById('existencia8').value = "";
         const codp9= document.getElementById('codd9').textContent;
-        const exis9=document.getElementById('existencia9').value;
+        const exis9=Number(document.getElementById('existencia9').value);
         console.log(codp)
         console.log(lol)
         const docu9 = await doc(db, "empresa", lol, "catalogo", codp9);
@@ -745,7 +746,7 @@ $(function(){
         document.getElementById('nombre_producto9').innerHTML = document.getElementById('existencia9').value;
         document.getElementById('existencia9').value = "";
         const codp10 = document.getElementById('codd10').textContent;
-        const exis10=document.getElementById('existencia10').value;
+        const exis10 = Number(document.getElementById('existencia10').value);
         console.log(codp)
         console.log(lol)
         const docu10 = await doc(db, "empresa", lol, "catalogo", codp10);
@@ -756,7 +757,7 @@ $(function(){
         document.getElementById('nombre_producto10').innerHTML = document.getElementById('existencia10').value;
         document.getElementById('existencia10').value = "";
         const codp11 = document.getElementById('codd11').textContent;
-        const exis11=document.getElementById('existencia11').value;
+        const exis11= Number(document.getElementById('existencia11').value);
         console.log(codp)
         console.log(lol)
         const docu11 = await doc(db, "empresa", lol, "catalogo", codp11);
