@@ -1271,7 +1271,7 @@ async function cargarinvetario(od) {
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario">'+
-                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]" value=0 ></input>'+
+                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]" value=0 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
@@ -1408,7 +1408,16 @@ $(function(){
                 existencia: exis11
             },{merge:true});
         document.getElementById('nombre_producto11').innerHTML = document.getElementById('existencia11').value;
-        document.getElementById('existencia1').value = "";
+        document.getElementById('existencia11').value = "";
+        const codp12 = document.getElementById('codd12').textContent;
+        const exis12=document.getElementById('existencia12').value;
+        console.log(codp)
+        console.log(lol)
+        const docu12 = await doc(db, "empresa", lol, "catalogo", codp12);
+        await setDoc(docu12,{
+            
+                existencia: exis12
+            },{merge:true});
         document.getElementById('nombre_producto12').innerHTML = document.getElementById('existencia12').value;
         document.getElementById('existencia12').value = "";
     });

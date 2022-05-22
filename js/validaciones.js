@@ -381,6 +381,9 @@ else if(document.getElementById('precio').value.charAt(document.getElementById('
     
   mensajet="precio no válido";
 }
+else if(document.getElementById('precio').value.charAt(0)=='0'){
+  mensajet="precio no valido"
+}
 //comprobar si el digito es mayor a 6 caracteres
 else if(document.getElementById('precio').value.length > 6){
   mensajet="precio no válido";
