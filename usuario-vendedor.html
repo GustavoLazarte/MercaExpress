@@ -281,51 +281,51 @@
                     </div>
                 </div>-->
                 <div class="registrar__pedido">
-                    <h2 class="nombre__empresa-ingresar-pedido">Coca Cola</h2>
+                    <h2 class="nombre__empresa-ingresar-pedido" id = "nombre__empresa"></h2>
                     <div class="content__datos-cliente">
                         <div class="campo__datos-cliente-volver">
                             <label for="" class="datos__cliente">Datos del Cliente:</label>
                             <button class="añadir__nuevo-pedido"><i class="fa-solid fa-plus"></i>Nuevo Pedido</button>
-                            <input type="button" class="volver__inventario acomodar" value="volver">
+                            <input type="button" class="volver__inventario acomodar" value="Volver">
                         </div>
                         <div class="contenedor__datos-cliente">
                             <div class="codigo__datos-cliente">
                                 <label for="ingresar__codigo-datos-cliente" class="texto__nombre">Código:</label>
                             </div>
                             <div class="ingresar_codigo-cliente">
-                                <input type="text" id="ingresar__codigo-datos-cliente">
+                                <input type="text" id="ingresar__codigo-datos-cliente" id = "codiPV">
                             </div>
                             <div class="nombre__cliente">
                                 <label for="" class="texto__nombre">Nombre:</label>
                             </div>
                             <div class="nombre__ingresado-cliente">
-                                <span class="nombre__datos-cliente modificador"></span>
+                                <span class="nombre__datos-cliente modificador" id ="nomPV"></span>
                             </div>
                             <div class="telefono__cliente">
                                 <label for="" class="texto__nombre">Teléfono:</label>
                             </div>
                             <div class="telefono__ingresado-cliente">
-                                <span class="telefono__datos-cliente modificador"></span>
+                                <span class="telefono__datos-cliente modificador" id ="telPV"></span>
                             </div>
                             <div class="direccion__cliente">
                                 <label for="" class="texto__nombre">Dirección:</label>
                             </div>
                             <div class="direccion__ingresado-cliente">
-                                <span class="direccion__datos-cliente modificador"></span>
+                                <span class="direccion__datos-cliente modificador" id ="dirPV"></span>
                             </div>
                             <div class="botom__ingresar-pedido-cliente">
                                 <input type="button" class="button__ingresar-pedido" value="Ingresar Pedido">
                             </div>
                         </div>
                     </div>
-                    <div class="formulario__ingresar-pedido-cliente">
+                    <div class="formulario__ingresar-pedido-cliente" id="formulario__ingresar-pedido-cliente">
                         <h2>Datos del Vendedor:</h2>
                         <div class="contenedor__datos-vendedor">
                             <div class="nombre__vendedor">
                                 <label for="" class="modificadors">Vendedor:</label>
                             </div>
                             <div class="nombre__ingresado-vendedor">
-                                <span class="modificador__span">Fulanos Fulanes</span>
+                                <span class="modificador__span" id="dUsuario">Fulanos Fulanes</span>
                             </div>
                             <div class="accion__realizar-datos-vendedor">
                                 <label for="" class="modificadors">Acción</label>
@@ -337,7 +337,7 @@
                                 <button class="procesar"><i class="fa-solid fa-file-pen"></i> Procesar</button>
                             </div>
                         </div>
-                        <h2>ingresar Pedido:</h2>
+                        <h2>Ingresar Pedido:</h2>
                         <div class="contenedor__nombre-ingresar-pedido">
                             <div class="nombre__codigo-producto ingresar__pedido-cabecera">
                                 <label for="ingresar_codigo" class="modificadorss">Código</label>
@@ -366,22 +366,22 @@
                                 <input type="text" name="ingresar_codigo" id="ingresar_codigo">
                             </div>
                             <div class="ingresar__descripcion-producto tamaño__borde">
-                                <span class="descripcion__producto modificadorsss">hola</span>
+                                <span class="descripcion__producto modificadorsss" id="descP"></span>
                             </div>
                             <div class="ingresar__existencia-producto tamaño__borde">
-                                <span class="existencia__producto modificadorsss">hola</span>
+                                <span class="existencia__producto modificadorsss" id="exP"></span>
                             </div>
                             <div class="ingresar__cantidad-producto tamaño__borde">
-                                <input type="number" id="ingresar__cantidad_producto" name="ingresar__cantidad_producto">
+                                <input type="number" id="ingresar__cantidad_producto" name="ingresar__cantidad_producto" disabled = true min="0"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
                             </div>
                             <div class="ingresar__precio-producto tamaño__borde">
-                                <span class="precio__producto modificadorsss">hola</span>
+                                <span class="precio__producto modificadorsss" id="preP"></span>
                             </div>
                             <div class="ingresar__precio-total-producto tamaño__borde">
-                                <span class="precio__total-producto modificadorsss">hola</span>
+                                <span class="precio__total-producto modificadorsss" id="preTP"></span>
                             </div>
                             <div class="ingresar__accion-producto tamaño__borde">
-                                <button class="agregar__producto"><i class="fa-solid fa-file-circle-plus"></i><span class="agregar"> Agregar</span></button>
+                                <button class="agregar__producto" id="btnAgregar"><i class="fa-solid fa-file-circle-plus"></i><span class="agregar"> Agregar</span></button>
                             </div>
                         </div>
                         <div class="contenedor__nombres-pedidos-ingresador">
@@ -400,44 +400,7 @@
                             <div class="nombre__acción-pedido-ingresado centrear__nombre-productos-ingresados">
                                 <label for="">Acción</label>
                             </div>
-                        </div>
-                        <div class="reporte__pedidos-ingresados">
-                            <div class="descripcion__pedido-ingresado">
-                                <span class="descripcion__producto-igresado tamaño__value">hola</span>
-                            </div>
-                            <div class="cantidad__pedido-ingresado">
-                                <span class="cantidad__producto-ingresado tamaño__value">hola</span>
-                            </div>
-                            <div class="precio__pedido-ingresado">
-                                <span class="precio__producto-ingresado tamaño__value">hola</span>
-                            </div>
-                            <div class="precio__total-pedido-ingresado">
-                                <span class="precio__total-producto-ingresado tamaño__value">hola</span>
-                            </div>
-                            <div class="accion__pedido-ingresado">
-                                <button class="accion__realizar-sobre-pedido-ingresado"><i class="fa-solid fa-trash-can"></i><span class="eliminar"> Eliminar</span></i></button>
-                            </div>
-                        </div>
-                        <div class="contenedor__calcular-precio-pedido">
-                            <div class="total__parcial">
-                                <label for="" class="general general__texto">Total Parcial:</label>
-                            </div>
-                            <div class="total__parcial-numeral">
-                                <span class="general">1000</span>
-                            </div>
-                            <div class="texto__iva">
-                                <label for="" class="general general__texto">Iva(13%):</label>
-                            </div>
-                            <div class="numeral__iva">
-                                <span class="general">130</span>
-                            </div>
-                            <div class="texto__total">
-                                <label for="" class="general general__texto">Total:</label>
-                            </div>
-                            <div class="numeral__total">
-                                <span class="general">870</span>
-                            </div>
-                        </div>
+                        </div>                                                
                     </div>
                 </div>
             </div>
@@ -447,8 +410,11 @@
 </body>
 <script defer src="./js/tab.js"></script>
 <script src="./js/administrador.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<!-- include BlockUI -->
+<script src="./js/jquery.blockUI.js"></script>
 <script type="module" src="usuario-vendedor.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <script src="./js/validaciones.js"></script>
 <script defer src="./js/tabs2.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
