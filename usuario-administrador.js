@@ -310,6 +310,7 @@ async function registrarPV(e) {
     const dire = document.getElementById('direcciónVenta').value;
     const res = document.getElementById('responsable').value;
     const mail = document.getElementById('e-mailVenta').value;
+    const cod = nom.charAt(0).toUpperCase() +"-"+ tel.substring(0,3);
     const comparar = query(up, where("Mail", "==", mail))
     const querySnapshot = await getDocs(comparar);
     const comp = await collection(db, "users");
@@ -342,7 +343,7 @@ async function registrarPV(e) {
                 Imagen: img
 
             };
-            await setDoc(doc(db, "Puntoventa", mail), docData);
+            await setDoc(doc(db, "Puntoventa", cod), docData);
             //asociarlo el punto de venta
             // pe
             await Swal.fire({
@@ -606,13 +607,12 @@ $(function(){
 
 let codPV = "";
 async function procederARegistro() {
-    console.log("HolaPV")
-    const q = await query(collection(db, "Puntoventa"), where("Nombre", "==", document.getElementById('ingresar__codigo-datos-cliente').value));
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        codPV= doc.id;
-    });
+    console.log("Hola")
+    const refPV = await doc(db, "Puntoventa", document.getElementById('ingresar__codigo-datos-cliente').value)
+    const datosPV = await getDoc(refPV);
+    if(datosPV.exists()){
+        codPV = datosPV.id;
+    }
 }
 
 $(function(){
