@@ -919,22 +919,41 @@ async function agregarUnaCelda(nombre, precio, id){
 }
 $('.añadir__nuevo-pedido').click(async function(){
     bloquearContenido();
-    codPV = ""
-    document.getElementById("nomPV").innerHTML = "";
-    document.getElementById("dirPV").innerHTML = "";
-    document.getElementById('ingresar__codigo-datos-cliente').value = "";
-    document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
-    $(".botom__ingresar-pedido-cliente").show();
-    document.getElementById("telPV").innerHTML = "";
-    limpiarCampos();
-    document.getElementById("ingresar_codigo").value = "";
-    $(".reporte__pedidos-ingresados").remove();
-    codsPedido = [];
-    $(".formulario__ingresar-pedido-cliente").hide();
-    $(".nombre__cliente").hide();
-    $(".telefono__cliente").hide();
-    $(".direccion__cliente").hide();
-    $(".añadir__nuevo-pedido").hide();
+    if($('.botom__ingresar-pedido-cliente').is(':hidden') || codsPedido.length > 0 ){
+        await Swal.fire({
+            position : 'top-end',
+            title: 'Se perdera todo el progreso, esta seguro?',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            showCancelButton: true,
+            confirmButtonText: 'Si, nuevo perdido',
+            toast : true
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                codPV = ""
+                document.getElementById("nomPV").innerHTML = "";
+                document.getElementById("dirPV").innerHTML = "";
+                document.getElementById('ingresar__codigo-datos-cliente').value = "";
+                document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
+                $(".botom__ingresar-pedido-cliente").show();
+                document.getElementById("telPV").innerHTML = "";
+                limpiarCampos();
+                document.getElementById("ingresar_codigo").value = "";
+                $(".reporte__pedidos-ingresados").remove();
+                codsPedido = [];
+                $(".formulario__ingresar-pedido-cliente").hide();
+                $(".nombre__cliente").hide();
+                $(".telefono__cliente").hide();
+                $(".direccion__cliente").hide();
+                $(".añadir__nuevo-pedido").hide();
+                desbloquearContenido();
+            }else{
+
+            }
+        })
+        
+    }
     desbloquearContenido();
 });
 
@@ -1050,6 +1069,11 @@ async function listarPedido(idPedido,codem){
 }
 
 async function agregarProductoALista(nro, divCref,idPedido,codem, cd){
+    const  refProducto = await doc(db, 'empresa', codem, 'catalogo', cd)
+    const docSnap = await getDoc(refProducto);
+    var nuevaExistencia = docSnap.data().existencia - (Number(document.querySelector(divCref).getElementsByClassName('cantidad__producto-ingresado tamaño__value')[0].textContent));
+    await setDoc(refProducto, { existencia: nuevaExistencia }, { merge: true });
+
     const docData = {
         producto: await doc(db, 'empresa', codem, 'catalogo', cd),
         cantidad: document.querySelector(divCref).getElementsByClassName('cantidad__producto-ingresado tamaño__value')[0].textContent,
