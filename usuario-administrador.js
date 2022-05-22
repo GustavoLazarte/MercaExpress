@@ -571,15 +571,15 @@ function desbloquearContenido(){
 
 
 let codem = "";
-
+let nomEm = "";
 async function avanzarARegistro() {
     console.log("Hola")
-    const q = await query(collection(db, "empresa"), where("nombre", "==", document.getElementById('codigo__campo-registrar-pedido').value));
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        codem = doc.id;
-    });
+    const refEmp = await doc(db, "empresa", document.getElementById('codigo__campo-registrar-pedido').value)
+    const datosEmp = await getDoc(refEmp);
+    if(datosEmp.exists()){
+        nomEm = datosEmp.data().nombre;
+        codem = datosEmp.id;
+    }
 }
 
 $(function(){
@@ -596,7 +596,7 @@ $(function(){
             $(".direccion__cliente").hide();
             $(".añadir__nuevo-pedido").hide();
             $(".botom__ingresar-pedido-cliente").show();
-            document.getElementById('nombre__empresa').innerHTML = document.getElementById('codigo__campo-registrar-pedido').value;
+            document.getElementById('nombre__empresa').innerHTML = nomEm;
             document.getElementById('codigo__campo-registrar-pedido').value = "";
         }else{
             alert("No existe esa empresa")
@@ -938,6 +938,7 @@ $('.añadir__nuevo-pedido').click(async function(){
         $(".telefono__cliente").hide();
         $(".direccion__cliente").hide();
         $(".añadir__nuevo-pedido").hide();
+        $(".contenedor__calcular-precio-pedido").remove();
         desbloquearContenido();
     }else if($('.botom__ingresar-pedido-cliente').is(':hidden') || codsPedido.length > 0 ){
         await Swal.fire({
@@ -1047,6 +1048,7 @@ $('.procesar').click(async function(){
                     await setDoc(refPedido, docData);
                     await listarPedido((""+nroPedido), codem);
                     await sacarCostosFinales((""+nroPedido));
+                    await mostrarCostosFinales((""+nroPedido));
                     await Swal.fire({
                         icon: 'success',
                         title: 'Correcto',
@@ -1057,6 +1059,7 @@ $('.procesar').click(async function(){
                         timer: 2000,
                         toast: true
                     })
+
                     pedidoHecho = true;
                     $('.añadir__nuevo-pedido').trigger('click');
                     desbloquearContenido();
@@ -1104,6 +1107,76 @@ async function sacarCostosFinales(idPedido){
     });
     
 
+}
+
+async function mostrarCostosFinales(idPedido){
+    const unsub =await onSnapshot(doc(db, "pedidos", idPedido), (doc) => {
+        var divCostosContenedor  = document.createElement("div"); 
+        divCostosContenedor.setAttribute('class', 'contenedor__calcular-precio-pedido');
+
+        var divTotPar  = document.createElement("div"); 
+        divTotPar.setAttribute('class', 'total__parcial');
+        var labelTotPar = document.createElement("label");
+        labelTotPar.setAttribute('class',"general general__texto") 
+        labelTotPar.setAttribute('for',"")
+        labelTotPar.textContent = "Total Parcial:";
+
+        divTotPar.appendChild(labelTotPar);
+
+        var divTotParN  = document.createElement("div"); 
+        divTotParN.setAttribute('class', 'total__parcial-numeral');
+        var spanTotPAr = document.createElement("span");
+        spanTotPAr.setAttribute('class',"general") 
+        spanTotPAr.textContent = doc.data().costoPedido;
+
+        divTotParN.appendChild(spanTotPAr);
+
+        var divIva  = document.createElement("div"); 
+        divIva.setAttribute('class', 'texto__iva');
+        var labelIva = document.createElement("label");
+        labelIva.setAttribute('class',"general general__texto") 
+        labelIva.setAttribute('for',"")
+        labelIva.textContent = "Iva(13%):";
+
+        divIva.appendChild(labelIva);
+
+        var divIvaN  = document.createElement("div"); 
+        divIvaN.setAttribute('class', 'numeral__iva');
+        var spanIva = document.createElement("span");
+        spanIva.setAttribute('class',"general") 
+        spanIva.textContent = doc.data().iva;
+        
+        divIvaN.appendChild(spanIva);
+
+        var divTot  = document.createElement("div"); 
+        divTot.setAttribute('class', 'texto__total');
+        var labelTot = document.createElement("label");
+        labelTot.setAttribute('class',"general general__texto") 
+        labelTot.setAttribute('for',"")
+        labelTot.textContent = "Total:";
+
+        divTot.appendChild(labelTot);
+
+        var divTotN  = document.createElement("div"); 
+        divTotN.setAttribute('class', 'numeral__total');
+        var spanTotPAr = document.createElement("span");
+        spanTotPAr.setAttribute('class',"general") 
+        spanTotPAr.textContent = doc.data().totalCosto;
+
+        divTotN.appendChild(spanTotPAr);
+
+        divCostosContenedor.appendChild(divTotPar);
+        divCostosContenedor.appendChild(divTotParN);
+        divCostosContenedor.appendChild(divIva);
+        divCostosContenedor.appendChild(divIvaN);
+        divCostosContenedor.appendChild(divTot);
+        divCostosContenedor.appendChild(divTotN);
+
+        $(".contenedor__calcular-precio-pedido").remove();
+        document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divCostosContenedor);
+    });
+
+    
 }
 async function listarPedido(idPedido,codem){
     let nro = 0;
