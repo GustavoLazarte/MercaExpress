@@ -560,16 +560,17 @@ function desbloquearContenido(){
     $.unblockUI();
 }
 let lol="";
+let lolNomEmp = "";
 async function compC(){
     console.log("Hola")
     const codE = document.getElementById('codigo__campo-actualizar-inventario').value;
 
-    const q = await query(collection(db, "empresa"), where("nombre", "==", codE));
-
-    const querySnapshot = await getDocs(q);  
-    querySnapshot.forEach((doc) => {
-        lol = doc.id;
-    });
+    const refEmpr = await doc(db,'empresa', codE)
+    const datosEmpr = await getDoc(refEmpr)
+    if(datosEmpr.exists()){
+        lol = datosEmpr.id;
+        lolNomEmp = datosEmpr.data().nombre
+    }
 }
 $(function(){
     $(".ingresar__actualizar-inventario").click(async function(){
