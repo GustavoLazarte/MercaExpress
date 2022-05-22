@@ -643,7 +643,18 @@ $(function(){
             })
             desbloquearContenido();
         }else{
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '¡El punto de venta no existe!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                timer: 2000,
+                toast: true
+            })
             desbloquearContenido();
+            document.getElementById('ingresar__codigo-datos-cliente').value = "";
         }
         
     });
@@ -657,6 +668,7 @@ async function cargarInformacionCliente(c){
         document.getElementById("nomPV").innerHTML = obSnap.data().Nombre;
         document.getElementById("dirPV").innerHTML = obSnap.data().Direccion;
         document.getElementById("telPV").innerHTML = obSnap.data().Telefono;
+        document.getElementById('ingresar__codigo-datos-cliente').disabled = true;
     }
 }
 
@@ -780,8 +792,17 @@ async function agregarAlPedido(e){
     e.preventDefault();
     bloquearContenido();
     if(document.getElementById("ingresar_codigo").value == ""){
-        alert("Ingrese un producto")
-        desbloquearContenido;
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '¡Ingrese un porducto!',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            timer: 2000,
+            toast: true
+        })
+        desbloquearContenido();
     }else{
         const valor = document.getElementById("ingresar_codigo").value;
         const docRef = doc(db, "empresa", codem, "catalogo", valor );
@@ -896,22 +917,51 @@ async function agregarUnaCelda(nombre, precio, id){
 
     document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divContenedor)
 }
-$('.anular').click(async function(){
+$('.añadir__nuevo-pedido').click(async function(){
     bloquearContenido();
-    await limpiarCampos()
+    codPV = ""
+    document.getElementById("nomPV").innerHTML = "";
+    document.getElementById("dirPV").innerHTML = "";
+    document.getElementById('ingresar__codigo-datos-cliente').value = "";
+    document.getElementById('ingresar__codigo-datos-cliente').disabled = false;
+    $(".botom__ingresar-pedido-cliente").show();
+    document.getElementById("telPV").innerHTML = "";
+    limpiarCampos();
     document.getElementById("ingresar_codigo").value = "";
-    codsPedido = [];
     $(".reporte__pedidos-ingresados").remove();
+    codsPedido = [];
+    $(".formulario__ingresar-pedido-cliente").hide();
+    $(".nombre__cliente").hide();
+    $(".telefono__cliente").hide();
+    $(".direccion__cliente").hide();
+    $(".añadir__nuevo-pedido").hide();
     desbloquearContenido();
 });
 
 $('.anular').click(async function(){
-    bloquearContenido();
-    await limpiarCampos()
-    document.getElementById("ingresar_codigo").value = "";
-    codsPedido = [];
-    $(".reporte__pedidos-ingresados").remove();
-    desbloquearContenido();
+    if(codsPedido.length > 0){
+        await Swal.fire({
+            position : 'top-end',
+            title: 'Se perdera todo el progreso, esta seguro?',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            showCancelButton: true,
+            confirmButtonText: 'Si, salir',
+            toast : true
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                bloquearContenido();
+                await limpiarCampos()
+                document.getElementById("ingresar_codigo").value = "";
+                codsPedido = [];
+                $(".reporte__pedidos-ingresados").remove();
+                desbloquearContenido();
+            }
+        })
+        
+    }
+    
 });
 
 $('.procesar').click(async function(){
@@ -928,7 +978,8 @@ $('.procesar').click(async function(){
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Save',
+            confirmButtonText: 'Si, procesar',
+            cancelButtonText: 'Cancelar',
             toast : true
         }).then(async (result) => {
             if (result.isConfirmed) {
