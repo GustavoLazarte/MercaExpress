@@ -948,7 +948,7 @@ $('.añadir__nuevo-pedido').click(async function(){
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, nuevo perdido',
+            confirmButtonText: 'Si, nuevo pedido',
             toast : true
         }).then(async (result) => {
             if (result.isConfirmed) {
