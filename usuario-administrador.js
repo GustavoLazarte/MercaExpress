@@ -679,7 +679,7 @@ $(function(){
         if(res){
             await Swal.fire({
                 position : 'top-end',
-                title: 'Se perdera todo el progreso, esta seguro?',
+                title: 'Se perderá todo el progreso, ¿Está seguro?',
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
@@ -982,7 +982,7 @@ $('.anular').click(async function(){
     if(codsPedido.length > 0){
         await Swal.fire({
             position : 'top-end',
-            title: 'Se perdera todo el progreso, esta seguro?',
+            title: 'Se perderá todo el progreso, ¿Está seguro?',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
