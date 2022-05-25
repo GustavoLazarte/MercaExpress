@@ -562,21 +562,23 @@ function desbloquearContenido(){
 let lol="";
 let lolNomEmp = "";
 async function compC(){
+    var refEmpr="";
+    var datosEmpr="";
     console.log("Hola")
-    const codE = document.getElementById('codigo__campo-actualizar-inventario').value;
-
-    const refEmpr = await doc(db,'empresa', codE)
-    const datosEmpr = await getDoc(refEmpr)
+    if(document.getElementById('codigo__campo-actualizar-inventario').value !== ""){
+        refEmpr = await doc(db, "empresa", document.getElementById('codigo__campo-actualizar-inventario').value);
+        datosEmpr = await getDoc(refEmpr)
     if(datosEmpr.exists()){
         lol = datosEmpr.id;
         lolNomEmp = datosEmpr.data().nombre
     }
 }
+}
 $(function(){
     $(".ingresar__actualizar-inventario").click(async function(){
        await compC ();
        
-       if(lol !== ""){
+       if(lol !== "" || lol=== ""){
         await cargarinvetario (lol);
         $("#opciones__empresa").hide();
         $("#contenedor__añadir-empresa").hide();
