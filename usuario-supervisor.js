@@ -629,7 +629,7 @@ async function cargarinvetario(od) {
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario">'+
-                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]" value=0 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]"value='+exi+'  min="1" max="1000" onkeydown="return(false)" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
@@ -643,9 +643,9 @@ async function cargarinvetario(od) {
 
 $(function(){
     $(".button__actualizar-inventario").click(async function(){
-      
-        const codp = document.getElementById('codd1').textContent;
-        const exis= Number(document.getElementById('existencia1').value);
+        for (var i=1;i<=100;i++){
+        const codp = document.getElementById('codd'+i).textContent;
+        const exis= Number(document.getElementById('existencia'+i).value);
         console.log(codp)
         console.log(lol)
         const docu = await doc(db, "empresa", lol, "catalogo", codp);
@@ -654,121 +654,32 @@ $(function(){
                 existencia: exis
             },{merge:true});
             
-        document.getElementById('nombre_producto1').innerHTML = document.getElementById('existencia1').value;
-        document.getElementById('existencia1').value = "";
-        
-        const codp2 = document.getElementById('codd2').textContent;
-        const exis2= Number(document.getElementById('existencia2').value);
-        console.log(codp)
-        console.log(lol)
-        const docu2 = await doc(db, "empresa", lol, "catalogo", codp2);
-        await setDoc(docu2,{
-            
-                existencia: exis2
-            },{merge:true});
-        document.getElementById('nombre_producto2').innerHTML = document.getElementById('existencia2').value;
-        document.getElementById('existencia2').value = "";
-        const codp3 = document.getElementById('codd3').textContent;
-        const exis3= Number(document.getElementById('existencia3').value);
-        console.log(codp)
-        console.log(lol)
-        const docu3 = await doc(db, "empresa", lol, "catalogo", codp3);
-        await setDoc(docu3,{
-            
-                existencia: exis3
-            },{merge:true});
-        document.getElementById('nombre_producto3').innerHTML = document.getElementById('existencia3').value;
-        document.getElementById('existencia3').value = "";
-        const codp4 = document.getElementById('codd4').textContent;
-        const exis4=Number(document.getElementById('existencia4').value);
-        console.log(codp)
-        console.log(lol)
-        const docu4 = await doc(db, "empresa", lol, "catalogo", codp4);
-        await setDoc(docu4,{
-            
-                existencia: exis4
-            },{merge:true});
-        document.getElementById('nombre_producto4').innerHTML = document.getElementById('existencia4').value;
-        document.getElementById('existencia4').value = "";
-        const codp5 = document.getElementById('codd5').textContent;
-        const exis5=Number(document.getElementById('existencia5').value);
-        console.log(codp)
-        console.log(lol)
-        const docu5 = await doc(db, "empresa", lol, "catalogo", codp5);
-        await setDoc(docu5,{
-            
-                existencia: exis5
-            },{merge:true});
-        document.getElementById('nombre_producto5').innerHTML = document.getElementById('existencia5').value;
-        document.getElementById('existencia5').value = "";
-        const codp6= document.getElementById('codd6').textContent;
-        const exis6= Number(document.getElementById('existencia6').value);
-        console.log(codp)
-        console.log(lol)
-        const docu6 = await doc(db, "empresa", lol, "catalogo", codp6);
-        await setDoc(docu6,{
-            
-                existencia: exis6
-            },{merge:true});
-        document.getElementById('nombre_producto6').innerHTML = document.getElementById('existencia6').value;
-        document.getElementById('existencia6').value = "";
-        const codp7 = document.getElementById('codd7').textContent;
-        const exis7= Number(document.getElementById('existencia7').value);
-        console.log(codp)
-        console.log(lol)
-        const docu7 = await doc(db, "empresa", lol, "catalogo", codp7);
-        await setDoc(docu7,{
-            
-                existencia: exis7
-            },{merge:true});
-        document.getElementById('nombre_producto7').innerHTML = document.getElementById('existencia7').value;
-        document.getElementById('existencia7').value = "";
-
-        const codp8 = document.getElementById('codd8').textContent;
-        const exis8=Number(document.getElementById('existencia8').value);
-        console.log(codp)
-        console.log(lol)
-        const docu8 = await doc(db, "empresa", lol, "catalogo", codp8);
-        await setDoc(docu8,{
-            
-                existencia: exis8
-            },{merge:true});
-        document.getElementById('nombre_producto8').innerHTML = document.getElementById('existencia8').value;
-        document.getElementById('existencia8').value = "";
-        const codp9= document.getElementById('codd9').textContent;
-        const exis9=Number(document.getElementById('existencia9').value);
-        console.log(codp)
-        console.log(lol)
-        const docu9 = await doc(db, "empresa", lol, "catalogo", codp9);
-        await setDoc(docu9,{
-            
-                existencia: exis9
-            },{merge:true});
-        document.getElementById('nombre_producto9').innerHTML = document.getElementById('existencia9').value;
-        document.getElementById('existencia9').value = "";
-        const codp10 = document.getElementById('codd10').textContent;
-        const exis10 = Number(document.getElementById('existencia10').value);
-        console.log(codp)
-        console.log(lol)
-        const docu10 = await doc(db, "empresa", lol, "catalogo", codp10);
-        await setDoc(docu10,{
-            
-                existencia: exis10
-            },{merge:true});
-        document.getElementById('nombre_producto10').innerHTML = document.getElementById('existencia10').value;
-        document.getElementById('existencia10').value = "";
-        const codp11 = document.getElementById('codd11').textContent;
-        const exis11= Number(document.getElementById('existencia11').value);
-        console.log(codp)
-        console.log(lol)
-        const docu11 = await doc(db, "empresa", lol, "catalogo", codp11);
-        await setDoc(docu11,{
-            
-                existencia: exis11
-            },{merge:true});
-        document.getElementById('nombre_producto11').innerHTML = document.getElementById('existencia11').value;
-        document.getElementById('existencia1').value = "";
-        document.getElementById('nombre_producto12').innerHTML = document.getElementById('existencia12').value;
-        document.getElementById('existencia12').value = "";
+        document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
+      
+        }
     });
 })
+
+$(function(){
+    $(".volver__inventario").click(async function(){
+        await Swal.fire({
+            position : 'center',
+            title: 'Se perderá todo el progreso, ¿Está seguro?',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            showCancelButton: true,
+            confirmButtonText: 'Si, salir',
+            toast : false
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                lol="";
+                lolNomEmp = "";
+                    $(".inventario__empresa").hide();
+                    $(".registrar__pedido").hide();
+                    $("#contenedor__añadir-empresa").hide();
+                    $("#opciones__empresa").show();
+            }
+            })
+    });
+});
