@@ -575,18 +575,24 @@ let codem = "";
 let nomEm = "";
 async function avanzarARegistro() {
     console.log("Hola")
-    const refEmp = await doc(db, "empresa", document.getElementById('codigo__campo-registrar-pedido').value)
-    const datosEmp = await getDoc(refEmp);
-    if(datosEmp.exists()){
-        nomEm = datosEmp.data().nombre;
-        codem = datosEmp.id;
+    var refEmp= "";
+    var datosEmp = "";
+    if(document.getElementById('codigo__campo-registrar-pedido').value !== ""){
+        refEmp = await doc(db, "empresa", document.getElementById('codigo__campo-registrar-pedido').value)
+        datosEmp = await getDoc(refEmp);
+        if(datosEmp.exists()){
+            nomEm = datosEmp.data().nombre;
+            codem = datosEmp.id;
+        }
     }
+    
+    
 }
 
 $(function(){
     $(".ingresar__registrar-pedido").click(async function(){
         await avanzarARegistro();
-        if(codem !== ""){
+        if(codem !== ""|| codem === undefined){
             $("#opciones__empresa").hide();
             $(".inventario__empresa").hide();
             $("#contenedor__añadir-empresa").hide();
@@ -600,7 +606,16 @@ $(function(){
             document.getElementById('nombre__empresa').innerHTML = nomEm;
             document.getElementById('codigo__campo-registrar-pedido').value = "";
         }else{
-            alert("No existe esa empresa")
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '¡Empresa no existente!',
+                color: '#312d2d',
+                background: '#ffffff',
+                confirmButtonColor: '#ffcc00',
+                timer: 2000,
+                toast: true
+            })
         }
     });
 });
@@ -608,10 +623,12 @@ $(function(){
 let codPV = "";
 async function procederARegistro() {
     console.log("Hola")
-    const refPV = await doc(db, "Puntoventa", document.getElementById('ingresar__codigo-datos-cliente').value)
-    const datosPV = await getDoc(refPV);
-    if(datosPV.exists()){
-        codPV = datosPV.id;
+    if(document.getElementById('ingresar__codigo-datos-cliente').value !== ""){
+        const refPV = await doc(db, "Puntoventa", document.getElementById('ingresar__codigo-datos-cliente').value)
+        const datosPV = await getDoc(refPV);
+        if(datosPV.exists()){
+            codPV = datosPV.id;
+        }
     }
 }
 
@@ -677,6 +694,7 @@ $(function(){
         var res = $('.botom__ingresar-pedido-cliente').is(':hidden');
         console.log(res);
         if(res){
+            bloquearContenido();
             await Swal.fire({
                 position : 'top-end',
                 title: 'Se perdera todo el progreso, esta seguro?',
@@ -705,6 +723,7 @@ $(function(){
                     $("#opciones__empresa").show();
                 } else{
                 }
+                desbloquearContenido();
             })
         }else{
             codem = "";
@@ -765,7 +784,7 @@ async function verificarCodigo(e){
         document.getElementById("descP").textContent  = "";
         document.getElementById("exP").textContent  = "";
         document.getElementById('preP').textContent  = "";
-        document.getElementById('preTP').intextContent = "";
+        document.getElementById('preTP').textContent = "";
         document.getElementById('ingresar__cantidad_producto').value = "";
         document.getElementById('ingresar__cantidad_producto').disabled = true;
     }
