@@ -578,7 +578,7 @@ $(function(){
     $(".ingresar__actualizar-inventario").click(async function(){
        await compC ();
        
-       if(lol !== "" || lol=== ""){
+       if(lol !== ""){
         await cargarinvetario (lol);
         $("#opciones__empresa").hide();
         $("#contenedor__añadir-empresa").hide();
