@@ -943,7 +943,7 @@ $('.añadir__nuevo-pedido').click(async function(){
     }else if($('.botom__ingresar-pedido-cliente').is(':hidden') || codsPedido.length > 0 ){
         await Swal.fire({
             position : 'top-end',
-            title: 'Se perdera todo el progreso, esta seguro?',
+            title: 'Se perderá todo el progreso, ¿Está seguro?',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
