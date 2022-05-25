@@ -1272,7 +1272,7 @@ async function cargarinvetario(od) {
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario">'+
-                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]" value=0 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]" min= "0" value=0 onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
