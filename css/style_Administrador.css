@@ -2198,6 +2198,14 @@ input[type="file"] {
     background: #ffffff94;
     border: 1px solid #878787;
 }
+.tamaño__borde{
+    display: flex;
+    align-items: center;
+}
+.tamaño__bordes{
+    font-display: flex;
+    justify-content: center;
+}
 .ingresar__descripcion-producto{
     width: 180px;
 }
