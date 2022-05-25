@@ -678,18 +678,20 @@ $(function(){
         console.log(res);
         if(res){
             await Swal.fire({
-                position : 'top-end',
+                position : 'center',
                 title: 'Se perderá todo el progreso, ¿Está seguro?',
                 color: '#312d2d',
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
                 showCancelButton: true,
                 confirmButtonText: 'Si, salir',
-                toast : true
+                toast : false
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     codem = "";
                     codPV = ""
+                    lol="";
+                    lolNomEmp = "";
                     document.getElementById("nomPV").innerHTML = "";
                     document.getElementById("dirPV").innerHTML = "";
                     document.getElementById('ingresar__codigo-datos-cliente').value = "";
@@ -709,6 +711,8 @@ $(function(){
         }else{
             codem = "";
             codPV = ""
+            lol="";
+            lolNomEmp = "";
             document.getElementById("nomPV").innerHTML = "";
             document.getElementById("dirPV").innerHTML = "";
             document.getElementById('ingresar__codigo-datos-cliente').value = "";
