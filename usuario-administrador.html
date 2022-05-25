@@ -420,7 +420,7 @@
                                 <label for="codigo__campo-actualizar-inventario">Código de Empresa:</label>
                             </div>
                             <div class="input__codigo-empresa">
-                                <input type="text" id="codigo__campo-actualizar-inventario" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-actualizar-inventario">
+                                <input type="text" id="codigo__campo-actualizar-inventario" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-actualizar-inventario" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 45) || (event.charCode >= 164 && event.charCode <= 165))" maxlength="8">
                             </div>
                             <div class="ingresar__codigo-empresa">
                                 <input type="button" value="Ingresar" class="boton__ingresar-actualizar ingresar__actualizar-inventario">
@@ -432,7 +432,7 @@
                                 <label for="codigo__campo-registrar-pedido">Código de Empresa:</label>
                             </div>
                             <div class="input__codigo-empresa">
-                                <input type="text" id="codigo__campo-registrar-pedido" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-registrar-pedido" >
+                                <input type="text" id="codigo__campo-registrar-pedido" class="input__campo-ingresar-codigo-empresa" maxlength = "8" name="codigo__campo-registrar-pedido" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 45) || (event.charCode >= 164 && event.charCode <= 165))" >
                             </div>
                             <div class="ingresar__codigo-empresa">
                                 <input type="button" class="boton__ingresar-actualizar ingresar__registrar-pedido" id="btnIngresarR" value="Ingresar">
@@ -605,7 +605,7 @@
                                 <label for="ingresar__codigo-datos-cliente" class="texto__nombre">Código:</label>
                             </div>
                             <div class="ingresar_codigo-cliente">
-                                <input type="text" id="ingresar__codigo-datos-cliente" id = "codiPV">
+                                <input type="text" id="ingresar__codigo-datos-cliente" id = "codiPV" maxlength="7" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 45) || (event.charCode >= 164 && event.charCode <= 165))">
                             </div>
                             <div class="nombre__cliente">
                                 <label for="" class="texto__nombre">Nombre:</label>
