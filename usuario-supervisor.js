@@ -52,18 +52,18 @@ window.onload = function () {
                 })
                 window.location = "login.html" 
             }
-        } else {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Inicie sesión Primero!',
-                color: '#312d2d',
-                background: '#ffffff',
-                confirmButtonColor: '#ffcc00'
-            })
-            
-            window.location = "login.html"
-        }
+        }// else {
+         //   await Swal.fire({
+         //       icon: 'error',
+         //       title: 'Error',
+         //       text: 'Inicie sesión Primero!',
+         //       color: '#312d2d',
+         //       background: '#ffffff',
+         //       confirmButtonColor: '#ffcc00'
+         //   })
+         //   
+         //   window.location = "login.html"
+         //}
     });
 };
 
@@ -621,16 +621,16 @@ async function cargarinvetario(od) {
         console.log(nom)
         contenedor.innerHTML +=
                         
-                        '<div class="cuerpo__inventario">'+
+                        '<div class="cuerpo__inventario extremo__izq">'+
                              '<span class="codigo__producto-inventario" id='+nod+' value='+doc.id+'readonly>'+doc.id+'</span> '+
                         '</div> '+
-                        '<div class="cuerpo__inventario">'+
+                        '<div class="cuerpo__inventario centro__cuerpo-inventario1">'+
                              '<span class="nombre__producto-inventario"  id="hola" value="" readonly>'+nom+'</span> '+
                         '</div>'+
-                        ' <div class="cuerpo__inventario">'+
+                        ' <div class="cuerpo__inventario centro__cuerpo-inventario2">'+
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
-                        '<div class="cuerpo__inventario">'+
+                        '<div class="cuerpo__inventario extremo__drch">'+
                         '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]"value=""  min="1" max="1000" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
