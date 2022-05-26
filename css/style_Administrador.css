@@ -1916,6 +1916,8 @@ input[type="file"] {
 .inventario__empresa{
     display: grid;
     grid-template-columns: 1fr;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 .inventario__empresa > h2{
     text-align: center;
@@ -2047,6 +2049,10 @@ input[type="file"] {
     background: #ffaa00;
 }
 /*Registrar pedido*/
+.registrar__pedido{
+    margin-left: 2px;
+    margin-right: 2px;
+}
 .registrar__pedido > h2{
     margin-top: 20px;
     text-align: center;
