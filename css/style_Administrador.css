@@ -2249,6 +2249,17 @@ input[type="file"] {
 }
 .ingresar__descripcion-producto{
     width: 180px;
+
+    /*recortar palabra*/
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;     /* Sólo WebKit -NO DOCUMENTADO */
+
+    -ms-hyphens: auto;          /* Guiones para separar en sílabas */
+    -moz-hyphens: auto;         /*  depende de lang en <html>      */
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
 }
 .contenedor__input-ingresar-pedido .ingresar__codigo-producto{
     /*align-self: center;
@@ -2341,6 +2352,18 @@ input[type="file"] {
 .nombre__descripción-pedido-ingresado{
     border-top-left-radius: 10px;
     border-left: 2px solid black;
+}
+.descripcion__pedido-ingresado{
+    /*recortar palabra*/
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;     /* Sólo WebKit -NO DOCUMENTADO */
+
+    -ms-hyphens: auto;          /* Guiones para separar en sílabas */
+    -moz-hyphens: auto;         /*  depende de lang en <html>      */
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
 }
 .nombre__acción-pedido-ingresado{
     border-top-right-radius: 10px;
