@@ -1957,6 +1957,17 @@ input[type="file"] {
     border-left: 0px;
     border-bottom: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
+
+    /*recortar palabra*/
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;     /* Sólo WebKit -NO DOCUMENTADO */
+
+    -ms-hyphens: auto;          /* Guiones para separar en sílabas */
+    -moz-hyphens: auto;         /*  depende de lang en <html>      */
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    
 }
 .columna__inventario-cabecera > .centro__cuerpo-inventario2{
     border-top: 0px;
