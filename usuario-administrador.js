@@ -1072,7 +1072,7 @@ $('.procesar').click(async function(){
                     await setDoc(refPedido, docData);
                     await listarPedido((""+nroPedido), codem);
                     await sacarCostosFinales((""+nroPedido));
-                    var costos = await mostrarCostosFinales((""+nroPedido));
+                    await mostrarCostosFinales((""+nroPedido));
                     await Swal.fire({
                         icon: 'success',
                         title: 'Correcto',
@@ -1080,7 +1080,7 @@ $('.procesar').click(async function(){
                         color: '#312d2d',
                         background: '#ffffff',
                         confirmButtonColor: '#ffcc00',
-                        timer: 10000,
+                        timer: 2000,
                         toast: true
                     })
 
@@ -1262,11 +1262,10 @@ $(function(){
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
-            timer: 2000,
-            toast: false
+            timer: 1000,
+            toast: true
         })
-    }
-    
+                 }
     });
 });
 async function cargarinvetario(od) {
@@ -1285,20 +1284,22 @@ async function cargarinvetario(od) {
         const nod= "codd"+cont;
         const exi =doc.data().existencia;
         const nom = doc.data().nombre;
+        const rata="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}" 
         console.log(nom)
         contenedor.innerHTML +=
+        
                         
                         '<div class="cuerpo__inventario">'+
-                             '<span class="codigo__producto-inventario extremo__izq" id='+nod+' value='+doc.id+'readonly>'+doc.id+'</span> '+
+                             '<span class="codigo__producto-inventario" id='+nod+' value='+doc.id+'readonly>'+doc.id+'</span> '+
                         '</div> '+
-                        '<div class="cuerpo__inventario centro__cuerpo-inventario1">'+
+                        '<div class="cuerpo__inventario">'+
                              '<span class="nombre__producto-inventario"  id="hola" value="" readonly>'+nom+'</span> '+
                         '</div>'+
-                        ' <div class="cuerpo__inventario centro__cuerpo-inventario2">'+
+                        ' <div class="cuerpo__inventario">'+
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
-                        '<div class="cuerpo__inventario extremo__drch">'+
-                        '   <input type="number" class="existencia1" id ='+nad+' pattern="[0-9]"value=""  min="1" max="1000" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '<div class="cuerpo__inventario">'+
+                        '   <input type="number" class='+nad+' id ='+nad+' pattern="[0-9]"value=""  min="1" max="100000" maxlength="6" oninput="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
@@ -1333,22 +1334,4 @@ $(function(){
         }
     });
 })
-/*function comprobarEntrantes (){
-    var  mensajet="";
-    for(var i=1;i<=50;i++){
-        if(this.value==""){
 
-        }
-       else if((document.getElementById('existencia1').value.charAt(0)=='0')){
-        mensajet="formato no valido";
-    }
-    this.setCustomValidity(mensajet);
-    }
-}
-
-var exi = document.querySelector("#existencia1");
-if (exi != null) {
-    exi.addEventListener("invalid", comprobarEntrantes);
-    exi.addEventListener("input", comprobarEntrantes);
-}
-*/
