@@ -311,8 +311,6 @@ $(function(){
                 if (result.isConfirmed) {
                     codem = "";
                     codPV = ""
-                    lol="";
-                    lolNomEmp = "";
                     document.getElementById("nomPV").innerHTML = "";
                     document.getElementById("dirPV").innerHTML = "";
                     document.getElementById('ingresar__codigo-datos-cliente').value = "";
