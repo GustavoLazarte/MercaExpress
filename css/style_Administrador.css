@@ -29,7 +29,7 @@ body{
 #sidemenu{
     background-color: var(--bgcolor);
     color: #ffffff;
-    position: absolute;
+    position: fixed;
     height: 100%;
     left: 0;
     top: 0;
