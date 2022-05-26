@@ -29,7 +29,7 @@ body{
 #sidemenu{
     background-color: var(--bgcolor);
     color: #ffffff;
-    position: absolute;
+    position: fixed;
     height: 100%;
     left: 0;
     top: 0;
@@ -1916,15 +1916,18 @@ input[type="file"] {
 .inventario__empresa{
     display: grid;
     grid-template-columns: 1fr;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 .inventario__empresa > h2{
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 25px;
 }
 .columna__inventario-cabecera{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 25px;
+    /*margin-top: 25px;*/
 }
 .columna__inventario-cabecera > div{
     /*border: 0.5px solid #535050;*/
@@ -1945,20 +1948,58 @@ input[type="file"] {
     border: 1px solid #cccccc;
     outline: none;
 }*/
+.columna__inventario-cabecera > .extremo__izq{
+    border-top: 0px;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+.columna__inventario-cabecera > .centro__cuerpo-inventario1{
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+
+    /*recortar palabra*/
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;     /* Sólo WebKit -NO DOCUMENTADO */
+
+    -ms-hyphens: auto;          /* Guiones para separar en sílabas */
+    -moz-hyphens: auto;         /*  depende de lang en <html>      */
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    
+}
+.columna__inventario-cabecera > .centro__cuerpo-inventario2{
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+.columna__inventario-cabecera > .extremo__drch{
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
 /*cuerpo*/
 .cuerpo__inventario{
     background: #ffffff;
     font-size: 16px;
     border: 1px solid #cccccc;
-    align-self:stretch;
+    display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .cuerpo__inventario > input{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    border: 0.5px solid black;
     padding-left: 2px;
+    width: 100%;
+    border: 0px;
+    height: 100%;
 }
 .actualizar__inventario{
     justify-self: end;
