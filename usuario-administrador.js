@@ -1312,7 +1312,7 @@ async function cargarinvetario(od) {
 
 $(function(){
     $(".button__actualizar-inventario").click(async function(){
-        for (var i=1;i<=10;i++){
+        for (var i=1;i<=100;i++){
             if (document.getElementById('existencia'+i).value==''){
 
             }
