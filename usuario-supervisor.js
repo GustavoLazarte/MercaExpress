@@ -618,20 +618,22 @@ async function cargarinvetario(od) {
         const nod= "codd"+cont;
         const exi =doc.data().existencia;
         const nom = doc.data().nombre;
+        const rata="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}" 
         console.log(nom)
         contenedor.innerHTML +=
+        
                         
-                        '<div class="cuerpo__inventario extremo__izq">'+
+                        '<div class="cuerpo__inventario">'+
                              '<span class="codigo__producto-inventario" id='+nod+' value='+doc.id+'readonly>'+doc.id+'</span> '+
                         '</div> '+
-                        '<div class="cuerpo__inventario centro__cuerpo-inventario1">'+
+                        '<div class="cuerpo__inventario">'+
                              '<span class="nombre__producto-inventario"  id="hola" value="" readonly>'+nom+'</span> '+
                         '</div>'+
-                        ' <div class="cuerpo__inventario centro__cuerpo-inventario2">'+
+                        ' <div class="cuerpo__inventario">'+
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
-                        '<div class="cuerpo__inventario extremo__drch">'+
-                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]"value=""  min="1" max="100000" maxlength="6" oninput="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '<div class="cuerpo__inventario">'+
+                        '   <input type="number" class='+nad+' id ='+nad+' pattern="[0-9]"value=""  min="1" max="100000" maxlength="6" oninput="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
@@ -649,6 +651,7 @@ $(function(){
             if (document.getElementById('existencia'+i).value==''){
 
             }
+            else{
         const codp = document.getElementById('codd'+i).textContent;
         const exis= Number(document.getElementById('existencia'+i).value);
         console.log(codp)
@@ -660,7 +663,8 @@ $(function(){
             },{merge:true});
             
         document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
-      
+        document.getElementById('existencia'+i).value='';
+            }
         }
     });
 })
