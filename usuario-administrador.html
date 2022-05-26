@@ -420,7 +420,7 @@
                                 <label for="codigo__campo-actualizar-inventario">Código de Empresa:</label>
                             </div>
                             <div class="input__codigo-empresa">
-                                <input type="text" id="codigo__campo-actualizar-inventario" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-actualizar-inventario" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 45) || (event.charCode >= 164 && event.charCode <= 165))" maxlength="8">
+                                <input type="text" id="codigo__campo-actualizar-inventario" class="input__campo-ingresar-codigo-empresa" name="codigo__campo-actualizar-inventario" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 45) || (event.charCode >= 164 && event.charCode <= 165) ||  (event.charCode >=97 && event.charCode <= 122))" maxlength="8">
                             </div>
                             <div class="ingresar__codigo-empresa">
                                 <input type="button" value="Ingresar" class="boton__ingresar-actualizar ingresar__actualizar-inventario">
@@ -432,7 +432,7 @@
                                 <label for="codigo__campo-registrar-pedido">Código de Empresa:</label>
                             </div>
                             <div class="input__codigo-empresa">
-                                <input type="text" id="codigo__campo-registrar-pedido" class="input__campo-ingresar-codigo-empresa" maxlength = "8" name="codigo__campo-registrar-pedido" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 45) || (event.charCode >= 164 && event.charCode <= 165))" >
+                                <input type="text" id="codigo__campo-registrar-pedido" class="input__campo-ingresar-codigo-empresa" maxlength = "8" name="codigo__campo-registrar-pedido" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode == 45) || (event.charCode >= 164 && event.charCode <= 165) || (event.charCode >=97 && event.charCode <= 122))" >
                             </div>
                             <div class="ingresar__codigo-empresa">
                                 <input type="button" class="boton__ingresar-actualizar ingresar__registrar-pedido" id="btnIngresarR" value="Ingresar">
@@ -712,7 +712,8 @@
                             <div class="nombre__acción-pedido-ingresado centrear__nombre-productos-ingresados">
                                 <label for="">Acción</label>
                             </div>
-                        </div>                                                
+                        </div>
+                                                           
                     </div>
                 </div>
             </div>

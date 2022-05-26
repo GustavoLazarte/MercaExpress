@@ -1071,7 +1071,7 @@ $('.procesar').click(async function(){
                     await setDoc(refPedido, docData);
                     await listarPedido((""+nroPedido), codem);
                     await sacarCostosFinales((""+nroPedido));
-                    await mostrarCostosFinales((""+nroPedido));
+                    var costos = await mostrarCostosFinales((""+nroPedido));
                     await Swal.fire({
                         icon: 'success',
                         title: 'Correcto',
@@ -1079,7 +1079,7 @@ $('.procesar').click(async function(){
                         color: '#312d2d',
                         background: '#ffffff',
                         confirmButtonColor: '#ffcc00',
-                        timer: 2000,
+                        timer: 10000,
                         toast: true
                     })
 
@@ -1197,6 +1197,12 @@ async function mostrarCostosFinales(idPedido){
 
         $(".contenedor__calcular-precio-pedido").remove();
         document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divCostosContenedor);
+
+        return {
+            cp : doc.data().costoPedido,
+            iv : doc.data().iva,
+            tcp : doc.data().totalCosto
+        }
     });
 
     
