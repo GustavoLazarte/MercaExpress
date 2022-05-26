@@ -631,7 +631,7 @@ async function cargarinvetario(od) {
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario">'+
-                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]"value='+exi+'  min="1" max="1000" onkeydown="return(false)" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '   <input type="number" class="prueba" id ='+nad+' pattern="[0-9]"value=""  min="1" max="1000" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
@@ -646,6 +646,9 @@ async function cargarinvetario(od) {
 $(function(){
     $(".button__actualizar-inventario").click(async function(){
         for (var i=1;i<=100;i++){
+            if (document.getElementById('existencia'+i).value==''){
+
+            }
         const codp = document.getElementById('codd'+i).textContent;
         const exis= Number(document.getElementById('existencia'+i).value);
         console.log(codp)
