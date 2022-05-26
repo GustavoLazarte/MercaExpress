@@ -1920,11 +1920,12 @@ input[type="file"] {
 .inventario__empresa > h2{
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 25px;
 }
 .columna__inventario-cabecera{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 25px;
+    /*margin-top: 25px;*/
 }
 .columna__inventario-cabecera > div{
     /*border: 0.5px solid #535050;*/
@@ -1945,6 +1946,30 @@ input[type="file"] {
     border: 1px solid #cccccc;
     outline: none;
 }*/
+.columna__inventario-cabecera > .extremo__izq{
+    border-top: 0px;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+.columna__inventario-cabecera > .centro__cuerpo-inventario1{
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+.columna__inventario-cabecera > .centro__cuerpo-inventario2{
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+.columna__inventario-cabecera > .extremo__drch{
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
 /*cuerpo*/
 .cuerpo__inventario{
     background: #ffffff;
