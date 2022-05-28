@@ -584,7 +584,11 @@ $(function(){
         $("#contenedor__añadir-empresa").hide();
         $(".registrar__pedido").hide();
         $("#inventario_oo").show();
-        document.getElementById('inventarioo').innerHTML = document.getElementById('codigo__campo-actualizar-inventario').value;
+        const codEm=document.getElementById('codigo__campo-actualizar-inventario').value;
+        const nomE= await doc(db ,"empresa",codEm);;
+        const dato= await getDoc(nomE);
+        const nom = dato.data().nombre;
+        document.getElementById('inventarioo').innerHTML = nom;
         document.getElementById('codigo__campo-actualizar-inventario').value = "";
         
     }else{
