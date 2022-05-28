@@ -691,7 +691,7 @@ async function cargarInformacionCliente(c){
 }
 
 $(function(){
-    $(".volver__inventario").click(async function(){
+    $(".acomodar").click(async function(){
         var res = $('.botom__ingresar-pedido-cliente').is(':hidden');
         console.log(res);
         if(res){
@@ -1254,7 +1254,7 @@ $(function(){
         $("#contenedor__añadir-empresa").hide();
         $(".registrar__pedido").hide();
         $("#inventario_oo").show();
-        const codEm=document.getElementById('codigo__campo-actualizar-inventario').value;
+                const codEm=document.getElementById('codigo__campo-actualizar-inventario').value;
         const nomE= await doc(db ,"empresa",codEm);;
         const dato= await getDoc(nomE);
         const nom = dato.data().nombre;
@@ -1342,3 +1342,27 @@ $(function(){
     });
 })
 
+$(function(){
+    $(".volvere").click(async function(){
+        await Swal.fire({
+            position : 'center',
+            title: 'Se perderá todo el progreso, ¿Está seguro?',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            showCancelButton: true,
+            confirmButtonText: 'Si, salir',
+            cancelButtonText: 'No, cancelar',
+            toast : false
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                lol="";
+                lolNomEmp = "";
+                    $(".inventario__empresa").hide();
+                    $(".registrar__pedido").hide();
+                    $("#contenedor__añadir-empresa").hide();
+                    $("#opciones__empresa").show();
+            }
+            })
+    });
+});
