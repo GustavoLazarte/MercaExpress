@@ -679,6 +679,7 @@ $(function(){
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
             confirmButtonText: 'Si, salir',
+            cancelButtonText: 'No, cancelar',
             toast : false
         }).then(async (result) => {
             if (result.isConfirmed) {

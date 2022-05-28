@@ -306,6 +306,7 @@ $(function(){
                 confirmButtonColor: '#ffcc00',
                 showCancelButton: true,
                 confirmButtonText: 'Si, salir',
+                cancelButtonText: 'No, cancelar',
                 toast : false
             }).then(async (result) => {
                 if (result.isConfirmed) {
@@ -573,6 +574,7 @@ $('.añadir__nuevo-pedido').click(async function(){
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
             confirmButtonText: 'Si, nuevo pedido',
+            cancelButtonText: 'No, cancelar',
             toast : true
         }).then(async (result) => {
             if (result.isConfirmed) {
@@ -612,6 +614,7 @@ $('.anular').click(async function(){
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
             confirmButtonText: 'Si, salir',
+            cancelButtonText: 'No, cancelar',
             toast : true
         }).then(async (result) => {
             if (result.isConfirmed) {
