@@ -18,6 +18,7 @@ const db = getFirestore();
 const storage = getStorage();
 
 
+var cerramosCesion = false;
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
@@ -54,16 +55,19 @@ window.onload = function () {
                 window.location = "login.html" 
             }
         } else {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Inicie sesión Primero!',
-                color: '#312d2d',
-                background: '#ffffff',
-                confirmButtonColor: '#ffcc00'
-            })
-            
-            window.location = "login.html"
+            if(!cerramosCesion){
+                console.log(cerramosCesion)
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Inicie sesión Primero!',
+                    color: '#312d2d',
+                    background: '#ffffff',
+                    confirmButtonColor: '#ffcc00'
+                })
+                
+                window.location = "login.html"
+            }
         }
     });
 };
@@ -207,7 +211,8 @@ if (btnLogout != null) {
     btnLogout.addEventListener('click', e => logout(e));
 }
 
-async function logout(e) {    
+async function logout(e) {   
+    cerramosCesion = true; 
     await signOut(auth);
     window.location = "login.html" 
 }
