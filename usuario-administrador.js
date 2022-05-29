@@ -1312,7 +1312,7 @@ async function cargarinvetario(od) {
     
     await querySnapshote.forEach((doc) => {
         const nid = "nombre_producto"+cont;
-        const nad = "existencia "+cont ;
+        const nad = "existencia"+cont ;
         const ned ="botoniv"+cont;
         const nod= "codd"+cont;
         const exi =doc.data().existencia;
