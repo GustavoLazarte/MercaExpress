@@ -640,12 +640,12 @@ $('.procesar').click(async function(){
     await onAuthStateChanged(auth, async (user) => {
         await Swal.fire({
             position : 'top-end',
-            title: 'Desea procesar el pedido?',
+            title: '¿Desea procesar el pedido?',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, procesar',
+            confirmButtonText: 'Sí, procesar',
             cancelButtonText: 'Cancelar',
             toast : true
         }).then(async (result) => {
