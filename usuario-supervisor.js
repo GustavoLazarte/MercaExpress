@@ -33,6 +33,7 @@ window.onload = function () {
                 const em = document.getElementById('name');
                 img.setAttribute('src', urlImg);
                 em.innerHTML = "<span>" + nom + " " + ap + "</span>";
+                document.getElementsByTagName('h1')[0].innerHTML = "!Bienvenido "+nom+" "+ap+ "!";
             }else{
                 await Swal.fire({
                     icon: 'error',
