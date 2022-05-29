@@ -683,7 +683,7 @@ $(function(){
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, salir',
+            confirmButtonText: 'Sí, salir',
             cancelButtonText: 'No, cancelar',
             toast : false
         }).then(async (result) => {
