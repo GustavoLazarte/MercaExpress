@@ -1251,6 +1251,7 @@ async function compC(){
 }
 $(function(){
     $(".ingresar__actualizar-inventario").click(async function(){
+        bloquearContenido();
        await compC ();
        
        if(lol !== "" || lol === undefined){
@@ -1278,6 +1279,7 @@ $(function(){
             toast: true
         })
                  }
+        desbloquearContenido();
     });
 });
 async function cargarinvetario(od) {
@@ -1291,7 +1293,7 @@ async function cargarinvetario(od) {
     
     await querySnapshote.forEach((doc) => {
         const nid = "nombre_producto"+cont;
-        const nad = "existencia"+cont ;
+        const nad = "existencia "+cont ;
         const ned ="botoniv"+cont;
         const nod= "codd"+cont;
         const exi =doc.data().existencia;
@@ -1311,15 +1313,34 @@ async function cargarinvetario(od) {
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario extremo__drch">'+
-                        '   <input type="number" class='+nad+' id ='+nad+' pattern="[0-9]"value=""  min="1" max="99999" maxlength="5" oninput="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '   <input type="number" class='+nad+' id ='+nad+' pattern="[0-9]"value=""  min="0" max="100000" maxlength="5"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
         document.getElementById(nid).setAttribute("value", nom);
+        
         cont += 1;
         
         
     });
+    
+    for (var i = 0; i < document.getElementsByClassName('existencia').length; i++) {
+        var inp = document.getElementsByClassName('existencia')[i];
+        console.log(inp)
+        inp.addEventListener('input',e => validarEntrante(e,inp.id));
+    }
+}
+
+function validarEntrante(e,elem){
+    var elemen = document.getElementById(elem);
+    console.log(elemen.max)
+    if(Number(elemen.value) <= elemen.max){
+        if(elemen.value.charAt(0)== '0' && elemen.value.length > 1){
+            elemen.value = "";
+        }
+    }else{
+        elemen.value = "";
+    }
 }
 
 
