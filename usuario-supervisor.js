@@ -679,22 +679,24 @@ function validarEntrante(){
 $(function(){
     $(".button__actualizar-inventario").click(async function(){
         for (var i=1;i<=100;i++){
-            if (document.getElementById('existencia'+i).value==''){
+            if(document.getElementById('existencia'+i)!=null){
+                if (document.getElementById('existencia'+i).value==''){
 
-            }
-            else{
-        const codp = document.getElementById('codd'+i).textContent;
-        const exis= Number(document.getElementById('existencia'+i).value);
-        console.log(codp)
-        console.log(lol)
-        const docu = await doc(db, "empresa", lol, "catalogo", codp);
-        await setDoc(docu,{
-            
-                existencia: exis
-            },{merge:true});
-            
-        document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
-        document.getElementById('existencia'+i).value='';
+                }
+                else{
+            const codp = document.getElementById('codd'+i).textContent;
+            const exis= Number(document.getElementById('existencia'+i).value);
+            console.log(codp)
+            console.log(lol)
+            const docu = await doc(db, "empresa", lol, "catalogo", codp);
+            await setDoc(docu,{
+                
+                    existencia: exis
+                },{merge:true});
+                
+            document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
+            document.getElementById('existencia'+i).value='';
+                }
             }
         }
     });
