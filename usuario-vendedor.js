@@ -384,7 +384,7 @@ async function verificarCodigo(e){
         }else{
             document.getElementById("ingresar__cantidad_producto").disabled = false;
             document.getElementById("ingresar__cantidad_producto").setAttribute('max', docSnap.data().existencia)
-            inpCantidad.addEventListener('input',e => validarEntrante(e,inpCantidad.id));
+            inpCantidad.addEventListener('input', validarEntrante);
             precioPA = docSnap.data().precio
 
         }
@@ -683,11 +683,9 @@ $('.procesar').click(async function(){
 });
 
 async function mostrarAlertas(idPedido){
-    const refDocAc = await doc(db, "pedidos", idPedido);
-    const docAc = await getDoc(refDocAc);
     await Swal.fire({
         icon: 'success',
-        title: 'Correcto\nTotal Parcial: '+docAc.data().costoPedido+'\nIva(13%): '+docAc.data().iva+'\nTotal: '+docAc.data().totalCosto,
+        title: 'Correcto',
         text: 'Pedido Registrado!',
         color: '#312d2d',
         background: '#ffffff',
@@ -695,7 +693,7 @@ async function mostrarAlertas(idPedido){
         toast: true
     })
     pedidoHecho = true;
-    $('.añadir__nuevo-pedido').trigger('click');
+    await $('.añadir__nuevo-pedido').trigger('click');
     desbloquearContenido();
 }
 async function crearPedido(idPedido, user){
@@ -852,14 +850,15 @@ async function agregarProductoALista(nro, divCref,idPedido,codem, cd){
     const refeListaPedido = await doc(db, "pedidos", idPedido, 'lista', ""+ nro);
     await setDoc(refeListaPedido, docData);
 }
-function validarEntrante(e,elem){
-    var elemen = document.getElementById(elem);
-    console.log(elemen.max)
-    if(Number(elemen.value) <= elemen.max){
-        if(elemen.value.charAt(0)== '0' && elemen.value.length > 1){
-            elemen.value = "";
+function validarEntrante(){
+    console.log(this.id)
+    if(Number(this.value) <= this.max){
+        console.log("Hola")
+        if(this.value.charAt(0) == '0' && this.value.length > 1){
+            console.log("Entre al if")
+            this.value = "";
         }
     }else{
-        elemen.value = "";
+        this.value = "";
     }
 }
