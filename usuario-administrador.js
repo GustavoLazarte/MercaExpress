@@ -316,7 +316,7 @@ async function registrarPV(e) {
     const dire = document.getElementById('direcciónVenta').value;
     const res = document.getElementById('responsable').value;
     const mail = document.getElementById('e-mailVenta').value;
-    const cod = nom.charAt(0).toUpperCase() +"-"+ tel.substring(0,3);
+    const cod = nom.charAt(0).toUpperCase() +"-"+ tel.substring(0,3)+"PV";
     const comparar = query(up, where("Mail", "==", mail))
     const querySnapshot = await getDocs(comparar);
     const comp = await collection(db, "users");
@@ -1332,7 +1332,7 @@ async function cargarinvetario(od) {
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario extremo__drch">'+
-                        '   <input type="number" class='+nad+' id ='+nad+' pattern="[0-9]"value=""  min="0" max="100000" maxlength="5"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '   <input type="number" class= existencia id = existencia'+cont+' pattern="[0-9]"value=""  min="0" max="100000" maxlength="5"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
@@ -1345,20 +1345,21 @@ async function cargarinvetario(od) {
     
     for (var i = 0; i < document.getElementsByClassName('existencia').length; i++) {
         var inp = document.getElementsByClassName('existencia')[i];
-        console.log(inp)
-        inp.addEventListener('input',e => validarEntrante(e,inp.id));
+        console.log(inp.id)
+        inp.addEventListener('input',validarEntrante);
     }
 }
 
-function validarEntrante(e,elem){
-    var elemen = document.getElementById(elem);
-    console.log(elemen.max)
-    if(Number(elemen.value) <= elemen.max){
-        if(elemen.value.charAt(0)== '0' && elemen.value.length > 1){
-            elemen.value = "";
+function validarEntrante(){
+    console.log(this.id)
+    if(Number(this.value) <= this.max){
+        console.log("Hola")
+        if(this.value.charAt(0) == '0' && this.value.length > 1){
+            console.log("Entre al if")
+            this.value = "";
         }
     }else{
-        elemen.value = "";
+        this.value = "";
     }
 }
 
