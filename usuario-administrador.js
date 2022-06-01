@@ -1,7 +1,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getAuth, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs,onSnapshot } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs,onSnapshot ,getDocFromServer} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { getStorage, ref, getDownloadURL, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js';
 //https://firebase.google.com/docs/web/setup#available-libraries
 const firebaseConfig = {
@@ -18,6 +18,7 @@ const db = getFirestore();
 const storage = getStorage();
 
 
+var cerramosCesion = false;
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
@@ -54,16 +55,19 @@ window.onload = function () {
                 window.location = "login.html" 
             }
         } else {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Inicie sesión Primero!',
-                color: '#312d2d',
-                background: '#ffffff',
-                confirmButtonColor: '#ffcc00'
-            })
-            
-            window.location = "login.html"
+            if(!cerramosCesion){
+                console.log(cerramosCesion)
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Inicie sesión Primero!',
+                    color: '#312d2d',
+                    background: '#ffffff',
+                    confirmButtonColor: '#ffcc00'
+                })
+                
+                window.location = "login.html"
+            }
         }
     });
 };
@@ -207,7 +211,8 @@ if (btnLogout != null) {
     btnLogout.addEventListener('click', e => logout(e));
 }
 
-async function logout(e) {    
+async function logout(e) {   
+    cerramosCesion = true; 
     await signOut(auth);
     window.location = "login.html" 
 }
@@ -311,7 +316,7 @@ async function registrarPV(e) {
     const dire = document.getElementById('direcciónVenta').value;
     const res = document.getElementById('responsable').value;
     const mail = document.getElementById('e-mailVenta').value;
-    const cod = nom.charAt(0).toUpperCase() +"-"+ tel.substring(0,3);
+    const cod = nom.charAt(0).toUpperCase() +"-"+ tel.substring(0,3)+"PV";
     const comparar = query(up, where("Mail", "==", mail))
     const querySnapshot = await getDocs(comparar);
     const comp = await collection(db, "users");
@@ -691,11 +696,10 @@ async function cargarInformacionCliente(c){
 }
 
 $(function(){
-    $(".volver__inventario").click(async function(){
+    $(".acomodar").click(async function(){
         var res = $('.botom__ingresar-pedido-cliente').is(':hidden');
         console.log(res);
         if(res){
-            bloquearContenido();
             await Swal.fire({
                 position : 'center',
                 title: 'Se perderá todo el progreso, ¿Está seguro?',
@@ -703,8 +707,8 @@ $(function(){
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
                 showCancelButton: true,
-                confirmButtonText: 'Si, salir',
-                toast : false
+                confirmButtonText: 'Sí, salir',
+                cancelButtonText: 'No, cancelar',
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     codem = "";
@@ -726,7 +730,6 @@ $(function(){
                     $("#opciones__empresa").show();
                 } else{
                 }
-                desbloquearContenido();
             })
         }else{
             codem = "";
@@ -756,6 +759,7 @@ $(function(){
 const inpCod = document.getElementById("ingresar_codigo");
 inpCod.addEventListener('keyup', e => verificarCodigo(e))
 var originalState = $(".contenedor__input-ingresar-pedido").clone();
+const inpCantidad =  document.getElementById("ingresar__cantidad_producto");
 
 async function verificarCodigo(e){
     console.log("Te escucho");
@@ -779,10 +783,10 @@ async function verificarCodigo(e){
                 toast: true
             })
             limpiarCampos();
-            document.getElementById("ingresar_codigo").value = "";
         }else{
             document.getElementById("ingresar__cantidad_producto").disabled = false;
             document.getElementById("ingresar__cantidad_producto").setAttribute('max', docSnap.data().existencia)
+            inpCantidad.addEventListener('input',validarEntrante);
             precioPA = docSnap.data().precio
         }
     }else{
@@ -943,7 +947,6 @@ async function agregarUnaCelda(nombre, precio, id){
 }
 var pedidoHecho = false;
 $('.añadir__nuevo-pedido').click(async function(){
-    bloquearContenido();
     if(pedidoHecho === true){
         pedidoHecho = false;
         codPV = ""
@@ -966,14 +969,14 @@ $('.añadir__nuevo-pedido').click(async function(){
         desbloquearContenido();
     }else if($('.botom__ingresar-pedido-cliente').is(':hidden') || codsPedido.length > 0 ){
         await Swal.fire({
-            position : 'top-end',
+            position : 'center',
             title: 'Se perderá todo el progreso, ¿Está seguro?',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
             confirmButtonText: 'Si, nuevo pedido',
-            toast : true
+            cancelButtonText: 'No, cancelar',
         }).then(async (result) => {
             if (result.isConfirmed) {
                 codPV = ""
@@ -992,7 +995,6 @@ $('.añadir__nuevo-pedido').click(async function(){
                 $(".telefono__cliente").hide();
                 $(".direccion__cliente").hide();
                 $(".añadir__nuevo-pedido").hide();
-                desbloquearContenido();
             }else{
 
             }
@@ -1011,7 +1013,8 @@ $('.anular').click(async function(){
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, salir',
+            confirmButtonText: 'Sí, salir',
+            cancelButtonText: 'No, cancelar',
             toast : true
         }).then(async (result) => {
             if (result.isConfirmed) {
@@ -1037,56 +1040,26 @@ $('.procesar').click(async function(){
     await onAuthStateChanged(auth, async (user) => {
         await Swal.fire({
             position : 'top-end',
-            title: 'Desea procesar el pedido?',
+            title: '¿Desea procesar el pedido?',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, procesar',
+            confirmButtonText: 'Sí, procesar',
             cancelButtonText: 'Cancelar',
             toast : true
         }).then(async (result) => {
             if (result.isConfirmed) {
                 if(codsPedido.length >= 1 ){
-                    console.log("aasda")
-                    refUsuario =  await doc(db, 'empleado', user.uid);
-                    refEmpresa = await doc(db, 'empesa', codem);
-                    refPuntoVenta = await doc(db, 'Puntoventa', codPV);
-                    const querySnapshot = await getDocs(collection(db, "pedidos"));
-                    var nrodoc = 0;
-                    querySnapshot.forEach((doc) => {
-                        nrodoc = nrodoc + 1;
-                    });
-                    nroPedido = nrodoc;
-                    const docData = {
-                        realizadoPor : refUsuario,
-                        para : refEmpresa,
-                        proviniente : refPuntoVenta,
-                        totalCosto : 0,
-                        iva : 0,
-                        costoPedido : 0
-                    }
-                    console.log(nroPedido);
-                    nroPedido = nroPedido + 1;
-                    const refPedido = await doc(db, "pedidos", ""+nroPedido);
-                    await setDoc(refPedido, docData);
-                    await listarPedido((""+nroPedido), codem);
-                    await sacarCostosFinales((""+nroPedido));
-                    await mostrarCostosFinales((""+nroPedido));
-                    await Swal.fire({
-                        icon: 'success',
-                        title: 'Correcto',
-                        text: 'Pedido Registrado!',
-                        color: '#312d2d',
-                        background: '#ffffff',
-                        confirmButtonColor: '#ffcc00',
-                        timer: 2000,
-                        toast: true
-                    })
-
-                    pedidoHecho = true;
-                    $('.añadir__nuevo-pedido').trigger('click');
-                    desbloquearContenido();
+                    var nroPedido = await generarNumero();
+                    console.log(nroPedido)
+                    var crear = await crearPedido((""+nroPedido),user);
+                    var listar =await listarPedido((""+nroPedido), codem);
+                    var sacarCostso = await sacarCostosFinales((""+nroPedido));
+                    
+                    var alerta = await mostrarAlertas();
+                    
+                    
                 }else{
                     await Swal.fire({
                         icon: 'error',
@@ -1109,10 +1082,56 @@ $('.procesar').click(async function(){
     
     
 });
+var cadena = "";
+async function mostrarAlertas(){
+    await Swal.fire({
+        icon: 'success',
+        title: 'Correcto',
+        text: 'Pedido Registrado!',
+        color: '#312d2d',
+        background: '#ffffff',
+        confirmButtonColor: '#ffcc00',
+        toast: true
+    })
+    pedidoHecho = true;
+    await $('.añadir__nuevo-pedido').trigger('click');
+    desbloquearContenido();    
+}
+async function crearPedido(idPedido, user){
+    
+    var refUsuario =  await doc(db, 'empleado', user.uid);
+    var refEmpresa = await doc(db, 'empesa', codem);
+    var refPuntoVenta = await doc(db, 'Puntoventa', codPV);
+    
+    
+    const docData = {
+        realizadoPor : refUsuario,
+        para : refEmpresa,
+        proviniente : refPuntoVenta,
+        totalCosto : 0,
+        iva : 0,
+        costoPedido : 0
+    }
+    const refPedido = await doc(db, "pedidos", idPedido);
+    await setDoc(refPedido, docData);
+    console.log("2");
+}
 
+async function generarNumero(){
+    const querySnapshot = await getDocs(collection(db, "pedidos"));
+    console.log(querySnapshot)
+    var nroPedido = 0;
+    var nrodoc = 0;
+    querySnapshot.forEach((doc) => {
+        nrodoc = nrodoc + 1;
+    });
+    nroPedido = nrodoc;
+    console.log("1");
+    return nroPedido +1;
+}
 async function sacarCostosFinales(idPedido){
     let sumPedido = 0;
-    const q = collection(db, "pedidos", idPedido, 'lista');
+    const q = await collection(db, "pedidos", idPedido, 'lista');
     const unsubscribe = await onSnapshot(q, async(querySnapshot) => {
         var sum = 0;
         querySnapshot.forEach((doc) => {
@@ -1129,78 +1148,88 @@ async function sacarCostosFinales(idPedido){
         const refPedido = await doc(db, "pedidos", idPedido);
         await setDoc(refPedido, docData, {merge : true});
     });
-    
 
+    var res = "";
+    const unsub = await onSnapshot (doc(db, "pedidos", idPedido), async (doc, res) => {
+        res = await mostrarCostosFinales(doc.data().costoPedido,doc.data().iva,doc.data().totalCosto); 
+        console.log(res)
+        if(document.getElementsByClassName('contenedor__calcular-precio-pedido').length > 1){
+            const element = document.getElementsByClassName('contenedor__calcular-precio-pedido')[0];
+            element.remove();   
+        }
+        
+    });
+    console.log(res)
+    cadena = res;
+    
 }
 
-async function mostrarCostosFinales(idPedido){
-    const unsub =await onSnapshot(doc(db, "pedidos", idPedido), (doc) => {
-        var divCostosContenedor  = document.createElement("div"); 
-        divCostosContenedor.setAttribute('class', 'contenedor__calcular-precio-pedido');
+async function mostrarCostosFinales(cpd,iv,cpdt){
+    console.log("entre")
+    var divCostosContenedor  = document.createElement("div"); 
+    divCostosContenedor.setAttribute('class', 'contenedor__calcular-precio-pedido');
 
-        var divTotPar  = document.createElement("div"); 
-        divTotPar.setAttribute('class', 'total__parcial');
-        var labelTotPar = document.createElement("label");
-        labelTotPar.setAttribute('class',"general general__texto") 
-        labelTotPar.setAttribute('for',"")
-        labelTotPar.textContent = "Total Parcial:";
+    var divTotPar  = document.createElement("div"); 
+    divTotPar.setAttribute('class', 'total__parcial');
+    var labelTotPar = document.createElement("label");
+    labelTotPar.setAttribute('class',"general general__texto") 
+    labelTotPar.setAttribute('for',"")
+    labelTotPar.textContent = "Total Parcial:";
 
-        divTotPar.appendChild(labelTotPar);
+    divTotPar.appendChild(labelTotPar);
 
-        var divTotParN  = document.createElement("div"); 
-        divTotParN.setAttribute('class', 'total__parcial-numeral');
-        var spanTotPAr = document.createElement("span");
-        spanTotPAr.setAttribute('class',"general") 
-        spanTotPAr.textContent = doc.data().costoPedido;
+    var divTotParN  = document.createElement("div"); 
+    divTotParN.setAttribute('class', 'total__parcial-numeral');
+    var spanTotPAr = document.createElement("span");
+    spanTotPAr.setAttribute('class',"general") 
+    spanTotPAr.textContent = cpd;
 
-        divTotParN.appendChild(spanTotPAr);
+    divTotParN.appendChild(spanTotPAr);
 
-        var divIva  = document.createElement("div"); 
-        divIva.setAttribute('class', 'texto__iva');
-        var labelIva = document.createElement("label");
-        labelIva.setAttribute('class',"general general__texto") 
-        labelIva.setAttribute('for',"")
-        labelIva.textContent = "Iva(13%):";
+    var divIva  = document.createElement("div"); 
+    divIva.setAttribute('class', 'texto__iva');
+    var labelIva = document.createElement("label");
+    labelIva.setAttribute('class',"general general__texto") 
+    labelIva.setAttribute('for',"")
+    labelIva.textContent = "Iva(13%):";
 
-        divIva.appendChild(labelIva);
+    divIva.appendChild(labelIva);
 
-        var divIvaN  = document.createElement("div"); 
-        divIvaN.setAttribute('class', 'numeral__iva');
-        var spanIva = document.createElement("span");
-        spanIva.setAttribute('class',"general") 
-        spanIva.textContent = doc.data().iva;
-        
-        divIvaN.appendChild(spanIva);
-
-        var divTot  = document.createElement("div"); 
-        divTot.setAttribute('class', 'texto__total');
-        var labelTot = document.createElement("label");
-        labelTot.setAttribute('class',"general general__texto") 
-        labelTot.setAttribute('for',"")
-        labelTot.textContent = "Total:";
-
-        divTot.appendChild(labelTot);
-
-        var divTotN  = document.createElement("div"); 
-        divTotN.setAttribute('class', 'numeral__total');
-        var spanTotPAr = document.createElement("span");
-        spanTotPAr.setAttribute('class',"general") 
-        spanTotPAr.textContent = doc.data().totalCosto;
-
-        divTotN.appendChild(spanTotPAr);
-
-        divCostosContenedor.appendChild(divTotPar);
-        divCostosContenedor.appendChild(divTotParN);
-        divCostosContenedor.appendChild(divIva);
-        divCostosContenedor.appendChild(divIvaN);
-        divCostosContenedor.appendChild(divTot);
-        divCostosContenedor.appendChild(divTotN);
-
-        $(".contenedor__calcular-precio-pedido").remove();
-        document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divCostosContenedor);
-    });
-
+    var divIvaN  = document.createElement("div"); 
+    divIvaN.setAttribute('class', 'numeral__iva');
+    var spanIva = document.createElement("span");
+    spanIva.setAttribute('class',"general") 
+    spanIva.textContent = iv;
     
+    divIvaN.appendChild(spanIva);
+
+    var divTot  = document.createElement("div"); 
+    divTot.setAttribute('class', 'texto__total');
+    var labelTot = document.createElement("label");
+    labelTot.setAttribute('class',"general general__texto") 
+    labelTot.setAttribute('for',"")
+    labelTot.textContent = "Total:";
+
+    divTot.appendChild(labelTot);
+
+    var divTotN  = document.createElement("div"); 
+    divTotN.setAttribute('class', 'numeral__total');
+    var spanTotPAr = document.createElement("span");
+    spanTotPAr.setAttribute('class',"general") 
+    spanTotPAr.textContent = cpdt;
+
+    divTotN.appendChild(spanTotPAr);
+
+    divCostosContenedor.appendChild(divTotPar);
+    divCostosContenedor.appendChild(divTotParN);
+    divCostosContenedor.appendChild(divIva);
+    divCostosContenedor.appendChild(divIvaN);
+    divCostosContenedor.appendChild(divTot);
+    divCostosContenedor.appendChild(divTotN);
+
+    document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divCostosContenedor);
+
+    return cadena = 'Correcto\nTotal Parcial: '+cpd+'\nIva(13%): '+iv+'\nTotal: '+cpdt;
 }
 async function listarPedido(idPedido,codem){
     let nro = 0;
@@ -1243,6 +1272,7 @@ async function compC(){
 }
 $(function(){
     $(".ingresar__actualizar-inventario").click(async function(){
+        bloquearContenido();
        await compC ();
        
        if(lol !== "" || lol === undefined){
@@ -1251,7 +1281,11 @@ $(function(){
         $("#contenedor__añadir-empresa").hide();
         $(".registrar__pedido").hide();
         $("#inventario_oo").show();
-        document.getElementById('inventarioo').innerHTML = lolNomEmp;
+                const codEm=document.getElementById('codigo__campo-actualizar-inventario').value;
+        const nomE= await doc(db ,"empresa",codEm);;
+        const dato= await getDoc(nomE);
+        const nom = dato.data().nombre;
+        document.getElementById('inventarioo').innerHTML = nom;
         document.getElementById('codigo__campo-actualizar-inventario').value = "";
         
     }else{
@@ -1266,6 +1300,7 @@ $(function(){
             toast: true
         })
                  }
+        desbloquearContenido();
     });
 });
 async function cargarinvetario(od) {
@@ -1289,49 +1324,95 @@ async function cargarinvetario(od) {
         contenedor.innerHTML +=
         
                         
-                        '<div class="cuerpo__inventario">'+
+                        '<div class="cuerpo__inventario extremo__izq">'+
                              '<span class="codigo__producto-inventario" id='+nod+' value='+doc.id+'readonly>'+doc.id+'</span> '+
                         '</div> '+
-                        '<div class="cuerpo__inventario">'+
+                        '<div class="cuerpo__inventario centro__cuerpo-inventario1">'+
                              '<span class="nombre__producto-inventario"  id="hola" value="" readonly>'+nom+'</span> '+
                         '</div>'+
-                        ' <div class="cuerpo__inventario">'+
+                        ' <div class="cuerpo__inventario centro__cuerpo-inventario2">'+
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
-                        '<div class="cuerpo__inventario">'+
-                        '   <input type="number" class='+nad+' id ='+nad+' pattern="[0-9]"value=""  min="1" max="100000" maxlength="6" oninput="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '<div class="cuerpo__inventario extremo__drch">'+
+                        '   <input type="number" class= existencia id = existencia'+cont+' pattern="[0-9]"value=""  min="0" max="100000" maxlength="5"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
         document.getElementById(nid).setAttribute("value", nom);
+        
         cont += 1;
         
         
     });
+    
+    for (var i = 0; i < document.getElementsByClassName('existencia').length; i++) {
+        var inp = document.getElementsByClassName('existencia')[i];
+        console.log(inp.id)
+        inp.addEventListener('input',validarEntrante);
+    }
+}
+
+function validarEntrante(){
+    console.log(this.id)
+    if(Number(this.value) <= this.max){
+        console.log("Hola")
+        if(this.value.charAt(0) == '0' && this.value.length > 1){
+            console.log("Entre al if")
+            this.value = "";
+        }
+    }else{
+        this.value = "";
+    }
 }
 
 
 $(function(){
     $(".button__actualizar-inventario").click(async function(){
         for (var i=1;i<=100;i++){
-            if (document.getElementById('existencia'+i).value==''){
+            if(document.getElementById('existencia'+i)!=null){
+                if (document.getElementById('existencia'+i).value==''){
 
-            }
-            else{
-        const codp = document.getElementById('codd'+i).textContent;
-        const exis= Number(document.getElementById('existencia'+i).value);
-        console.log(codp)
-        console.log(lol)
-        const docu = await doc(db, "empresa", lol, "catalogo", codp);
-        await setDoc(docu,{
-            
-                existencia: exis
-            },{merge:true});
-            
-        document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
-        document.getElementById('existencia'+i).value='';
+                }
+                else{
+            const codp = document.getElementById('codd'+i).textContent;
+            const exis= Number(document.getElementById('existencia'+i).value);
+            console.log(codp)
+            console.log(lol)
+            const docu = await doc(db, "empresa", lol, "catalogo", codp);
+            await setDoc(docu,{
+                
+                    existencia: exis
+                },{merge:true});
+                
+            document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
+            document.getElementById('existencia'+i).value='';
+                }
             }
         }
     });
 })
 
+$(function(){
+    $(".volvere").click(async function(){
+        await Swal.fire({
+            position : 'center',
+            title: 'Se perderá todo el progreso, ¿Está seguro?',
+            color: '#312d2d',
+            background: '#ffffff',
+            confirmButtonColor: '#ffcc00',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, salir',
+            cancelButtonText: 'No, cancelar',
+            toast : false
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                lol="";
+                lolNomEmp = "";
+                    $(".inventario__empresa").hide();
+                    $(".registrar__pedido").hide();
+                    $("#contenedor__añadir-empresa").hide();
+                    $("#opciones__empresa").show();
+            }
+            })
+    });
+});

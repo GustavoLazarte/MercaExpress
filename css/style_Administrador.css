@@ -2119,6 +2119,12 @@ input[type="file"] {
     align-self: flex-end;
     justify-self: start;
 }
+.nombre__datos-cliente-texto{
+    padding-left: 5px;
+}
+.telefono__datos-cliente-texto{
+    padding-left: 5px;
+}
 .texto__nombre{
     font-weight: bold;
     font-size: 16px;

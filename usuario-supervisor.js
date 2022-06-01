@@ -17,7 +17,7 @@ const auth = getAuth();
 const db = getFirestore();
 const storage = getStorage();
 
-
+var cerramosCesion = true;
 window.onload = function () {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
@@ -33,6 +33,7 @@ window.onload = function () {
                 const em = document.getElementById('name');
                 img.setAttribute('src', urlImg);
                 em.innerHTML = "<span>" + nom + " " + ap + "</span>";
+                document.getElementsByTagName('h1')[0].innerHTML = "!Bienvenido "+nom+" "+ap+ "!";
             }else{
                 await Swal.fire({
                     icon: 'error',
@@ -53,16 +54,19 @@ window.onload = function () {
                 window.location = "login.html" 
             }
         } else {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Inicie sesión Primero!',
-                color: '#312d2d',
-                background: '#ffffff',
-                confirmButtonColor: '#ffcc00'
-            })
-            
-            window.location = "login.html"
+            if(!cerramosCesion){
+                console.log(cerramosCesion)
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Inicie sesión Primero!',
+                    color: '#312d2d',
+                    background: '#ffffff',
+                    confirmButtonColor: '#ffcc00'
+                })
+                
+                window.location = "login.html"
+            }
         }
     });
 };
@@ -208,6 +212,7 @@ if (btnLogout != null) {
 }
 
 async function logout(e) {    
+    cerramosCesion = true;
     await signOut(auth);
     window.location = "login.html" 
 }
@@ -305,6 +310,7 @@ async function registrarPV(e) {
     const dire = document.getElementById('direcciónVenta').value;
     const res = document.getElementById('responsable').value;
     const mail = document.getElementById('e-mailVenta').value;
+    const cod = nom.charAt(0).toUpperCase() +"-"+ tel.substring(0,3)+"PV";
     const comparar = query(up, where("Mail", "==", mail))
     const querySnapshot = await getDocs(comparar);
     const comp = await collection(db, "users");
@@ -337,7 +343,7 @@ async function registrarPV(e) {
                 Imagen: img
 
             };
-            await setDoc(doc(db, "Puntoventa", mail), docData);
+            await setDoc(doc(db, "Puntoventa", cod), docData);
             await Swal.fire({
                 icon: 'success',
                 title: 'Correcto',
@@ -576,15 +582,20 @@ async function compC(){
 }
 $(function(){
     $(".ingresar__actualizar-inventario").click(async function(){
+        bloquearContenido();
        await compC ();
        
-       if(lol !== ""){
+       if(lol !== "" || lol === undefined){
         await cargarinvetario (lol);
         $("#opciones__empresa").hide();
         $("#contenedor__añadir-empresa").hide();
         $(".registrar__pedido").hide();
         $("#inventario_oo").show();
-        document.getElementById('inventarioo').innerHTML = document.getElementById('codigo__campo-actualizar-inventario').value;
+                const codEm=document.getElementById('codigo__campo-actualizar-inventario').value;
+        const nomE= await doc(db ,"empresa",codEm);;
+        const dato= await getDoc(nomE);
+        const nom = dato.data().nombre;
+        document.getElementById('inventarioo').innerHTML = nom;
         document.getElementById('codigo__campo-actualizar-inventario').value = "";
         
     }else{
@@ -598,8 +609,8 @@ $(function(){
             timer: 1000,
             toast: true
         })
-    }
-    
+                 }
+        desbloquearContenido();
     });
 });
 async function cargarinvetario(od) {
@@ -623,54 +634,76 @@ async function cargarinvetario(od) {
         contenedor.innerHTML +=
         
                         
-                        '<div class="cuerpo__inventario">'+
+                        '<div class="cuerpo__inventario extremo__izq">'+
                              '<span class="codigo__producto-inventario" id='+nod+' value='+doc.id+'readonly>'+doc.id+'</span> '+
                         '</div> '+
-                        '<div class="cuerpo__inventario">'+
+                        '<div class="cuerpo__inventario centro__cuerpo-inventario1">'+
                              '<span class="nombre__producto-inventario"  id="hola" value="" readonly>'+nom+'</span> '+
                         '</div>'+
-                        ' <div class="cuerpo__inventario">'+
+                        ' <div class="cuerpo__inventario centro__cuerpo-inventario2">'+
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
-                        '<div class="cuerpo__inventario">'+
-                        '   <input type="number" class='+nad+' id ='+nad+' pattern="[0-9]"value=""  min="1" max="100000" maxlength="6" oninput="if(this.value==0){ this.value = this.value.slice(0, 0);}else{if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);}"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '<div class="cuerpo__inventario extremo__drch">'+
+                        '   <input type="number" class= existencia id = existencia'+cont+' pattern="[0-9]"value=""  min="0" max="100000" maxlength="5"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
         document.getElementById(nid).setAttribute("value", nom);
+        
         cont += 1;
         
         
     });
+    
+    for (var i = 0; i < document.getElementsByClassName('existencia').length; i++) {
+        var inp = document.getElementsByClassName('existencia')[i];
+        console.log(inp.id)
+        inp.addEventListener('input',validarEntrante);
+    }
+}
+
+function validarEntrante(){
+    console.log(this.id)
+    if(Number(this.value) <= this.max){
+        console.log("Hola")
+        if(this.value.charAt(0) == '0' && this.value.length > 1){
+            console.log("Entre al if")
+            this.value = "";
+        }
+    }else{
+        this.value = "";
+    }
 }
 
 
 $(function(){
     $(".button__actualizar-inventario").click(async function(){
         for (var i=1;i<=100;i++){
-            if (document.getElementById('existencia'+i).value==''){
+            if(document.getElementById('existencia'+i)!=null){
+                if (document.getElementById('existencia'+i).value==''){
 
-            }
-            else{
-        const codp = document.getElementById('codd'+i).textContent;
-        const exis= Number(document.getElementById('existencia'+i).value);
-        console.log(codp)
-        console.log(lol)
-        const docu = await doc(db, "empresa", lol, "catalogo", codp);
-        await setDoc(docu,{
-            
-                existencia: exis
-            },{merge:true});
-            
-        document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
-        document.getElementById('existencia'+i).value='';
+                }
+                else{
+            const codp = document.getElementById('codd'+i).textContent;
+            const exis= Number(document.getElementById('existencia'+i).value);
+            console.log(codp)
+            console.log(lol)
+            const docu = await doc(db, "empresa", lol, "catalogo", codp);
+            await setDoc(docu,{
+                
+                    existencia: exis
+                },{merge:true});
+                
+            document.getElementById('nombre_producto'+i).innerHTML = document.getElementById('existencia'+i).value;
+            document.getElementById('existencia'+i).value='';
+                }
             }
         }
     });
 })
 
 $(function(){
-    $(".volver__inventario").click(async function(){
+    $(".volvere").click(async function(){
         await Swal.fire({
             position : 'center',
             title: 'Se perderá todo el progreso, ¿Está seguro?',
@@ -678,7 +711,8 @@ $(function(){
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, salir',
+            confirmButtonText: 'Sí, salir',
+            cancelButtonText: 'No, cancelar',
             toast : false
         }).then(async (result) => {
             if (result.isConfirmed) {
@@ -692,6 +726,7 @@ $(function(){
             })
     });
 });
+
 var myInput = document.getElementById('myInput');
     var viejoVal;
     myInput.addEventListener('change', function(e) {

@@ -16,6 +16,8 @@ const auth = getAuth();
 const db = getFirestore();
 const storage = getStorage();
 
+var cerramosCesion = false;
+
 window.onload = async function () {
     const auth = getAuth();
     await onAuthStateChanged(auth, async (user) => {
@@ -53,16 +55,19 @@ window.onload = async function () {
                 window.location = "login.html" 
             }
         } else {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Inicie sesión Primero!',
-                color: '#312d2d',
-                background: '#ffffff',
-                confirmButtonColor: '#ffcc00'
-            })
-            
-            window.location = "login.html"
+            if(!cerramosCesion){
+                console.log(cerramosCesion)
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Inicie sesión Primero!',
+                    color: '#312d2d',
+                    background: '#ffffff',
+                    confirmButtonColor: '#ffcc00'
+                })
+                
+                window.location = "login.html"
+            }
         }
     });
 };
@@ -71,7 +76,8 @@ if (btnLogout != null) {
     btnLogout.addEventListener('click', async e => await logout(e));
 }
 
-async function logout(e) {    
+async function logout(e) {  
+    cerramosCesion = true;  
     await signOut(auth);
     window.location = "login.html" 
 }
@@ -297,7 +303,6 @@ $(function(){
         var res = $('.botom__ingresar-pedido-cliente').is(':hidden');
         console.log(res);
         if(res){
-            bloquearContenido();
             await Swal.fire({
                 position : 'center',
                 title: 'Se perderá todo el progreso, ¿Está seguro?',
@@ -305,8 +310,8 @@ $(function(){
                 background: '#ffffff',
                 confirmButtonColor: '#ffcc00',
                 showCancelButton: true,
-                confirmButtonText: 'Si, salir',
-                toast : false
+                confirmButtonText: 'Sí, salir',
+                cancelButtonText: 'No, cancelar',
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     codem = "";
@@ -326,13 +331,10 @@ $(function(){
                     $("#opciones__empresa").show();
                 } else{
                 }
-                desbloquearContenido();
             })
         }else{
             codem = "";
             codPV = ""
-            lol="";
-            lolNomEmp = "";
             document.getElementById("nomPV").innerHTML = "";
             document.getElementById("dirPV").innerHTML = "";
             document.getElementById('ingresar__codigo-datos-cliente').value = "";
@@ -356,7 +358,7 @@ $(function(){
 const inpCod = document.getElementById("ingresar_codigo");
 inpCod.addEventListener('keyup', e => verificarCodigo(e))
 var originalState = $(".contenedor__input-ingresar-pedido").clone();
-
+const inpCantidad =  document.getElementById("ingresar__cantidad_producto");
 async function verificarCodigo(e){
     console.log("Te escucho");
     e.preventDefault();
@@ -379,11 +381,12 @@ async function verificarCodigo(e){
                 toast: true
             })
             limpiarCampos();
-            document.getElementById("ingresar_codigo").value = "";
         }else{
             document.getElementById("ingresar__cantidad_producto").disabled = false;
             document.getElementById("ingresar__cantidad_producto").setAttribute('max', docSnap.data().existencia)
+            inpCantidad.addEventListener('input', validarEntrante);
             precioPA = docSnap.data().precio
+
         }
     }else{
         document.getElementById("descP").textContent  = "";
@@ -543,7 +546,6 @@ async function agregarUnaCelda(nombre, precio, id){
 }
 var pedidoHecho = false;
 $('.añadir__nuevo-pedido').click(async function(){
-    bloquearContenido();
     if(pedidoHecho === true){
         pedidoHecho = false;
         codPV = ""
@@ -566,14 +568,14 @@ $('.añadir__nuevo-pedido').click(async function(){
         desbloquearContenido();
     }else if($('.botom__ingresar-pedido-cliente').is(':hidden') || codsPedido.length > 0 ){
         await Swal.fire({
-            position : 'top-end',
+            position : 'center',
             title: 'Se perderá todo el progreso, ¿Está seguro?',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
             confirmButtonText: 'Si, nuevo pedido',
-            toast : true
+            cancelButtonText: 'No, cancelar',
         }).then(async (result) => {
             if (result.isConfirmed) {
                 codPV = ""
@@ -592,7 +594,6 @@ $('.añadir__nuevo-pedido').click(async function(){
                 $(".telefono__cliente").hide();
                 $(".direccion__cliente").hide();
                 $(".añadir__nuevo-pedido").hide();
-                desbloquearContenido();
             }else{
 
             }
@@ -611,8 +612,8 @@ $('.anular').click(async function(){
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, salir',
-            toast : true
+            confirmButtonText: 'Sí, salir',
+            cancelButtonText: 'No, cancelar',
         }).then(async (result) => {
             if (result.isConfirmed) {
                 bloquearContenido();
@@ -628,6 +629,7 @@ $('.anular').click(async function(){
     
 });
 
+
 $('.procesar').click(async function(){
     bloquearContenido();
     var refUsuario = "";
@@ -637,56 +639,26 @@ $('.procesar').click(async function(){
     await onAuthStateChanged(auth, async (user) => {
         await Swal.fire({
             position : 'top-end',
-            title: 'Desea procesar el pedido?',
+            title: '¿Desea procesar el pedido?',
             color: '#312d2d',
             background: '#ffffff',
             confirmButtonColor: '#ffcc00',
             showCancelButton: true,
-            confirmButtonText: 'Si, procesar',
+            confirmButtonText: 'Sí, procesar',
             cancelButtonText: 'Cancelar',
             toast : true
         }).then(async (result) => {
             if (result.isConfirmed) {
                 if(codsPedido.length >= 1 ){
-                    console.log("aasda")
-                    refUsuario =  await doc(db, 'empleado', user.uid);
-                    refEmpresa = await doc(db, 'empesa', codem);
-                    refPuntoVenta = await doc(db, 'Puntoventa', codPV);
-                    const querySnapshot = await getDocs(collection(db, "pedidos"));
-                    var nrodoc = 0;
-                    querySnapshot.forEach((doc) => {
-                        nrodoc = nrodoc + 1;
-                    });
-                    nroPedido = nrodoc;
-                    const docData = {
-                        realizadoPor : refUsuario,
-                        para : refEmpresa,
-                        proviniente : refPuntoVenta,
-                        totalCosto : 0,
-                        iva : 0,
-                        costoPedido : 0
-                    }
-                    console.log(nroPedido);
-                    nroPedido = nroPedido + 1;
-                    const refPedido = await doc(db, "pedidos", ""+nroPedido);
-                    await setDoc(refPedido, docData);
-                    await listarPedido((""+nroPedido), codem);
-                    await sacarCostosFinales((""+nroPedido));
-                    var costos = await mostrarCostosFinales((""+nroPedido));
-                    await Swal.fire({
-                        icon: 'success',
-                        title: 'Correcto',
-                        text: 'Pedido Registrado!',
-                        color: '#312d2d',
-                        background: '#ffffff',
-                        confirmButtonColor: '#ffcc00',
-                        timer: 10000,
-                        toast: true
-                    })
-
-                    pedidoHecho = true;
-                    $('.añadir__nuevo-pedido').trigger('click');
-                    desbloquearContenido();
+                    var nroPedido = await generarNumero();
+                    console.log(nroPedido)
+                    var crear = await crearPedido((""+nroPedido),user);
+                    var listar =await listarPedido((""+nroPedido), codem);
+                    var sacarCostso = await sacarCostosFinales((""+nroPedido));
+                    
+                    var alerta = await mostrarAlertas((""+nroPedido));
+                    
+                        
                 }else{
                     await Swal.fire({
                         icon: 'error',
@@ -710,9 +682,55 @@ $('.procesar').click(async function(){
     
 });
 
+async function mostrarAlertas(idPedido){
+    await Swal.fire({
+        icon: 'success',
+        title: 'Correcto',
+        text: 'Pedido Registrado!',
+        color: '#312d2d',
+        background: '#ffffff',
+        confirmButtonColor: '#ffcc00',
+        toast: true
+    })
+    pedidoHecho = true;
+    await $('.añadir__nuevo-pedido').trigger('click');
+    desbloquearContenido();
+}
+async function crearPedido(idPedido, user){
+    
+    var refUsuario =  await doc(db, 'empleado', user.uid);
+    var refEmpresa = await doc(db, 'empesa', codem);
+    var refPuntoVenta = await doc(db, 'Puntoventa', codPV);
+    
+    
+    const docData = {
+        realizadoPor : refUsuario,
+        para : refEmpresa,
+        proviniente : refPuntoVenta,
+        totalCosto : 0,
+        iva : 0,
+        costoPedido : 0
+    }
+    const refPedido = await doc(db, "pedidos", idPedido);
+    await setDoc(refPedido, docData);
+    console.log("2");
+}
+
+async function generarNumero(){
+    const querySnapshot = await getDocs(collection(db, "pedidos"));
+    console.log(querySnapshot)
+    var nroPedido = 0;
+    var nrodoc = 0;
+    querySnapshot.forEach((doc) => {
+        nrodoc = nrodoc + 1;
+    });
+    nroPedido = nrodoc;
+    console.log("1");
+    return nroPedido +1;
+}
 async function sacarCostosFinales(idPedido){
     let sumPedido = 0;
-    const q = collection(db, "pedidos", idPedido, 'lista');
+    const q = await collection(db, "pedidos", idPedido, 'lista');
     const unsubscribe = await onSnapshot(q, async(querySnapshot) => {
         var sum = 0;
         querySnapshot.forEach((doc) => {
@@ -729,76 +747,82 @@ async function sacarCostosFinales(idPedido){
         const refPedido = await doc(db, "pedidos", idPedido);
         await setDoc(refPedido, docData, {merge : true});
     });
-    
 
+    const unsub = onSnapshot (doc(db, "pedidos", idPedido), async (doc) => {
+        await mostrarCostosFinales(doc.data().costoPedido,doc.data().iva,doc.data().totalCosto); 
+        if(document.getElementsByClassName('contenedor__calcular-precio-pedido').length > 1){
+            const element = document.getElementsByClassName('contenedor__calcular-precio-pedido')[0];
+            element.remove();   
+        }
+        
+    });
+    
 }
 
-async function mostrarCostosFinales(idPedido){
-    const unsub =await onSnapshot(doc(db, "pedidos", idPedido), (doc) => {
-        var divCostosContenedor  = document.createElement("div"); 
-        divCostosContenedor.setAttribute('class', 'contenedor__calcular-precio-pedido');
+async function mostrarCostosFinales(cpd,iv,cpdt){
+    console.log("entre")
+    var divCostosContenedor  = document.createElement("div"); 
+    divCostosContenedor.setAttribute('class', 'contenedor__calcular-precio-pedido');
 
-        var divTotPar  = document.createElement("div"); 
-        divTotPar.setAttribute('class', 'total__parcial');
-        var labelTotPar = document.createElement("label");
-        labelTotPar.setAttribute('class',"general general__texto") 
-        labelTotPar.setAttribute('for',"")
-        labelTotPar.textContent = "Total Parcial:";
+    var divTotPar  = document.createElement("div"); 
+    divTotPar.setAttribute('class', 'total__parcial');
+    var labelTotPar = document.createElement("label");
+    labelTotPar.setAttribute('class',"general general__texto") 
+    labelTotPar.setAttribute('for',"")
+    labelTotPar.textContent = "Total Parcial:";
 
-        divTotPar.appendChild(labelTotPar);
+    divTotPar.appendChild(labelTotPar);
 
-        var divTotParN  = document.createElement("div"); 
-        divTotParN.setAttribute('class', 'total__parcial-numeral');
-        var spanTotPAr = document.createElement("span");
-        spanTotPAr.setAttribute('class',"general") 
-        spanTotPAr.textContent = doc.data().costoPedido;
+    var divTotParN  = document.createElement("div"); 
+    divTotParN.setAttribute('class', 'total__parcial-numeral');
+    var spanTotPAr = document.createElement("span");
+    spanTotPAr.setAttribute('class',"general") 
+    spanTotPAr.textContent = cpd;
 
-        divTotParN.appendChild(spanTotPAr);
+    divTotParN.appendChild(spanTotPAr);
 
-        var divIva  = document.createElement("div"); 
-        divIva.setAttribute('class', 'texto__iva');
-        var labelIva = document.createElement("label");
-        labelIva.setAttribute('class',"general general__texto") 
-        labelIva.setAttribute('for',"")
-        labelIva.textContent = "Iva(13%):";
+    var divIva  = document.createElement("div"); 
+    divIva.setAttribute('class', 'texto__iva');
+    var labelIva = document.createElement("label");
+    labelIva.setAttribute('class',"general general__texto") 
+    labelIva.setAttribute('for',"")
+    labelIva.textContent = "Iva(13%):";
 
-        divIva.appendChild(labelIva);
+    divIva.appendChild(labelIva);
 
-        var divIvaN  = document.createElement("div"); 
-        divIvaN.setAttribute('class', 'numeral__iva');
-        var spanIva = document.createElement("span");
-        spanIva.setAttribute('class',"general") 
-        spanIva.textContent = doc.data().iva;
-        
-        divIvaN.appendChild(spanIva);
+    var divIvaN  = document.createElement("div"); 
+    divIvaN.setAttribute('class', 'numeral__iva');
+    var spanIva = document.createElement("span");
+    spanIva.setAttribute('class',"general") 
+    spanIva.textContent = iv;
+    
+    divIvaN.appendChild(spanIva);
 
-        var divTot  = document.createElement("div"); 
-        divTot.setAttribute('class', 'texto__total');
-        var labelTot = document.createElement("label");
-        labelTot.setAttribute('class',"general general__texto") 
-        labelTot.setAttribute('for',"")
-        labelTot.textContent = "Total:";
+    var divTot  = document.createElement("div"); 
+    divTot.setAttribute('class', 'texto__total');
+    var labelTot = document.createElement("label");
+    labelTot.setAttribute('class',"general general__texto") 
+    labelTot.setAttribute('for',"")
+    labelTot.textContent = "Total:";
 
-        divTot.appendChild(labelTot);
+    divTot.appendChild(labelTot);
 
-        var divTotN  = document.createElement("div"); 
-        divTotN.setAttribute('class', 'numeral__total');
-        var spanTotPAr = document.createElement("span");
-        spanTotPAr.setAttribute('class',"general") 
-        spanTotPAr.textContent = doc.data().totalCosto;
+    var divTotN  = document.createElement("div"); 
+    divTotN.setAttribute('class', 'numeral__total');
+    var spanTotPAr = document.createElement("span");
+    spanTotPAr.setAttribute('class',"general") 
+    spanTotPAr.textContent = cpdt;
 
-        divTotN.appendChild(spanTotPAr);
+    divTotN.appendChild(spanTotPAr);
 
-        divCostosContenedor.appendChild(divTotPar);
-        divCostosContenedor.appendChild(divTotParN);
-        divCostosContenedor.appendChild(divIva);
-        divCostosContenedor.appendChild(divIvaN);
-        divCostosContenedor.appendChild(divTot);
-        divCostosContenedor.appendChild(divTotN);
+    divCostosContenedor.appendChild(divTotPar);
+    divCostosContenedor.appendChild(divTotParN);
+    divCostosContenedor.appendChild(divIva);
+    divCostosContenedor.appendChild(divIvaN);
+    divCostosContenedor.appendChild(divTot);
+    divCostosContenedor.appendChild(divTotN);
 
-        $(".contenedor__calcular-precio-pedido").remove();
-        document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divCostosContenedor);
-    });
+    document.getElementById('formulario__ingresar-pedido-cliente').appendChild(divCostosContenedor);
 
     
 }
@@ -825,4 +849,16 @@ async function agregarProductoALista(nro, divCref,idPedido,codem, cd){
     
     const refeListaPedido = await doc(db, "pedidos", idPedido, 'lista', ""+ nro);
     await setDoc(refeListaPedido, docData);
+}
+function validarEntrante(){
+    console.log(this.id)
+    if(Number(this.value) <= this.max){
+        console.log("Hola")
+        if(this.value.charAt(0) == '0' && this.value.length > 1){
+            console.log("Entre al if")
+            this.value = "";
+        }
+    }else{
+        this.value = "";
+    }
 }
