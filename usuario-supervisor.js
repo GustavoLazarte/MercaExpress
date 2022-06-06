@@ -644,7 +644,7 @@ async function cargarinvetario(od) {
                             '<span class="existencia__producto-inventario" id='+nid+' readonly >'+exi+'</span>'+
                         ' </div>'+
                         '<div class="cuerpo__inventario extremo__drch">'+
-                        '   <input type="number" class= existencia id = existencia'+cont+' pattern="[0-9]"value=""  min="0" max="100000" maxlength="5"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
+                        '   <input type="number" class= existencia id = existencia'+cont+' pattern="[0-9]"value="" onpaste="return false" min="0" max="100000" maxlength="5"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"></input>'+
                         '</div>';
                        // '<button class="button__actualizar-inventario" id='+ned+' ><i class="fa-solid fa-rotate"></i> Actualizar</button>';
             
